@@ -3,7 +3,7 @@ server:
 spring:
 #  mvc:
 #    view:
-#      prefix: /WEB-INF/
+#      prefix: /WEB-INF/1231231
 #      suffix: .jsp
   devtools:
     livereload:
