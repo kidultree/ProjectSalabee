@@ -3,7 +3,7 @@ Bitcamp 903 SemiProject_HKCLH
 
 <h3>Clone Coding :</h3> https://www.ranicake.com/main/index.php
 
-<h3>Member:</h3><br>
+<h3>Member:</h3>
 한별, 김정하, 최윤석, 이경주, 홍대한
 
 H: HanBeol (https://github.com/hanbyeol3)<br>
