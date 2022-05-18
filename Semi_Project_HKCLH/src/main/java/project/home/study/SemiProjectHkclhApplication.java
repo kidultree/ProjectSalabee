@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"project.home.study", "data.*"})
+@ComponentScan({"project.home.study","data.*"})
 @MapperScan({"data.*"})
 public class SemiProjectHkclhApplication {
 
