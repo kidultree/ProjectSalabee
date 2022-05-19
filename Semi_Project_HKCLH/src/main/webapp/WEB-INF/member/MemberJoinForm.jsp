@@ -15,7 +15,7 @@
 <style type="text/css">
 
 	input::placeholder {
-		font-size: 0.8em;
+		font-size: 0.7em;
 	}
 	
 	span {
@@ -135,11 +135,10 @@
 		<tr>
 			<th>주 소</th>
 			<td>
-				<input id="member_post" name="mPost" type="text" placeholder="Zip Code" readonly >
+				<input id="member_post" name="mPost" type="text" placeholder="우편 번호" readonly >
 				<button type="button" onclick="findAddr()">우편번호 검색</button><br>
-				<input id="member_addr" name="addr1" type="text" placeholder="Address" readonly><br>
-				<input type="text" name="addr2" placeholder="Detailed Address">
-				
+				<input id="member_addr" name="addr1" type="text" placeholder="주소" readonly><br>
+				<input type="text" name="addr2" placeholder="상세 주소">
 			</td>
 		</tr>
 		

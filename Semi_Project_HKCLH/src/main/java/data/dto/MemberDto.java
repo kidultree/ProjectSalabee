@@ -16,7 +16,7 @@ public class MemberDto {
 	private String mBirth;
 	private String mPassword;
 	private int mPost;
-	private String mAddress;
+	private String mAddress; //addr1+addr2
 	private String mPhone;
 	private Timestamp mDate;
 	private String mEmail;

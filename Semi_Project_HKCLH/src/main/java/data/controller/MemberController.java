@@ -12,6 +12,7 @@ import data.dto.MemberDto;
 import data.mapper.MemberMapperInter;
 
 @Controller
+@RequestMapping("/member")
 public class MemberController {
 	
 	@Autowired MemberMapperInter membermapper;
