@@ -9,7 +9,7 @@
       )
    </insert>
    
-   <select id="getProductList" parameterType="Map" resultType="shop">
+   <select id="getProductList" parameterType="Map" resultType="product">
       select * from product order by pnum desc limit #{start}, #{perpage}
    </select>
    
