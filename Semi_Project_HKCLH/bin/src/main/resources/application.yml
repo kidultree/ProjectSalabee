@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 9002
 spring:
 #  mvc:
 #    view:
@@ -12,9 +12,9 @@ spring:
 #mysql
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://springbootwebservice.c6b0upyu6miu.ap-northeast-2.rds.amazonaws.com:3306/webservice?serverTimeZone=Asia/Seoul
-    username: admin
-    password: 123456789
+    url: jdbc:mysql://localhost:3306/bitcamp?serverTimeZone=Asia/Seoul
+    username: angel
+    password: 1234
     
 #mybatis
 mybatis:
