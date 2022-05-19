@@ -11,11 +11,13 @@ import lombok.Data;
 public class MemberDto {
 
 	private int mNum;
-	private String mID;
+	private String mId;
 	private String mName;
-	private int mBirth;
+	private String mBirth;
 	private String mPassword;
 	private int mPost;
-	private String mAdress;
+	private String mAddress;
+	private String mPhone;
 	private Timestamp mDate;
+	private String mEmail;
 }

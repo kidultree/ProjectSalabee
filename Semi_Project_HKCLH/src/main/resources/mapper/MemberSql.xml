@@ -3,8 +3,8 @@
 
 <mapper namespace="data.mapper.MemberMapperInter">
 	<insert id="insertMember" parameterType="member">
-		insert into member (mid,mname,mbirth,mpassword,mpost,maddress,mphone,mdate)
-		 values (#{mid},#{mname},#{mbirth},#{mpassword},#{mpost},#{maddress},#{mphone},now())
+		insert into member (mid,mname,mbirth,mpassword,mpost,mphone,maddress,mdate,memail)
+		 values (#{mId},#{mName},#{mBirth},#{mPassword},#{mPost},#{mPhone},#{mAddress},now(),#{mEmail})
 	</insert>
 	
 

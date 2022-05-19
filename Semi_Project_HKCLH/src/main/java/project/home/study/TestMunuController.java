@@ -18,10 +18,10 @@ public class TestMunuController {
 		return "/sub/layout/map";
 	}
 	
-	@GetMapping("/joinform")
-	public String join()
+	@GetMapping("/joinform2")
+	public String join2()
 	{
-		return "/member/MemberJoinForm";		
+		return "/member/jointest";		
 	}
 
 }
