@@ -7,7 +7,5 @@
 		 values (#{mId},#{mName},#{mBirth},#{mPassword},#{mPost},#{mPhone},#{mAddress},now(),#{mEmail})
 	</insert>
 	
-
-
-
+	
 </mapper>
