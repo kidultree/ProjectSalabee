@@ -21,6 +21,7 @@ public class TestController {
 	public List<TestDto> home()
 	{
 		List<TestDto> list=inter.getAll();
+		//List<TestDto> list=inter.getAll();
 		
 		return list;
 		
