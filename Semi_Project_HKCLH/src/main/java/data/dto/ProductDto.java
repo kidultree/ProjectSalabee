@@ -14,7 +14,7 @@ public class ProductDto {
 	private String pcate;
 	private int prate;
 	private int pratecnt;
-	private Timestamp pdate;
+	private String pdate;
 	private String pphoto;
 	private String pcontent;
 }
