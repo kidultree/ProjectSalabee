@@ -12,17 +12,7 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style type="text/css">
-body{
-	font-family: 'Jua';
-}
-hr{
-	border-top:1px solid #ddd; 
-}
-.box{
-	border-radius: 10px;
-	width: 10px;
-	height: 10px;
-}
+
 </style>
 </head>
 <body>
@@ -30,12 +20,16 @@ hr{
 	
       <table>
       	<tr>
-			<td style="font-size: 30px; font-weight :550;" height="100px;">${dto.sangpum}</td>
-			<td colspan="2" width="300" align="right" style="color: gray">입고일 : ${dto.ipgoday}</td>
+      		<td rowspan="6">${dto.pphoto}</td>
+      		<td rowspan="6">${dto.pname}</td>
+      	</tr>
 		<tr>
-			<td width="620">단가 : <fmt:formatNumber value="${dto.price}" type="currency"/> </td>
-			<td align="right"  width="100px;">
-				<div class="box" style="background-color:${dto.color}"></div>
+			<td><fmt:formatNumber value="${dto.pprice}" type="currency"/>원</td>
+		</tr>
+		<tr>	
+			<td>
+				 <label for="quantity">수량 선택</label> <!-- 값얻어서 계산해줘야함 -->
+			     <input type="number" id="quantity" name="quantity" min="1">
 			</td>
 			<td align="right"  width="50px;">
 				<div>${dto.color}</div>
@@ -43,15 +37,14 @@ hr{
 		</tr>
       </table>
       <hr>
-      ${dto.content }
+      ${dto.pcontent}
       
       
       <div class="buttons" style="margin-left: 0px;">   
       <br>   
          <!-- 목록 -->   
-         <button type="button" class="btn btn-primary" 
+         <button type="button" id="listbtn"
          onclick="location.href='list?currentPage=${currentPage}'">
-         <span class="glyphicon glyphicon-list"></span>&nbsp;
          목록</button>
           
          <!-- 수정삭제(본인것만) -->

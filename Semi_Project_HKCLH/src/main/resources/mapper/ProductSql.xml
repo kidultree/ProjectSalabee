@@ -3,9 +3,10 @@
 <mapper namespace="data.mapper.ShopMapperInter">
 	<!-- Semi Product -->
 	
+	<!-- form==#{dto}==dto -->
    <insert id="insertProduct" parameterType="product"> <!-- ProductDto의 @Alias("product") -->
-      insert into product (pname, pprice, pcate, prate, pratecnt, pdate, pphoto) values (
-      #{pname}, #{pprice}, #{pcate}, #{prate}, #{pratecnt}, #{pdate}, #{pphoto}
+      insert into product (pname, pprice, pcate, pdate, pphoto) values (
+      #{pname}, #{pprice}, #{pcate}, #{pdate}, #{pphoto}
       )
    </insert>
    

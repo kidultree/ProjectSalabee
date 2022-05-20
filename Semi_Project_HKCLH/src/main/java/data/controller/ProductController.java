@@ -39,7 +39,7 @@ public class ProductController {
    public String insert(@ModelAttribute ProductDto dto)
    {
       productMapper.insertProduct(dto);
-      return "redirect:list";
+      return "/product/productform";//redirect:list
    }
 
    @GetMapping("/list")

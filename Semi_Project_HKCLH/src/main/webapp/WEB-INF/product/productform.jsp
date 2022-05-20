@@ -12,16 +12,147 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style type="text/css">
-	body {
- 	  font-family: 'Jua';
-	}
-	h3{
-		font-family: 'Gamja Flower';
-		color: #CC0066;
-		text-shadow: 3px 3px 3px pink;	
-	}
+	
 </style>
+
+
+<c:set var="root" value="<%=request.getContextPath() %>"/> <!-- 프로젝트경로 -->
+<script type="text/javascript" src="${root}/se2/js/HuskyEZCreator.js"
+   charset="utf-8"></script>
+
+<script type="text/javascript" src="${root}/se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js"
+   charset="utf-8"></script> 
+   
 </head>
-<body><h3>ho</h3>
+<body>
+<form action="insert" method="post">
+	<table class="table table-bordered productt" style="width: 500px;">
+		<caption><h3>상품 등록</h3></caption>
+		<tr>
+			<th width="120" bgcolor="">상품명</th>
+			<td colspan="3">
+				<input type="text" name="pname" placeholder="상품명" required="required">
+			</td>
+		</tr>
+		
+		<tr>
+			<th width="120" bgcolor="">메뉴</th>
+			<td colspan="3">
+				<select name="pcate" id="pcate1">
+				    <option value="" selected="selected" disabled="disabled">메뉴1선택</option>
+				    <option value="MySet">MySet</option>
+				    <option value="fragrance">fragrance</option>
+				    <option value="Goods">Goods</option>
+				</select>
+				
+				<!-- c:if조건 menu1선택시에만 노출 -->
+				<select name="pcate" id="pcate2">
+					 <option value="" selected="selected" disabled="disabled">메뉴2선택</option>    
+					 <option value="floral">floral</option>
+					 <option value="cotton">cotton</option>
+					 <option value="woody">woody</option>
+					 <option value="musk">musk</option>
+				</select>	
+				
+			</td>
+		</tr>
+		
+		<tr>
+			<th width="120" bgcolor="">옵션</th>
+			<td colspan="3">
+				<select name="pop" id="pop">
+				    <option value="" selected="selected" disabled="disabled">옵션선택</option>
+				    <option value="no">선택안함</option>
+				    <option value="40">40ml</option>
+				    <option value="80">80ml</option>
+				</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<th>가격</th>
+			<td>
+				<input type="text" name="pprice" required="required" placeholder="가격">
+			</td>
+		</tr>
+		<tr>
+			<th>입고일</th>
+			<td>
+				<input type="date" name="pdate" >
+			</td>
+		</tr>
+		<!-- 입고일 Default today로 -
+		<script>
+  			document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
+		</script>-->
+		
+		<tr>
+			<th>대표사진</th>
+			<td>
+				<input type="file" name="pdate" id="currentDate" value="">
+			</td>
+		</tr>
+		<tr>상품상세</tr>
+		<tr>
+			<td colspan="2">
+				<textarea name="content" id= "content" required="required"
+				style="width: 100%; height: 300px; display: none;"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<button type="submit" class="btn btn-danger" 
+				onclick="submitContents(this)">상품 등록</button>
+			</td>
+		</tr>
+	</table>
+	<br><br>
+</form>
+
+<!-- 스마트게시판에 대한 스크립트 코드 넣기 -->
+<script type="text/javascript">
+	var oEditors = [];
+	
+	nhn.husky.EZCreator.createInIFrame({
+	
+	    oAppRef: oEditors,
+	
+	    elPlaceHolder: "content",
+	
+	    sSkinURI: "${root}/se2/SmartEditor2Skin.html",
+	
+	    fCreator: "createSEditor2"
+	
+	}); 
+	
+	//‘저장’ 버튼을 누르는 등 저장을 위한 액션을 했을 때 submitContents가 호출된다고 가정한다.
+	
+	function submitContents(elClickedObj) {
+	
+	    // 에디터의 내용이 textarea에 적용된다.
+	
+	    oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", [ ]);
+	
+	 
+	
+	    // 에디터의 내용에 대한 값 검증은 이곳에서
+	
+	    // document.getElementById("textAreaContent").value를 이용해서 처리한다.
+	    try {
+	        elClickedObj.form.submit();
+	    } catch(e) { 
+	
+	    }
+	
+	}
+	
+	// textArea에 이미지 첨부
+	
+	function pasteHTML(filepath){
+	    var sHTML = '<img src="${root}/save/'+filepath+'">';
+	    oEditors.getById["content"].exec("PASTE_HTML", [sHTML]); 
+	
+	}
+</script>
 </body>
 </html>

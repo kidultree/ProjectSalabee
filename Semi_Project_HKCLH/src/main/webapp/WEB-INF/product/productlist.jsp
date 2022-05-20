@@ -12,46 +12,46 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style type="text/css">
-	h3{
-		font-family: 'Gamja Flower';
-		color: #CC0066;
-		text-shadow: 3px 3px 3px pink;
-		
-	}
-	body {
-	font-family: 'Jua';
-}
-hr{
-	border-top:1px solid #ddd; 
-}
+
 </style>
 </head>
 <body>
-	<h3 style="width: 700px;">
-		총 ${totalCount}개의 상품이 있습니다.
-	</h3>
+	<h3>총 ${totalCount}개의 상품</h3>
 	<hr>
-	<table class="table table-bordered" style="width: 700px;">
-		<caption>전체 상품 목록</caption>
-		<tr bgcolor="#FFE3EE" >
+	<table class="table table-bordered">
+		<caption>상품 목록</caption>
+		<tr>
 			<th width="50" >번호</th>
 			<th width="450">상품명</th>
-			<th width="100">입고일</th>
+			<th width="100">가격</th>
+			<th width="100">메뉴</th>
+			<th width="100">평점</th>
+			<th width="100">리뷰개수</th>
+			<th width="100">입고일</th>		
 		</tr>
-		<c:forEach var="dto" items="${list }">
+		
+		<c:forEach var="dto" items="${list}">
 			<tr>
-				<td align="center">${no}</td>
+				<td>
+					${no}
+				</td>
 				<c:set var="no" value="${no-1}"/>
 				<td>
 					<!-- 사진이 들어있는 경우 출력하기 -->
-					<c:if test="${dto.photo!='' }">
-						<img src="../${dto.photo }" width="80" height="80" border="1">
+					<c:if test="${dto.pphoto!='' }">
+						<img src="../${dto.pphoto }" width="80" height="80" border="1">
 						&nbsp;&nbsp;
 					</c:if>
-					<a href="detail?num=${dto.num}&currentPage=${currentPage}"
-					style="color:black; font-size: 20px">${dto.sangpum}</a>
+					<a href="detail?num=${dto.pnum}&currentPage=${currentPage}">
+						${dto.pname}
+					</a>
 				</td>
-				<td align="center">${dto.ipgoday}</td>
+				<td>${dto.pprice}</td>
+				<td>${dto.pcate}</td>
+				<td>${dto.prate}</td>
+				<td>${dto.pratecnt}</td>
+				<td>${dto.pdate}</td>
+				
 			</tr>
 		</c:forEach>
 	
