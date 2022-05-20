@@ -10,24 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-<style type="text/css">
-
-
-</style>
-
-<script type="text/javascript">
-</script>
 </head>
-<c:set var="root" value="<%=request.getContextPath() %>"></c:set>
 <body>
-
-	<div class="title">
-		<span>Brand</span>
-		<span>Shop</span>
-		<span style="font-size: 20px;">Title</span>
-		<span>login</span>
-		<a href="${root}/member/joinform" style="cursor: pointer;">join</a>
-	</div>
-
+<h1>/login/member</h1>
 </body>
 </html>

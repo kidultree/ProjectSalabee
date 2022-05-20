@@ -62,7 +62,7 @@
 
 </head>
 <body>
-	<form action="login" method="post" style="width: 500px;">
+	<form action="loginform" method="post" style="width: 500px;">
 	<div class="title" style="text-align: center;">로그인</div>
 	
 	<div class="body">
