@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="content" style="width: 680px;">
-	
+
       <table>
       	<tr>
       		<td rowspan="6">${dto.pphoto}</td>
@@ -78,5 +78,38 @@
       </div> 
       <br><br>
    </div>
+   
+   <!-- 카트 담기 버튼 -->
+<!--    <form action="/cart/insert"> -->
+<!--    	<input type="submit"/> -->
+<!--    </form> -->
+	  <input type="hidden" value="${dto.pnum}" id="pnum"/>
+   <button type="button" class="btn btn-default" id="addcart">장바구니 추가</button>
+    
 </body>
+
+<!-- 카트 담기 스크립트 -->
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#addcart").click(function(){
+		
+		var pnum = ${dto.pnum};
+		
+		$.ajax({
+         type:"post",
+         dataType:"json",
+         url:"/cart/insert",
+         data:{
+        	 "mid":$("#mid").val()
+        	 "pnum":$("#pnum").val()
+        	 "cquantity":$("#cquantity").val()
+        	 
+         },
+         success:function(data){
+        	alert(data.message);
+         }   
+        });
+	}
+	});
+</script>
 </html>

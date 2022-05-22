@@ -115,7 +115,7 @@ public class ProductController {
 		   @RequestParam int currentPage
 		   ) {
 	   //num에 해당하는 dto얻기
-	   ProductDto dto=productMapper.getProduct(num);
+	   ProductDto dto = productMapper.getProduct(num);
 	   ModelAndView mview = new ModelAndView();
 	   mview.addObject("dto",dto);
 	   mview.addObject("currentPage",currentPage);
