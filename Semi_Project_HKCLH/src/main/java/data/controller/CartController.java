@@ -34,14 +34,12 @@ public class CartController {
 	}
 	
 	
-	
 	/* 장바구니에 담기 */
 	@PostMapping("insert")
 	@ResponseBody  //json타입의 데이터를 받기 위해
 	public Map<String, String> insertCart(
 			@RequestParam CartDto dto)
 	{
-		
 		int cnt = cartmapper.insertCart(dto);
 		Map<String, String> map = new HashMap<>();
 		if(cnt > 0) {
@@ -51,7 +49,7 @@ public class CartController {
 		return map;
 	}
 	
-	/* 장바구니에 담기 */
+	/* 장바구니 리스트 출력 */
 	@GetMapping("/list")
 	public ModelAndView getAllCart(
 			@RequestParam String mid // 필수 파라메터 설정
