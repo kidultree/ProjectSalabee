@@ -11,8 +11,8 @@ insert into notice (nnum, ntitle, nname, ncontent, nphoto, ndate) values (
 
 
 <!-- 리스트 -->
-<select id="getNoticeList" parameterType="Map" resultType="product">
-select * from notice order by nNum desc limit #{start}, #{perpage}
+<select id="getNoticeList" resultType="notice">
+	select * from notice
 </select>
 
 <!-- 수정 -->

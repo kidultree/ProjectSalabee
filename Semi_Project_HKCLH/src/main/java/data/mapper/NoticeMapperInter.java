@@ -12,7 +12,9 @@ public interface NoticeMapperInter {
 	public void insertNotice(NoticeDto dto);
 	public void updateNotice(NoticeDto dto);
 	public void deleteNotice(int num);
-	public List<NoticeDto> getNoticeList(Map<String, Integer> map);
+	
+	public List<NoticeDto> getNoticeList();
+	
 	public NoticeDto getNotice(int num);
 	public int getTotalCount();
 }
