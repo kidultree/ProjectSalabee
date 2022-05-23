@@ -23,34 +23,39 @@ text-shadow: 3px 3px 3px pink;
 }
 </style>
 
+<c:set var="root" value="<%=request.getContextPath() %>"/> <!-- 프로젝트경로 -->
+
 </head>
 <body>
 <form action="insert" method="post" enctype="multipart/form-data">
-<table class="table table-bordered" style="width: 800px;">
+<table class="table table-bordered notice" style="width: 800px;">
 <caption><h3>공지 등록</h3></caption>
 <tr>
 <th width="120" bgcolor="#FFE3EE">제목</th>
 <td colspan="3">
-<input type="text" name="notice" class="form-control"
+<input type="text" name="nTitle" class="form-control"
 placeholder="공지 제목 입력" required="required" autofocus="autofocus">
 </td>
 </tr>
-<tr>
+
+<!-- 5/23 nPhoto null값 + 오류 나는 부분 -->
+<!--  <tr>
 <th style="width: 100px; background-color:#FFE3EE">공지 이미지</th>
 <td>
-<input type="file" name="upload" class="form-control"
-multiple="multiple">
+ <input type="file" name="nPhoto" class="form-control"
+ multiple="multiple">
 </td>
-</tr>
+</tr> -->
+
 <tr>
 <td colspan="2">
-<textarea style="width: 100%; height: 100px;" name="content"
+<textarea style="width: 100%; height: 100px;" name="nContent" id="nContent"
 class="form-control" required="required"></textarea>
 </tr>
 <tr>
 <td colspan="4" align="center">
-<button name="submit" class="btn btn-success"
-style="width:140px;">공지 등록</button>
+<button type="submit" class="btn btn-success"
+style="width:140px;" onclick="submitContents(this)">공지 등록</button>
 </td>
 </tr>
 </table>

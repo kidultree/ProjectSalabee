@@ -13,7 +13,6 @@ private int nNum;
 private String nTitle;
 private String nName;
 private String nContent;
-private String nImg;
 private String nPhoto;
 private Timestamp nDate;
 }
