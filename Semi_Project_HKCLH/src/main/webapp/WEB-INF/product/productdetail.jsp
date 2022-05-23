@@ -103,7 +103,6 @@ $(document).ready(function() {
         	 "mid":$("#mid").val()
         	 "pnum":$("#pnum").val()
         	 "cquantity":$("#cquantity").val()
-        	 
          },
          success:function(data){
         	alert(data.message);

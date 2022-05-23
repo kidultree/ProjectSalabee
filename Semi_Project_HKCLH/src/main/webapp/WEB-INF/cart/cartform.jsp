@@ -19,12 +19,11 @@
 
    <div>Cart</div>
    
-   
-   <!-- 장바구니 0 일때 출력 -->
+<%--    <!-- 장바구니 0 일때 출력 -->
    <c:choose>
    	<c:when test="${map.count ==0 }">장바구니가 비었습니다.</c:when>
    	<c:otherwise>장바구니 목록 출력</c:otherwise>
-   </c:choose>
+   </c:choose> --%>
    
    
    <!-- 카트 첫 행 -->
@@ -49,6 +48,7 @@
 			<td>${cList2.SUM_PRICE}</td>
 		</tr>
 	</c:forEach>
+	
 </table>
 <button type="button" class="btn btn-defualt btn-lg" style="margin-left:300px;" id="buy">주문하기</button>
 </body>

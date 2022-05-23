@@ -3,8 +3,13 @@
 <mapper namespace="data.mapper.NoticeMapperInter">
 <!-- Notice -->
 <insert id="insertNotice" parameterType="notice">
+<<<<<<< HEAD
 insert into notice (nnum, ntitle, nname, ncontent, nimg, ndate) values (
 #{nNum}, #{nTitle}, #{nName}, #{nContent}, #{nImg}, #{nDate}
+=======
+insert into notice (nTitle, nName, nContent, nImg, nDate) values (
+#{nTitle}, #{nName}, #{nContent}, #{nImg}, now()}
+>>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
 )
 </insert>
 <!-- 리스트 -->
