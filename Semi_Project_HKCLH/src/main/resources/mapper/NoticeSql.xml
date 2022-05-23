@@ -1,31 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data.mapper.NoticeMapperInter">
-	<!-- Notice -->
-	
-	<!-- 공지 삽입 -->
-   <insert id="insertNotice" parameterType="notice">
-      insert into product (nnum, ncate, ntitle, nname, ncontent, nimg, nphoto, ndate) values (
-      #{nnum}, #{ncate}, #{ntitle}, #{nname}, #{ncontent}, #{nimg}, #{nphoto}, #{ndate}
-      )
-   </insert>
-   <!-- 리스트 -->
- 	<select id="getNoticeList" parameterType="Map" resultType="product">
-      select * from product order by nnum desc limit #{start}, #{perpage}
-   </select>
-   
-   <!-- 수정 -->
-   <select id="getNotice" parameterType="int" resultType="product">
-      select * from product where nnum = #{nnum}
-   </select>
-   
-   <!-- 삭제 -->
-   <delete id="deleteNotice" parameterType="int">
-      delete from product where nnum=#{nnum}
-   </delete>
-   
-   <select id="getTotalNoticeCount" resultType="int">
-      select count(*) from notice
-   </select>
-   
+<!-- Notice -->
+<insert id="insertNotice" parameterType="notice">
+insert into notice (nTitle, nName, nContent, nImg, nDate) values (
+#{nTitle}, #{nName}, #{nContent}, #{nImg}, now()}
+</insert>
+<!-- 리스트 -->
+<select id="getNoticeList" parameterType="Map" resultType="product">
+select * from notice order by nNum desc limit #{start}, #{perpage}
+</select>
+
+<!-- 수정 -->
+<select id="getNotice" parameterType="int" resultType="product">
+select * from notice where nNum = #{nNum}
+</select>
+
+<!-- 삭제 -->
+<delete id="deleteNotice" parameterType="int">
+delete from notice where nNum=#{nNum}
+</delete>
+
+<select id="getTotalNoticeCount" resultType="int">
+select count(*) from notice
+</select>
+
 </mapper>
