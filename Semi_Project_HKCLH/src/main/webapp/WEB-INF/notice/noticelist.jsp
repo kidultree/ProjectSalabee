@@ -25,7 +25,6 @@ width: 800px;
 
 </head>
 <body>
-<h3>총 ${totalCount} 개의 공지가 있다.</h3>
 
 <table class="table table-bordered">
 	<caption><h3>공지사항</h3></caption>

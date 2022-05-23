@@ -3,7 +3,7 @@
 <mapper namespace="data.mapper.NoticeMapperInter">
 <!-- Notice -->
 <insert id="insertNotice" parameterType="notice">
-insert into notice (nNum, nTitle, nName, nContent, nImg, nDate) values (
+insert into notice (nnum, ntitle, nname, ncontent, nimg, ndate) values (
 #{nNum}, #{nTitle}, #{nName}, #{nContent}, #{nImg}, #{nDate}
 )
 </insert>

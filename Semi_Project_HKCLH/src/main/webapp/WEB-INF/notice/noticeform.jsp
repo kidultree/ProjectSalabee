@@ -32,7 +32,7 @@ text-shadow: 3px 3px 3px pink;
 <th width="120" bgcolor="#FFE3EE">제목</th>
 <td colspan="3">
 <input type="text" name="notice" class="form-control"
-placeholder="제목" required="required">
+placeholder="공지 제목 입력" required="required" autofocus="autofocus">
 </td>
 </tr>
 <tr>
@@ -49,8 +49,8 @@ class="form-control" required="required"></textarea>
 </tr>
 <tr>
 <td colspan="4" align="center">
-<button name="button" class="btn btn-success"
-style="width:140px;" onclick="submitContents(this)">공지 등록</button>
+<button name="submit" class="btn btn-success"
+style="width:140px;">공지 등록</button>
 </td>
 </tr>
 </table>
