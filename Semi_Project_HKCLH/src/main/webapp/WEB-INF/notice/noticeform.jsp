@@ -33,7 +33,7 @@ text-shadow: 3px 3px 3px pink;
 <tr>
 <th width="120" bgcolor="#FFE3EE">제목</th>
 <td colspan="3">
-<input type="text" name="nTitle" class="form-control"
+<input type="text" name="ntitle" class="form-control"
 placeholder="공지 제목 입력" required="required" autofocus="autofocus">
 </td>
 </tr>
@@ -49,7 +49,7 @@ placeholder="공지 제목 입력" required="required" autofocus="autofocus">
 
 <tr>
 <td colspan="2">
-<textarea style="width: 100%; height: 100px;" name="nContent" id="nContent"
+<textarea style="width: 100%; height: 100px;" name="ncontent" id="ncontent"
 class="form-control" required="required"></textarea>
 </tr>
 <tr>

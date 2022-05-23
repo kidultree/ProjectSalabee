@@ -5,7 +5,7 @@
 <!-- Notice 삽입 -->
 <insert id="insertNotice" parameterType="notice">
 insert into notice (nnum, ntitle, nname, ncontent, nphoto, ndate) values (
-#{nNum}, #{nTitle}, #{nName}, #{nContent}, #{nPhoto}, now()
+#{nnum}, #{ntitle}, #{nname}, #{ncontent}, #{nphoto}, now()
 )
 </insert>
 
@@ -17,12 +17,12 @@ insert into notice (nnum, ntitle, nname, ncontent, nphoto, ndate) values (
 
 <!-- 수정 -->
 <select id="getNotice" parameterType="int" resultType="product">
-select * from notice where nNum = #{nNum}
+select * from notice where nnum = #{nnum}
 </select>
 
 <!-- 삭제 -->
 <delete id="deleteNotice" parameterType="int">
-delete from notice where nNum=#{nNum}
+delete from notice where nnum=#{nnum}
 </delete>
 
 <select id="getTotalNoticeCount" resultType="int">
