@@ -17,11 +17,22 @@
 	div.content { width:100%; height:100%;}
 	div.title {  width:500px; height:100px; margin: auto; 
 	font-size:50px; text-align : center; font-family:sans-serif;}
-	table.cartt{ margin: auto;}
+	table{ margin: auto; font-family:sans-serif;
+	border-top: 1px solid #444444;
+    border-collapse: collapse;}
+    table.a{font-size: 18px;}
+    th{height:50px;}
+    tr, td{  font-family:sans-serif; text-align : center;
+    border-bottom: 1px solid #444444;
+    padding: 10px;}
+    td{  font-family:sans-serif; text-align : center; height:80px;
+    border-bottom: 1px solid #444444;
+    padding: 10px;}
 	
 	div.buybtn{ width:400px; background-color:black; 
 	margin: auto; cursor:pointer;
 	text-align : center; font-family:sans-serif; font-size:30px; color:white; }
+	
 </style>
 </head>
 
@@ -38,10 +49,11 @@
    </c:choose> --%>
    
    <!-- 카트 첫 행 -->
-   <table class="table table-bordered cartt" style="width:1000px;">
-	<tr style="background-color:#f2f2f2">
+   <table class="cartt" style="width:1000px;">
+	<tr style="background-color:white">
 	<th style="width:80px;"><input type="checkbox" id="allcheck" >전체선택</th>
 <%-- 	<th style="width:80px;"><button type="button" id="seldelete" class="seldelete" num="${dto.num}">선택삭제</th> --%>
+	
 	<th style="width:80px;">제품정보</th>
 	<th style="width:80px;">수량</th>
 	<th style="width:80px;">배송비</th>
@@ -49,7 +61,7 @@
 	</tr>
 	
 	
-	<!-- 상품 목록 -->
+	<!-- 상품 목록(이미지 추가하기)ㄴ -->
 	<c:forEach var="cList2" items="${cList}" varStatus="i">
 		<tr>
 			<td><input type="checkbox" class="del" num="${cList2.pnum }">${cList2.pnum }</td>
@@ -61,8 +73,34 @@
 	</c:forEach>
 </table>
 
-<div class="buybtn" >주문하기</div>
+<br><br><br><br><br><br><br>
 
+<table class="a" style="width:1000px;">
+	<tr>
+		<th style="width:100px;">총 상품가격</th>
+		<th/>
+		<th style="width:100px;">추가금액</th>
+		<th/>
+		<th style="width:100px;">배송비</th>
+		<th/>
+		<th style="width:100px;">총 결제금액</th>
+	</tr>
+	
+	<tr>
+		<td>1</td>
+		<td><img src="${root}/image/-.PNG" id="m" style="width:50px"></td>
+		<td>2</td>
+		<td><img src="${root}/image/+.PNG" id="p" style="width:50px"></td>
+		<td>3</td>
+		<td><img src="${root}/image/=.PNG" id="p" style="width:50px"></td>
+		<td>4</td>
+	</tr>
+</table>
+
+<br><br><br><br>
+
+<div class="buybtn" >주문하기</div>
+<br><br>
 </div>
 
 </body>
