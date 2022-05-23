@@ -21,11 +21,16 @@ font-family: 'Gowun Dodum';
 
 table.notice{
 font-family: 'Gowun Dodum';
+width: 1000px;
+}
+
+table.h3{
+font-family: 'Gowun Dodum';
+margin-left: 200px;
 }
 
 table{
-width: 800px;
-margin-left: 400px;
+margin-left: 200px;
 font-family: 'Gowun Dodum';
 border-collapse: collapse;
 
@@ -39,24 +44,24 @@ border-collapse: collapse;
 <h3><b>공지사항</b></h3>
 <hr>
 
-<table class="table table-bordered" notice>
+<table class="table table-bordered notice">
 	<tr bgcolor="#FFFFFF" align="center";>
-		<th width="100" >번호</th>
+		<th width="100">번호</th>
 		<th width="350">제목</th>
 		<th width="800">내용</th>
 		<th width="400">작성일</th>
 	</tr>
 	<c:forEach var="dto" items="${list}">
 		<tr>
-			<td>${nNum}</td>
-			<td>${nTitle}</td>
-			<td>${nContent}</td>
+			<td>${dto.nNum}</td>
+			<td>${dto.nTitle}</td>
+			<td>${dto.nContent}</td>
 			<!-- 사진이 들어있는 경우 출력하기 -->
 					<c:if test="${dto.nphoto!='' }">
 						<img src="../${dto.nphoto }" width="80" height="80" border="1">
 						&nbsp;&nbsp;
 					</c:if>
-			<td><fmt:formatDate value="${nDate}"
+			<td><fmt:formatDate value="${dto.nDate}"
 			pattern="yyyy-MM-dd HH:mm:ss"/></td>
 		</tr>
 	</c:forEach>
