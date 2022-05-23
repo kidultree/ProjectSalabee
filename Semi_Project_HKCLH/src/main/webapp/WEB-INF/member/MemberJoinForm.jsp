@@ -64,20 +64,17 @@
 		});
 	
 	});
-	
-
 </script>
-
 
 </head>
 <body>
-	<form action="insert" method="post">
+<form action="insert" method="post">
 	<table style="width: 800px;">
 		<caption>회원가입</caption>
 		<tr>
 			<th>아이디</th>
 			<td>
-				<input type="text" name="mId" placeholder="아이디를 입력해 주세요" required="required">
+				<input type="text" name="mId" placeholder="아이디를 입력해 주세요" required="required">			
 			</td>
 		</tr>
 		
@@ -91,7 +88,7 @@
 		<tr>
 			<th>비밀번호</th>
 			<td>
-				<input type="password" name="mPassword" placeholder="숫자,영문,특수문자 조합 최소 8자" required="required"
+				<input type="password" name="mPassword" placeholder="비밀번호를 입력해 주세요" required="required"
 				style="width: 300px;" class="pass" minlength = "8"><span class="bi bi-eye eye1"/>
 			</td>
 		</tr>
@@ -101,6 +98,7 @@
 			<td>
 				<input type="password" placeholder="비밀번호를 다시 입력해 주세요" required="required"
 				class="pass2" minlength = "8"><span class="bi bi-eye eye2"/>
+				
 			</td>
 		</tr>
 		
@@ -148,14 +146,14 @@
 			</td>		
 		</tr>
 	</table>
-	</form>
+</form>
+
 </body>
 <script>
 function findAddr(){
 	new daum.Postcode({
         oncomplete: function(data) {
         	
-        	console.log(data);
         	
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
             // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
