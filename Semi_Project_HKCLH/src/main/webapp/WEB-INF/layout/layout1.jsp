@@ -27,11 +27,13 @@
         background-color: black;
         padding: 18px 12px;
         z-index:4;      
-       
+     
     }
   	nav.navbar{
   	position : relative;
   	margin-bottom: 0px;
+  	text-decoration:none;
+  	border-radius : 0px;
   	}
     .header{      
         position: sticky;      
@@ -45,11 +47,19 @@
         right: 200px;
         font-family: fantasy;
     }
+    .navbar_logo :hover{
+    text-decoration: none;
+    color: white;
+    }
     div.iconmenu{
         position:relative;
         right: 0px;
     }
-   
+  div.iconmenu a:hover{
+  color:black;
+  
+  }
+  
     .navbar_menu{
     display: flex;
     list-style: none;
@@ -95,10 +105,12 @@ ul.navbar_menu > li ul.sub {
     display:block;
     position: relative;
     top: 30px;
+    right: 20px;
     padding: 0px 0px;
      opacity: 0;
      height:0px;
     width:0px;
+  
 }
 
 ul.navbar_menu > li:hover ul.sub {
@@ -106,12 +118,18 @@ ul.navbar_menu > li:hover ul.sub {
     opacity: 1;
     height: 0px;
 }
-
+ul.sub a:hover{
+    font-weight: bold;
+    text-decoration: underline;
+    color:gold;
+    font-size:1.5rem;
+}
 ul.navbar_menu > ul.sub:hover{
     opacity: 1;
 }
-ul.navbar_menu > li:hover ul.sub a{
-color: gold;
+ul.navbar_menu > li:hover ul.sub a{  /*서브메뉴색깔*/
+color: white;
+
 }
 
 /*오른쪽 메뉴*/
@@ -154,6 +172,7 @@ color: gold;
         position: sticky;
         top: 0;
         z-index:4;
+        
     }
     .navbar_menu{
         flex-direction: column;
@@ -249,55 +268,8 @@ section{
 
 </style>
 <body>
-   <!--헤드-->
-    <div class="header" id="header">
-    <nav class="navbar">
-        <ul class= "navbar_menu">
-           
-          <li><a href="">BRAND </a></li>
-         
-            <li><a href="">PERFUME</a>
-                <ul class="sub">
-                    <li><a href="#">MENU1</a></li>
-                    <li><a href="www.nate.com">MENU2</a></li>              
-                    <li><a href="www.naver.com">MENU#</a></li>
-                        </ul></li>
-                 
-                   
-            <li><a href="">COMMUNITY</a>
-                <ul class="sub">
-            <li><a href="">Q&amp;A</a></li>
-            <li><a href="">REVIEW</a></li>              
-            <li><a href="">FAQ</a></li>
-                </ul>
-            </li>
-        </ul>
-       
-         
-   
-        <div class = "navbar_logo">
-           <!-- 로고 <i class="fab fa-accusoft"></i> -->
-            <a href="">FragBit</a>
-        </div>
- <div class="iconmenu">
-       <a href="#"> <img src="${root}/image/login.png" id="loginicon" style="width:30px"> </a>
-       <a href="#"> <img src="${root}/image/cart.png" id="carticon" style="width:30px"></a>
-   
-    </div>
 
-       
-        <!-- <a href="" class="navbar_toogleBtn">
-        <i class="fas fa-bars"></i>
-        </a>-->
-        </div>
-    </nav>
-</div>
-    <!--헤드 끝-->
-    <!-- 임시본문 -->
-   
-   
 
-<!-- 경계선 -->
 <div class="layout">
 	<div class="title">
 		<tiles:insertAttribute name="title"/>
