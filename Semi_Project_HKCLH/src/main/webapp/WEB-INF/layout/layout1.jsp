@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Fragbit</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/2d323a629b.js" crooslogin="annoymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
@@ -57,7 +57,7 @@
     }
   div.iconmenu a:hover{
   color:black;
-  
+ 
   }
   
     .navbar_menu{
@@ -104,7 +104,7 @@ ul, ol, li {
 ul.navbar_menu > li ul.sub {
     display:block;
     position: relative;
-    top: 30px;
+    top: 39px;
     right: 20px;
     padding: 0px 0px;
      opacity: 0;
@@ -121,7 +121,7 @@ ul.navbar_menu > li:hover ul.sub {
 ul.sub a:hover{
     font-weight: bold;
     text-decoration: underline;
-    color:gold;
+    color: gold;
     font-size:1.5rem;
 }
 ul.navbar_menu > ul.sub:hover{
@@ -131,7 +131,10 @@ ul.navbar_menu > li:hover ul.sub a{  /*서브메뉴색깔*/
 color: white;
 
 }
-
+ul.sub li{
+ background-color: rgba( 255, 255, 255, 0.1 );
+ width: 100px;
+}
 /*오른쪽 메뉴*/
 .navbar_menu2{
         display: flex;
@@ -191,19 +194,7 @@ color: white;
     }
 }
 
-/*body start*/
-#bg{
-   
-    left:0;
-    top:0;
-    width:auto;
-    height:auto;
-    min-width:100%;
-    min-height:100%;
-    z-index: 0px; <!--수정필요-->
-   
-}
-/*body end*/
+
 /* 움직이는 영업시간*/
 .runtime {
     position: fixed;
@@ -240,8 +231,9 @@ color: white;
 #wrap a{
     color: white;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 1.4rem;
     text-decoration: none;
+      font-family: 'jua';
 }
 footer p{
     color: white;
