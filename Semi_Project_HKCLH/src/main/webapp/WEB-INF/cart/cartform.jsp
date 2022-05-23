@@ -61,7 +61,7 @@
 	</tr>
 	
 	
-	<!-- 상품 목록(이미지 추가하기)ㄴ -->
+	<!-- 상품 목록(이미지 추가하기) -->
 	<c:forEach var="cList2" items="${cList}" varStatus="i">
 		<tr>
 			<td><input type="checkbox" class="del" num="${cList2.pnum }">${cList2.pnum }</td>
@@ -92,7 +92,7 @@
 		<td>2</td>
 		<td><img src="${root}/image/+.PNG" id="p" style="width:50px"></td>
 		<td>3</td>
-		<td><img src="${root}/image/=.PNG" id="p" style="width:50px"></td>
+		<td><img src="${root}/image/=.PNG" id="e" style="width:50px"></td>
 		<td>4</td>
 	</tr>
 </table>
