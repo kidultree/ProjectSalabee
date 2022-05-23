@@ -51,17 +51,16 @@ border-collapse: collapse;
 		<th width="800">내용</th>
 		<th width="400">작성일</th>
 	</tr>
-	<c:forEach var="dto" items="${list}">
+	<c:forEach var="dto" items="${list}" varStatus="i">
 		<tr>
-			<td>${dto.nNum}</td>
-			<td>${dto.nTitle}</td>
-			<td>${dto.nContent}</td>
-			<!-- 사진이 들어있는 경우 출력하기 -->
-					<c:if test="${dto.nphoto!='' }">
+			<td>${dto.nnum}</td>
+			<td>${dto.ntitle}</td>
+			<td>${dto.ncontent}</td>
+			<!-- 사진이 들어있는 경우 출력하기 <c:if test="${dto.nphoto!='' }">
 						<img src="../${dto.nphoto }" width="80" height="80" border="1">
 						&nbsp;&nbsp;
-					</c:if>
-			<td><fmt:formatDate value="${dto.nDate}"
+					</c:if>-->
+			<td><fmt:formatDate value="${dto.ndate}"
 			pattern="yyyy-MM-dd HH:mm:ss"/></td>
 		</tr>
 	</c:forEach>
