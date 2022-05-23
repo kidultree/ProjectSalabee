@@ -29,7 +29,7 @@
     border-bottom: 1px solid #444444;
     padding: 10px;}
 	
-	div.buybtn{ width:400px; background-color:black; 
+	div.buybtn{ width:800px; height:60px; background-color:black; padding:8px;
 	margin: auto; cursor:pointer;
 	text-align : center; font-family:sans-serif; font-size:30px; color:white; }
 	
@@ -99,7 +99,7 @@
 
 <br><br><br><br>
 
-<div class="buybtn" >주문하기</div>
+<div class="buybtn" onclick="location.href='buy'">주문하기</div>
 <br><br>
 </div>
 
