@@ -33,9 +33,9 @@ public class CartController {
 		return "/cart/cartform";		
 	}
 	
-	/* 장바구니폼 (임시) */
+	/* 브랜드페이지 이동 */
 	@GetMapping("/about")
-	public String about()
+	public String form()
 	{
 		return "/brand/about";		
 	}
