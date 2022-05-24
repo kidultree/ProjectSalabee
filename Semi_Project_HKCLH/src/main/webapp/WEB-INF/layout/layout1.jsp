@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Fragbit</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/2d323a629b.js" crooslogin="annoymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
@@ -27,11 +27,13 @@
         background-color: black;
         padding: 18px 12px;
         z-index:4;      
-       
+     
     }
   	nav.navbar{
   	position : relative;
   	margin-bottom: 0px;
+  	text-decoration:none;
+  	border-radius : 0px;
   	}
     .header{      
         position: sticky;      
@@ -45,11 +47,19 @@
         right: 200px;
         font-family: fantasy;
     }
+    .navbar_logo :hover{
+    text-decoration: none;
+    color: white;
+    }
     div.iconmenu{
         position:relative;
         right: 0px;
     }
-   
+  div.iconmenu a:hover{
+  color:black;
+ 
+  }
+  
     .navbar_menu{
     display: flex;
     list-style: none;
@@ -94,26 +104,37 @@ ul, ol, li {
 ul.navbar_menu > li ul.sub {
     display:block;
     position: relative;
-    top: 30px;
+    top: 39px;
+    right: 20px;
     padding: 0px 0px;
      opacity: 0;
      height:0px;
     width:0px;
+  
 }
 
-ul.navbar_menu > li:hover ul.sub {
+ul.navbar_menu > li:hover ul.sub { /*이거*/
     display:block;
     opacity: 1;
     height: 0px;
 }
-
+ul.sub a:hover{
+    font-weight: bold;
+    text-decoration: underline;
+    color: gold;
+    font-size:1.5rem;
+}
 ul.navbar_menu > ul.sub:hover{
     opacity: 1;
 }
-ul.navbar_menu > li:hover ul.sub a{
-color: gold;
-}
+ul.navbar_menu > li:hover ul.sub a{  /*서브메뉴색깔*/
+color: white;
 
+}
+ul.sub li{
+ background-color: rgba( 255, 255, 255, 0.1 );
+ width: 100px;
+}
 /*오른쪽 메뉴*/
 .navbar_menu2{
         display: flex;
@@ -137,8 +158,8 @@ color: gold;
 }
 /*header style end*/
 
-/*오른쪾메뉴끝*/
-/*
+/*오른쪽메뉴끝*/
+
 
 /*submenu*/
 /*오른쪽 줄세개짜리 메뉴 end*/
@@ -154,6 +175,7 @@ color: gold;
         position: sticky;
         top: 0;
         z-index:4;
+        
     }
     .navbar_menu{
         flex-direction: column;
@@ -172,19 +194,7 @@ color: gold;
     }
 }
 
-/*body start*/
-#bg{
-   
-    left:0;
-    top:0;
-    width:auto;
-    height:auto;
-    min-width:100%;
-    min-height:100%;
-    z-index: 0px; <!--수정필요-->
-   
-}
-/*body end*/
+
 /* 움직이는 영업시간*/
 .runtime {
     position: fixed;
@@ -221,8 +231,9 @@ color: gold;
 #wrap a{
     color: white;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 1.4rem;
     text-decoration: none;
+      font-family: 'jua';
 }
 footer p{
     color: white;
@@ -243,12 +254,13 @@ section{
     height:300px;
 }
  .navbar_icons{
- color:white;
  }
 /*footer end*/
 
 </style>
 <body>
+<<<<<<< HEAD
+=======
    <!--헤드-->
     <div class="header" id="header">
     <nav class="navbar">
@@ -284,20 +296,9 @@ section{
        <a href="#"> <img src="${root}/image/cart.png" id="carticon" style="width:30px"></a>
    
     </div>
+>>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
 
-       
-        <!-- <a href="" class="navbar_toogleBtn">
-        <i class="fas fa-bars"></i>
-        </a>-->
-        </div>
-    </nav>
-</div>
-    <!--헤드 끝-->
-    <!-- 임시본문 -->
-   
-   
 
-<!-- 경계선 -->
 <div class="layout">
 	<div class="title">
 		<tiles:insertAttribute name="title"/>

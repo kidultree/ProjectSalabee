@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Fragbit</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
@@ -30,9 +30,9 @@
       </section>
       <footer>
         <ul class="navbar_icons">
-            <i class="fab fa-twitter" a href=""></i> &nbsp;
-            <i class="fab fa-facebook-square" a href="www.facebook.com"></i> &nbsp;
-            <i class="fab fa-instagram" a href=""></i>
+       <a href="http://twitter.com">     <i class="fab fa-twitter"></i> &nbsp;</a> 
+           <a href="http://www.facebook.com">   <i class="fab fa-facebook-square" ></i> &nbsp; </a>
+           <a href="http://instagram.com">   <i class="fab fa-instagram"></i> </a>
            
         </ul>
           <nav>
