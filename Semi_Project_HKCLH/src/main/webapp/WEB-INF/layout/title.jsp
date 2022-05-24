@@ -58,7 +58,7 @@ Signika+Negative:wght@300&display=swap" rel="stylesheet">
         </div>
  <div class="iconmenu">
        <a href="/login/loginform"> <img src="${root}/image/login.png" id="loginicon" style="width:30px"> </a>
-       <a href="#"> <img src="${root}/image/cart.png" id="carticon" style="width:30px"></a>
+       <a href="/cart/cartform"> <img src="${root}/image/cart.png" id="carticon" style="width:30px"></a>
    
     </div>
 

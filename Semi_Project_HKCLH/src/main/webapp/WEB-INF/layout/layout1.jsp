@@ -20,6 +20,7 @@
         padding:0;
         background-color:skyblue;
     }
+    /*헤더*/
     .navbar {
         display:flex;
         justify-content: space-between;
@@ -37,9 +38,8 @@
   	}
     .header{      
         position: sticky;      
-        top: 0;  
-      
-          }
+        top: 0px;  
+        } 
     .navbar_logo{
         color:white;
         text-align: center;
@@ -82,7 +82,7 @@ ul, ol, li {
     text-decoration:  none;
     color: white;
     text-align: center;
-    font-size: 3rem;
+    font-size: 4.5rem;
     margin-right: 10px;
 }
 .fa-bars:before {
@@ -252,51 +252,18 @@ footer{
 section{
     padding-bottom: 0px;
     height:300px;
+    position:relative;
+    right: 12px;
 }
  .navbar_icons{
+ position: relative;
+ right: 13px;
  }
 /*footer end*/
 
 </style>
 <body>
-<<<<<<< HEAD
-=======
-   <!--헤드-->
-    <div class="header" id="header">
-    <nav class="navbar">
-        <ul class= "navbar_menu">
-           
-          <li><a href="">BRAND </a></li>
-         
-            <li><a href="">PERFUME</a>
-                <ul class="sub">
-                    <li><a href="#">MENU1</a></li>
-                    <li><a href="www.nate.com">MENU2</a></li>              
-                    <li><a href="www.naver.com">MENU#</a></li>
-                        </ul></li>
-                 
-                   
-            <li><a href="">COMMUNITY</a>
-                <ul class="sub">
-            <li><a href="/notice/list">Notice</a></li>
-            <li><a href="">QnA</a></li>              
-            <li><a href="">Review</a></li>
-                </ul>
-            </li>
-        </ul>
-       
-         
-   
-        <div class = "navbar_logo">
-           <!-- 로고 <i class="fab fa-accusoft"></i> -->
-            <a href="">FragBit</a>
-        </div>
- <div class="iconmenu">
-       <a href="#"> <img src="${root}/image/login.png" id="loginicon" style="width:30px"> </a>
-       <a href="#"> <img src="${root}/image/cart.png" id="carticon" style="width:30px"></a>
-   
-    </div>
->>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
+
 
 
 <div class="layout">

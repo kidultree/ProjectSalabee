@@ -88,7 +88,7 @@ div.imgpre-title{
    
    
     <div class="topimage">
-    <img src="${root}/image/mainimage2.jpg" style="width: 1425px";>
+    <img src="${root}/image/mainimage2.jpg" style="width: 1423px";>
 
 <div class="imgtitle" > 
     <p>Discovery Set</p>
@@ -101,8 +101,8 @@ div.imgpre-title{
               </div></a>
 
 </div>
-<video src="${root}/image/mainvideo.mp4" autoplay loop muted poster="homepage.jpg" id="bg" ></video>
-<img src="${root}/image/mainimage1.jpeg" style="width: 1425px";>
+<video src="${root}/image/mainvideo.mp4" autoplay loop muted poster="homepage.jpg" id="bg"  style="width:1423px;"></video>
+<img src="${root}/image/mainimage1.jpeg" style="width: 1423px";>
 
    
  
