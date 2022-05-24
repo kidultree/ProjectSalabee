@@ -4,15 +4,15 @@
 
 <!-- qna 삽입 -->
 <insert id="insertQnA" parameterType="notice">
-insert into qna (qnum, qcate, qtitle, qname, mid, qcontent, qimg, qstate, qdate) values (
-#{qnum}, #{qcate}, #{qtitle}, #{qname}, #{mId}, #{qcontent}, #{qimg}, #{qstate}, now()
+insert into QnA (qnum, qcate, qtitle, mid, qcontent, qimg, qstate, qdate) values (
+#{qnum}, #{qcate}, #{qtitle}, #{mid}, #{qcontent}, #{qimg}, #{qstate}, now()
 )
 </insert>
 
 
 <!-- 리스트 -->
 <select id="getQnAList" resultType="qna">
-	select * from qna
+	select * from QnA
 </select>
 
 

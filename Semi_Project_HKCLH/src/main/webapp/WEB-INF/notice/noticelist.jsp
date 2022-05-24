@@ -101,17 +101,21 @@ border-collapse: collapse;
 		 
 		 
 		 
-		 <span id="faq-title">자주 묻는 질문(FAQ)</span>
+		 <span id="faq-title">공지사항</span>
 <div class="faq-content">
-  <button class="question" id="que-1"><span id="que-1-toggle">+</span><span>'HTML'이란 무엇인가요?</span></button>
-  <div class="answer" id="ans-1">하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.</div>
+  <button class="question" id="que-1"><span id="que-1-toggle">+</span><span>배송기간 안내 (주문 후 3~4일 예상)</span></button>
+  <div class="answer" id="ans-1">BitFrag는 월/수/금 출고가 진행되고 있으며,<br>
+
+그럴 경우 주문 후 3~4일 내에 제품을 받아보실 수 있으실 것으로 예상됩니다.<br>
+
+공휴일이나 파펨 내부사정으로 인한 약간의 변동이 있을 수 있음을 미리 알려드립니다. </div>
 </div>
 <div class="faq-content">
-  <button class="question" id="que-2"><span id="que-2-toggle">+</span><span>'CSS'란 무엇인가요?</span></button>
+  <button class="question" id="que-2"><span id="que-2-toggle">+</span><span>교환 및 반품 규정</span></button>
   <div class="answer" id="ans-2">캐스케이딩 스타일 시트(Cascading Style Sheets)입니다.</div>
 </div>
 <div class="faq-content">
-  <button class="question" id="que-3"><span id="que-3-toggle">+</span><span>'JavaScript'란 무엇인가요?</span></button>
+  <button class="question" id="que-3"><span id="que-3-toggle">+</span><span>제주도 추가 배송비 무료 안내</span></button>
   <div class="answer" id="ans-3">자바스크립트는 객체(Object)를 기초로 하는 스크립트 프로그래밍 언어입니다.</div>
 </div>
 

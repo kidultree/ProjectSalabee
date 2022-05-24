@@ -12,11 +12,11 @@ public class QnADto {
 
 	private int qnum;
 	private String qcate;
+	private String mid;
 	private String qtitle;
-	private String qname;
 	private String qcontent;
 	private String qimg;
 	private String qstate;
 	private Timestamp qdate;
-	private String mId;
+
 }

@@ -187,9 +187,9 @@ ul.sub li{
                    
             <li class="main"><a href="">COMMUNITY</a>
                 <ul class="sub">
-            <li><a href="#">Q&amp;A</a></li>
+            <li><a href="/notice/list">NOTICE</a></li>
             <li><a href="#">REVIEW</a></li>              
-            <li><a href="/notice/list">FAQ</a></li>
+            <li><a href="/qna/list">QnA</a></li>
                 </ul>
             </li>
         </ul>
