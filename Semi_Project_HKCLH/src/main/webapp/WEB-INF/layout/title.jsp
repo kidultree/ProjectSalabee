@@ -193,20 +193,20 @@ ul.sub li{
                 </ul>
             </li>
         </ul>
-       
-       <script type="text/javascript">
+   
+      <!--  <script type="text/javascript">
        	$("li.main").mouseover(function(){
        		
        		console.log(1);
        		$(this).next().next().toggle();
        	})
-       </script>
+       </script> -->
          
    
         <div class = "navbar_logo">
           
             <a href="/">FragBit</a>
-        </div>
+        </div> 
  <div class="iconmenu">
  <c:if test="${sessionScope.loginok==null}"> 
        <a href="/login/loginform"> <img src="${root}/image/login.png" id="loginicon" style="width:30px"> </a>
