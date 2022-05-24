@@ -4,27 +4,27 @@
 
 <!-- qna 삽입 -->
 <insert id="insertQnA" parameterType="notice">
-insert into qna (qnum, ntitle, nname, ncontent, nphoto, ndate) values (
-#{nnum}, #{ntitle}, #{nname}, #{ncontent}, #{nphoto}, now()
+insert into qna (qnum, qcate, qtitle, qname, mid, qcontent, qimg, qstate, qdate) values (
+#{qnum}, #{qcate}, #{qtitle}, #{qname}, #{mId}, #{qcontent}, #{qimg}, #{qstate}, now()
 )
 </insert>
 
 
 <!-- 리스트 -->
-<select id="getQnAList" resultType="notice">
+<select id="getQnAList" resultType="qna">
 	select * from qna
 </select>
 
 
 <!-- 수정 -->
 <select id="getQnA" parameterType="int" resultType="product">
-select * from qna where nnum = #{nnum}
+select * from qna where qnum = #{qnum}
 </select>
 
 
 <!-- 삭제 -->
 <delete id="deleteQnA" parameterType="int">
-delete from qna where nnum=#{nnum}
+delete from qna where qnum=#{qnum}
 </delete>
 
 
