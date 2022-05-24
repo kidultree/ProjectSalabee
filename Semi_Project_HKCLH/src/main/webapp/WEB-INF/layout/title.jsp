@@ -30,35 +30,42 @@ Signika+Negative:wght@300&display=swap" rel="stylesheet">
     <nav class="navbar">
         <ul class= "navbar_menu">
            
-          <li><a href="">BRAND </a></li>
+          <li><a href="/cart/about">BRAND </a></li>
             
-            <li class=""><a href="">PERFUME</a> 
+            <li class="main"><a href="">PERFUME</a> 
             
                 <ul class="sub">
                     <li class=><a href="#">2.5ml</a></li>
-                    <li><a href="www.nate.com">40ml</a></li>              
-                    <li><a href="www.naver.com">GOODS</a></li>
+                    <li><a href="#">40ml</a></li>              
+                    <li><a href="#">GOODS</a></li>
                         </ul></li>
                  
                    
-            <li><a href="">COMMUNITY</a>
+            <li class="main"><a href="">COMMUNITY</a>
                 <ul class="sub">
-            <li><a href="">Q&amp;A</a></li>
-            <li><a href="">REVIEW</a></li>              
-            <li><a href="">FAQ</a></li>
+            <li><a href="#">Q&amp;A</a></li>
+            <li><a href="#">REVIEW</a></li>              
+            <li><a href="/notice/list">FAQ</a></li>
                 </ul>
             </li>
         </ul>
        
+       <script type="text/javascript">
+       	$("li.main").click(function(){
+       		
+       		console.log(1);
+       		$(this).next().next().toggle();
+       	})
+       </script>
          
    
         <div class = "navbar_logo">
-           <!-- 로고 <i class="fab fa-accusoft"></i> -->
+          
             <a href="/">FragBit</a>
         </div>
  <div class="iconmenu">
        <a href="/login/loginform"> <img src="${root}/image/login.png" id="loginicon" style="width:30px"> </a>
-       <a href="#"> <img src="${root}/image/cart.png" id="carticon" style="width:30px"></a>
+       <a href="/cart/list"> <img src="${root}/image/cart.png" id="carticon" style="width:30px"></a>
    
     </div>
 

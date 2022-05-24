@@ -28,9 +28,16 @@ public class CartController {
 	
 	/* 장바구니폼 (임시) */
 	@GetMapping("/cart")
-	public String joinform()
+	public String cartform()
 	{
 		return "/cart/cartform";		
+	}
+	
+	/* 브랜드페이지 이동 */
+	@GetMapping("/about")
+	public String form()
+	{
+		return "/brand/about";		
 	}
 	
 	
