@@ -33,13 +33,6 @@ public class CartController {
 		return "/cart/cartform";		
 	}
 	
-	/* 장바구니폼 (임시) */
-	@GetMapping("/about")
-	public String about()
-	{
-		return "/brand/about";		
-	}
-	
 	
 	/* 장바구니에 담기 */
 	@PostMapping("insert")
