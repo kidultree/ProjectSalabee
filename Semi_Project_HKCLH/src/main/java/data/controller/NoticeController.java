@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import data.dto.NoticeDto;
-import data.dto.ProductDto;
 import data.mapper.NoticeMapperInter;
 
 @Controller
