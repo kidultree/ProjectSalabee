@@ -31,10 +31,11 @@ Signika+Negative:wght@300&display=swap" rel="stylesheet">
         <ul class= "navbar_menu">
            
           <li><a href="">BRAND </a></li>
-         
-            <li><a href="">PERFUME</a> 
+            
+            <li class=""><a href="">PERFUME</a> 
+            
                 <ul class="sub">
-                    <li><a href="#">2.5ml</a></li>
+                    <li class=><a href="#">2.5ml</a></li>
                     <li><a href="www.nate.com">40ml</a></li>              
                     <li><a href="www.naver.com">GOODS</a></li>
                         </ul></li>
@@ -53,10 +54,10 @@ Signika+Negative:wght@300&display=swap" rel="stylesheet">
    
         <div class = "navbar_logo">
            <!-- 로고 <i class="fab fa-accusoft"></i> -->
-            <a href="">FragBit</a>
+            <a href="/">FragBit</a>
         </div>
  <div class="iconmenu">
-       <a href="#"> <img src="${root}/image/login.png" id="loginicon" style="width:30px"> </a>
+       <a href="/login/loginform"> <img src="${root}/image/login.png" id="loginicon" style="width:30px"> </a>
        <a href="#"> <img src="${root}/image/cart.png" id="carticon" style="width:30px"></a>
    
     </div>

@@ -30,9 +30,9 @@
       </section>
       <footer>
         <ul class="navbar_icons">
-            <i class="fab fa-twitter" a href=""></i> &nbsp;
-            <i class="fab fa-facebook-square" a href="www.facebook.com"></i> &nbsp;
-            <i class="fab fa-instagram" a href=""></i>
+       <a href="http://twitter.com">     <i class="fab fa-twitter"></i> &nbsp;</a> 
+           <a href="http://www.facebook.com">   <i class="fab fa-facebook-square" ></i> &nbsp; </a>
+           <a href="http://instagram.com">   <i class="fab fa-instagram"></i> </a>
            
         </ul>
           <nav>

@@ -113,7 +113,7 @@ ul.navbar_menu > li ul.sub {
   
 }
 
-ul.navbar_menu > li:hover ul.sub {
+ul.navbar_menu > li:hover ul.sub { /*이거*/
     display:block;
     opacity: 1;
     height: 0px;
@@ -158,8 +158,8 @@ ul.sub li{
 }
 /*header style end*/
 
-/*오른쪾메뉴끝*/
-/*
+/*오른쪽메뉴끝*/
+
 
 /*submenu*/
 /*오른쪽 줄세개짜리 메뉴 end*/
@@ -254,7 +254,6 @@ section{
     height:300px;
 }
  .navbar_icons{
- color:white;
  }
 /*footer end*/
 

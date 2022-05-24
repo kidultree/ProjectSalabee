@@ -43,10 +43,10 @@ div.imgtitle{
 div.imgpre-title{
     position: absolute;
     top:300px;
-    left: 440px;
+    left: 380px;
     color:white;
     font-size: 2.6rem;
-    font-family: Noto+Sans+KR;
+    font-family: 'Malgun Gothic';
 }
 .-button{
     --swiper-theme-color: #007aff;
@@ -57,7 +57,7 @@ div.imgpre-title{
     text-decoration: none;
     user-select: none;
     position: absolute;
-    left: 50%;
+    left: 49%;
     top: 100px;
     transform: translateX(-50%);
     display: flex;
