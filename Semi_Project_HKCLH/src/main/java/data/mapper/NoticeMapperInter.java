@@ -10,8 +10,11 @@ import data.dto.NoticeDto;
 @Mapper
 public interface NoticeMapperInter {
 	public void insertNotice(NoticeDto dto);
-	public List<NoticeDto> getNoticeList(Map<String, Integer> map);
+	public void updateNotice(NoticeDto dto);
+	public void deleteNotice(int num);
+	
+	public List<NoticeDto> getNoticeList();
+	
 	public NoticeDto getNotice(int num);
-	public void deleteProduct(int num);
 	public int getTotalCount();
 }

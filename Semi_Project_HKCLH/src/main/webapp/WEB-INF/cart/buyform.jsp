@@ -22,6 +22,20 @@
 		position:relative;
 		left: -20px;
 	}
+	
+	div{font-family:sans-serif;}
+	div.content { width:100%; height:100%;}
+	
+	div.title {  width:500px; height:70px; margin: auto; font-weight:bold;
+	font-size:35px; text-align : center; font-family:sans-serif;}
+	div.title2{ width:500px; height:100px; margin: auto; 
+	font-size:15px; text-align : center; font-family:sans-serif; color:gray; }
+	
+	div.one{ width:1000px; margin: auto; background-color: pink;}
+	div.one1{ font-weight:bold; font-size:20px;}
+	
+	th{ font-size:14px; }
+	
 </style>
 
 <script type="text/javascript">
@@ -68,15 +82,69 @@
 
 </head>
 <body>
+
+<div class="content">
+
+<div class="title">주문서</div>
+<div class="title2">주문하실 상품명 및 수량을 정확하게 확인해 주세요.</div>
+
+
+<div class="one">
+<div class="one1">배송지</div>
+<br>
+
+<table>
+	<tr>
+		<th style="width: 80px;">받는사람*</th>
+		<td><input type="text" name="mName" placeholder="이름을 입력해 주세요" required="required" class="form-control"></td>
+	</tr>
+	<tr>
+		<th style="width: 80px;">주소*</th>
+		<td>
+			<input id="member_post" name="mPost" type="text" placeholder="우편 번호" readonly class="form-control">
+			<button type="button" class="btn btn-sm" onclick="findAddr()">주소검색</button><br>
+			<input id="member_addr" name="addr1" type="text" placeholder="주소" readonly class="form-control"><br>
+			<input type="text" name="addr2" placeholder="상세 주소" class="form-control">
+		</td>
+	</tr>
+	<tr>
+		<th style="width: 80px;">휴대전화*</th>
+		<td>
+			<input type="text" name="mPhone" placeholder="- 없이 번호만 입력해 주세요" required="required" maxlength="11" class="form-control">
+		</td>
+	</tr>
+	<tr>
+		<th style="width: 80px;">E-Mail*</th>
+			<td>
+				<input type="text" name="mEmail" placeholder="이메일을 입력해 주세요" required="required" class="form-control">
+				<select>
+					<option>직접입력</option>
+					<option value="@naver.com">naver.com</option>
+					<option value="@daum.net">daum.net</option>
+					<option value="@google.com">google.com</option>
+					<option value="@nate.com">nate.com</option>
+				</select>
+			</td>
+		</tr>
+</table>
+
+
+
+
+</div><!-- div one닫기 -->
+
+</div><!-- div content닫기 -->
+
+
+
+
+
+
+
 <form action="insert" method="post">
 	<table style="width: 800px;">
 		<caption>회원가입</caption>
-		<tr>
-			<th>아이디</th>
-			<td>
-				<input type="text" name="mId" placeholder="아이디를 입력해 주세요" required="required">			
-			</td>
-		</tr>
+
 		
 		<tr>
 			<th>이 름</th>
