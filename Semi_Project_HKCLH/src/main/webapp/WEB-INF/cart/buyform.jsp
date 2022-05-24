@@ -31,10 +31,24 @@
 	div.title2{ width:500px; height:100px; margin: auto; 
 	font-size:15px; text-align : center; font-family:sans-serif; color:gray; }
 	
-	div.one{ width:1000px; margin: auto; background-color: pink;}
-	div.one1{ font-weight:bold; font-size:20px;}
+	div.one{ width:800px; margin: auto; border-bottom:1px solid lightgray;}
+	div.one1{ font-weight:bold; font-size:20px; border-bottom:1px solid black;}
+	
+	
+	input[type="radio"]{background: url(${root}/image/bg_radio.png) no-repeat 0 0; border:0px;} /* 적용 X  */
+	label{vertical-align:middle; cursor:pointer; font-size:14px;}
+	
+	
+	table{ margin: auto; }
+	div.shippingmsg{ margin: auto;  width:800px; hight:300px; 
+	background-color: #f0f1f2; border-top: 1px solid #d7d5d5; border-bottom: 1px solid #d7d5d5; padding: 14px;}
+	#omessage_select{ max-width: 100%;
+    height: 40px; margin: 0;  padding: 0 20px 0 8px; line-height: 40px;
+    color: #333; word-break: break-all; font-weight: inherit; word-break: break-all;
+    font-weight: inherit;}
 	
 	th{ font-size:14px; }
+	
 	
 </style>
 
@@ -91,33 +105,46 @@
 
 <div class="one">
 <div class="one1">배송지</div>
-<br>
 
+<div>
+	<input type="radio" id="sameaddr0" name="sameaddr" autocomplete="off">
+	<label for="sameaddr0">회원 정보와 동일</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="sameaddr1" name="sameaddr" autocomplete="off">
+	<label for="sameaddr1">새로운 배송지</label>
+</div>
+
+
+<div class="bae">
 <table>
 	<tr>
-		<th style="width: 80px;">받는사람*</th>
-		<td><input type="text" name="mName" placeholder="이름을 입력해 주세요" required="required" class="form-control"></td>
+		<th style="width: 80px; line-height:500%;">받는사람*</th>
+		<td style="width: 650px;">
+			<input type="text" name="mName" placeholder="이름을 입력해 주세요" required="required"
+			 autofocus="autofocus" style="width: 580px;" >
+		</td>
 	</tr>
+	
 	<tr>
-		<th style="width: 80px;">주소*</th>
+		<th style="width: 80px; line-height:500%;" >주소*</th>
 		<td>
-			<input id="member_post" name="mPost" type="text" placeholder="우편 번호" readonly class="form-control">
+			<input id="member_post" name="mPost" type="text" placeholder="우편 번호" readonly>
 			<button type="button" class="btn btn-sm" onclick="findAddr()">주소검색</button><br>
-			<input id="member_addr" name="addr1" type="text" placeholder="주소" readonly class="form-control"><br>
-			<input type="text" name="addr2" placeholder="상세 주소" class="form-control">
+			<input id="member_addr" name="addr1" type="text" placeholder="주소" readonly  style="width: 580px;" ><br>
+			<input type="text" name="addr2" placeholder="상세 주소" style="width: 580px;" >
 		</td>
 	</tr>
 	<tr>
-		<th style="width: 80px;">휴대전화*</th>
+		<th style="width: 80px; line-height:500%;" >휴대전화*</th>
 		<td>
-			<input type="text" name="mPhone" placeholder="- 없이 번호만 입력해 주세요" required="required" maxlength="11" class="form-control">
+			<input type="text" name="mPhone" placeholder="- 없이 번호만 입력해 주세요" required="required" maxlength="11">
 		</td>
 	</tr>
 	<tr>
-		<th style="width: 80px;">E-Mail*</th>
+		<th style="width: 80px; line-height:500%;">E-Mail*</th>
 			<td>
-				<input type="text" name="mEmail" placeholder="이메일을 입력해 주세요" required="required" class="form-control">
-				<select>
+				<input type="text" name="mEmail" placeholder="이메일을 입력해 주세요" required="required">
+				@
+				<select style="width: 300px; font-size:15px; height: 35px; color:#333;">
 					<option>직접입력</option>
 					<option value="@naver.com">naver.com</option>
 					<option value="@daum.net">daum.net</option>
@@ -128,101 +155,31 @@
 		</tr>
 </table>
 
+<div class="shippingmsg" style="line-height:300%;">
+	 <select id="omessage_select" name="omessage_select" fw-filter="" fw-label="배송 메세지" fw-msg="" style="width: 700px; font-size:15px;">
+		<option value="oMessage-0" selected="selected">-- 메시지 선택 (선택사항) --</option>
+		<option value="oMessage-1">배송 전에 미리 연락바랍니다.</option>
+		<option value="oMessage-2">부재 시 경비실에 맡겨주세요.</option>
+		<option value="oMessage-3">부재 시 문 앞에 놓아주세요.</option>
+		<option value="oMessage-4">빠른 배송 부탁드립니다.</option>
+		<option value="oMessage-5">택배함에 보관해 주세요.</option>
+		<option value="oMessage-input">직접 입력</option>
+	</select> 
+</div>
+<br>
 
-
+</div><!-- div bae 닫기 -->
 
 </div><!-- div one닫기 -->
 
 </div><!-- div content닫기 -->
-
-
-
-
-
-
-
-<form action="insert" method="post">
-	<table style="width: 800px;">
-		<caption>회원가입</caption>
-
-		
-		<tr>
-			<th>이 름</th>
-			<td>
-				<input type="text" name="mName" placeholder="이름을 입력해 주세요" required="required">
-			</td>
-		</tr>
-	
-		<tr>
-			<th>비밀번호</th>
-			<td>
-				<input type="password" name="mPassword" placeholder="비밀번호를 입력해 주세요" required="required"
-				style="width: 300px;" class="pass" minlength = "8"><span class="bi bi-eye eye1"/>
-			</td>
-		</tr>
-		
-		<tr>
-			<th>비밀번호 확인</th>
-			<td>
-				<input type="password" placeholder="비밀번호를 다시 입력해 주세요" required="required"
-				class="pass2" minlength = "8"><span class="bi bi-eye eye2"/>
-				
-			</td>
-		</tr>
-		
-		<tr>
-			<th>E-Mail</th>
-			<td>
-				<input type="text" name="mEmail" placeholder="이메일을 입력해 주세요" required="required">
-				<select>
-					<option>직접입력</option>
-					<option value="@naver.com">naver.com</option>
-					<option value="@daum.net">daum.net</option>
-					<option value="@google.com">google.com</option>
-					<option value="@nate.com">nate.com</option>
-				</select>
-			</td>
-		</tr>
-		
-		<tr>
-			<th>핸드폰 번호</th>
-			<td>
-				<input type="text" name="mPhone" placeholder="- 없이 번호만 입력해 주세요" required="required" maxlength="11">
-			</td>
-		</tr>
-		
-		<tr>
-			<th>생년월일</th>
-			<td>
-				<input type="date" name="mBirth">
-			</td>
-		</tr>
-		
-		<tr>
-			<th>주 소</th>
-			<td>
-				<input id="member_post" name="mPost" type="text" placeholder="우편 번호" readonly >
-				<button type="button" onclick="findAddr()">우편번호 검색</button><br>
-				<input id="member_addr" name="addr1" type="text" placeholder="주소" readonly><br>
-				<input type="text" name="addr2" placeholder="상세 주소">
-			</td>
-		</tr>
-		
-		<tr>
-			<td colspan="2">
-			<button type="submit">회원 가입</button>
-			</td>		
-		</tr>
-	</table>
-</form>
-
+<br><br><br><br>
 </body>
-<script>
+<script type="text/javascript">
 function findAddr(){
 	new daum.Postcode({
         oncomplete: function(data) {
-        	
-        	
+   	
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
             // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
             // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
