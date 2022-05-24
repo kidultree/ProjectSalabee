@@ -107,6 +107,7 @@ ul, ol, li {
      opacity: 0;
      height:0px;
     width:0px;
+    
   
 } 
 
@@ -117,7 +118,6 @@ ul.navbar_menu > li:hover ul.sub {
 } 
 ul.sub a:hover{
     font-weight: bold;
-    text-decoration: underline;
     color: gold;
     font-size:1.5rem;
 }
@@ -125,12 +125,18 @@ ul.navbar_menu > ul.sub:hover{
     opacity: 1;
 } 
 ul.navbar_menu > li:hover ul.sub a{  /*서브메뉴색깔*/
-color: black;
 
+}
+ul.sub a{
+font-family: 'Radio+Canada:wght@300';
+color:white;
+position:relative;
+right: 10px;
 }
 ul.sub li{
  background-color: rgba( 255, 255, 255, 0.1 );
- width: 100px;
+ width: 120px;
+
 }
 /*오른쪽 메뉴*/
 .navbar_menu2{
@@ -173,8 +179,8 @@ ul.sub li{
             <li class="main"><a href="">PERFUME</a> 
             
                 <ul class="sub">
-                    <li class=><a href="#">2.5ml</a></li>
-                    <li><a href="#">40ml</a></li>              
+                    <li><a href="#">FRAGRANCE</a></li>
+                    <li><a href="#">MySet</a></li>              
                     <li><a href="#">GOODS</a></li>
                         </ul></li>
                  
@@ -189,7 +195,7 @@ ul.sub li{
         </ul>
        
        <script type="text/javascript">
-       	$("li.main").click(function(){
+       	$("li.main").mouseover(function(){
        		
        		console.log(1);
        		$(this).next().next().toggle();
@@ -202,43 +208,17 @@ ul.sub li{
             <a href="/">FragBit</a>
         </div>
  <div class="iconmenu">
+ <c:if test="${sessionScope.loginok==null}"> 
        <a href="/login/loginform"> <img src="${root}/image/login.png" id="loginicon" style="width:30px"> </a>
+     </c:if>
+      <c:if test="${sessionScope.loginok!=null}">
+      <a href=""> <img src="${root}/image/logout.png" id="logouticon" style="width:30px"> </a>
+      </c:if>
        <a href="/cart/list"> <img src="${root}/image/cart.png" id="carticon" style="width:30px"></a>
    
     </div>
 
-      <!--로그인  
-
-   <a href="/">
-   <img src="${root}/image/title.png" width="1000"></a>
-   <div class="login">
-      <c:if test="${sessionScope.loginok==null}">
-         <button type="button" class="btn btn-success" style="width:100px;" 
-         onclick="location.href='${root}/login/form'">로그인</button>
-      </c:if> 
-         
-      <c:if test="${sessionScope.loginok!=null}">
-         <b>${sessionScope.loginname}(${sessionScope.loginid}) 님</b>
-         &nbsp;&nbsp;
-         <button type="button" class="btn btn-danger"
-         style="width: 80px "height: 40px" 
-         onclick="logout()">Logout</button>
-      </c:if>
-      </div>
-      <script type="text/javascript">
-         function logout()
-         {
-            $.ajax({
-               type:"get",
-               dataType:"text",
-               url:"${root}/login/logout",
-               success: function(){
-                  location.reload();
-               }
-            });
-         }
-      </script>
-   로그인 -->
+    
         </div>
     </nav>
 </div>

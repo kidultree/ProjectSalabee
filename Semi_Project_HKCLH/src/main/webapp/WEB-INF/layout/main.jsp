@@ -92,24 +92,24 @@ margin-top: -15px;
    
    
     <div class="topimage">
-    <img src="${root}/image/mainimage2.jpg" style="width: 1423px";>
+    <img src="${root}/image/mainimage2.jpg" style="width: 100%";>
 
 <div class="imgtitle" > 
     <p>Discovery Set</p>
 </div>
     <div  class="imgpre-title">
 <p>오늘, 나와 어울리는 향기를 위한 나만의 디스커버리 세트</p>
-<a data-v-ece7c136="" href="" class="-button" style="border-color: rgb(255, 255, 255);">
-<div data-v-ece7c136="" class="-text" style="color: rgb(255, 255, 255);">
+<a href="" class="-button" style="border-color: rgb(255, 255, 255);">
+<div class="-text" style="color: rgb(255, 255, 255);">
                 바로가기
               </div></a>
 
 </div> 
 <div class="video">
-<video src="${root}/image/mainvideo.mp4" autoplay loop muted poster="homepage.jpg" id="bg"  style="width:1423px;"></video>
+<video src="${root}/image/mainvideo.mp4" autoplay loop muted poster="homepage.jpg" id="bg"  style="width:100%;"></video>
  </div>
  <div class="mainbottomimg">
-<img src="${root}/image/mainimage1.jpeg" style="width: 1423px";>
+<img src="${root}/image/mainimage1.jpeg" style="width: 100%";>
 </div>
    
  
