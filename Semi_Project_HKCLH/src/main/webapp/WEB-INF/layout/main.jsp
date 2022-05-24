@@ -27,7 +27,8 @@ Signika+Negative:wght@300&display=swap" rel="stylesheet">
     height:auto;
     min-width:100%;
     min-height:100%;
-    z-index: 0px; <!--수정필요-->
+    z-index: 0px;
+    margin:0px;
    
 }
 div.imgtitle{
@@ -79,6 +80,9 @@ div.imgpre-title{
     border: 1px solid #000 !important;
     text-decoration : none;
 }
+div.mainbottomimg{
+margin-top: -15px;
+}
 /*body end*/
 </style>
 
@@ -100,10 +104,13 @@ div.imgpre-title{
                 바로가기
               </div></a>
 
-</div>
+</div> 
+<div class="video">
 <video src="${root}/image/mainvideo.mp4" autoplay loop muted poster="homepage.jpg" id="bg"  style="width:1423px;"></video>
+ </div>
+ <div class="mainbottomimg">
 <img src="${root}/image/mainimage1.jpeg" style="width: 1423px";>
-
+</div>
    
  
     <!--중앙끝-->
