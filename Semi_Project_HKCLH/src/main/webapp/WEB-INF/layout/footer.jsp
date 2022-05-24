@@ -15,6 +15,71 @@
       font-size: 2rem;
       font-family: 'Jua';
    }
+   /* 움직이는 영업시간*/
+.runtime {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background: #fff;
+    text-align: center;
+    line-height: 70px;
+    font-size: 12px;
+    color: #222;
+    z-index: 100;
+    letter-spacing: 1px;
+}
+/*영업끝
+/*footer style*/
+.footer{
+    height:100px;
+}
+#wrap{
+    height: 230px;
+    min-height: 200px;
+    position: relative;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+}
+#wrap section a{
+    font-size:3rem;
+    font-family: fantasy;
+   
+}
+#wrap a{
+    color: white;
+    text-align: center;
+    font-size: 1.4rem;
+    text-decoration: none;
+      font-family: 'jua';
+}
+footer p{
+    color: white;
+    font-family: 'Noto+Sans+KR';
+    font-size: 1.2rem;
+}
+footer p1{
+    font-size: 0.6rem;
+}
+footer{
+    width: 100%;
+    height: 130px;
+    bottom: 0px;
+    position: absolute;
+}
+section{
+    padding-bottom: 0px;
+    height:300px;
+    position:relative;
+    right: 12px;
+}
+ .navbar_icons{
+ position: relative;
+ right: 13px;
+ }
+/*footer end*/
 </style>
 </head>
 <body>

@@ -17,7 +17,145 @@ Roboto:wght@100&family=
 Signika+Negative:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style type="text/css">
+ /*헤더*/
+    .navbar {
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+        padding: 18px 12px;
+        z-index:4;      
+     
+    }
+  	nav.navbar{
+  	position : relative;
+  	margin-bottom: 0px;
+  	text-decoration:none;
+  	border-radius : 0px;
+  	}
+    .header{      
+        position: sticky;      
+        top: 0px;  
+        } 
+    .navbar_logo{
+        color:white;
+        text-align: center;
+        position: relative;
+        right: 200px;
+        font-family: fantasy;
+    }
+    .navbar_logo :hover{
+    text-decoration: none;
+    color: white;
+    }
+    div.iconmenu{
+        position:relative;
+        right: 0px;
+    }
+  div.iconmenu a:hover{
+  color:black;
+ 
+  }
+  
+    .navbar_menu{
+    display: flex;
+    list-style: none;
+    padding-left:100px;
+    position:relative;
+    right:220px;
+    top: 5px;
+}
+ul, ol, li {
+    list-style:none; margin:0; padding:0;
+    
+}
+.navbar_menu li{
+    padding: 16px 26px;
+    display: block;
+}
 
+
+.navbar a{
+    text-decoration:  none;
+    color: white;
+    text-align: center;
+    font-size: 4.5rem;
+    margin-right: 10px;
+}
+.fa-bars:before {
+    content: "\f0c9";
+    font-size: 1.4rem;
+    position: absolute;
+    top: 12px;
+    right: 3px;
+}
+.navbar_menu li a{
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-family: sans-serif;
+}
+.navbar_menu li a:hover{
+  color: gold;
+}
+ ul.navbar_menu > li ul.sub {
+    display:block;
+    position: relative;
+    top: 39px;
+    right: 20px;
+    padding: 0px 0px;
+     opacity: 0;
+     height:0px;
+    width:0px;
+  
+} 
+
+ul.navbar_menu > li:hover ul.sub { 
+    display:block;
+    opacity: 1;
+    height: 0px;
+} 
+ul.sub a:hover{
+    font-weight: bold;
+    text-decoration: underline;
+    color: gold;
+    font-size:1.5rem;
+}
+ul.navbar_menu > ul.sub:hover{
+    opacity: 1;
+} 
+ul.navbar_menu > li:hover ul.sub a{  /*서브메뉴색깔*/
+color: black;
+
+}
+ul.sub li{
+ background-color: rgba( 255, 255, 255, 0.1 );
+ width: 100px;
+}
+/*오른쪽 메뉴*/
+.navbar_menu2{
+        display: flex;
+    list-style: none;
+    padding-left: 0px;
+    position: absolute;
+    right: 50px;
+}
+.navbar_menu2 li{
+    padding: 8px 12px;
+    display: block;
+}
+.navbar_menu2 li a{
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: sans-serif;
+}
+.navbar_menu2 li a:hover{
+    color: gold;
+}
+/*header style end*/
+
+/*오른쪽메뉴끝*/
 </style>
 
 <script type="text/javascript">
