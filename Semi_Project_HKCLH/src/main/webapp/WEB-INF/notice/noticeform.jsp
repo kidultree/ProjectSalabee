@@ -23,7 +23,6 @@ text-shadow: 3px 3px 3px pink;
 }
 </style>
 
-<c:set var="root" value="<%=request.getContextPath() %>"/> <!-- 프로젝트경로 -->
 
 </head>
 <body>
