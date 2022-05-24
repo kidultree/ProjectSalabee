@@ -10,14 +10,13 @@ import lombok.Data;
 @Data
 public class QnADto {
 
-	private int qNum;
-	private String qCate;
-	private String qTitle;
-	private String qName;
-	private String qContent;
-	private String qImg;
-	private String qState;
-	private Timestamp qDate;
+	private int qnum;
+	private String qcate;
+	private String qtitle;
+	private String qname;
+	private String qcontent;
+	private String qimg;
+	private String qstate;
+	private Timestamp qdate;
 	private String mId;
-	
 }

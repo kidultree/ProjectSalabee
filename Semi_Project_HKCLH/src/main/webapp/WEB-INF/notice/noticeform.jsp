@@ -39,13 +39,13 @@ placeholder="공지 제목 입력" required="required" autofocus="autofocus">
 </tr>
 
 <!-- 5/23 nPhoto null값 + 오류 나는 부분 -->
-<!--  <tr>
+<tr>
 <th style="width: 100px; background-color:#FFE3EE">공지 이미지</th>
 <td>
- <input type="file" name="nPhoto" class="form-control"
+ <input type="file" name="file" class="form-control"
  multiple="multiple">
 </td>
-</tr> -->
+</tr>
 
 <tr>
 <td colspan="2">
