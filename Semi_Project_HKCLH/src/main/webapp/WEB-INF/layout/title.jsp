@@ -30,7 +30,7 @@ Signika+Negative:wght@300&display=swap" rel="stylesheet">
     <nav class="navbar">
         <ul class= "navbar_menu">
            
-          <li><a href="/brand/about">BRAND </a></li>
+          <li><a href="/cart/about">BRAND </a></li>
             
             <li class="main"><a href="">PERFUME</a> 
             

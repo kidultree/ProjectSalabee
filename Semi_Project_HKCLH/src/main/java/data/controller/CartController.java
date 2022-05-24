@@ -33,6 +33,13 @@ public class CartController {
 		return "/cart/cartform";		
 	}
 	
+	/* 브랜드페이지 이동 */
+	@GetMapping("/about")
+	public String form()
+	{
+		return "/brand/about";		
+	}
+	
 	
 	/* 장바구니에 담기 */
 	@PostMapping("insert")
