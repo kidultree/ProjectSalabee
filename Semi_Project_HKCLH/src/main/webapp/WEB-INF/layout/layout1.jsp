@@ -101,7 +101,7 @@ ul, ol, li {
 .navbar_menu li a:hover{
   color: gold;
 }
-ul.navbar_menu > li ul.sub {
+ ul.navbar_menu > li ul.sub {
     display:block;
     position: relative;
     top: 39px;
@@ -111,13 +111,13 @@ ul.navbar_menu > li ul.sub {
      height:0px;
     width:0px;
   
-}
+} 
 
-ul.navbar_menu > li:hover ul.sub { /*이거*/
+ul.navbar_menu > li:hover ul.sub { 
     display:block;
     opacity: 1;
     height: 0px;
-}
+} 
 ul.sub a:hover{
     font-weight: bold;
     text-decoration: underline;
@@ -126,9 +126,9 @@ ul.sub a:hover{
 }
 ul.navbar_menu > ul.sub:hover{
     opacity: 1;
-}
+} 
 ul.navbar_menu > li:hover ul.sub a{  /*서브메뉴색깔*/
-color: white;
+color: black;
 
 }
 ul.sub li{
