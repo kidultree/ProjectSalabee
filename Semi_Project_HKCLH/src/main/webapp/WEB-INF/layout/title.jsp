@@ -30,7 +30,7 @@ Signika+Negative:wght@300&display=swap" rel="stylesheet">
     <nav class="navbar">
         <ul class= "navbar_menu">
            
-          <li><a href="">BRAND </a></li>
+          <li><a href="/brand/about">BRAND </a></li>
             
             <li class="main"><a href="">PERFUME</a> 
             
@@ -65,7 +65,7 @@ Signika+Negative:wght@300&display=swap" rel="stylesheet">
         </div>
  <div class="iconmenu">
        <a href="/login/loginform"> <img src="${root}/image/login.png" id="loginicon" style="width:30px"> </a>
-       <a href="/cart/cartform"> <img src="${root}/image/cart.png" id="carticon" style="width:30px"></a>
+       <a href="/cart/list"> <img src="${root}/image/cart.png" id="carticon" style="width:30px"></a>
    
     </div>
 
