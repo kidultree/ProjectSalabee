@@ -38,12 +38,47 @@ public class QnAController {
 	}
 	
 	@GetMapping("/list")
-	public ModelAndView list() {
+	public ModelAndView list(
+			@RequestParam(defaultValue = "1") int currentPage
+			
+			) {
 		
 		ModelAndView mview = new ModelAndView();
+		//페이징 처리
+		int totalCount; //총 갯수
+		int perPage=5; //한 페이지당 보여질 글의 갯수
+		int perBlock=5; //한 블럭당 보여질 글의 갯수 (◀이전 1,2,3,4,5 다음▶)
+		int totalPage; //총 페이지수
+		int startNum; //한 페이지에서 보여질 시작 글번호
+		int startPage; //한 블럭에서 보여질 시작 페이지 번호
+		int endPage; //한 블럭에서 보여질 끝 페이지 번호
+		int no; //각 페이지당 보여질 시작번호
 		
+		//총 글의 갯수를 구한다
+		totalCount = qnaMapper.getTotalQnACount();
+		//총 페이지 수
+		totalPage = totalCount/perPage+(totalCount%perPage==0?0:1);
+		
+		startPage = (currentPage-1)/perBlock*perBlock+1;
+		endPage = startPage+perBlock-1;
+		
+		if(endPage>totalPage) {
+			endPage=totalPage;
+		}
+		
+		startNum = (currentPage-1)*perPage;
+		no = totalCount-(currentPage-1)*perPage;
+		
+		//데이터 가져오기
 		List<QnADto> list = qnaMapper.getQnAList();
+		
 		//model에 저장
+		mview.addObject("currentPage",currentPage);
+		mview.addObject("totalCount",totalCount);
+		mview.addObject("totalPage",totalPage);
+		mview.addObject("startPage",startPage);
+		mview.addObject("endPage",endPage);
+		mview.addObject("no",no);
 		mview.addObject("list",list);
 		
 		mview.setViewName("/qna/qnalist");

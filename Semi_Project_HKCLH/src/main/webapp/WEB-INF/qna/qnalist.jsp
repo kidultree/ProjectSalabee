@@ -212,7 +212,7 @@
 </div>
 
     <br><br>                    <!-- QnA 테이블  -->
-	<h2>1:1 문의 QnA</h2>
+	<h2>QnA</h2>
 	<div class="qnaboard" id="qnaboard";>
 		<table class="table table-bordered" style="width: 1400px;">
 			
@@ -231,9 +231,9 @@
 						<td>${dto.qnum}</td>
 						<td>${dto.qcate}</td>
 							<!-- 제목 출력 -->
-							<a href="content?num=${dto.qnum}&currentPage=${currentPage}">
-								<td>${dto.qtitle}</td>
-							</a>
+							<td><a href="content?num=${dto.qnum}&currentPage=${currentPage}">
+								${dto.qtitle}
+							</a></td>
 							<td>${dto.mid}</td>
 							
 							<td>${dto.qstate}</td>		

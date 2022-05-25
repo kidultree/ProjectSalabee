@@ -1,6 +1,7 @@
 package data.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,5 +17,8 @@ public interface QnAMapperInter {
 	public List<QnADto> getQnAList();
 	
 	public QnADto getQnA(int num);
-	public int getToTalCount();
+	public int getTotalQnACount();
+	public int getMaxNum();
+	public void updateReStep(Map<String, Integer> map);
+	public QnADto getData(int num);
 }
