@@ -48,18 +48,40 @@
 	div.subtitle{ font-size:25px; }
 	div.description{ font-size:18px; }
 	
+	
 </style>
 <script type="text/javascript">
+
 /* 클릭시 스크롤 이동 */
 $(document).ready(function($) {
     $(".scroll_move").click(function(event){
             event.preventDefault();
-            $('html,body').animate({scrollTop:$(this.hash).offset().top}, 1000);
+            $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);
     });
+    
+/* scroll top button */
+	// 1. 특정 위치에서 부터 버튼 나타고, 사라지게(fade)
+    $(window).scroll(function () {
+		if ($(this).scrollTop() > 600) {
+			$('.go-top').fadeIn(200);
+		} else {
+			$('.go-top').fadeOut(200);
+		}
+	});
+
+	// 2. 버튼 클릭하면 원하는 위치로 이동
+	$('.go-top').click(function (event) {
+		event.preventDefault();
+		$('html, body').animate({ scrollTop: 0 }, 300);
+	});
+	
 });
 </script>
 </head>
 <body>
+
+<button type="button" class="btn btn-default go-top" id="go-top"
+style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyphicon-chevron-up"></span></button> 
 
 <!-- 메인비디오 재생 -->
 <div class="video">
@@ -69,9 +91,9 @@ $(document).ready(function($) {
 <!-- 선택 div -->
 <div class="content-box">
 	<div class="features">
-		<a class="feature" href="#div1" id="scroll_move"><img src="${root}/image/feature1.PNG" style="width:400px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a class="feature" href="#div2" id="scroll_move"><img src="${root}/image/feature2.PNG" style="width:400px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a class="feature" href="#div3" id="scroll_move"><img src="${root}/image/feature3.PNG" style="width:400px;"></a>
+		<a class="scroll_move" href="#div1"><img src="${root}/image/feature1.PNG" style="width:400px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a class="scroll_move" href="#div2"><img src="${root}/image/feature2.PNG" style="width:400px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a class="scroll_move" href="#div3"><img src="${root}/image/feature3.PNG" style="width:400px;"></a>
 	</div>
 </div>
 
@@ -116,10 +138,10 @@ $(document).ready(function($) {
         </div>
         <div class="card">
         <div class="image"><br><br><img src="${root}/image/card2-3.PNG" style="width:700px;"></div>
-        <div class="description"><br><br>FSC인증이 완료된 종이를 사용하며,<br>비닐을 사용하지 않습니다.<br><br><br></div>
+        <div class="description"><br><br>FSC인증이 완료된 종이를 사용하며,<br>비닐을 사용하지 않습니다.<br><br><br><br><br><br></div>
 		</div></div>
 </div></div>
-<br><br><br><br>
+<br><br><br>
 
 
 <div class="content3">
