@@ -21,7 +21,7 @@
     left:0; top:0;
     width:100%; height:800px;
     min-width:100%; min-height:100%;
-    z-index: 0px; <!--수정필요-->
+    z-index: 0;
 	}
 	div.content-box{
 	width:auto; height:600px;
@@ -47,6 +47,7 @@
 	div.title{ font-size:35px; font-weight:bold; }
 	div.subtitle{ font-size:25px; }
 	div.description{ font-size:18px; }
+	
 	
 </style>
 <script type="text/javascript">

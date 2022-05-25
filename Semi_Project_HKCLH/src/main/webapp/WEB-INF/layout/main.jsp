@@ -37,8 +37,8 @@ Signika+Negative:wght@300&display=swap"
 
 div.imgtitle {
 	position: absolute;
-	top: 200px;
-	left: 550px;
+	top: 23%;
+	left: 37%;
 	color: white;
 	font-size: 5rem;
 	font-family: 'sans-serif';
@@ -48,7 +48,7 @@ div.imgtitle {
 div.imgpre-title {
 	position: absolute;
 	top: 300px;
-	left: 380px;
+	left: 25%;
 	color: white;
 	font-size: 2.6rem;
 	font-family: 'Malgun Gothic';
@@ -87,6 +87,40 @@ div.imgpre-title {
 	text-decoration: none;
 }
 
+.-button2 { -
+	-swiper-theme-color: #007aff; -
+	-swiper-navigation-size: 44px;
+	font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+	font-family: "Helvetica Neue", "Helvetica", "Noto Sans KR",
+		"Malgun Gothic", sans-serif !important;
+	color: white;
+	text-decoration: none;
+	user-select: none;
+	position: absolute;
+	left: 49%;
+	top: 2210px;
+	transform: translateX(-50%);
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	justify-content: center;
+	width: 285px;
+	height: 60px;
+	box-sizing: border-box;
+	cursor: pointer;
+	transition: all .2s;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 1px solid #000 !important;
+}
+
+.-button2:hover {
+	background-color: black !important;
+	border: 1px solid #000 !important;
+	text-decoration: none;
+	text-decoration-color: white;
+}
+
 div.mainbottomimg {
 	margin-top: -15px;
 }
@@ -118,7 +152,16 @@ div.mainbottomimg {
 	<div class="mainbottomimg">
 		<img src="${root}/image/mainimage1.jpeg" style="width: 100%";>
 	</div>
+	
+	<!--  -->
+	<div class="bottomimage">
+		<img src="${root}/image/mainimage3.png" style="width: 100%";>
 
+
+		<a href="" class="-button2" style="border-color: rgb(255, 255, 255);">
+			<div class="-text2" style="color: gold;">브랜드 스토리 보기</div>
+		</a>
+		</div>
 	<!--중앙끝-->
 </body>
 </html>

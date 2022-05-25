@@ -13,5 +13,5 @@ public interface ProductMapperInter {
    public List<ProductDto> getProductList(Map<String, Integer> map);
    public ProductDto getProduct(int num);
    public void deleteProduct(int num);
-   public int getTotalCount();
+   public int getTotalCount(); 
 }
