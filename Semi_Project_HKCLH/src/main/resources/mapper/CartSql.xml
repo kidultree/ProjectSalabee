@@ -17,7 +17,7 @@
    </insert>
    
    <select id="getAllCart" parameterType="Map" resultType="Map">
-	select c.cid, c.mid, c.pnum, c.cquantity, pr.pprice, po.oid, po.oname, pr.pname,
+	select c.cid, c.mid, c.pnum, c.cquantity, pr.pprice, po.oid, po.oname, pr.pname, pr.pphoto,
 	po.addprice, c.cquantity*(pr.pprice+po.addprice) AS SUM_PRICE
 	
 	from cart c
@@ -32,7 +32,7 @@
 	and m.mid = #{mid};
    </select>
    
-   
+   <!-- 삭제 -->
    <delete id="deleteCart" parameterType="cart">
       delete from cart where cid = #{cid}
    </delete>
