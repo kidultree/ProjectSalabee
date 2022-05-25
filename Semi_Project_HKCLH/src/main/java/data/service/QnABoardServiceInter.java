@@ -8,7 +8,7 @@ public interface QnABoardServiceInter {
 	public int getMaxNum();
 	public void updateReStep(int reg, int restep);
 	public int getTotalCount();
-	public List<QnADto> getList(int start, int perpage);
+	public List<QnADto> getQnAList(int start, int perpage);
 	public void insertQnA(QnADto dto);
 	public QnADto getData(int num);
 	public void updateQnA(QnADto dto);

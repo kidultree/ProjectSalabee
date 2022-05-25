@@ -11,13 +11,13 @@ insert into QnA (qnum, qcate, qtitle, mid, qcontent, qimg, qstate, qdate) values
 
 
 <!-- 리스트 -->
-<select id="getQnAList" resultType="qna">
-	select * from QnA
+<select id="getQnAList" parameterType="Map" resultType="qna">
+	select * from QnA 
 </select>
 
 
 <!-- 수정 -->
-<select id="getQnA" parameterType="int" resultType="product">
+<select id="getQnA" parameterType="int" resultType="qna">
 select * from QnA where qnum = #{qnum}
 </select>
 
@@ -32,6 +32,14 @@ delete from QnA where qnum=#{qnum}
 select count(*) from QnA
 </select>
 
+<select id="getMaxNum" resultType="int">
+		select ifnull(max(qnum),0) from QnA
+	</select>
+
+<update id="updateReStep" parameterType="Map">
+		update QnA set restep=restep+1 where reg=#{reg} and restep > #{restep} 
+		<!-- 같은 그룹이면서 전달받은 restep보다 큰 경우 모조리 +1 -->
+	</update>
 
 </mapper>
 	
