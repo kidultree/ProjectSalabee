@@ -19,7 +19,6 @@ public class QnADto {
 	private String qstate;
 	private Timestamp qdate;
 
-	private int readcount;
 	private int reg;
 	private int restep;
 	private int relevel;

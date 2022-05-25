@@ -34,8 +34,19 @@
 
 
 <body>
+<c:if test="${sessionScope.loginok==null}">
+	<script type="text/javascript">
+		alert("다시 로그인 후 글쓰기를 시도해 주세요");
+		location.href='../login/form'
+	</script>
+</c:if>
 	<form action="insert" method="post" enctype="multipart/form-data">
-	
+	<!-- hidden 5개 -->
+	<input type="hidden" name="currentPage" value="${currentPage}">
+	<input type="hidden" name="qnum" value="${qnum}">
+	<input type="hidden" name="reg" value="${reg}">
+	<input type="hidden" name="restep" value="${restep}">
+	<input type="hidden" name="relevel" value="${relevel}">
 	
 <table class="table table-bordered notice" style="width: 800px;">
 
@@ -56,17 +67,7 @@
 </td>
 </tr>
 
-<script type="text/javascript">
-function selectqcate(){
-	var qcate = $("#qcate > option:selected").val();
-	$("#qcate").val(qcate);
-	
-}
-
-
 </script>
-
-
 
 <tr>
 <th style="width: 100px; background-color:#FFE3EE">제목</th>

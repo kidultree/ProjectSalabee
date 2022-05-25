@@ -34,15 +34,15 @@ public class QnABoardService implements QnABoardServiceInter {
 	}
 
 	@Override
-	public List<QnADto> getList(int start, int perpage) {
+	public List<QnADto> getQnAList(int start, int perpage) {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("start", start); //xml과 같은 이름으로 줄것 
 		map.put("perpage", perpage); 
-		return mapper.getQnAList();
+		return mapper.getQnAList(map);
 	}
 
 	@Override
-	public void insertQnA(QnADto dto) { //그림판에서 그렸던 로직 다 들어감!
+	public void insertQnA(QnADto dto) {
 		int reg = dto.getReg();
 		int restep=dto.getRestep();
 		int relevel = dto.getRelevel();

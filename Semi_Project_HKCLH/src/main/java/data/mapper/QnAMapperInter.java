@@ -14,7 +14,7 @@ public interface QnAMapperInter {
 	public void updateQnA(QnADto dto);
 	public void deleteQnA(int num);
 	
-	public List<QnADto> getQnAList();
+	public List<QnADto> getQnAList(Map<String, Integer> map);
 	
 	public QnADto getQnA(int num);
 	public int getTotalQnACount();

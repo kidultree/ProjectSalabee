@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
@@ -22,18 +23,38 @@ import org.springframework.web.servlet.ModelAndView;
 import Util.FileUtil;
 import data.dto.NoticeDto;
 import data.dto.QnADto;
+import data.mapper.MemberMapperInter;
 import data.mapper.QnAMapperInter;
+import data.service.QnABoardService;
 
 @Controller
 @RequestMapping("/qna")
 public class QnAController {
 
 	@Autowired
-	private QnAMapperInter qnaMapper;
+	private QnABoardService qnaService;
+	
+	@Autowired
+	private MemberMapperInter memberMapper;
 	
 	@GetMapping("/form")
-	public String form() {
-		return "/qna/qnaform";
+	public ModelAndView form(@RequestParam Map<String, String>map) {
+		ModelAndView mview = new ModelAndView();
+	      //답글일 경우 읽어야 할 5개의 값 (새 글일 경우는 값이 안넘어옴 = 모두 null)
+	      String currentPage=map.get("currentPage");
+	      String num=map.get("num");
+	      String reg=map.get("reg");
+	      String restep=map.get("restep");
+	      String relevel=map.get("relevel");
+	      
+	      mview.addObject("currentPage",currentPage==null?"1":currentPage);
+	      mview.addObject("num",num==null?"0":num);
+	      mview.addObject("reg",reg==null?"0":reg);
+	      mview.addObject("restep",restep==null?"0":restep);
+	      mview.addObject("relevel",relevel==null?"0":relevel);
+	      
+	    mview.setViewName("/qna/qnaform");
+		return mview;
 		
 	}
 	
@@ -55,7 +76,7 @@ public class QnAController {
 		int no; //각 페이지당 보여질 시작번호
 		
 		//총 글의 갯수를 구한다
-		totalCount = qnaMapper.getTotalQnACount();
+		totalCount = qnaService.getTotalCount();
 		//총 페이지 수
 		totalPage = totalCount/perPage+(totalCount%perPage==0?0:1);
 		
@@ -70,7 +91,17 @@ public class QnAController {
 		no = totalCount-(currentPage-1)*perPage;
 		
 		//데이터 가져오기
-		List<QnADto> list = qnaMapper.getQnAList();
+		List<QnADto> list = qnaService.getQnAList(startNum, perPage);
+		
+		//각 데이터에 id를 이용해서 이름 넣어주기
+				for(QnADto dto:list)
+				{
+					String id = dto.getMid();
+					String name = memberMapper.getmName(id);
+					dto.setMid(name);
+				
+				}
+		
 		
 		//model에 저장
 		mview.addObject("currentPage",currentPage);
@@ -123,7 +154,7 @@ public class QnAController {
 	
 		
 			//db update
-	      qnaMapper.insertQnA(dto);
+		qnaService.insertQnA(dto);
 	      return "redirect:list";
 	   }
 }
