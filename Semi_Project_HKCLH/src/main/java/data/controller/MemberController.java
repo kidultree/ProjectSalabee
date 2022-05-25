@@ -29,15 +29,8 @@ public class MemberController {
 	}
 	
 	@PostMapping("/insert")
-	public void insert(@Valid @ModelAttribute MemberDto dto,
-			Errors errors,
-			Model model,
-			@RequestParam String addr1,
-			@RequestParam String addr2)
+	public void insert(@Valid @ModelAttribute MemberDto dto)
 	{
-		dto.setMAddress(addr1+" "+addr2);
-		
-
 		membermapper.insertMember(dto);	
 		
 	}

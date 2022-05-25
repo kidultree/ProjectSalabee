@@ -135,8 +135,8 @@
 			<td>
 				<input id="member_post" name="mPost" type="text" placeholder="우편 번호" readonly >
 				<button type="button" onclick="findAddr()">우편번호 검색</button><br>
-				<input id="member_addr" name="addr1" type="text" placeholder="주소" readonly><br>
-				<input type="text" name="addr2" placeholder="상세 주소">
+				<input id="member_addr" name="mAddress1" type="text" placeholder="주소" readonly><br>
+				<input type="text" name="mAddrress2" placeholder="상세 주소">
 			</td>
 		</tr>
 		
