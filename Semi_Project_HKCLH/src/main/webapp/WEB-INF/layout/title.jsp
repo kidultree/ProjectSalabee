@@ -200,7 +200,7 @@ ul.sub li {
 				<li><a href="">SHOP</a>
 
 					<ul class="sub">
-						<li><a href="#">FRAGRANCE</a></li>
+						<li><a href="/product/list">FRAGRANCE</a></li>
 						<li><a href="#">MySet</a></li>
 						<li><a href="#">GOODS</a></li>
 					</ul></li>
@@ -225,7 +225,7 @@ ul.sub li {
 
 			<div class="navbar_logo">
 
-				<a href="/">FragBit</a>
+				<a href="/">Untitled</a>
 			</div>
 			<div class="iconmenu">
 			
