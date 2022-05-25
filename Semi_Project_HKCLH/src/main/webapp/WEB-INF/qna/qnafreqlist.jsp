@@ -14,10 +14,7 @@
 	href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gowun+Dodum&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
 	rel="stylesheet">
 <style type="text/css">
-	body {
-	font-size: 2rem;
-	font-family: 'Jua';
-	}
+
 </style>
 
 <script type="text/javascript">
@@ -58,6 +55,8 @@
             border-collapse: collapse;
             color: #2E2E2E;
             border: #A4A4A4;
+            font-family: 'Gowun Dodum';
+            height: 300px;
         }
   
         #table_detail tr:hover {
@@ -66,6 +65,8 @@
   
         #table_detail .hidden_row {
             display: none;
+            
+            
         }
     </style>
 </head>
@@ -76,11 +77,12 @@
   
         <table border=1 id="table_detail" 
             align=center cellpadding=10>
-  
+  			
             <tr>
                 <th>제목</th>
                 <th>작성일</th>
             </tr>
+     
   
             <tr onclick="showHideRow('hidden_row1');">
                 <td>계절별 향수를 알고싶어요</td>
@@ -89,19 +91,19 @@
             </tr>
             <tr id="hidden_row1" class="hidden_row">
                 <td colspan=4>
-                    각 제품 상세페이지에 해당 제품을 즐기기 좋은 계절이 표기되어 있습니다.<br>
+                    <br>각 제품 상세페이지에 해당 제품을 즐기기 좋은 계절이 표기되어 있습니다.<br>
 
-상세 페이지를 참고해 주셔도 좋고 아래의 내용을 참고로 고르셔도 좋습니다.<br><br>
+					상세 페이지를 참고해 주셔도 좋고 아래의 내용을 참고로 고르셔도 좋습니다.<br><br>
 
- 봄 : 백색향, 물기 머금은 장미, 은은한 비누, 로맨틱로즈, 너티크림 초코라떼, 여름의 오렌지길  
+ 					봄 : 백색향, 물기 머금은 장미, 은은한 비누, 로맨틱로즈, 너티크림 초코라떼, 여름의 오렌지길 <br>
 
-    #부드러운 #비누향 #사랑스러운 #깔끔한 #장미 # 가벼운 #포근한 #꽃잎 
+  				  #부드러운 #비누향 #사랑스러운 #깔끔한 #장미 # 가벼운 #포근한 #꽃잎 
 
-    #깔끔한 #청순한 #달콤한 #달달한 #커피 #초콜릿 #초여름 #투명한 #푸르른
+    			#깔끔한 #청순한 #달콤한 #달달한 #커피 #초콜릿 #초여름 #투명한 #푸르른<br>
 
 <br>
 
-여름 : 연둣빛 풀꽃, 물속으로 다이빙, 봄비에 꽃망울, 풀잎 위 아침이슬, 오렌지빛 꽃물, 놀이동산 데이트, 회색빛 시간, 초록빛 기억  
+여름 : 연둣빛 풀꽃, 물속으로 다이빙, 봄비에 꽃망울, 풀잎 위 아침이슬, 오렌지빛 꽃물, 놀이동산 데이트, 회색빛 시간, 초록빛 기억 <br>
 
         #청량한 #투명한 #풀숲  #시원한  #샤프한  #물  #내추럴  #프리지아  #산뜻한  
 
@@ -111,7 +113,7 @@
 
  <br>
 
-가을 : 달빛 가득 돌담길, 밤바다 드라이브, 우아한 코트  
+가을 : 달빛 가득 돌담길, 밤바다 드라이브, 우아한 코트  <br>
 
         #나무껍질  #차분한  #지적인  #열정적인  #시원한  #물  #우아한  
 
@@ -119,7 +121,7 @@
 
  <br>     
 
-겨울:  투명한 바람, 바삭한 가을바람, 상큼달달 과즙, 어른의 솜사탕, 포근한 겨울밤, 평온한 인센스, 서랍 깊은 곳에 잠들어 있는 손편지의 추억
+겨울:  투명한 바람, 바삭한 가을바람, 상큼달달 과즙, 어른의 솜사탕, 포근한 겨울밤, 평온한 인센스, 서랍 깊은 곳에 잠들어 있는 손편지의 추억 <br>
 
         #차분한  #깔끔한  #겨울숲  #지적인  #나무  #섬세한  #달콤한  #귀여운  #과일  
 
@@ -138,9 +140,7 @@
             </tr>
             <tr id="hidden_row2" class="hidden_row">
                 <td colspan=4>
-                    Person-2 is 25 years old and 
-                    she is a web designer she earns 
-                    100000 per month
+                  직접 시향하지 않아도 취향 맞춤 향을 추천해주는 퍼퓸텔러를 통해 소용량인 데일리키트 구매를 추천해 드립니다.
                 </td>
             </tr>
   
@@ -151,7 +151,7 @@
             </tr>
             <tr id="hidden_row3" class="hidden_row">
                 <td colspan=4>
-                   오프라인 매장은 운영하고 있지 않습니다.
+                   오프라인 매장은 운영하고 있지 않습니다.<br>
 				My Set를 통해 나에게 맞는 향을 추천받고 소용량의 데일리키트로 먼저 체험해보시길 권장드립니다.
                 </td>
             </tr>
@@ -163,14 +163,14 @@
             </tr>
             <tr id="hidden_row4" class="hidden_row">
                 <td colspan=4>
-                   각종 문의를 하실 수 있는 파펨의 채널은 다음과 같습니다.
-				- Paffem web site 1:1 문의 게시판
+                   각종 문의를 하실 수 있는 파펨의 채널은 다음과 같습니다.<br><br>
+				- Paffem web site 1:1 문의 게시판<br>
 
-				- 파펨 고객센터 메일: help@paffem.com
+				- 파펨 고객센터 메일: help@paffem.com <br>
 
-				- 파펨 1:1 대화 : 홈페이지 우측 하단 1:1  클릭
+				- 파펨 1:1 대화 : 홈페이지 우측 하단 1:1  클릭 <br>
 
-				- 고객센터 전화 : 070-4948-8028
+				- 고객센터 전화 : 070-4948-8028 <br>
                 </td>
             </tr>
   
@@ -181,9 +181,9 @@
             </tr>
             <tr id="hidden_row5" class="hidden_row">
                 <td colspan=4>
-                    파펨의 향수가 2019년 8월 리뉴얼되어 이전 상품은 더 이상 공식 판매하고 있지 않습니다.
+                    파펨의 향수가 2019년 8월 리뉴얼되어 이전 상품은 더 이상 공식 판매하고 있지 않습니다. <br>
 
-일부 판매되던 향수의 경우도 유통기한 마감으로 인해 더 이상 판매되지 않고 있으니 양해 부탁드립니다.
+일부 판매되던 향수의 경우도 유통기한 마감으로 인해 더 이상 판매되지 않고 있으니 양해 부탁드립니다.<br>
 
 
 
