@@ -77,4 +77,16 @@ public class LoginController {
 		
 		return "redirect:/";
 	}
+	
+	@GetMapping("/findid")
+	public String findid() {
+		
+		return "/login/findid";
+	}
+	
+	@GetMapping("/findpass")
+	public String findpass() {
+		
+		return "/login/findpass";
+	}
 }

@@ -10,84 +10,49 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    
  
+ 
+<c:set var="root" value="<%=request.getContextPath() %>"></c:set>
+<link rel="stylesheet" type="text/css" href="${root}/css1/animate.css">
+<link rel="stylesheet" type="text/css" href="${root}/css1/animsition.min.css">
+<link rel="stylesheet" type="text/css" href="${root}/css1/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="${root}/css1/daterangepicker.css">
+<link rel="stylesheet" type="text/css" href="${root}/css1/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="${root}/css1/hamburgers.min.css">
+<link rel="stylesheet" type="text/css" href="${root}/css1/main.css">
+<link rel="stylesheet" type="text/css" href="${root}/css1/material-design-iconic-font.min.css">
+<link rel="stylesheet" type="text/css" href="${root}/css1/select2.min.css">
+<link rel="stylesheet" type="text/css" href="${root}/css1/util.css">
+
+<script type="text/javascript" src="${root}/js1/analytics.js"></script>
+<script type="text/javascript" src="${root}/js1/animsition.min.js"></script>
+<script type="text/javascript" src="${root}/js1/bootstrap.min.js"></script>
+<script type="text/javascript" src="${root}/js1/countdowntime.js"></script>
+<script type="text/javascript" src="${root}/js1/daterangepicker.js"></script>
+<script type="text/javascript" src="${root}/js1/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="${root}/js1/main.js"></script>
+<script type="text/javascript" src="${root}/js1/moment.min.js"></script>
+<script type="text/javascript" src="${root}/js1/popper.js"></script>
+<script type="text/javascript" src="${root}/js1/select2.min.js"></script>
+
+
+
 <style type="text/css">
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
-	.inputid,.inputpass {
-		padding: 0 28px;
-		cursor: pointer;
-		margin-top: 5px;
-		background-image: 
-	}
-	
-	input::placeholder {
-		font-size: 0.7em;
-		padding-left: 5px;
-	}
-	
-	span.bi {
-		color: gray;
-		position: relative;
-		left: -266px;		
-		top: 1px;
-		font-size: 0.8em;
-	}
-	
-	div.title {
-		background-color: white;
-		
-	}
-	
-	div.title form{
-		position:absolute;
-		padding: 0 700px;
-		box-sizing: border-box;
-		margin-top: 50px;
-	}
-	
-	div.title h1{
-		text-align: center;
-		padding: 0 0 20px 0%;
-		border-bottom: 1px solid silver;
-	}
-	
-	form .body{
-		position: relative;
-		border-bottom: 2px solid #adadad;
-		margin: 30px 0;
-	}
-	
-	.body input{
-		width: 100%;
-		padding: 0 5px;
-		height: 40px;
-		font-size: 16px;
-		border: none;
-		background: none;
-		outline: none;
-	}
-	
-	.body label{
-		position: absolute;
-		top: 50%;
-		left: 5px;
-		color: #adadad;
-		transform:translateY(-50%);
-		font-size: 16px;
-		pointer-events: none;
-	}
-	
-	.body span::before {
-	 content: '';
-	 position: absolute;
-	 top: 40px;
-	 left: 0;
-	 width: 100%;
-	 height: 2px;
-	 background: #2691d9;
-	 
-	}
-	
+
+div.all{
+	position:absolute;
+	left: 570px;
+}
+
+div.all div.url{
+	position: relative;
+	top: -40px;
+}
+div.all div.signup{
+	position: relative;
+	top: -150px;
+}
 
 </style>
 
@@ -95,7 +60,7 @@
 
 </head>
 <body>
-	<div class="title">
+<!-- <div class="title">
 	<h1>로그인</h1>
 	<form action="process" method="post">
 	
@@ -123,14 +88,60 @@
 	</div>
 		
 	</form>
+	</div> -->
+
+
+	<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54 all">
+		<form class="login100-form validate-form">
+			<span class="login100-form-title p-b-49"> Login </span>
+			<div class="wrap-input100 validate-input m-b-23"
+				data-validate="Username is reauired">
+				<span class="label-input100">Username</span> 
+					<input class="input100"	type="text" name="username" placeholder="Type your username">
+				<span class="focus-input100" data-symbol=""></span>
+			</div>
+			
+			<div class="wrap-input100 validate-input"
+				data-validate="Password is required">
+				<span class="label-input100">Password</span> 
+					<input class="input100" type="password" name="pass" placeholder="Type your password">
+				<span class="focus-input100" data-symbol=""></span>
+			</div>
+			
+			<div class="text-right p-t-8 p-b-31">
+				<a href="/login/findid"> Forgot Id? </a><br>
+				<a href="/login/findpass"> Forgot password? </a>
+			</div>
+			
+			<div class="container-login100-form-btn">
+				<div class="wrap-login100-form-btn">
+					<div class="login100-form-bgbtn"></div>
+					<button class="login100-form-btn">Login</button>
+				</div>
+			</div>
+			
+			<div class="txt1 text-center p-t-54 p-b-20 url">
+				<span> Or Sign Up Using </span>
+			</div>
+			<div class="flex-c-m url">
+				<a href="#" class="login100-social-item bg1"> <i
+					class="fa fa-facebook"></i>
+				</a> <a href="#" class="login100-social-item bg2"> <i
+					class="fa fa-twitter"></i>
+				</a> <a href="#" class="login100-social-item bg3"> <i
+					class="fa fa-google"></i>
+				</a>
+			</div>
+			<div class="flex-col-c p-t-155 signup">
+				<span class="txt1 p-b-17"> Or Sign Up Using </span> <a href="/member/joinform"
+					class="txt2"> Sign Up </a>
+			</div>
+		</form>
 	</div>
 
-	
-	
-			
-				<br><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
+
 </body>
 </html>
