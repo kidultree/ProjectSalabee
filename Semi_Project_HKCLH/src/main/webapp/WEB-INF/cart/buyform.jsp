@@ -11,46 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-    
-<style type="text/css">
-
-	input::placeholder {
-		font-size: 0.7em;
-	}
-	
-	span {
-		position:relative;
-		left: -20px;
-	}
-	
-	div{font-family:sans-serif;}
-	div.content { width:100%; height:100%;}
-	
-	div.title {  width:500px; height:70px; margin: auto; font-weight:bold;
-	font-size:35px; text-align : center; font-family:sans-serif;}
-	div.title2{ width:500px; height:100px; margin: auto; 
-	font-size:15px; text-align : center; font-family:sans-serif; color:gray; }
-	
-	div.one{ width:800px; margin: auto; border-bottom:1px solid lightgray;}
-	div.one1{ font-weight:bold; font-size:20px; border-bottom:1px solid black;}
-	
-	
-	input[type="radio"]{background: url(${root}/image/bg_radio.png) no-repeat 0 0; border:0px;} /* 적용 X  */
-	label{vertical-align:middle; cursor:pointer; font-size:14px;}
-	
-	
-	table{ margin: auto; }
-	div.shippingmsg{ margin: auto;  width:800px; hight:300px; 
-	background-color: #f0f1f2; border-top: 1px solid #d7d5d5; border-bottom: 1px solid #d7d5d5; padding: 14px;}
-	#omessage_select{ max-width: 100%;
-    height: 40px; margin: 0;  padding: 0 20px 0 8px; line-height: 40px;
-    color: #333; word-break: break-all; font-weight: inherit; word-break: break-all;
-    font-weight: inherit;}
-	
-	th{ font-size:14px; }
-	
-	
-</style>
+    <link rel="stylesheet" href="/resources/css/buy.css">
 
 <script type="text/javascript">
 	$(function(){
@@ -119,7 +80,7 @@
 	<tr>
 		<th style="width: 80px; line-height:500%;">받는사람*</th>
 		<td style="width: 650px;">
-			<input type="text" name="mName" placeholder="이름을 입력해 주세요" required="required"
+			<input type="text" name="mName" placeholder="이름을 입력해 주세요" required="required" value="${sessionScope.mName }"
 			 autofocus="autofocus" style="width: 580px;" >
 		</td>
 	</tr>
@@ -129,7 +90,7 @@
 		<td>
 			<input id="member_post" name="mPost" type="text" placeholder="우편 번호" readonly>
 			<button type="button" class="btn btn-sm" onclick="findAddr()">주소검색</button><br>
-			<input id="member_addr" name="addr1" type="text" placeholder="주소" readonly  style="width: 580px;" ><br>
+			<input id="member_addr" name="addr1" type="text" placeholder="주소" readonly  style="width: 580px;" value="${dto.mAddress }"><br>
 			<input type="text" name="addr2" placeholder="상세 주소" style="width: 580px;" >
 		</td>
 	</tr>

@@ -46,16 +46,17 @@
 			<td>
 				<input type="hidden" class="individual_pprice_input" value="${cList2.pprice}">
 				<input type="hidden" class="individual_cquantity_input" value="${cList2.cquantity}">
-				<input type="hidden" class="individual_totalPrice_input" value="${cList2.pprice * cList2.cquantity}">
+				<input type="hidden" class="individual_totalPrice_input" value="${cList2.cquantity*(cList2.pprice+cList2.addprice)}">
 			</td>
 		</tr>
 	
 		<tr>
 			<td><input type="checkbox" class="del" num="${cList2.pnum }">${cList2.pnum }</td>
-			<td>${cList2.pname }</td>
+		<!-- 상품 이미지 넣기 <td>${cList2.pphoto }</td> -->
+			<td>${cList2.pphoto }${cList2.pname }</td>
 			<td>${cList2.cquantity }</td>
-			<td>2500</td>
-			<td>${cList2.SUM_PRICE}</td>
+			<td><span class="delivery_fee"><fmt:formatNumber value="0" pattern="#,### 원" /></span></td>
+			<td><span class="sum_price"><fmt:formatNumber value="${cList2.SUM_PRICE}" pattern="#,### 원" /></span></td>
 		</tr>
 	</c:forEach>
 </table>
