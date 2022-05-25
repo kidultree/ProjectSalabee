@@ -12,28 +12,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-
-<style type="text/css">
-	div.content { width:100%; height:100%;}
-	div.title {  width:500px; height:100px; margin: auto; 
-	font-size:50px; text-align : center; font-family:sans-serif;}
-	table{ margin: auto; font-family:sans-serif;
-	border-top: 1px solid #444444;
-    border-collapse: collapse;}
-    table.a{font-size: 18px;}
-    th{height:50px;}
-    tr, td{  font-family:sans-serif; text-align : center;
-    border-bottom: 1px solid #444444;
-    padding: 10px;}
-    td{  font-family:sans-serif; text-align : center; height:80px;
-    border-bottom: 1px solid #444444;
-    padding: 10px;}
-	
-	div.buybtn{ width:800px; height:60px; background-color:black; padding:8px;
-	margin: auto; cursor:pointer;
-	text-align : center; font-family:sans-serif; font-size:30px; color:white; }
-	
-</style>
+<link rel="stylesheet" href="/resources/css/cart.css">
 </head>
 
 <body>
@@ -89,7 +68,7 @@
 	<tr>
 		<td>1</td>
 		<td><img src="${root}/image/-.PNG" id="m" style="width:50px"></td>
-		<td>2</td>
+		<td>0원</td>
 		<td><img src="${root}/image/+.PNG" id="p" style="width:50px"></td>
 		<td>3</td>
 		<td><img src="${root}/image/=.PNG" id="e" style="width:50px"></td>
