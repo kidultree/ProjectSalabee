@@ -98,7 +98,7 @@ div.mainbottomimg {
 	<!--중앙-->
 
 
-	<div class="topimage">
+<div class="topimage">
 		<img src="${root}/image/mainimage2.jpg" style="width: 100%";>
 	</div>
 	<div class="imgtitle">
@@ -118,7 +118,6 @@ div.mainbottomimg {
 	<div class="mainbottomimg">
 		<img src="${root}/image/mainimage1.jpeg" style="width: 100%";>
 	</div>
-
 
 	<!--중앙끝-->
 </body>
