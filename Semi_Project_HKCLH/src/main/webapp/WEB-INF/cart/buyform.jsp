@@ -12,49 +12,6 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/resources/css/buy.css">
-
-<script type="text/javascript">
-	$(function(){
-				
-		//비밀번호 눈모양 클릭시 비밀번호 보이기/숨김
-		$("span.eye1").click(function(){
-			if($("input.pass").attr("type")=="password")
-				{
-					$(this).removeClass("bi bi-eye eye1");
-					$(this).addClass("bi bi-eye-slash eye1");
-					$("input.pass").attr("type","text");
-				}
-			else
-				{
-					$("input.pass").attr("type","text");
-					$(this).removeClass("bi bi-slash eye1");
-					$(this).addClass("bi bi-eye eye1");	
-					$("input.pass").attr("type","password");
-
-				}
-		});
-		
-		//비밀번호 확인 눈모양 클릭시 비밀번호 보이기/숨김
-		$("span.eye2").click(function(){
-			if($("input.pass2").attr("type")=="password")
-				{
-					$(this).removeClass("bi bi-eye eye2");
-					$(this).addClass("bi bi-eye-slash eye2");
-					$("input.pass2").attr("type","text");
-				}
-			else
-				{
-					$("input.pass2").attr("type","text");
-					$(this).removeClass("bi bi-slash eye2");
-					$(this).addClass("bi bi-eye eye2");	
-					$("input.pass2").attr("type","password");
-
-				}
-		});
-	
-	});
-</script>
-
 </head>
 <body>
 

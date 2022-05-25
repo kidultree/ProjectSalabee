@@ -32,7 +32,8 @@ table.a {
 }
 
 th {
-	height: 50px;
+	height: 80px;
+	text-align: center;
 }
 
 tr, td {

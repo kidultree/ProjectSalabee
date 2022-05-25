@@ -31,7 +31,7 @@
 			// 총 갯수
 			totalCount += parseInt($(element).find(".individual_cquantity_input").val());
 			// 총 종류
-			totalKind += 1;
+			//totalKind += 1;
 		
 			
 			/* 배송비 결정 */
@@ -65,58 +65,42 @@
 <br><br><br><br><br>
 <div class="title">Cart</div>
    
-<%--    <!-- 장바구니 0 일때 출력 -->
-   <c:choose>
-   	<c:when test="${map.count ==0 }">장바구니가 비었습니다.</c:when>
-   	<c:otherwise>장바구니 목록 출력</c:otherwise>
-   </c:choose> --%>
-   
    <!-- 카트 첫 행 -->
-   <table class="cartt" style="width:1000px;">
-	<tr style="background-color:white">
-	<th><input type="checkbox" id="allcheck" >전체선택</th>
-<%-- 	<th style="width:80px;"><button type="button" id="seldelete" class="seldelete" num="${dto.num}">선택삭제</th> --%>
-	<th>제품정보</th>
-	<th>수량</th>
-	<th>배송비</th>
-	<th>금액</th>
+   <table class="cart-table" style="width:1200px;">
+	<tr>
+		<th></th><th></th>
+		<th style="text-align: center;">제품정보</th>
+		<th style="text-align: center;">수량</th>
+		<th style="text-align: center;">금액</th>
+		<th></th>
 	</tr>
 	
-	
 	<c:forEach var="cList2" items="${cList}" varStatus="i">
-		<tr>
-			<td class="cart_info_td">
+	<tr>
+		<td class="cart_info_td">
 				<input type="hidden" class="individual_pprice_input" value="${cList2.pprice}">
 				<input type="hidden" class="individual_cquantity_input" value="${cList2.cquantity}">
 				<input type="hidden" class="individual_totalPrice_input" value="${cList2.cquantity*(cList2.pprice+cList2.addprice)}">
-			</td>
-		</tr>
-	
-		<tr>
-			<td><input type="checkbox" class="del" num="${cList2.pnum }">${cList2.pnum }</td>
-		<!-- 상품 이미지 넣기 <td>${cList2.pphoto }</td> -->
-			<td><img src="${root}/save/${cList2.pphoto}" style="width:100px;">${cList2.pname }</td>
-			
-			
-			<td>
-			
+		</td>
+		<td></td>
+		
+		<!-- 이미지&제품정보 -->
+		<td><img src="${root}/save/${cList2.pphoto}" style="width:100px;">&nbsp;&nbsp;${cList2.pname }</td>
+		
+		<!-- 수량선택 -->
+		<td>
 			<div class="number-input">
 				<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-				<input class="quantity" min="0" name="quantity" value="${cList2.cquantity }" type="number" id="quantity">
+				<input class="quantity" min="0" name="quantity" value="${cList2.cquantity}" type="number" id="quantity">
 				<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
 			</div>
-			<!-- 
-			<div class="table_text_align_center quantity_div">
-				<input type="text" value="${cList2.cquantity }" class="quantity_input">	
-				<button class="quantity_btn plus_btn">+</button>
-				<button class="quantity_btn minus_btn">-</button>
-				</div>
-			<a class="quantity_modify_btn">변경</a> -->
-			</td>
-			
-			<td><span class="delivery_fee"><fmt:formatNumber value="3000" pattern="#,### 원" /></span></td>
-			<td><span class="sum_price"><fmt:formatNumber value="${cList2.SUM_PRICE}" pattern="#,### 원" /></span></td>
-			<td class="delete_btn"><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button> </td>
+		</td>
+		
+		<!-- 해당 상품 금액 -->
+		<td><span class="sum_price"><fmt:formatNumber value="${cList2.SUM_PRICE}" pattern="#,### 원" /></span></td>
+		
+		<!-- 삭제버튼 -->
+		<td class="delete_btn"><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button> </td>
 		</tr>
 	</c:forEach>
 </table>
@@ -136,11 +120,17 @@
 	
 	<tr>
 		<td><span class="totalPrice_span"></span> 원</td>
+		
 		<td><img src="${root}/image/-.PNG" id="m" style="width:50px"></td>
+		
 		<td>0원</td>
+		
 		<td><img src="${root}/image/+.PNG" id="p" style="width:50px"></td>
-		<td><span class="delivery_price">3000</span>원</td>
+		
+		<td><span class="delivery_price"></span>원</td>
+		
 		<td><img src="${root}/image/=.PNG" id="e" style="width:50px"></td>
+		
 		<td><span class="finalTotalPrice_span"></span> 원</td>
 	</tr>
 </table>
