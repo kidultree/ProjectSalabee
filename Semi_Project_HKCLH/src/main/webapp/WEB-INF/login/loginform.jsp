@@ -10,73 +10,127 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+ 
 <style type="text/css">
-	div.body {
-		border: 0.5px solid gray;
-	}
-	
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
 	.inputid,.inputpass {
-		padding: 0 20px;
+		padding: 0 28px;
 		cursor: pointer;
 		margin-top: 5px;
+		background-image: 
 	}
 	
 	input::placeholder {
 		font-size: 0.7em;
+		padding-left: 5px;
 	}
 	
 	span.bi {
 		color: gray;
 		position: relative;
-		left: -215px;		
+		left: -266px;		
+		top: 1px;
+		font-size: 0.8em;
 	}
 	
-	div.login {
-		border: 1px solid green;
-		color: white;
-		background-color: green;
+	div.title {
+		background-color: white;
+		
+	}
+	
+	div.title form{
+		position:absolute;
+		padding: 0 700px;
+		box-sizing: border-box;
+		margin-top: 50px;
+	}
+	
+	div.title h1{
 		text-align: center;
-		border-radius: 2px;
-		width: 200px;
-		cursor: pointer;
+		padding: 0 0 20px 0%;
+		border-bottom: 1px solid silver;
 	}
 	
-	b.whatid,b.whatpass {
-		float: right;
-		margin-right: 10px;
+	form .body{
+		position: relative;
+		border-bottom: 2px solid #adadad;
+		margin: 30px 0;
 	}
 	
-	b {
-		cursor: pointer;
+	.body input{
+		width: 100%;
+		padding: 0 5px;
+		height: 40px;
+		font-size: 16px;
+		border: none;
+		background: none;
+		outline: none;
 	}
+	
+	.body label{
+		position: absolute;
+		top: 50%;
+		left: 5px;
+		color: #adadad;
+		transform:translateY(-50%);
+		font-size: 16px;
+		pointer-events: none;
+	}
+	
+	.body span::before {
+	 content: '';
+	 position: absolute;
+	 top: 40px;
+	 left: 0;
+	 width: 100%;
+	 height: 2px;
+	 background: #2691d9;
+	 
+	}
+	
 
 </style>
 
-<script type="text/javascript">
-	$(function(){
-		$("b.join").click(function(){
-			location.href="/member/joinform";			
-		});
-	});
-</script>
+
 
 </head>
 <body>
-	<form action="process" method="post" style="width: 500px;">
-	<div class="title" style="text-align: center;">로그인</div>
+	<div class="title">
+	<h1>로그인</h1>
+	<form action="process" method="post">
 	
 	<div class="body">
-		<input class="inputid" name="mId" type="text" placeholder="아이디"><span class="bi bi-person"></span><br>
-		<input class="inputpass" name="mPassword" type="password" placeholder="비밀번호"><span class="bi bi-lock"></span><br>
-		
-		<input type="checkbox">로그인 상태 유지
-		<button type="submit" class="login">로그인</button>
-		
-		
-		<b class="join">회원가입</b><b class="whatpass">비밀번호 찾기</b><b class="whatid">아이디찾기</b>
+		<label>User name</label><br>
+		<input class="inputid" name="mId" type="text" placeholder="id"><span class="bi bi-person"></span><br>
+		<span></span>
 	</div>
 	
-	
+	<div class="body">
+		<label>Password</label><br>
+		<input class="inputpass" name="mPassword" type="password" placeholder="pass word"><span class="bi bi-lock"></span><br>
+		<span></span>
+	</div>
+		<input type="checkbox">로그인 상태 유지
+		
+		
+		<a href="/member/joinform">sign up</a><br>
+		<a href="/login/forgotid">forgot id??</a><br>
+		<a href="/login/forgotpass">forgot password??</a><br>
+		
+		<button type="submit" class="login" >로그인</button><br>
+		<button type="submit" class="login" >네이버</button><br>
+		<button type="submit" class="login" >구글</button>
+	</div>
+		
 	</form>
+	</div>
+
+	
+	
+			
+				<br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
