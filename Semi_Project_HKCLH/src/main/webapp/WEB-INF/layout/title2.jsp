@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="${root}/menu/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="${root}/menu/css/menu.css">
     <script type="text/javascript" src="${root}/menu/js/function.js"></script>
-<style type="text/css">
+<style type="text/css"5>
    body{
       font-size: 2rem;
       font-family: 'Jua';

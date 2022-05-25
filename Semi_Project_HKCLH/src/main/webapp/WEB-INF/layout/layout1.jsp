@@ -18,7 +18,7 @@
     html, body{
         margin:0;
         padding:0;
-        background-color:gray;
+        background-color:white;
     }
     /* 반응형 (미완성) 완성할진몰루*/
 @media screen and (max-width: 768px) {

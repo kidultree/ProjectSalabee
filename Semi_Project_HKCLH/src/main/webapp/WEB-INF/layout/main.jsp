@@ -90,14 +90,14 @@ div.imgpre-title {
 .-button2 { -
 	-swiper-theme-color: #007aff; -
 	-swiper-navigation-size: 44px;
-	font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+	font: 0.8em Verdana, Dotum, AppleGothic, sans-serif;
 	font-family: "Helvetica Neue", "Helvetica", "Noto Sans KR",
 		"Malgun Gothic", sans-serif !important;
 	color: white;
 	text-decoration: none;
 	user-select: none;
 	position: absolute;
-	left: 49%;
+	left: 50%;
 	top: 2210px;
 	transform: translateX(-50%);
 	display: flex;
@@ -158,7 +158,7 @@ div.mainbottomimg {
 		<img src="${root}/image/mainimage3.png" style="width: 100%";>
 
 
-		<a href="" class="-button2" style="border-color: rgb(255, 255, 255);">
+		<a href="/cart/about" class="-button2" style="border-color: rgb(255, 255, 255);">
 			<div class="-text2" style="color: gold;">브랜드 스토리 보기</div>
 		</a>
 		</div>
