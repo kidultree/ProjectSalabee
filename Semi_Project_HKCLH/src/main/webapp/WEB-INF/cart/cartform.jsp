@@ -11,14 +11,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
-<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/resources/css/cart.css">
 </head>
 
 <body>
 
 <div class="content">
-
+<br><br><br><br><br>
 <div class="title">Cart</div>
    
 <%--    <!-- 장바구니 0 일때 출력 -->
@@ -42,6 +42,14 @@
 	
 	<!-- 상품 목록(이미지 추가하기) -->
 	<c:forEach var="cList2" items="${cList}" varStatus="i">
+		<tr>
+			<td>
+				<input type="hidden" class="individual_pprice_input" value="${cList2.pprice}">
+				<input type="hidden" class="individual_cquantity_input" value="${cList2.cquantity}">
+				<input type="hidden" class="individual_totalPrice_input" value="${cList2.pprice * cList2.cquantity}">
+			</td>
+		</tr>
+	
 		<tr>
 			<td><input type="checkbox" class="del" num="${cList2.pnum }">${cList2.pnum }</td>
 			<td>${cList2.pname }</td>

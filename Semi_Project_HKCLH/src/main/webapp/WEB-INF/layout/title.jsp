@@ -238,9 +238,16 @@ ul.sub li {
 						style="width: 30px">
 					</a>
 				</c:if>
-				<a href="/cart/list"> <img src="${root}/image/cart.png"
+				
+				<c:if test="${sessionScope.loginok==null}">
+				<a href="/login/loginform"> <img src="${root}/image/cart.png"
+						id="carticon" style="width: 30px">
+					</a>
+				</c:if>
+				<c:if test="${sessionScope.loginok!=null}">
+				<a href="/cart/list?mid=${sessionScope.mId}"> <img src="${root}/image/cart.png"
 					id="carticon" style="width: 30px"></a>
-
+				</c:if>
 			</div>
 	</div>
 	</nav>
