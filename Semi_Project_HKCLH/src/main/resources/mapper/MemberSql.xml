@@ -7,5 +7,14 @@
 		 values (#{mId},#{mName},#{mBirth},#{mPassword},#{mPost},#{mPhone},#{mAddress},now(),#{mEmail})
 	</insert>
 	
+	<select id="login" parameterType="Map" resultType="int">
+		select count(*) from member where mid=#{mId} and mpassword=#{mPassword}
+	</select>
+	
+	<select id="getmName" parameterType="String" resultType="String">
+		select mname from member where mid=#{mId}
+	</select>
+	
+	
 	
 </mapper>
