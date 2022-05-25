@@ -1,11 +1,14 @@
 package data.controller;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -18,7 +21,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import Util.FileUtil;
 
 import data.dto.ProductDto;
 import data.mapper.ProductMapperInter;
@@ -27,98 +33,65 @@ import data.mapper.ProductMapperInter;
 public class ProductController {
 
    @Autowired
-   private ProductMapperInter productMapper;
-
-   @GetMapping("/form")
+   ProductMapperInter productMapper; //private?
+   
+   @GetMapping("/form") //보여주기
    public String form()
    {
       return "/product/productform";
    }
 
-   @PostMapping("/insert")
-   public String insert(@ModelAttribute ProductDto dto)
+   @PostMapping("/insert") //값이나 상태변경
+   public String insert(@ModelAttribute ProductDto dto,
+		    @RequestParam MultipartFile upload,
+			HttpSession session,
+			HttpServletRequest request)
    {
+	  //사진을 저장할 경우
+	  String path=request.getServletContext().getRealPath("/save");
+		
+	  System.out.println("1:"+dto.getPnum());
+	  String pphoto=upload.getOriginalFilename();
+	  dto.setPphoto(pphoto);
+	  try {
+		upload.transferTo(new File(path+"\\"+pphoto));
+	} catch (IllegalStateException | IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	  
       productMapper.insertProduct(dto);
-      return "/product/productform";//redirect:list
+      return "redirect:list";
    }
 
+   
    @GetMapping("/list")
-   public ModelAndView list(
-         @RequestParam(defaultValue = "1")int currentPage
-         //null값이 들어오는 걸 허용 => require false
-         //null 값을 1로 => defaultValue 
-         )
+   public ModelAndView list()
    {
       ModelAndView mview=new ModelAndView();
       
-      //페이징처리
-      int totalCount; // 총 개수
-      int perPage=5; //한페이지당 보여질 글의 개수
-      int perBlock=5; //한 블럭(페이지 아랫 부분)당 보여질 페이지 수
-      int totalPage; //총 페이지 수
-
-      int startNum; // 한 페이지에서 보여질 시작 글번호
-      int startPage; // 한 블럭에서 보여질 시작 페이지 번호
-      int endPage; //한블럭에서 보여질 끝 페이지 번호
-      int no; //각 페이지당 보여질 시작번호
-
-      // 총 글의 갯수를 구한다
-      totalCount = productMapper.getTotalCount();
-      // 총 페이지 수를 구한다 (무조건 올림이 되어야 함)
-      totalPage=totalCount/perPage+(totalCount%perPage==0?0:1);
-      //totalPage = (int)Math.ceil((double)totalCount/perPage);
-
-      /* 각 블럭의 시작페이지 & 끝페이지(블럭=5 개일 시) */
-      // 첫페이지 시작페이지 1 그다음페이지는 6부터 시작, -> 1,6,11...(currentPage가 1~5일 때는 1, 6~10일 때는 6)
-      startPage=(currentPage-1)/perBlock*perBlock+1;
-      // 끝페이지 ->5,10,15... (currentPage가 1~5일 때는 5, 6~10일 때는 10)
-      endPage=startPage+perBlock-1;
-      //문제점 : 마지막 블럭은 총페이지수 까지만 나와야 한다)
-      if(endPage>totalPage) {
-         endPage=totalPage;
-      }
-      //각 페이지에서 보여질 글의 시작 번호(mysql은 0부터)
-      //예) 한페이지당 3개일경우 1페이지 : 0, 2페이지:3, 3페이지:6 ...
-      startNum=(currentPage-1)*perPage;
-      //각 페이지당 보여질 시작번호
-      no=totalCount-(currentPage-1)*perPage;
-      
-      //데이터 가져오기
-      Map<String, Integer> map = new HashMap<>();
-      map.put("start", startNum);
-      map.put("perpage", perPage);
-      List<ProductDto> list=productMapper.getProductList(map);
-      
-      String photo=""; //여러개는 배열or벡터
-      for(ProductDto dto:list) {
-    	  Document doc=null;
-    	  doc=Jsoup.parse(dto.getPcontent());
-    	  Elements myimg=doc.select("img");//img태그요소값얻기
-    	  photo=myimg.attr("src");//img태그에서 src값 얻어오기
-    	  dto.setPphoto(photo);
-      }
-      mview.addObject("currentPage", currentPage);
+      //mapper 로부터 총 갯수 가져오기
+      int totalCount=productMapper.getTotalProductCount();
+      List<ProductDto> list=productMapper.getProductList();
+      //model에 저장
       mview.addObject("totalCount", totalCount);
-      mview.addObject("totalPage", totalPage);
-      mview.addObject("startPage", startPage);
-      mview.addObject("endPage", endPage);
-      mview.addObject("no", no);
       mview.addObject("list", list);
 
       mview.setViewName("/product/productlist");
       return mview;
    }
    
+   
    @GetMapping("/detail")
    public ModelAndView detail(
-		   @RequestParam int num,
-		   @RequestParam int currentPage
+		   @RequestParam int pnum
+		   //,@RequestParam int currentPage
 		   ) {
 	   //num에 해당하는 dto얻기
-	   ProductDto dto = productMapper.getProduct(num);
+	   ProductDto dto = productMapper.getProduct(pnum);
 	   ModelAndView mview = new ModelAndView();
 	   mview.addObject("dto",dto);
-	   mview.addObject("currentPage",currentPage);
+	   //mview.addObject("currentPage",currentPage);
 	   mview.setViewName("/product/productdetail");
 	   return mview;
 	   
@@ -126,13 +99,16 @@ public class ProductController {
    
    @GetMapping("/delete")
 	 public String delete(
-			 @RequestParam int num,
-			 @RequestParam int currentPage,
-			 HttpServletRequest request
+			 @RequestParam int pnum
+			 //,@RequestParam int currentPage,
+			 //HttpServletRequest request
 			 ) {
 	   	 //db에서 data삭제
-	   	 productMapper.deleteProduct(num);
+	   	 productMapper.deleteProduct(pnum);
 		 //페이지이동
-		 return "redirect:list?currentPage="+currentPage;
+		 return "redirect:list";
 	 }
+   
+   //업데이트 만들어야함...
+   //@GetMapping("/productupdateform")
 }
