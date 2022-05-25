@@ -3,6 +3,7 @@ package data.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import Util.FileUtil;
 import data.dto.NoticeDto;
@@ -36,8 +38,16 @@ public class QnAController {
 	}
 	
 	@GetMapping("/list")
-	public String list() {
-		return "/qna/qnalist";
+	public ModelAndView list() {
+		
+		ModelAndView mview = new ModelAndView();
+		
+		List<QnADto> list = qnaMapper.getQnAList();
+		//model에 저장
+		mview.addObject("list",list);
+		
+		mview.setViewName("/qna/qnalist");
+		return mview;
 	}
 	
 	@PostMapping("/insert")
