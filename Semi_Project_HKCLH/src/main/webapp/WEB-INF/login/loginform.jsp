@@ -43,6 +43,7 @@
 div.all{
 	position:absolute;
 	left: 570px;
+	height: 800px;
 }
 
 div.all div.url{
@@ -93,19 +94,19 @@ div.all div.signup{
 
 
 	<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54 all">
-		<form class="login100-form validate-form">
+		<form class="login100-form validate-form" action="process" method="post">
 			<span class="login100-form-title p-b-49"> Login </span>
 			<div class="wrap-input100 validate-input m-b-23"
 				data-validate="Username is reauired">
 				<span class="label-input100">Username</span> 
-					<input class="input100"	type="text" name="username" placeholder="Type your username">
+					<input class="input100"	type="text" name="mId" placeholder="Type your username">
 				<span class="focus-input100" data-symbol=""></span>
 			</div>
 			
 			<div class="wrap-input100 validate-input"
 				data-validate="Password is required">
 				<span class="label-input100">Password</span> 
-					<input class="input100" type="password" name="pass" placeholder="Type your password">
+					<input class="input100" type="password" name="mPassword" placeholder="Type your password">
 				<span class="focus-input100" data-symbol=""></span>
 			</div>
 			
@@ -117,7 +118,7 @@ div.all div.signup{
 			<div class="container-login100-form-btn">
 				<div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn"></div>
-					<button class="login100-form-btn">Login</button>
+					<button type="submit" class="login100-form-btn">Login</button>
 				</div>
 			</div>
 			
@@ -125,12 +126,12 @@ div.all div.signup{
 				<span> Or Sign Up Using </span>
 			</div>
 			<div class="flex-c-m url">
-				<a href="#" class="login100-social-item bg1"> <i
-					class="fa fa-facebook"></i>
-				</a> <a href="#" class="login100-social-item bg2"> <i
-					class="fa fa-twitter"></i>
-				</a> <a href="#" class="login100-social-item bg3"> <i
-					class="fa fa-google"></i>
+				<a href="#" class="login100-social-item bg1"> 
+					<i class="fa fa-facebook"></i>
+				</a> <a href="#" class="login100-social-item bg2"> 
+					<i class="fa fa-twitter"></i>
+				</a> <a href="#" class="login100-social-item bg3"> 
+					<i class="fa fa-google"></i>
 				</a>
 			</div>
 			<div class="flex-col-c p-t-155 signup">
@@ -140,12 +141,9 @@ div.all div.signup{
 		</form>
 	</div>
 
-	<br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
 
-=======
-	
->>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
 </body>
 </html>
