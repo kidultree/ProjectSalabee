@@ -315,7 +315,7 @@ input[type=number]::-webkit-outer-spin-button {
             			var del = "delete?pnum=${dto.pnum}"; //?pnum은 컨트롤러 dto 인자와 같아야함
             			if(choice){
             				location.assign(del);
-            				alert("삭제되었습니다!.");
+            				alert("삭제되었습니다!^^");
             			};
             		});
             		
