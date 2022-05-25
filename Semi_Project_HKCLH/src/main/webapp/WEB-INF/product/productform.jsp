@@ -7,12 +7,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상품등록form</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style type="text/css">
-	
+	*{
+		font-family: 'Noto Sans KR', sans-serif;
+	}
 </style>
 
 
@@ -25,8 +27,10 @@
    
 </head>
 <body>
-<form action="insert" method="post">
-	<table class="table table-bordered productt" style="width: 500px;">
+<form action="insert" method="post" enctype="multipart/form-data">
+<!-- hidden 5개 -->
+
+	<table class="table table-bordered productt" style="width: 700px;">
 		<caption><h3>상품 등록</h3></caption>
 		<tr>
 			<th width="120" bgcolor="">상품명</th>
@@ -38,7 +42,7 @@
 		<tr>
 			<th width="120" bgcolor="">메뉴</th>
 			<td colspan="3">
-				<select name="pcate" id="pcate1">
+				<select name="pcate1" id="pcate1">
 				    <option value="" selected="selected" disabled="disabled">메뉴1선택</option>
 				    <option value="MySet">MySet</option>
 				    <option value="fragrance">fragrance</option>
@@ -46,29 +50,20 @@
 				</select>
 				
 				<!-- c:if조건 menu1선택시에만 노출 -->
-				<select name="pcate" id="pcate2">
+				<select name="pcate2" id="pcate2">
 					 <option value="" selected="selected" disabled="disabled">메뉴2선택</option>    
-					 <option value="floral">floral</option>
-					 <option value="cotton">cotton</option>
-					 <option value="woody">woody</option>
-					 <option value="musk">musk</option>
+					 
+					 <option value="no">no</option>
+					 <option value="spring">spring</option>
+					 <option value="summer">summer</option>
+					 <option value="autumn">autumn</option>
+					 <option value="winter">winter</option>
 				</select>	
 				
 			</td>
 		</tr>
-		
-		<tr>
-			<th width="120" bgcolor="">옵션</th>
-			<td colspan="3">
-				<select name="pop" id="pop">
-				    <option value="" selected="selected" disabled="disabled">옵션선택</option>
-				    <option value="no">선택안함</option>
-				    <option value="40">40ml</option>
-				    <option value="80">80ml</option>
-				</select>
-			</td>
-		</tr>
-		
+		<!-- 옵션은 detail에서만 선택가능..? -->
+				
 		<tr>
 			<th>가격</th>
 			<td>
@@ -81,21 +76,17 @@
 				<input type="date" name="pdate" >
 			</td>
 		</tr>
-		<!-- 입고일 Default today로 -
-		<script>
-  			document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
-		</script>-->
 		
 		<tr>
 			<th>대표사진</th>
 			<td>
-				<input type="file" name="pdate" id="currentDate" value="">
+				<input type="file" name="upload" id="currentDate" value="">
 			</td>
 		</tr>
 		<tr>상품상세</tr>
 		<tr>
 			<td colspan="2">
-				<textarea name="content" id= "content" required="required"
+				<textarea name="pcontent" id= "pcontent" required="required"
 				style="width: 100%; height: 300px; display: none;"></textarea>
 			</td>
 		</tr>
@@ -117,7 +108,7 @@
 	
 	    oAppRef: oEditors,
 	
-	    elPlaceHolder: "content",
+	    elPlaceHolder: "pcontent",
 	
 	    sSkinURI: "${root}/se2/SmartEditor2Skin.html",
 	
@@ -131,7 +122,7 @@
 	
 	    // 에디터의 내용이 textarea에 적용된다.
 	
-	    oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", [ ]);
+	    oEditors.getById["pcontent"].exec("UPDATE_CONTENTS_FIELD", [ ]);
 	
 	 
 	
@@ -150,7 +141,7 @@
 	
 	function pasteHTML(filepath){
 	    var sHTML = '<img src="${root}/save/'+filepath+'">';
-	    oEditors.getById["content"].exec("PASTE_HTML", [sHTML]); 
+	    oEditors.getById["pcontent"].exec("PASTE_HTML", [sHTML]); 
 	
 	}
 </script>

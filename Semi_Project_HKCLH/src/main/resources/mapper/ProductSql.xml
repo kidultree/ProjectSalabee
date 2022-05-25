@@ -5,17 +5,17 @@
 	
 	<!-- form==#{dto}==dto -->
    <insert id="insertProduct" parameterType="product"> <!-- ProductDto의 @Alias("product") -->
-      insert into product (pname, pprice, pcate, pdate, pphoto) values (
-      #{pname}, #{pprice}, #{pcate}, #{pdate}, #{pphoto}
+      insert into product (pname, pprice, pcate1, pcate2, pdate, pphoto, pcontent) values (
+      #{pname}, #{pprice}, #{pcate1}, #{pcate2}, #{pdate}, #{pphoto}, #{pcontent}
       )
    </insert>
    
-   <select id="getProductList" parameterType="Map" resultType="product">
-      select * from product order by pnum desc limit #{start}, #{perpage}
+   <select id="getProductList" resultType="product">
+      select * from product order by pnum desc 
    </select>
    
    <select id="getProduct" parameterType="int" resultType="product">
-      select * from product where pnum = #{pnum}
+      select * from product where pnum=#{pnum}
    </select>
    
    <delete id="deleteProduct" parameterType="int">
@@ -25,5 +25,13 @@
    <select id="getTotalProductCount" resultType="int">
       select count(*) from product
    </select>
+   
+   <update id="updateProduct" parameterType="product">
+   	  update product set pname=#{pname}, pprice=#{pprice},  pphoto=#{pphoto}, pcontent=#{pcontent}
+   	  <if test="pphoto!=null">
+   	  	,pphoto=#{pphoto}
+   	  </if>
+   	  where pnum=#{pnum}
+   </update>
    
 </mapper>
