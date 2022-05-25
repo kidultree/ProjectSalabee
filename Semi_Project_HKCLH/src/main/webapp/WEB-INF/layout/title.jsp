@@ -146,7 +146,7 @@ ul.navbar_menu>li:hover ul.sub a { /*서브메뉴색깔*/
 
 ul.sub a {
 	font-family: 'Radio+Canada:wght@300';
-	color: white;
+	color: black;
 	position: relative;
 	right: 10px;
 }
@@ -154,6 +154,7 @@ ul.sub a {
 ul.sub li {
 	background-color: rgba(255, 255, 255, 0.1);
 	width: 120px;
+
 }
 /*오른쪽 메뉴*/
 .navbar_menu2 {

@@ -88,6 +88,7 @@ div.all div.signup{
 	</div>
 		
 	</form>
+<<<<<<< HEAD
 	</div> -->
 
 
@@ -143,5 +144,8 @@ div.all div.signup{
 	<br><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
 
+=======
+	
+>>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
 </body>
 </html>
