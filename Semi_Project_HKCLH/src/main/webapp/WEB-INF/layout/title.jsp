@@ -214,7 +214,7 @@ ul.sub li {
 					</ul></li>
 			</ul>
 
-			<!--  <script type="text/javascript">
+		<!--  <script type="text/javascript">
        	$("li.main").mouseover(function(){
        		
        		console.log(1);
@@ -228,19 +228,27 @@ ul.sub li {
 				<a href="/">FragBit</a>
 			</div>
 			<div class="iconmenu">
+			
 				<c:if test="${sessionScope.loginok==null}">
 					<a href="/login/loginform"> <img src="${root}/image/login.png"
 						id="loginicon" style="width: 30px">
 					</a>
 				</c:if>
 				<c:if test="${sessionScope.loginok!=null}">
-					<a href=""> <img src="${root}/image/logout.png" id="logouticon"
+					<a href="/login/logout"> <img src="${root}/image/logout.png" id="logouticon"
 						style="width: 30px">
 					</a>
 				</c:if>
-				<a href="/cart/list"> <img src="${root}/image/cart.png"
+				
+				<c:if test="${sessionScope.loginok==null}">
+				<a href="/login/loginform"> <img src="${root}/image/cart.png"
+						id="carticon" style="width: 30px">
+					</a>
+				</c:if>
+				<c:if test="${sessionScope.loginok!=null}">
+				<a href="/cart/list?mid=${sessionScope.mId}"> <img src="${root}/image/cart.png"
 					id="carticon" style="width: 30px"></a>
-
+				</c:if>
 			</div>
 	</div>
 	</nav>

@@ -28,8 +28,11 @@
 
 <script type="text/javascript" src="${root}/se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js"
    charset="utf-8"></script> 
-   
+
 </head>
+
+
+
 <body>
 	<form action="insert" method="post" enctype="multipart/form-data">
 	
@@ -41,8 +44,9 @@
 <tr>
 <th width="120" bgcolor="#FFE3EE">말머리</th>
 <td colspan="3">
+
 	<select name = "qcate" id= "qcate">
-		<option value="" selected disabled="disabled">문의 유형</option>
+		<option selected disabled hidden>문의 유형</option>
 		<option value="상품">상품</option>
 		<option value="배송">배송</option>
 		<option value="반품/환불">반품/환불</option>
@@ -51,6 +55,18 @@
 	</select>
 </td>
 </tr>
+
+<script type="text/javascript">
+function selectqcate(){
+	var qcate = $("#qcate > option:selected").val();
+	$("#qcate").val(qcate);
+	
+}
+
+
+</script>
+
+
 
 <tr>
 <th style="width: 100px; background-color:#FFE3EE">제목</th>
@@ -67,6 +83,18 @@
 </td>
 </tr>
 
+	<th>문의 사진</th>
+			<td>
+				<input type="file" name="upload" id="currentDate" value="">
+			</td>
+			
+	<tr>
+	<th style="width: 100px; background-color:#FFE3EE">문의상태</th>
+		<td>
+		접수<input type="radio" name = "qstate" id = "qstate" value = "접수" checked>&nbsp;
+		답변완료<input type="radio" name = "qstate" id = "qstate" value = "답변완료">
+		</td>
+	</tr>
 <tr>
 <td colspan="4">
          <textarea name="qcontent" id="qcontent" required="required" 

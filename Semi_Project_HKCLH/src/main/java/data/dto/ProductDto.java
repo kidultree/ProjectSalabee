@@ -11,8 +11,9 @@ public class ProductDto {
 	private int pnum;
 	private String pname;
 	private int pprice;
-	private String pcate;
-	private int prate;
+	private String pcate1;
+	private String pcate2;
+	private double prate;
 	private int pratecnt;
 	private String pdate;
 	private String pphoto;

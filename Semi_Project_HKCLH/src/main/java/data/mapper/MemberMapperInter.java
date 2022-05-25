@@ -16,7 +16,7 @@ public interface MemberMapperInter {
 	public List<MemberDto> getAllMembers();
 	public void deleteMember(String num);
 	
-	public String getSearchName(String id);
+	public String getmName(String id);
 	
 	public int login(Map<String, String> map);
 }

@@ -62,20 +62,18 @@
 
 </head>
 <body>
-	<form action="loginform" method="post" style="width: 500px;">
+	<form action="process" method="post" style="width: 500px;">
 	<div class="title" style="text-align: center;">로그인</div>
 	
 	<div class="body">
-		<input class="inputid" type="text" placeholder="아이디"><span class="bi bi-person"></span><br>
-		<input class="inputpass" type="text" placeholder="비밀번호"><span class="bi bi-lock"></span><br>
+		<input class="inputid" name="mId" type="text" placeholder="아이디"><span class="bi bi-person"></span><br>
+		<input class="inputpass" name="mPassword" type="password" placeholder="비밀번호"><span class="bi bi-lock"></span><br>
 		
 		<input type="checkbox">로그인 상태 유지
-		<div class="login">로그인</div>
+		<button type="submit" class="login">로그인</button>
 		
 		
 		<b class="join">회원가입</b><b class="whatpass">비밀번호 찾기</b><b class="whatid">아이디찾기</b>
-		
-		
 	</div>
 	
 	

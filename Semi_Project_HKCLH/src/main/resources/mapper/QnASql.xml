@@ -18,18 +18,18 @@ insert into QnA (qnum, qcate, qtitle, mid, qcontent, qimg, qstate, qdate) values
 
 <!-- 수정 -->
 <select id="getQnA" parameterType="int" resultType="product">
-select * from qna where qnum = #{qnum}
+select * from QnA where qnum = #{qnum}
 </select>
 
 
 <!-- 삭제 -->
 <delete id="deleteQnA" parameterType="int">
-delete from qna where qnum=#{qnum}
+delete from QnA where qnum=#{qnum}
 </delete>
 
 
 <select id="getTotalQnACount" resultType="int">
-select count(*) from qna
+select count(*) from QnA
 </select>
 
 

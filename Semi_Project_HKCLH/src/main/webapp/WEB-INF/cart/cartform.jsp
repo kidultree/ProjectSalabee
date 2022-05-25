@@ -11,35 +11,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
-<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-
-<style type="text/css">
-	div.content { width:100%; height:100%;}
-	div.title {  width:500px; height:100px; margin: auto; 
-	font-size:50px; text-align : center; font-family:sans-serif;}
-	table{ margin: auto; font-family:sans-serif;
-	border-top: 1px solid #444444;
-    border-collapse: collapse;}
-    table.a{font-size: 18px;}
-    th{height:50px;}
-    tr, td{  font-family:sans-serif; text-align : center;
-    border-bottom: 1px solid #444444;
-    padding: 10px;}
-    td{  font-family:sans-serif; text-align : center; height:80px;
-    border-bottom: 1px solid #444444;
-    padding: 10px;}
-	
-	div.buybtn{ width:800px; height:60px; background-color:black; padding:8px;
-	margin: auto; cursor:pointer;
-	text-align : center; font-family:sans-serif; font-size:30px; color:white; }
-	
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/resources/css/cart.css">
 </head>
 
 <body>
 
 <div class="content">
-
+<br><br><br><br><br>
 <div class="title">Cart</div>
    
 <%--    <!-- 장바구니 0 일때 출력 -->
@@ -64,11 +43,20 @@
 	<!-- 상품 목록(이미지 추가하기) -->
 	<c:forEach var="cList2" items="${cList}" varStatus="i">
 		<tr>
+			<td>
+				<input type="hidden" class="individual_pprice_input" value="${cList2.pprice}">
+				<input type="hidden" class="individual_cquantity_input" value="${cList2.cquantity}">
+				<input type="hidden" class="individual_totalPrice_input" value="${cList2.cquantity*(cList2.pprice+cList2.addprice)}">
+			</td>
+		</tr>
+	
+		<tr>
 			<td><input type="checkbox" class="del" num="${cList2.pnum }">${cList2.pnum }</td>
-			<td>${cList2.pname }</td>
+		<!-- 상품 이미지 넣기 <td>${cList2.pphoto }</td> -->
+			<td>${cList2.pphoto }${cList2.pname }</td>
 			<td>${cList2.cquantity }</td>
-			<td>2500</td>
-			<td>${cList2.SUM_PRICE}</td>
+			<td><span class="delivery_fee"><fmt:formatNumber value="0" pattern="#,### 원" /></span></td>
+			<td><span class="sum_price"><fmt:formatNumber value="${cList2.SUM_PRICE}" pattern="#,### 원" /></span></td>
 		</tr>
 	</c:forEach>
 </table>
@@ -89,7 +77,7 @@
 	<tr>
 		<td>1</td>
 		<td><img src="${root}/image/-.PNG" id="m" style="width:50px"></td>
-		<td>2</td>
+		<td>0원</td>
 		<td><img src="${root}/image/+.PNG" id="p" style="width:50px"></td>
 		<td>3</td>
 		<td><img src="${root}/image/=.PNG" id="e" style="width:50px"></td>
