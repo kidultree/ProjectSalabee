@@ -21,7 +21,9 @@ Signika+Negative:wght@300&display=swap"
 <link
 	href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
 	rel="stylesheet">
+	
 <style type="text/css">
+
 /*헤더*/
 .navbar {
 	display: flex;
@@ -114,7 +116,7 @@ ul, ol, li {
 }
 
 ul.navbar_menu>li ul.sub {
-	display: block;
+	display: flex;
 	position: relative;
 	top: 39px;
 	right: 20px;
@@ -124,7 +126,7 @@ ul.navbar_menu>li ul.sub {
 	width: 0px;
 }
 
-ul.navbar_menu>li:hover ul.sub {
+ul.navbar_menu> li:hover ul.sub { /*범인*/
 	display: block;
 	opacity: 1;
 	height: 0px;
@@ -136,9 +138,7 @@ ul.sub a:hover {
 	font-size: 1.5rem;
 }
 
-ul.navbar_menu>ul.sub:hover {
-	opacity: 1;
-}
+
 
 ul.navbar_menu>li:hover ul.sub a { /*서브메뉴색깔*/
 	
@@ -196,7 +196,7 @@ ul.sub li {
 
 				<li><a href="/cart/about">BRAND </a></li>
 
-				<li class="main"><a href="">SHOP</a>
+				<li><a href="">SHOP</a>
 
 					<ul class="sub">
 						<li><a href="#">FRAGRANCE</a></li>
@@ -205,7 +205,7 @@ ul.sub li {
 					</ul></li>
 
 
-				<li class="main"><a href="">COMMUNITY</a>
+				<li><a href="">COMMUNITY</a>
 					<ul class="sub">
 						<li><a href="#">Q&amp;A</a></li>
 						<li><a href="#">REVIEW</a></li>
