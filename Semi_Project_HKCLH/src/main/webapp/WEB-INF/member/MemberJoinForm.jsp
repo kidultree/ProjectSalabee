@@ -11,16 +11,30 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="new_main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
 <style type="text/css">
+
 
 	input::placeholder {
 		font-size: 0.7em;
 	}
 	
-	span {
-		position:relative;
-		left: -20px;
+	body *{
+	font-family: 'Noto Sans KR';
 	}
+	
+	btn.addbtn{
+		width: 50px;
+		height: 50px;
+		border-radius: 10px;
+		border
+	}
+
 </style>
 
 <script type="text/javascript">
@@ -61,91 +75,122 @@
 
 				}
 		});
+		
 	
 	});
 </script>
+<c:set var="root" value="<%=request.getContextPath() %>"></c:set>
 
 </head>
 <body>
-<form action="insert" method="post">
-	<table style="width: 800px;">
-		<caption>회원가입</caption>
-		<tr>
-			<th>아이디</th>
-			<td>
-				<input type="text" name="mId" placeholder="아이디를 입력해 주세요" required="required">			
-			</td>
-		</tr>
-		
-		<tr>
-			<th>이 름</th>
-			<td>
-				<input type="text" name="mName" placeholder="이름을 입력해 주세요" required="required">
-			</td>
-		</tr>
-	
-		<tr>
-			<th>비밀번호</th>
-			<td>
-				<input type="password" name="mPassword" placeholder="비밀번호를 입력해 주세요" required="required"
-				style="width: 300px;" class="pass" minlength = "8"><span class="bi bi-eye eye1"/>
-			</td>
-		</tr>
-		
-		<tr>
-			<th>비밀번호 확인</th>
-			<td>
-				<input type="password" placeholder="비밀번호를 다시 입력해 주세요" required="required"
-				class="pass2" minlength = "8"><span class="bi bi-eye eye2"/>
-				
-			</td>
-		</tr>
-		
-		<tr>
-			<th>E-Mail</th>
-			<td>
-				<input type="text" name="mEmail" placeholder="이메일을 입력해 주세요" required="required">
-				<select>
-					<option>직접입력</option>
-					<option value="@naver.com">naver.com</option>
-					<option value="@daum.net">daum.net</option>
-					<option value="@google.com">google.com</option>
-					<option value="@nate.com">nate.com</option>
-				</select>
-			</td>
-		</tr>
-		
-		<tr>
-			<th>핸드폰 번호</th>
-			<td>
-				<input type="text" name="mPhone" placeholder="- 없이 번호만 입력해 주세요" required="required" maxlength="11">
-			</td>
-		</tr>
-		
-		<tr>
-			<th>생년월일</th>
-			<td>
-				<input type="date" name="mBirth">
-			</td>
-		</tr>
-		
-		<tr>
-			<th>주 소</th>
-			<td>
-				<input id="member_post" name="mPost" type="text" placeholder="우편 번호" readonly >
-				<button type="button" onclick="findAddr()">우편번호 검색</button><br>
-				<input id="member_addr" name="mAddress1" type="text" placeholder="주소" readonly><br>
-				<input type="text" name="mAddrress2" placeholder="상세 주소">
-			</td>
-		</tr>
-		
-		<tr>
-			<td colspan="2">
-			<button type="submit">회원 가입</button>
-			</td>		
-		</tr>
-	</table>
+
+	<br><br><br><br>
+	<div class="container">
+    <div class="input-form-backgroud row">
+      <div class="input-form col-md-12 mx-auto">
+        <h3 class="mb-3" style="text-align: center;">회원가입</h3><br><br>
+        <form class="validation-form" action="insert" method="post">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="mId">아이디</label>
+              <input type="text" class="form-control" name="mId" id="mId" placeholder="" required>
+              <div class="invalid-feedback">
+                아이디를 입력해주세요.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="mName">이름</label>
+              <input type="text" class="form-control" name="mName" id="mName" placeholder="" required>
+              <div class="invalid-feedback">
+                별명을 입력해주세요.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="mPassword">비밀번호</label>
+            <input type="text" class="form-control" name="mPassword" id="mPassword" placeholder="최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자를 입력해주세요" required>
+            <div class="invalid-feedback">
+              이메일을 입력해주세요.
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="pass2">비밀번호 확인</label>
+            <input type="text" class="form-control" id="pass2" placeholder="비밀번호를 한번 더 입력해주세요" required>
+            <div class="invalid-feedback">
+              이메일을 입력해주세요.
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="mEmail">이메일</label>
+            <input type="text" class="form-control" name="mEmail" id="mEmail" placeholder="you@example.com" required>
+            <div class="invalid-feedback">
+              이메일을 입력해주세요.
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="mPhone">휴대폰 번호</label>
+            <input type="text" class="form-control" name="mPhone" id="mPhone" placeholder="- 없이 번호만 입력해주세요" required>
+            <div class="invalid-feedback">
+              이메일을 입력해주세요.
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="mBirth">생년월일</label>
+            <input type="date" class="form-control" name="mBirth" id="mBirth" required>
+            <div class="invalid-feedback">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="member_addr">주소&nbsp;&nbsp;&nbsp;&nbsp;
+              
+              <button class="addbtn">검색</button>
+              
+              </label>
+          	  
+              <input type="text" class="form-control" name="mAddress1" id="member_addr" placeholder="서울특별시 강남구" required
+              readonly="readonly">
+              <div class="invalid-feedback">
+                이름을 입력해주세요.
+              </div>
+            </div>
+            
+            <div class="col-md-6 mb-3">
+              <label for="member_post">우편번호</label>              
+              <input type="text" class="form-control" name="mPost" id="member_post" required readonly="readonly">
+              <div class="invalid-feedback">
+                별명을 입력해주세요.
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="mb-3">
+            <label for="mAddress2">상세주소<span class="text-muted">&nbsp;(필수 아님)</span></label>
+            <input type="text" class="form-control" name="mAddress2" id="mAddress2" placeholder="상세주소를 입력해주세요.">
+          </div>
+          
+          <hr class="mb-4">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="aggrement" required>
+            <label class="custom-control-label" for="aggrement">이용약관, 개인정보 수집 및 이용, 개인정보 정보 제공을 확인하였고 동의합니다.</label>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Sign up</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
 </form>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 </body>
 <script>

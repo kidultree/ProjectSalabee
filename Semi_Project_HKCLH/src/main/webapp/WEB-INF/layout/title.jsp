@@ -227,7 +227,7 @@ ul.sub li {
 
 				<a href="/">Untitled</a>
 			</div>
-			<div class="iconmenu">
+			<div class="iconmenu">			
 			
 				<c:if test="${sessionScope.loginok==null}">
 					<a href="/login/loginform"> <img src="${root}/image/login.png"
