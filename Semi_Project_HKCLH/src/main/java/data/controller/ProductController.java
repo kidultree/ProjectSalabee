@@ -64,7 +64,6 @@ public class ProductController {
       return "redirect:list";
    }
 
-   
    @GetMapping("/list")
    public ModelAndView list()
    {
@@ -82,6 +81,18 @@ public class ProductController {
    }
    
    
+   @GetMapping("/goods")
+	public String goods()
+	{
+		return "/product/goods";		
+	}
+	
+   @GetMapping("/myset")
+	public String myset()
+	{
+		return "/product/myset";		
+	}
+	
    @GetMapping("/detail")
    public ModelAndView detail(
 		   @RequestParam int pnum

@@ -197,16 +197,16 @@ ul.sub li {
 
 				<li><a href="/cart/about">BRAND </a></li>
 
-				<li><a href="">SHOP</a>
+				<li class="main"><a>SHOP</a>
 
 					<ul class="sub">
 						<li><a href="/product/list">FRAGRANCE</a></li>
-						<li><a href="#">MySet</a></li>
-						<li><a href="#">GOODS</a></li>
+						<li><a href="/product/myset">MySet</a></li>
+						<li><a href="/product/goods">GOODS</a></li>
 					</ul></li>
 
 
-				<li><a href="">COMMUNITY</a>
+				<li class="main"><a>COMMUNITY</a>
 					<ul class="sub">
 						<li><a href="/notice/list">Notice</a></li>
 						<li><a href="#">Review</a></li>
@@ -225,7 +225,7 @@ ul.sub li {
 
 			<div class="navbar_logo">
 
-				<a href="/">Untitled</a>
+				<a href="/">FragBit</a>
 			</div>
 			<div class="iconmenu">
 			

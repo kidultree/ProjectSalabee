@@ -94,37 +94,11 @@ clear:both;
 
    <div class="product-header">
    <div class="product-title">
-   	FRAGRANCE
+   	GOODS
    </div>
    </div>
    <br><br><br><br><br><br><br><br><br><br><br>
-   <div class="container">
-
-		<ul class="tabs">
-			<li class="tab-link current" data-tab="tab-1">ALL</li>
-			<li class="tab-link" data-tab="tab-2">봄</li>
-			<li class="tab-link" data-tab="tab-3">여름</li>
-			<li class="tab-link" data-tab="tab-4">가을</li>
-			<li class="tab-link" data-tab="tab-4">겨울</li>
-		</ul>
-	
-		<div id="tab-1" class="tab-content current">
-			${dto.pcontent}
-		</div>
-		<div id="tab-2" class="tab-content">
-			사용법 및 주의사항
-		</div>
-		<div id="tab-3" class="tab-content">
-			배송 및 반품안내
-		</div>
-		<div id="tab-4" class="tab-content">
-			상품후기
-		</div>
-		<div id="tab-5" class="tab-content">
-			상품문의
-		</div>
-		
-	</div>
+   
 <div class="content-box">
 <c:forEach var="dto" items="${list}">
 <ul class="product_list">

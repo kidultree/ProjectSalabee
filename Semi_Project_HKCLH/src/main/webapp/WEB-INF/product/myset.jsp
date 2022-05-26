@@ -94,7 +94,7 @@ clear:both;
 
    <div class="product-header">
    <div class="product-title">
-   	FRAGRANCE
+   Myset
    </div>
    </div>
    <br><br><br><br><br><br><br><br><br><br><br>
@@ -112,16 +112,16 @@ clear:both;
 			${dto.pcontent}
 		</div>
 		<div id="tab-2" class="tab-content">
-			사용법 및 주의사항
+			봄
 		</div>
 		<div id="tab-3" class="tab-content">
-			배송 및 반품안내
+			여름
 		</div>
 		<div id="tab-4" class="tab-content">
-			상품후기
+			가을
 		</div>
 		<div id="tab-5" class="tab-content">
-			상품문의
+			겨울
 		</div>
 		
 	</div>

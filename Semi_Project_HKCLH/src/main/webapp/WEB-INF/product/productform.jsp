@@ -30,7 +30,7 @@
 <form action="insert" method="post" enctype="multipart/form-data">
 <!-- hidden 5개 -->
 
-	<table class="table table-bordered productt" style="width: 700px;">
+	<table class="table table-bordered product" style="width: 700px;">
 		<caption><h3>상품 등록</h3></caption>
 		<tr>
 			<th width="120" bgcolor="">상품명</th>
