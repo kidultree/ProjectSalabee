@@ -34,6 +34,12 @@
 		border-radius: 10px;
 		border
 	}
+	
+	div.id,div.name,div.pass1,div.pass2,div.email,div.phone,div.date,div.addr,div.aggr,div.birth
+	{
+		font-size: 0.9em;
+		color: red;
+	}
 
 </style>
 
@@ -41,28 +47,94 @@
 
 function chk(){	
 	var mId=document.getElementById("mId");
+	var idreg=/^[a-zA-z0-9]{4,12}$/; //아이디 정규식
 	var mName=document.getElementById("mName");
-	var passreg="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"; //비밀번호 정규식
-	var pass1=document.getElementById("mPassword");
+	var namereg=/^[가-힣]{2,5}$/; //이름 정규식
+	var pass1=document.getElementById("pass1");
 	var pass2=document.getElementById("pass2");			
-	var emailreg="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+	var passreg=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/; //비밀번호 정규식
 	var mEmail=document.getElementById("mEmail");
-	var phonereg="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/";
+	var emailreg=/^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/; //이메일 정규식
 	var mPhone=document.getElementById("mPhone");
+	var phonereg=/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/; //휴대폰 번호 정규식
 	var mAddress1=document.getElementById("mAddress1");
 	var aggr=document.getElementById("aggrement");
 	
+	
 	if(mId.value==""){
-		$("div.id").html("아이디를 입력해 주세요");
-		
+		$("div.id").text("아이디를 입력해 주세요");
+		$("#mId").focus();
 		return false;
+	}
+	else if(!idreg.test(mId.value)){
+		$("div.id").text("최소 4 자,하나이상의 문자,하나 이상의 숫자를 포함시켜주세요");
+		$("#mId").focus();
+		return false;		
 	}
 	if(mName.value==""){
 		$("div.name").text("이름을 입력해 주세요");
-		
+		$("#mName").focus();
 		return false;
 	}
+	else if(!namereg.test(mName.value)){
+		$("div.name").text("올바른 이름 형식이 아닙니다");
+		$("#mName").focus();
+		return false;
+	}
+	if(pass1.value==""){
+		$("div.pass1").text("비밀번호를 입력해 주세요");
+		$("#pass1").focus();
+		return false;
+	}
+	else if(!passreg.test(pass1.value)){
+		$("div.pass1").text("최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자를 입력해주세요");
+		$("#pass1").focus();
+		return false;
+	}
+	if(pass2.value==""){
+		$("div.pass2").text("비밀번호를 한번더 입력해 주세요");
+		$("#pass2").focus();
+		return false;
+	}
+	if(mEmail.value==""){
+		$("div.email").text("이메일을 입력해 주세요");
+		$("#mEmail").focus();
+		return false;
+	}else if(!emailreg.test(mEmail.value)){
+		$("div.email").text("올바른 이메일 형식이 아닙니다");
+		$("#mEmail").focus();
+		return false;
+	}
+	if(mPhone.value==""){
+		$("div.phone").text("휴대폰 번호를 입력해주세요");
+		$("#mPhone").focus();
+		return false;
+	}else if(!phonereg.test(mPhone.value)){
+		$("div.phone").text("올바른 휴대폰 번호가 아닙니다");
+		$("#mPhone").focus();
+		return false;
+	}
+
+	if(mBirth.value==""){
+		$("div.birth").text("생년월일을 입력해 주세요");
+		$("#mBirth").focus();
+		return false;
+	}
+	if(mAddress1.value==""){
+		$("div.addr").text("주소를 입력해 주세요");
+		$("#mAddress1").focus();
+		return false;
+	}
+	if(!aggr.checked){
+		$("div.aggr").text("약관 동의를 체크해 주세요");
+		return false;
+	}
+	else true;
 }
+		
+	
+
+
 	$(function(){
 				
 		//비밀번호 눈모양 클릭시 비밀번호 보이기/숨김
@@ -99,6 +171,75 @@ function chk(){
 					$("input.pass2").attr("type","password");
 				}
 		});
+		
+		$("#mId").keyup(function(){
+			var s=$(this).val();
+			if(s!=""){
+				$("div.id").html("");
+			}
+		})
+		
+		$("#mName").keyup(function(){
+			var s=$(this).val();
+			if(s!=""){
+				$("div.name").html("");
+			}	
+		})
+		
+		$("#pass1").keyup(function(){
+			var s=$(this).val();
+			if(s!=""){
+				$("div.pass1").html("");
+			}	
+		})
+		
+		$("#pass2").keyup(function(){
+			var s=$(this).val();
+			if(s!=""){
+				$("div.pass2").html("");
+			}	
+		})
+		
+		$("#mEmail").keyup(function(){
+			var s=$(this).val();
+			if(s!=""){
+				$("div.email").html("");
+			}	
+		})
+		
+		$("#mPhone").keyup(function(){
+			var s=$(this).val();
+			if(s!=""){
+				$("div.phone").html("");
+			}	
+		})
+		
+		$("#mBirth").change(function(){
+			var s=$(this).val();
+			if(s!=""){
+				$("div.birth").html("");
+			}	
+		})
+		
+		$("#mAddress1").change(function(){
+			var s=$(this).val();
+			if(s!=""){
+				$("div.addr").html("");
+			}	
+		})
+		
+		$("#aggrement").change(function(){
+			var s=$(this).val();
+			if(s!=""){
+				$("div.aggr").html("");
+			}	
+		})
+		
+		
+		
+		
+
+		
 	});
 </script>
 <c:set var="root" value="<%=request.getContextPath() %>"></c:set>
@@ -115,7 +256,7 @@ function chk(){
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="mId" >아이디</label>
-              <input type="text" class="form-control" name="mId" id="mId" placeholder="아이디">
+              <input type="text" class="form-control" name="mId" id="mId" placeholder="영어 대소문자,숫자 포함 4~12자리">
               <div class="id">
               </div>
             </div>
@@ -130,35 +271,35 @@ function chk(){
           <div class="mb-3">
             <label for="mPassword">비밀번호</label>
             <input type="text" class="form-control" name="mPassword" id="pass1" placeholder="최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자를 입력해주세요">
-            <div class="invalid-feedback">
+            <div class="pass1">
             </div>
           </div>
           
           <div class="mb-3">
             <label for="pass2">비밀번호 확인</label>
             <input type="text" class="form-control" id="pass2" placeholder="비밀번호를 한번 더 입력해주세요">
-            <div class="invalid-feedback">
+            <div class="pass2">
             </div>
           </div>
           
           <div class="mb-3">
             <label for="mEmail">이메일</label>
             <input type="text" class="form-control" name="mEmail" id="mEmail" placeholder="you@example.com">
-            <div class="invalid-feedback">
+            <div class="email">
             </div>
           </div>
           
           <div class="mb-3">
             <label for="mPhone">휴대폰 번호</label>
             <input type="text" class="form-control" name="mPhone" id="mPhone" placeholder="- 없이 번호만 입력해주세요">
-            <div class="invalid-feedback">
+            <div class="phone">
             </div>
           </div>
           
           <div class="mb-3">
             <label for="mBirth">생년월일</label>
             <input type="date" class="form-control" name="mBirth" id="mBirth">
-            <div class="invalid-feedback">
+            <div class="birth">
             </div>
           </div>
 
@@ -170,13 +311,15 @@ function chk(){
               readonly="readonly">
               <div class="invalid-feedback">
               </div>
+            <div class="addr">
+            </div>
             </div>
             
             <div class="col-md-6 mb-3">
-              <label for="member_post">우편번호</label>              
+              <label for="mPost">우편번호</label>              
               <input type="text" class="form-control" name="mPost" id="mPost" readonly="readonly">
-              <div class="invalid-feedback">
-              </div>
+
+
             </div>
             
           </div>
@@ -184,16 +327,18 @@ function chk(){
           
 
           <div class="mb-3">
-            <label for="mAddress2">상세주소<span class="text-muted">&nbsp;(필수 아님)</span></label>
+            <label for="mAddress2">상세주소<span class="text-muted">&nbsp;(선택)</span></label>
             <input type="text" class="form-control" name="mAddress2" id="mAddress2" placeholder="상세주소를 입력해주세요.">
           </div>
           
-          <hr class="mb-4">
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="aggrement" required>
-            <label class="custom-control-label" for="aggrement">이용약관, 개인정보 수집 및 이용, 개인정보 정보 제공을 확인하였고 동의합니다.</label><br><br>
+          <div class="">
+            <input type="checkbox" class="" id="aggrement">
+            <label class="" >이용약관, 개인정보 수집 및 이용, 개인정보 정보 제공을 확인하였고 동의합니다.</label>
+            <div class="aggr">
+            </div>
+            <br><br>
+            
           </div>
-
           <button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color: black; border: black; border-radius: 10px;">Sign up</button>
         </form>
       </div>
@@ -217,13 +362,15 @@ function findAddr(){
             var roadAddr = data.roadAddress; // 도로명 주소 변수
             var jibunAddr = data.jibunAddress; // 지번 주소 변수
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
-            document.getElementById('mPost').value = data.zonecode;
+            document.getElementById("mPost").value = data.zonecode;
             if(roadAddr !== ''){
                 document.getElementById("mAddress1").value = roadAddr;
             } 
             else if(jibunAddr !== ''){
                 document.getElementById("mAddress1").value = jibunAddr;
             }
+            
+            $("div.addr").html("");	
         }
     }).open();
 }

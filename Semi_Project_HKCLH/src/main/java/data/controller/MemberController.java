@@ -32,7 +32,7 @@ public class MemberController {
 		
 		membermapper.insertMember(dto);	
 		
-		return "/";		
+		return "redirect:/";		
 	}
 	
 
