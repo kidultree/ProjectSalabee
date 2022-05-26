@@ -59,28 +59,37 @@
 </script>
 
 <body>
-<div class="content">
+
+<div class="wrapper">
+
+<div class="wrap">
+
 <br><br><br><br><br>
+
+
 <div class="title">Cart</div>
    
    <!-- 카트 첫 행 -->
    <table class="cart-table" style="width:1200px;">
 	<tr>
-		<th><input type="checkbox" id="allcheck">전체선택|<div id="Cartdel">선택삭제</div></th>
-		<th></th>
-		<th style="text-align: center;">제품정보</th>
-		<th style="text-align: center;">수량</th>
-		<th style="text-align: center;">금액</th>
+		<th class="th_width_1"></th>
+		<th class="th_width_2"><input type="checkbox" id="allcheck">전체선택|<div id="Cartdel">선택삭제</div></th>
+		
+		<th class="th_width_3">제품정보</th>	
+		<th class="th_width_4">수량</th>
+		<th class="th_width_5">금액</th>
 		<th></th>
 	</tr>
 	
 	<c:forEach var="cList2" items="${cList}" varStatus="i">
 	<tr>
-		<td><input type="checkbox" class="del" cid="${cList2.cid}"></td>
 		<td class="cart_info_td">
 				<input type="hidden" class="individual_cquantity_input" value="${cList2.cquantity}">
 				<input type="hidden" class="individual_totalPrice_input" value="${cList2.SUM_PRICE}">
 		</td>
+		
+		<!-- 체크박스 -->
+		<td><input type="checkbox" class="del" cid="${cList2.cid}"></td>
 		
 		<!-- 이미지&제품정보 -->
 		<td><img src="${root}/save/${cList2.pphoto}" style="width:100px;">&nbsp;&nbsp;${cList2.pname}</td>
@@ -137,8 +146,10 @@
 
 <div class="buybtn" onclick="location.href='buy'">주문하기</div>
 <br><br>
-</div>
 
+
+</div>	<!-- class="wrap" -->
+</div>	<!-- class="wrapper" -->
 </body>
 
 <script type="text/javascript">

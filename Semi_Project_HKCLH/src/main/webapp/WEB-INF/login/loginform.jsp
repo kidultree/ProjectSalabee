@@ -39,7 +39,11 @@
 
 div.all{
 	position:absolute;
+<<<<<<< HEAD
+	left: 40%;
+=======
 	left: 39%;
+>>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
 	height: 800px;
 }
 

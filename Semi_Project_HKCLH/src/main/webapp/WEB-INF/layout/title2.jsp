@@ -19,7 +19,7 @@
       font-size: 2rem;
       font-family: 'Jua';
    }
-   
+  
    #main-menu{
    	background-color:black;
    	width:1000px;

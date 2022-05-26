@@ -163,7 +163,7 @@ FragBit에서 나만의 '시그니처 향기'를 찾을 수 있길 바랍니다!
 <div class="faq-content">
   <button class="question" id="que-6"><span id="que-6-toggle">+</span><span>기존 사이트 주문 취소 안내</span></button>
   <div class="answer" id="ans-6">
-  <img src="${root}/save/notice_cancel.jpg" style="width: 700px";>
+  <img src="${root}/save/notice_cancel.png" style="width: 700px";>
   </div>
 </div>
 
