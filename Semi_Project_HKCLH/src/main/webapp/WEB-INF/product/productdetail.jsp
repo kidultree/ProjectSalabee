@@ -206,13 +206,197 @@ input[type=number]::-webkit-outer-spin-button {
 	text-align: center; text-decoration: none; display: inline-block;
 	font-size: 15px; margin: 4px; cursor: pointer;
 }
+
+/*이미지 슬라이드*/
+	/*GLOBALS*/
+	*{margin:0; padding:0; list-style:none;}
+	a{text-decoration:none; color:#666;}
+	a:hover{color:#1bc1a3;}
+	body, hmtl{background: #ecf0f1; font-family: 'Anton', sans-serif;}
+	
+	
+	#wrapper{
+	  width:480px;
+	  margin:50px auto;
+	  height:600px;
+	  position:relative;
+	  bottom:80px;
+	  color:#fff;
+	  text-shadow:rgba(0,0,0,0.1) 2px 2px 0px;  
+	}
+	
+	#slider-wrap{
+	  width:480px;
+	  height:600px;
+	  position:relative;
+	  overflow:hidden;
+	}
+	
+	#slider-wrap ul#slider{
+	  width:100%;
+	  height:100%;
+	  
+	  position:absolute;
+	  top:0;
+	  left:0;   
+	}
+	
+	#slider-wrap ul#slider li{
+	  float:left;
+	  position:relative;
+	  width:480px;
+	  height:600px; 
+	}
+	
+	#slider-wrap ul#slider li > div{
+	  position:absolute;
+	  top:20px;
+	  left:35px;  
+	}
+	
+	#slider-wrap ul#slider li > div h3{
+	  font-size:36px;
+	  text-transform:uppercase; 
+	}
+	
+	#slider-wrap ul#slider li > div span{
+	  font-family: Neucha, Arial, sans serif;
+	  font-size:21px;
+	}
+	
+	#slider-wrap ul#slider li img{
+	  display:block;
+	  width:100%;
+	  height: 100%;
+	}
+	
+	
+	/*btns*/
+	.btns{
+	  position:absolute;
+	  width:50px;
+	  height:60px;
+	  top:50%;
+	  margin-top:-25px;
+	  line-height:57px;
+	  text-align:center;
+	  cursor:pointer; 
+	  background:rgba(0,0,0,0.1);
+	  z-index:100;
+	  
+	  
+	  -webkit-user-select: none;  
+	  -moz-user-select: none; 
+	  -khtml-user-select: none; 
+	  -ms-user-select: none;
+	  
+	  -webkit-transition: all 0.1s ease;
+	  -moz-transition: all 0.1s ease;
+	  -o-transition: all 0.1s ease;
+	  -ms-transition: all 0.1s ease;
+	  transition: all 0.1s ease;
+	}
+	
+	.btns:hover{
+	  background:rgba(0,0,0,0.3); 
+	}
+	
+	#next{right:-50px; border-radius:7px 0px 0px 7px;}
+	#previous{left:-50px; border-radius:0px 7px 7px 7px;}
+	#counter{
+	  top: 30px; 
+	  right:35px; 
+	  width:auto;
+	  position:absolute;
+	}
+	
+	#slider-wrap.active #next{right:0px;}
+	#slider-wrap.active #previous{left:0px;}
+	
+	
+	/*bar*/
+	#pagination-wrap{
+	  min-width:140px;
+	  margin-top:560px;
+	  margin-left: auto; 
+	  margin-right: auto;
+	  height:15px;
+	  position:relative;
+	  text-align:center;
+	  
+	}
+	
+	#pagination-wrap ul {
+	  width:100%;  
+	}
+	
+	#pagination-wrap ul li{
+	  display: inline-block;
+	  width:70px;
+	  height:5px;
+	  background:#fff;
+	  opacity:0.5;
+	  position:relative;
+	  
+	}
+	
+	#pagination-wrap ul li.active{
+	  width:70px;
+	  height:5px;
+	  background-color:black;
+	  opacity:2;
+	  box-shadow:rgba(0,0,0,0.1) 1px 1px 0px; 
+	}
+	
+	/*Header*/
+	h1, h2{text-shadow:none; text-align:center;}
+	h1{ color: #666; text-transform:uppercase;  font-size:36px;}
+	h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; margin-bottom:30px;} 
+	
+	
+	
+	
+	/*ANIMATION*/
+	#slider-wrap ul, #pagination-wrap ul li{
+	  -webkit-transition: all 0.3s cubic-bezier(1,.01,.32,1);
+	  -moz-transition: all 0.3s cubic-bezier(1,.01,.32,1);
+	  -o-transition: all 0.3s cubic-bezier(1,.01,.32,1);
+	  -ms-transition: all 0.3s cubic-bezier(1,.01,.32,1);
+	  transition: all 0.3s cubic-bezier(1,.01,.32,1); 
+	}
+
 </style>
 </head>
 <body>
 <div class="content">
 	<div class="leftlay">
-	<img  src="../save/${dto.pphoto}" style="width: 480px; height: 600px" align="left">
-	</div>
+		
+		<div id="wrapper" style="float: left;">
+	     <div id="slider-wrap">
+	        <ul id="slider">
+	          <li>               
+				<img  src="../save/${dto.pphoto}" style="width: 480px; height: 600px" align="left">
+	          </li>
+	          <li>               
+				<img  src="../save/detailpphoto.jpg" style="width: 480px; height: 600px" align="left">
+	          </li>     
+	         </ul>   
+	           <!--controls-->
+	          <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+	          <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+	          <div id="counter"></div>
+	          
+	          <div id="pagination-wrap">
+	            <ul>
+	            </ul>
+	          </div>
+	          <!--controls-->               
+	      </div>
+	  	 </div>
+	
+	</div> <!-- leftlay -->
+	
+	
 	
 	<div class="rightlay">
       <table class="optiontable" style="width: 400px; height: 650px" >
@@ -233,7 +417,7 @@ input[type=number]::-webkit-outer-spin-button {
 			<td><div style="float: left; display: flex;">옵션 &nbsp;</div>
 				<select name="pop" id="pop" style="font-size: 15px; color: gray;">
 				    <option value="" selected="selected" disabled="disabled">&nbsp;
-				    옵션선택</option>
+				    - 옵션을 선택해주세요 -</option>
 				    <option value="no">선택안함</option>
 				    <option value="40">40ml</option>
 				    <option value="80">80ml</option>
@@ -253,8 +437,8 @@ input[type=number]::-webkit-outer-spin-button {
 		
 		<tr>
 			<td style="border-top: 1px solid #B6B7B4;">
-				<div style="float: left;">총 상품금액</div>
-	      	    <div style="float: right; font-weight: 600;">
+				<div style="float: left;"><br>총 상품금액</div>
+	      	    <div style="float: right; font-weight: 600;"><br>
 	            <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원
 	        	</div>
 			</td>
@@ -325,26 +509,136 @@ input[type=number]::-webkit-outer-spin-button {
 		</div>
 		
 	</div><!-- container -->
+	
 	<br><br><br>
 	
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$('ul.tabs li').click(function(){
-					var tab_id = $(this).attr('data-tab');
+	<!-- tab -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('ul.tabs li').click(function(){
+				var tab_id = $(this).attr('data-tab');
+
+				$('ul.tabs li').removeClass('current');
+				$('.tab-content').removeClass('current');
+
+				$(this).addClass('current');
+				$("#"+tab_id).addClass('current');
+			});	
+		});
+	</script>
 	
-					$('ul.tabs li').removeClass('current');
-					$('.tab-content').removeClass('current');
 	
-					$(this).addClass('current');
-					$("#"+tab_id).addClass('current');
+     
+      <button type="button" class="btn btn-default go-top" id="go-top"
+		style="position: fixed; right: 70px; bottom:120px;">
+		<span class="glyphicon glyphicon-chevron-up"></span>
+	  </button>
+	  <script type="text/javascript">
+	  <!-- 위로가기 플로팅 -->
+		    /* 클릭시 스크롤 이동 */
+			$(document).ready(function($) {
+			    $(".scroll_move").click(function(event){
+			            event.preventDefault();
+			            $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);
+			    });
+		    
+				/* scroll top button */
+				// 1. 특정 위치에서 부터 버튼 나타고, 사라지게(fade)
+			    $(window).scroll(function () {
+					if ($(this).scrollTop() > 600) {
+						$('.go-top').fadeIn(400);
+					} else {
+						$('.go-top').fadeOut(400);
+					}
 				});
 	
+				// 2. 버튼 클릭하면 원하는 위치로 이동
+				$('.go-top').click(function (event) {
+					event.preventDefault();
+					$('html, body').animate({ scrollTop: 0 }, 300);
+					});
 			});
-		</script>
+	  	
+	  <!--이미지 슬라이드-->
+			//current position
+			var pos = 0;
+			//number of slides
+			var totalSlides = $('#slider-wrap ul li').length;
+			//get the slide width
+			var sliderWidth = $('#slider-wrap').width();
+			$(document).ready(function(){
+			  //set width to be 'x' times the number of slides
+			  $('#slider-wrap ul#slider').width(sliderWidth*totalSlides);
+			  
+			    //next slide  
+			  $('#next').click(function(){
+			    slideRight();
+			  });
+			  
+			  //previous slide
+			  $('#previous').click(function(){
+			    slideLeft();
+			  });
+			  
+			
+			  //automatic slider
+			  var autoSlider = setInterval(slideRight, 3000);
+			  
+			  //for each slide 
+			  $.each($('#slider-wrap ul li'), function() { 
 	
+			     //create a pagination
+			     var li = document.createElement('li');
+			     $('#pagination-wrap ul').append(li);    
+			  });
+			  
+			  //counter
+			  countSlides();
+			  
+			  //pagination
+			  pagination();
+			  
+			  //hide/show controls/btns when hover
+			  //pause automatic slide when hover
+			  $('#slider-wrap').hover(
+			    function(){ $(this).addClass('active'); clearInterval(autoSlider); }, 
+			    function(){ $(this).removeClass('active'); autoSlider = setInterval(slideRight, 3000); }
+			  );
+			});//DOCUMENT READY
+			  
+			/*SLIDE LEFT*/
+			function slideLeft(){
+			  pos--;
+			  if(pos==-1){ pos = totalSlides-1; }
+			  $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos));  
+			  
+			  //*> optional
+			  countSlides();
+			  pagination();
+			}
 	
-      
-      
+			/*SLIDE RIGHT*/
+			function slideRight(){
+			  pos++;
+			  if(pos==totalSlides){ pos = 0; }
+			  $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos)); 
+			  
+			  //*> optional 
+			  countSlides();
+			  pagination();
+			}
+			
+			function countSlides(){
+			  $('#counter').html();
+			}
+			function pagination(){
+			  $('#pagination-wrap ul li').removeClass('active');
+			  $('#pagination-wrap ul li:eq('+pos+')').addClass('active');
+			}
+		       
+	  </script>
+	  
+	  
       <div class="buttons" style="margin-left: 0px;">   
       <br>   
          <!-- 목록 -->   
@@ -426,5 +720,7 @@ $(document).ready(function() {
         });
 	}
 	});
+	
+	
 </script>
 </html>
