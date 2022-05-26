@@ -51,14 +51,18 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   [id$="-toggle"] {
     margin-right: 15px;
   }
-  
+  div.junghababo{
+  width: 500px;
+  position:relative;
+  left: 500px;
+  }
 </style>
 
 </head>
 <body>
 
 <span id="faq-title"><b>공지사항</b></span>
-
+<div class="junghababo">
 <div class="faq-content">
   <button class="question" id="que-1"><span id="que-1-toggle">+</span>
   <span>배송기간 안내 (주문 후 3~4일 예상)</span></button>
@@ -210,7 +214,7 @@ Bit Frag 드림</div>
 
 감사합니다.</div>
 </div>
-
+</div>
 <script>
   const items = document.querySelectorAll('.question');
 
