@@ -1,7 +1,5 @@
 	package data.dto;
 
-import java.sql.Timestamp;
-
 import org.apache.ibatis.type.Alias;
 
 import lombok.Data;
@@ -13,5 +11,5 @@ public class CartDto {
 	private String pnum;
 	private int cquantity;
 	
-	//private String cid;
+	private String cid;
 }

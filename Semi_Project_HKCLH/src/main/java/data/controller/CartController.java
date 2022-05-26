@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.CartDto;
 import data.mapper.CartMapperInter;
-import data.mapper.ProductMapperInter;
 
 
 @Controller
@@ -75,7 +74,8 @@ public class CartController {
 	/*  카트 삭제 */
 	@GetMapping("/delete")
 	@ResponseBody
-	public void deleteMember(@RequestParam String cids) {
+	public void deleteCart(@RequestParam String cids) {
+		
 		//,로 cid를 분리
 		String cid[]=cids.split(",");
 		for(String n:cid) {

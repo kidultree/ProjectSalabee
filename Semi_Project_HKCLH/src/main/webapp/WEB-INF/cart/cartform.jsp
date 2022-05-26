@@ -66,7 +66,8 @@
    <!-- 카트 첫 행 -->
    <table class="cart-table" style="width:1200px;">
 	<tr>
-		<th></th><th></th>
+		<th><input type="checkbox" id="allcheck">전체선택|<div id="Cartdel">선택삭제</div></th>
+		<th></th>
 		<th style="text-align: center;">제품정보</th>
 		<th style="text-align: center;">수량</th>
 		<th style="text-align: center;">금액</th>
@@ -75,14 +76,10 @@
 	
 	<c:forEach var="cList2" items="${cList}" varStatus="i">
 	<tr>
+		<td><input type="checkbox" class="del" cid="${cList2.cid}"></td>
 		<td class="cart_info_td">
 				<input type="hidden" class="individual_cquantity_input" value="${cList2.cquantity}">
 				<input type="hidden" class="individual_totalPrice_input" value="${cList2.SUM_PRICE}">
-		</td>
-		<td></td>
-		
-		<td>
-			<input type="checkbox" class="del" > 
 		</td>
 		
 		<!-- 이미지&제품정보 -->
@@ -115,11 +112,11 @@
 		<th style="width:100px;">추가금액</th>
 		<th/>
 		<th style="width:100px;">배송비</th>
-		<th/>++
+		<th/>
 		<th style="width:100px;">총 결제금액</th>
 	</tr>
 	
-	<tr>
+	<tr>	
 		<td><span class="totalPrice_span"></span> 원</td>
 		
 		<td><img src="${root}/image/-.PNG" id="m" style="width:50px"></td>
@@ -143,6 +140,55 @@
 </div>
 
 </body>
+
+<script type="text/javascript">
+	$(function(){
+		
+		/* 체크박스 전체선택 */
+		$("#allcheck").click(function(){
+			var chk = $(this).is(":checked"); //체크상태 확인
+			console.log(chk);
+			if(chk){
+				$(".del").prop("checked",true); //속성변경(true/false일 경우 prop사용)
+			}else{
+				$(".del").prop("checked",false);
+			}
+		});
+		
+		/* delete 버튼 - 삭제 */
+		$("#Cartdel").click(function(){
+			//체크 수 구하기
+			var len = $(".del:checked").length;
+			//0명일 경우
+			if(len==0){
+				alert("삭제할 상품을 선택해 주세요")
+				return;
+			}
+			//체크한 곳의 cid값 가져오기
+			var cids = "";
+			$(".del:checked").each(function(i, element){
+				var cid = $(this).attr("cid");
+				cids+=cid+",";
+			});
+			//마지막 컴마(,) 제거
+			cids = cids.substring(0, cids.length-1);
+			//alert(nums);
+			
+	         $.ajax({
+	             type:"get",
+	             dataType:"text",
+	             data:{"cids":cids},
+	             url:"delete",
+	             success:function(data){
+	                //새로고침
+	                location.reload();
+	             }
+	          });
+	       });
+	    });
+
+</script>
+
 
 <script type="text/javascript">
 <!--수량추가(뭔지 모르겠음)-->
