@@ -5,11 +5,11 @@
 <!-- INSERT -->
 	<insert id="insertReview" parameterType="review">
 		insert into review
-		(rnum, pnum, rrate, rtitle, rname, mid, rcontent, rphoto,
+		(rnum, pnum, rrate, rname, mid, rcontent, rphoto,
 		rdate) values
 		(
-		#{rnum}, #{pnum}, #{rrate}, #{rtitle}, #{rname}, #{mid}, #{rcontent},
-		#{rphoto}, #{rdate}
+		#{rnum}, #{pnum}, #{rrate}, #{rname}, #{mid}, #{rcontent},
+		#{rphoto}, now()
 		)
 	</insert>
 

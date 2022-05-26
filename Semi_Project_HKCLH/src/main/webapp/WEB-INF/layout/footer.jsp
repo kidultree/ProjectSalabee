@@ -118,7 +118,7 @@ section {
 				<a href="">PRIVACY POLICY</a>&nbsp;&nbsp; <a href="">GUIDE</a>
 			</nav>
 			<p>
-				COMPANY: FragBit | OWNER : 최윤석 | ADRESS : 서울 강남구 강남대로94길 20, 삼오빌딩 9층
+				COMPANY: FragBit | OWNER : 이경주 | ADRESS : 서울 강남구 강남대로94길 20, 삼오빌딩 9층
 				<br> 고객 문의 이메일: help@fragbit.com | 고객 센터: 02-3486-9600 <br>
 				<p1>COPYRIGHT @ 2022 FRAGBIT Inc. ALL RIGHTS RESERVED.</p1>
 			</p>

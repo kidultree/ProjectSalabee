@@ -4,7 +4,7 @@
 
 <!-- qna 삽입 -->
 <insert id="insertQnA" parameterType="notice">
-insert into QnA (qnum, qcate, qtitle, mid, qcontent, qimg, qstate, qdate) values (
+insert into QnA (qnum, qcate, mid, qcontent, qimg, qstate, qdate) values (
 #{qnum}, #{qcate}, #{qtitle}, #{mid}, #{qcontent}, #{qimg}, #{qstate}, now()
 )
 </insert>

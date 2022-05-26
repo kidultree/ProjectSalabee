@@ -28,7 +28,7 @@ Signika+Negative:wght@300&display=swap"
         font-family:  "Noto Sans KR", "sans-serif !important;"
     }
     /* 반응형 (미완성) 완성할진몰루*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1004px) {
     .navbar {
         flex-direction: column;
         align-items: flex-start;
@@ -55,6 +55,8 @@ Signika+Negative:wght@300&display=swap"
         justify-content: center;
         width:100%;
     }
+     all div{
+   display: none}
 }
  
 
@@ -74,7 +76,7 @@ Signika+Negative:wght@300&display=swap"
 	</div>
 	 <div class="footer">
 		<tiles:insertAttribute name="footer"/>
-	</div> --
+	</div> 
 	
 </div>
 </body>

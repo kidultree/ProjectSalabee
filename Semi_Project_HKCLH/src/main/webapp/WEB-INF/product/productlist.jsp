@@ -38,35 +38,27 @@
 	right: 43%;
 	top: 30%;
 	}
-		ul.tabs{
-			margin: 0px;
-			padding: 0px;
-			list-style: none;
-		}
-		ul.tabs li{
-			background: none;
-			color: #222;
-			display: inline-block;
-			padding: 10px 15px;
-			cursor: pointer;
-		}
-
-		ul.tabs li.current{
-			background: #ededed;
-			color: #222;
-		}
-
-		.tab-content{
-			display: none;
-			background: #ededed;
-			padding: 15px;
-		}
-
-		.tab-content.current{
-			display: inherit;
-		}
-		
-    
+	#div1{
+	position:absolute;
+	top:500px;
+	}
+	#div2{
+	position:absolute;
+	top:800px;
+	}
+	#div3{
+	position:absolute;
+	top:1100px;
+	}
+	#div4{
+	position:absolute;
+	top:1600px;
+	}
+	#div5{
+	position:absolute;
+	top:2000px;
+	}
+    div.content-box
 .product_list {margin-left: 120px; list-style: none;}
 /* .product_list:after {
 content:"";
@@ -77,9 +69,9 @@ clear:both;
 .product_list li:hover{border-color: black;}
 .product_list dl{padding:374px 0 0 0 ;}
 .product_list dt{padding: 14px 15px 14px; border-top: 1px solid #f0f0f0;}
-.product_list dt a { font-size: 16px; color: #1a1a1a; font-weight: bold; text-decoration: none; position:absolute; left:115px;}
+.product_list dt a { font-size: 16px; color: #1a1a1a; font-weight: bold; text-decoration: none; position:absolute; left:130px;}
 .product_list .img { position: absolute; left:35px; top:0;}
-.product_list .tags {padding: 0 0 0 0px; font-size: 15px; color:black; opacity: 0.7;  position: absolute; left: 50px; bottom: 45px;}
+.product_list .tags {padding: 0 0 0 0px; font-size: 15px; color:black; opacity: 0.7;  position: absolute; left: 100px; bottom: 45px;}
 .product_list .btm {position: absolute; right: 3px; bottom:0; width: 99%; border-top: 1px solid #f0f0f0; background: #fafafa;}
 .product_list .btm div { float:left; width: 40%; height: 30px; line-height: 30px; text-align: center; font-size: 12px; color:#767676;}
 .product_list .btm div a {font-size:12px; color:#767676;}
@@ -98,31 +90,19 @@ clear:both;
    </div>
    </div>
    <br><br><br><br><br><br><br><br><br><br><br>
-   <div class="container">
-
-		<ul class="tabs">
-			<li class="tab-link current" data-tab="tab-1">ALL</li>
-			<li class="tab-link" data-tab="tab-2">봄</li>
-			<li class="tab-link" data-tab="tab-3">여름</li>
-			<li class="tab-link" data-tab="tab-4">가을</li>
-			<li class="tab-link" data-tab="tab-4">겨울</li>
-		</ul>
+   <div class="content-box">
+	<div class="features">
+		<a class="scroll_move" href="#div1">ALL</a>
+		<a class="scroll_move" href="#div2">봄</a>
+		<a class="scroll_move" href="#div3">여름</a>
+		<a class="scroll_move" href="#div4">가을</a>
+		<a class="scroll_move" href="#div5">겨울</a>
+	</div>
+</div>
+  
 	
-		<div id="tab-1" class="tab-content current">
-			${dto.pcontent}
-		</div>
-		<div id="tab-2" class="tab-content">
-			사용법 및 주의사항
-		</div>
-		<div id="tab-3" class="tab-content">
-			배송 및 반품안내
-		</div>
-		<div id="tab-4" class="tab-content">
-			상품후기
-		</div>
-		<div id="tab-5" class="tab-content">
-			상품문의
-		</div>
+		
+		
 		
 	</div>
 <div class="content-box">
@@ -145,8 +125,47 @@ clear:both;
   </ul>
                         </c:forEach>
 </div>
-  
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<button type="button" class="btn btn-default go-top" id="go-top"
+style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyphicon-chevron-up"></span></button> 
+
+  <script type="text/javascript">
+
+/* 클릭시 스크롤 이동 */
+$(document).ready(function($) {
+    $(".scroll_move").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);
+    });
+    
+/* scroll top button */
+	// 1. 특정 위치에서 부터 버튼 나타고, 사라지게(fade)
+    $(window).scroll(function () {
+		if ($(this).scrollTop() > 600) {
+			$('.go-top').fadeIn(100);
+		} else {
+			$('.go-top').fadeOut(100);
+		}
+	});
+
+	// 2. 버튼 클릭하면 원하는 위치로 이동
+	$('.go-top').click(function (event) {
+		event.preventDefault();
+		$('html, body').animate({ scrollTop: 0 }, 300);
+	});
+	
+});
+</script>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+		<div id="div1">div1</div>
+		<div id="div2">div2</div>
+		<div id="div3">div3</div>
+		<div id="div4">div4</div>
+		<div id="div5">div5</div>
 <!-- 등록 (관리자만) -->   
          <button type="button" class="btn btn-info" id="formbtn"
          onclick="location.href='form'">
