@@ -84,12 +84,16 @@
 		</td>
 		<td></td>
 		
-		<!-- 이미지&제품정보 -->
-		<td><img src="${root}/save/${cList2.pphoto}" style="width:100px;">&nbsp;&nbsp;${cList2.pname }</td>
-		
-		<!-- 수량선택 -->
 		<td>
-			<div class="number-input">
+			<input type="checkbox" class="del" > 
+		</td>
+		
+		<!-- 이미지&제품정보 -->
+		<td><img src="${root}/save/${cList2.pphoto}" style="width:100px;">&nbsp;&nbsp;${cList2.pname}</td>
+		
+		<!-- 수량선택 -->	
+		<td>
+			<div class="number-input">	
 				<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
 				<input class="quantity" min="0" name="quantity" value="${cList2.cquantity}" type="number" id="quantity">
 				<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
@@ -100,7 +104,7 @@
 		<td><span class="sum_price"><fmt:formatNumber value="${cList2.SUM_PRICE}" pattern="#,### 원" /></span></td>
 		
 		<!-- 삭제버튼 -->
-		<td class="delete_btn"><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button> </td>
+		<td class="delete_btn"><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
 		</tr>
 	</c:forEach>
 </table>

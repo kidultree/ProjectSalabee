@@ -1,4 +1,4 @@
-package data.dto;
+	package data.dto;
 
 import java.sql.Timestamp;
 
@@ -12,4 +12,6 @@ public class CartDto {
 	private String mid;
 	private String pnum;
 	private int cquantity;
+	
+	//private String cid;
 }

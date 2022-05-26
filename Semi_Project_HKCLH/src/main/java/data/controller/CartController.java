@@ -71,5 +71,17 @@ public class CartController {
 		return "/cart/buyform";		
 	}
 	
+	
+	/*  카트 삭제 */
+	@GetMapping("/delete")
+	@ResponseBody
+	public void deleteMember(@RequestParam String cids) {
+		//,로 cid를 분리
+		String cid[]=cids.split(",");
+		for(String n:cid) {
+			cartmapper.deleteCart(n);
+		}
+	}
+
 
 }
