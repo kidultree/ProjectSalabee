@@ -19,7 +19,7 @@ public interface CartMapperInter {
 	public List<Map<String,Object>> getAllCart(String mid); //카트 담긴목록 전부 가져오기
 	
 	
-	public void deleteCart(String num); //카트 물건 삭제
+	public void deleteCart(String cid); //카트 물건 삭제
 	
 	
 }

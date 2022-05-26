@@ -16,7 +16,7 @@ insert into notice (nnum, ntitle, nname, ncontent, nphoto, ndate) values (
 </select>
 
 <!-- 수정 -->
-<select id="getNotice" parameterType="int" resultType="product">
+<select id="getNotice" parameterType="int" resultType="notice">
 select * from notice where nnum = #{nnum}
 </select>
 

@@ -1,14 +1,18 @@
 @charset "UTF-8";
 
-div {
+/* 화면 전체 렙 */
+.wrapper{
+	width: 100%;
 	font-family: Noto Sans KR;
-	text-align: center;
+}
+	
+/* content 랩 */
+.wrap{
+	width : 1400px;
+	margin: auto;
+	background-color: pink;
 }
 
-div.content {
-	width: 100%;
-	height: 100%;
-}
 
 div.title {
 	width: 500px;
@@ -19,6 +23,10 @@ div.title {
 	font-family: sans-serif;
 	font-weight: bold;
 }
+
+
+
+/* ----테이블 CSS---- */
 
 table {
 	margin: auto;
@@ -33,23 +41,43 @@ table.a {
 
 th {
 	height: 80px;
-	text-align: center;
 }
 
-tr, td {
-	font-family: sans-serif;
+th.th_width_1 {
+	width:0px;
+}
+
+th.th_width_2{
+	width:300px;
+}
+
+td.cart_info_td{
+	width:0px;
+}
+
+tr{
 	text-align: center;
 	border-bottom: 1px solid #444444;
 	padding: 10px;
 }
 
 td {
-	font-family: sans-serif;
 	text-align: center;
 	height: 80px;
 	border-bottom: 1px solid #444444;
 	padding: 10px;
 }
+
+th.
+
+
+
+
+
+
+
+
+
 
 div.buybtn {
 	width: 800px;
@@ -63,6 +91,24 @@ div.buybtn {
 	font-size: 30px;
 	color: white;
 }
+
+
+input#allcheck + label {
+	display: inline-block;
+	width: 50px;
+	height: 20px;
+	border: 2px solid #bcbcbc;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
 
 /*수량추가 input box*/
 #quantity{
