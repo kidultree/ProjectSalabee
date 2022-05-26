@@ -57,14 +57,93 @@
 		cursor: pointer;
 	}
 </style>
-<script type="text/javascript">
-
 </head>
+<script type="text/javascript">
+	//댓글 출력하는 함수
+function list(){
+	var num=${dto.num};
+	var login ='${sessionScope.loginok}';
+	var loginid='${sessionScope.loginid}';
+	console.log(login,loginid);
+	
+	$.ajax({
+		type:"get",
+		dataType:"json",
+		url:"../answer/list",
+		data:{"num":num},
+		success:function(data){
+			//댓글 갯수
+			$("span.answercnt").text(data.count);
+			var s="";
+			s+="<table style='width: 600px;'>";
+			$.each(data.alist, function(i,d){
+				s+="<tr>";
+				s+="<td width='70'>"+d.name+"</td>";
+				s+="<td width=320><pre class='m'>"+d.message+"</pre></td>";
+				s+="<td><span class='day'>&nbsp;"+d.writeday;
+				if(login=='yes' && loginid==d.id){ //자기가 쓴 댓글에만 삭제 가능표시
+					s+="&nbsp;<span class='glyphicon glyphicon-remove adel' idx="+d.idx+"></span>";
+				}
+				s+="</td>";
+				s+="</tr>";
+			});
+			
+			s+="</table>";
+			$("div.alist").html(s);
+		}
+	});
+}
+
+$(function () {
+	//처음 로딩 시 댓글 출력
+	list();
+	
+	//댓글 삭제 이벤트
+	$(document).on("click","span.adel",function(){
+		//idx 얻기
+		var idx=$(this).attr("idx");
+		//confim - true 일 경우 ajax 함수를 통해서
+		//댓글 삭제 후 목록 다시 출력
+		var ans=confirm("삭제하려면 [확인]을 눌러주세요");
+		if(ans){
+			$.ajax({
+				type:"get",
+				dataType: "text",
+				data:{"idx":idx},
+				url:"../answer/delete",
+				success:function(){
+					list();	
+				}
+			});
+		}
+	});
+
+	//댓글 저장 이벤트
+
+	$("td.asave").click(function(){
+		//전체 폼 데이터 읽기
+		var data = $("#afrm").serialize();
+		//alert(data);
+		$.ajax({
+			type:"post",
+			dataType:"text",
+			url:"../answer/insert",
+			data: data,
+			success: function(){
+				list();
+				$("#message").val("");
+			}
+		});
+	});
+
+</script>
 <body>
+
+	<!-- 글 내용 -->
 	<div class = "qnacontent" style="width: 800px;">
 		<h2><b>${dto.qtitle}</b></h2>
-		<hr>
 		<span class="glyphicon glyphicon-user"></span>&nbsp;<b>${dto.mid}</b>
+		<hr>
 		<span style="color: gray;">
 			<fmt:formatDate value="${dto.qdate}" pattern="yyyy-MM-dd HH:mm"/>
 		</span>
@@ -96,14 +175,16 @@
 			
 			<!-- 로그인을 한 상태에서만 댓글 입력을 할 수 있다 -->
 			<c:if test="${sessionScope.loginok!=null}">
+			<br><br><br><br>
 			<form id="afrm">
 				<!--  hidden -->
 				<input type="hidden" name="qnum" value="${dto.qnum}">
-				<input type="hidden" name="mid" value="${sessionScope.loginid}">
+				<input type="hidden" name="id" value="${sessionScope.loginid}">
 				<input type="hidden" name="name" value="${sessionScope.loginname}">
 				<table style="width: 600px;" class="table table-bordered">
 					<tr height="70">
 						<td>
+							<!-- 댓글 남기는창  --> 
 							<textarea style="width: 100%; height: 70px;"
 							name="message" id="message"
 							class="form-control"
@@ -116,7 +197,9 @@
 				</table>
 			</form>
 			</c:if>
-		</div>
+		
+		
+		<!-- 댓글창 아래 작은 버튼들  -->
 		<div class="buttons">
 			<button type="button" class="btn btn-default"
 			onclick="location.href='list?currentPage=${currentPage}'">목록</button>
@@ -147,9 +230,8 @@
                });
                </script>
 				</c:if>
-			</c:if>
-			
-      </div>
+			</c:if>	
+	</div>
 	</div>
 </body>
 </html>
