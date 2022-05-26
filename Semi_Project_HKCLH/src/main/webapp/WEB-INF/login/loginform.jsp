@@ -83,7 +83,7 @@ div.all div.signup{
 				<span class="focus-input100" data-symbol=""></span>
 			</div>
 			<c:if test="${sessionScope.error=='error'}">
-			<div style="color:red; font-family: Noto Sans KR; font-size: 0.6em;"> 아이디 또는 비밀번호가 일치하지 않습니다.</div>
+			<i style="color:red; font-family: Noto Sans KR; font-size: 0.5em;"> 아이디 또는 비밀번호가 일치하지 않습니다.</i>
 			</c:if>
 			
 			<div class="text-right p-t-8 p-b-31">
@@ -99,9 +99,13 @@ div.all div.signup{
 			</div>
 			
 			<div class="txt1 text-center p-t-54 p-b-20 url">
-				<span> Or Sign Up Using </span>
+				<span> Or Sign Up Using </span><br><br>
+				<a href="/member/joinform"
+					class="txt2"> Sign Up </a>
 			</div>
+
 			<div class="flex-c-m url">
+
 				<a href="#" class="login100-social-item bg1"> 
 					<i class="fa fa-facebook"></i>
 				</a> <a href="#" class="login100-social-item bg2"> 
@@ -110,14 +114,12 @@ div.all div.signup{
 					<i class="fa fa-google"></i>
 				</a>
 			</div>
-			<div class="flex-col-c p-t-155 signup">
-				<span class="txt1 p-b-17"> Or Sign Up Using </span> <a href="/member/joinform"
-					class="txt2"> Sign Up </a>
-			</div>
+
 		</form>
 	</div>
 
 	<br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
 

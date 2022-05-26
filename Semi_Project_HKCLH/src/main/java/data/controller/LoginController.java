@@ -8,11 +8,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import data.dto.MemberDto;
 import data.mapper.MemberMapperInter;
 
 
@@ -32,13 +34,13 @@ public class LoginController {
 	
 	//로그인
 	@PostMapping("/process")
-	public ModelAndView process(@RequestParam String mId,
+	public String process(@ModelAttribute MemberDto dto,
+			@RequestParam String mId,
 			@RequestParam String mPassword,
 			@RequestParam(required = false) String chkid,
 			HttpSession session) {
 				
 		Map<String, String> map=new HashMap<>();
-		ModelAndView mview = new ModelAndView();
 		
 		map.put("mId", mId);
 		map.put("mPassword", mPassword);
@@ -56,17 +58,14 @@ public class LoginController {
 			session.setAttribute("saveok", chkid==null?"no":"yes");
 			session.setAttribute("loginok", "yes");
 			
-			
-			mview.setViewName("redirect:/");
-			return mview;
+			return "redirect:/";
 
 		}
 		else {			
 			
-			mview.setViewName("redirect:/login/loginform");
 			session.setAttribute("error", "error");
 			
-			return mview;
+			return "redirect:/login/loginform";
 
 		}
 }

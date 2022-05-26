@@ -12,7 +12,7 @@ public interface MemberMapperInter {
 
 	public int getTotalCount();  //총개수 구하기
 	public void insertMember(MemberDto dto);
-	public int getSearchId(String id); //해당 아이디가 있으면 1 아니면 0
+	public String getmId(String mId);
 	
 	public List<MemberDto> getAllMembers();
 	public void deleteMember(String num);

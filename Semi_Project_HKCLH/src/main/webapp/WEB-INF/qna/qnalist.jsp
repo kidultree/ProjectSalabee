@@ -225,7 +225,7 @@
 				<th style="width: 100px;">문의상태</th>
 				<th style="width: 150px;">작성일</th>
 			</tr>
-
+			
 					<tr>
 				<c:forEach var="dto" items="${list}">
 					</tr>
@@ -236,12 +236,21 @@
 								${dto.qtitle}
 							</a></td>
 							<td>${dto.mid}</td>
-							
 							<td>${dto.qstate}</td>		
 							<td><fmt:formatDate value="${dto.qdate}"
 							pattern="yyyy/MM/dd HH:mm"/></td>
 					</c:forEach>
+				
 			</table>
+			
+	</div>
+	<div id="addqna">
+	<c:if test="${sessionScope.loginok!=null}">
+	 <button type="button" class="btn btn-success"
+		 style="width: 100px;" onclick="location.href='form'">
+		 	<span class="glyphicon glyphicon-question">질문등록</span>
+		 </button>
+		 </c:if>
 	</div>
 
 </body>

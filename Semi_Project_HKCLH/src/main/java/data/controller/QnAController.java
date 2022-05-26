@@ -119,6 +119,7 @@ public class QnAController {
 	@PostMapping("/insert")
 	   public String insert
 	   (@ModelAttribute QnADto dto,	
+		@RequestParam String currentPage,
 		@RequestParam ArrayList<MultipartFile> upload,
 		HttpSession session,
 		HttpServletRequest request
@@ -126,6 +127,10 @@ public class QnAController {
 	   {
 		//사진을 저장할 경우
 		String path = request.getServletContext().getRealPath("/save");
+		
+		//세션으로부터 로그인한 아이디 얻기
+		String mid = (String)session.getAttribute("mid");
+		dto.setMid(mid); //dto에 id 넣기
 		
 		//사진을 업로드 안했을 경우 photos 에 'no'라고 저장
 		if(upload.get(0).getOriginalFilename().equals("")) {
@@ -155,6 +160,28 @@ public class QnAController {
 		
 			//db update
 		qnaService.insertQnA(dto);
-	      return "redirect:list";
+	      return "redirect:list?currentPage="+ currentPage;
 	   }
+	
+	@GetMapping("/content")
+	public ModelAndView content(
+			@RequestParam int num,
+			@RequestParam String currentPage
+			)
+	
+	{
+		ModelAndView mview = new ModelAndView();
+
+		//num에 해당하는 dto
+		QnADto dto = qnaService.getData(num);
+		//이름 넣어주기
+		String name = memberMapper.getmName(dto.getMid());
+		dto.setMid(name); 
+		
+		mview.addObject("dto", dto);
+		mview.addObject("currentPage", currentPage);
+		
+		mview.setViewName("/qna/qnacontent");
+		return mview;
+	}
 }
