@@ -12,12 +12,55 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style type="text/css">
- html, body{
- 		
+ 	html, body{
         margin:0;
         padding:0;
         background-color:white;
     }
+  .container{
+			width:1040px;
+			margin: 0 auto;
+		}
+	.product-header{
+	width: 100%;
+	height:172px;
+	background-color:#fff;
+	}
+	.product-title{
+	color: #000;
+	font-size: 28px;
+	lne-weight: 1em;
+	font-weight: 500;
+	}
+		ul.tabs{
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		ul.tabs li{
+			background: none;
+			color: #222;
+			display: inline-block;
+			padding: 10px 15px;
+			cursor: pointer;
+		}
+
+		ul.tabs li.current{
+			background: #ededed;
+			color: #222;
+		}
+
+		.tab-content{
+			display: none;
+			background: #ededed;
+			padding: 15px;
+		}
+
+		.tab-content.current{
+			display: inherit;
+		}
+		
+    
 .product_list {margin-left: 120px; list-style: none;}
 /* .product_list:after {
 content:"";
@@ -34,13 +77,48 @@ clear:both;
 .product_list .btm {position: absolute; right: 3px; bottom:0; width: 99%; border-top: 1px solid #f0f0f0; background: #fafafa;}
 .product_list .btm div { float:left; width: 40%; height: 30px; line-height: 30px; text-align: center; font-size: 12px; color:#767676;}
 .product_list .btm div a {font-size:12px; color:#767676;}
-
 .product_list div.info{ position: relative; left: 110px;}
+
+
+
 
 </style>
 </head>
 <body>
-  
+   
+   <div class="product-header">
+   <div class="product-title">
+   	Fragrance
+   </div>
+   </div>
+   
+   <div class="container">
+
+		<ul class="tabs">
+			<li class="tab-link current" data-tab="tab-1">ALL</li>
+			<li class="tab-link" data-tab="tab-2">봄</li>
+			<li class="tab-link" data-tab="tab-3">여름</li>
+			<li class="tab-link" data-tab="tab-4">가을</li>
+			<li class="tab-link" data-tab="tab-4">겨울</li>
+		</ul>
+	
+		<div id="tab-1" class="tab-content current">
+			${dto.pcontent}
+		</div>
+		<div id="tab-2" class="tab-content">
+			사용법 및 주의사항
+		</div>
+		<div id="tab-3" class="tab-content">
+			배송 및 반품안내
+		</div>
+		<div id="tab-4" class="tab-content">
+			상품후기
+		</div>
+		<div id="tab-5" class="tab-content">
+			상품문의
+		</div>
+		
+	</div>
 <div class="content-box">
 <c:forEach var="dto" items="${list}">
 <ul class="product_list">
@@ -62,7 +140,7 @@ clear:both;
                         </c:forEach>
 </div>
   
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!-- 등록 (관리자만) -->   
          <button type="button" class="btn btn-info" id="formbtn"
          onclick="location.href='form'">

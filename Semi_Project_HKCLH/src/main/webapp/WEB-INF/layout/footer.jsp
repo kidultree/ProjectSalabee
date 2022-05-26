@@ -14,10 +14,6 @@
 	href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
 	rel="stylesheet">
 <style type="text/css">
-body {
-	font-size: 2rem;
-	font-family: 'Jua';
-}
 /* 움직이는 영업시간*/
 .runtime {
 	position: fixed;

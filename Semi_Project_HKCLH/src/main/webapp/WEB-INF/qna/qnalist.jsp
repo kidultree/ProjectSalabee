@@ -90,6 +90,7 @@
 
 <body>
 
+
     <div id="wrapper">
 <h3><b>자주묻는질문</b></h3>
         <table id="table_detail" 

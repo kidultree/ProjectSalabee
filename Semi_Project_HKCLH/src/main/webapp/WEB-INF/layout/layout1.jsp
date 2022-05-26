@@ -12,6 +12,12 @@
     <script src="https://kit.fontawesome.com/2d323a629b.js" crooslogin="annoymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=
+Noto+Sans+KR&family=Radio+Canada:wght@300&family=
+Roboto:wght@100&family=
+Signika+Negative:wght@300&display=swap"
+	rel="stylesheet">
 </head>
 
 <style type="text/css">
@@ -19,6 +25,7 @@
         margin:0;
         padding:0;
         background-color:white;
+        font-family:  "Noto Sans KR", "sans-serif !important;"
     }
     /* 반응형 (미완성) 완성할진몰루*/
 @media screen and (max-width: 768px) {
