@@ -146,15 +146,15 @@ ul.navbar_menu>li:hover ul.sub a { /*서브메뉴색깔*/
 
 ul.sub a {
 	font-family: 'Radio+Canada:wght@300';
-	color: black;
+	color: white;
 	position: relative;
 	right: 10px;
 }
 
 ul.sub li {
-	background-color: rgba(255, 255, 255, 0.1);
-	width: 120px;
-
+	background-color: rgba(0, 0, 10, 0.1);
+	width: 110px;
+   
 }
 /*오른쪽 메뉴*/
 .navbar_menu2 {
@@ -197,16 +197,16 @@ ul.sub li {
 
 				<li><a href="/cart/about">BRAND </a></li>
 
-				<li class="main"><a>SHOP</a>
+				<li><a>SHOP</a>
 
 					<ul class="sub">
-						<li><a href="/product/list">FRAGRANCE</a></li>
+						<li><a href="/product/list">Fragrance</a></li>
 						<li><a href="/product/myset">MySet</a></li>
 						<li><a href="/product/goods">GOODS</a></li>
 					</ul></li>
 
 
-				<li class="main"><a>COMMUNITY</a>
+				<li><a>COMMUNITY</a>
 					<ul class="sub">
 						<li><a href="/notice/list">Notice</a></li>
 						<li><a href="#">Review</a></li>

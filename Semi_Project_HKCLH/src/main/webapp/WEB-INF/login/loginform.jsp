@@ -39,7 +39,7 @@
 
 div.all{
 	position:absolute;
-	left: 570px;
+	left: 40%;
 	height: 800px;
 }
 
