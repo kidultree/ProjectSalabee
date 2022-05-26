@@ -150,7 +150,7 @@
             <div class="col-md-6 mb-3">
               <label for="member_addr">주소&nbsp;&nbsp;&nbsp;&nbsp;
               
-              <button class="addbtn">검색</button>
+              <button type="button" class="addbtn" onclick="findAddr()">검색</button>
               
               </label>
           	  
@@ -179,7 +179,7 @@
           <hr class="mb-4">
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="aggrement" required>
-            <label class="custom-control-label" for="aggrement">이용약관, 개인정보 수집 및 이용, 개인정보 정보 제공을 확인하였고 동의합니다.</label>
+            <label class="custom-control-label" for="aggrement">이용약관, 개인정보 수집 및 이용, 개인정보 정보 제공을 확인하였고 동의합니다.</label><br><br>
           </div>
 
           <button class="btn btn-primary btn-lg btn-block" type="submit">Sign up</button>
