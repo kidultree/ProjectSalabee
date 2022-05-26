@@ -83,61 +83,7 @@
 
 </head>
 <body>
-<!-- <form action="insert" method="post">
-	<div>
-		<h1>회원가입</h1>
-			<div>
-			<label>아이디</label><br>
-			<input type="text" name="mId" placeholder="아이디를 입력해 주세요" required="required">			
-			</div>
-		
-		
-			<label>이 름</label>
-				<input type="text" name="mName" placeholder="이름을 입력해 주세요" required="required">
-	
-		
-			<label>비밀번호</label>
-				<input type="password" name="mPassword" placeholder="비밀번호를 입력해 주세요" required="required"
-				style="width: 300px;" class="pass" minlength = "8"><span class="bi bi-eye eye1"/>
-			
-		
-		
-		
-			비밀번호 확인
 
-				<input type="password" placeholder="비밀번호를 다시 입력해 주세요" required="required"
-				class="pass2" minlength = "8"><span class="bi bi-eye eye2"/>
-				
-
-		
-
-			E-Mail
-
-				<input type="text" name="mEmail" placeholder="이메일을 입력해 주세요" required="required">				
-		
-		
-			핸드폰 번호
-			
-				<input type="text" name="mPhone" placeholder="- 없이 번호만 입력해 주세요" required="required" maxlength="11">
-			
-		
-		
-		
-			생년월일
-				<input type="date" name="mBirth">
-
-		
-			주 소
-
-				<input id="member_post" name="mPost" type="text" placeholder="우편 번호" readonly >
-				<button type="button" onclick="findAddr()">우편번호 검색</button><br>
-				<input id="member_addr" name="mAddress1" type="text" placeholder="주소" readonly><br>
-				<input type="text" name="mAddrress2" placeholder="상세 주소">
-
-		
-			<button type="submit">회원 가입</button>
-	
-	</div> -->
 	<br><br><br><br>
 	<div class="container">
     <div class="input-form-backgroud row">
