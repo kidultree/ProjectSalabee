@@ -12,58 +12,62 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style type="text/css">
+ html, body{
+ 		
+        margin:0;
+        padding:0;
+        background-color:white;
+    }
+.product_list {margin-left: 120px; list-style: none;}
+/* .product_list:after {
+content:"";
+display:
+clear:both;
+} */
+.product_list li {float:left; margin:0 20px 50px 0; position:relative; width:374px; height:501px; border: 1px solid #d9d9d9;}
+.product_list li:hover{border-color: black;}
+.product_list dl{padding:374px 0 0 0 ;}
+.product_list dt{padding: 14px 15px 14px; border-top: 1px solid #f0f0f0;}
+.product_list dt a { font-size: 16px; color: #1a1a1a; font-weight: bold; text-decoration: none; position:absolute; left:115px;}
+.product_list .img { position: absolute; left:35px; top:0;}
+.product_list .tags {padding: 0 0 0 0px; font-size: 15px; color:black; opacity: 0.7;  position: absolute; left: 50px; bottom: 45px;}
+.product_list .btm {position: absolute; right: 3px; bottom:0; width: 99%; border-top: 1px solid #f0f0f0; background: #fafafa;}
+.product_list .btm div { float:left; width: 40%; height: 30px; line-height: 30px; text-align: center; font-size: 12px; color:#767676;}
+.product_list .btm div a {font-size:12px; color:#767676;}
+
+.product_list div.info{ position: relative; left: 110px;}
 
 </style>
 </head>
 <body>
- 
-	<h3>총 ${totalCount}개의 상품</h3>
-	
-	<table class="table table-bordered" style="width: 800px;">
-		<tr>
-			<th>상품IDX</th>
-			<th>상품</th>
-			<th>가격</th>
-			<th>메뉴1</th>
-			<th>메뉴2</th>
-			<th>평점</th>
-			<th>리뷰개수</th>
-			<th>입고일</th>		
-		</tr>
-		
-		<c:forEach var="dto" items="${list}">
-			<tr>
-				<td>
-					${dto.pnum}
-				</td>
-				<c:set var="no" value="${no+1}"/>
-				<td>
-					<!--사진, 상품명 클릭시 상세페이지 -->
-					<a href="detail?pnum=${dto.pnum}">
-						<!-- 사진이 들어있는 경우 출력하기 -->
-						<c:if test="${dto.pphoto!='' }">
-							<img src="../save/${dto.pphoto}"  width="80" height="80" border="1">
-							&nbsp;&nbsp;
-						</c:if>
-						${dto.pname}
-					</a>
-					
-				</td>
-				<td><fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원</td>
-				<td>${dto.pcate1}</td>
-				<td>${dto.pcate2}</td>
-				<td>${dto.prate}</td>
-				<td>${dto.pratecnt}</td>
-				<td>${dto.pdate}</td>
-				
-			</tr>
-		</c:forEach>
-	
-	</table>
-	<!-- 등록 (관리자만) -->   
+  
+<div class="content-box">
+<c:forEach var="dto" items="${list}">
+<ul class="product_list">
+
+    <li>
+      <dl>
+        <dt><a href="#a"> ${dto.pname}</a></dt>
+        <dd class="img"><a href="#a"><img src="../save/${dto.pphoto}" alt="이미지"></a></dd>
+        <dd class="tags">${dto.pcontent} </dd>
+        <dd class="btm">
+          <div class="info">40ml / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
+        
+        </dd>
+        </dl>
+        </li>
+
+       
+  </ul>
+                        </c:forEach>
+</div>
+  
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- 등록 (관리자만) -->   
          <button type="button" class="btn btn-info" id="formbtn"
          onclick="location.href='form'">
          상품등록</button>
 	
+
 </body>
 </html>

@@ -5,7 +5,9 @@
 <%@ taglib prefix= "fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" href="http://localhost:9002/product/detail?pnum=#" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -17,12 +19,13 @@
 *{
 	font-family: 'Noto Sans KR', sans-serif;
 }
-
+.content{
+	position: relative;
+	top : 100px;
+}
 /*tab*/
 body{
 		margin-top: 100px;
-		
-		
 		line-height: 1.6
 	}
 		.container{
@@ -31,37 +34,54 @@ body{
 		}
 
 		ul.tabs{
-			margin: 0px;
+			margin-left: 150px;
 			padding: 0px;
 			list-style: none;
 		}
 		ul.tabs li{
+			text-align:center;
+			min-width: 125px;
 			background: none;
-			color: #222;
+			color: #636363;
 			display: inline-block;
 			padding: 10px 15px;
 			cursor: pointer;
+			
 		}
 
 		ul.tabs li.current{
-			background: #ededed;
-			color: #222;
+			background: white;
+			border-bottom: solid black;
+			color: black;
+			font-weight: 600;
 		}
 
 		.tab-content{
 			display: none;
-			background: #ededed;
+			background: white;
 			padding: 15px;
 		}
 
 		.tab-content.current{
 			display: inherit;
 		}
+
+.tab-3con th{
+	width: 240px;
+}
+.tab-3con th,td{
+	vertical-align: top;
+}
+
 		
-.optiontable, .optiontable td { border: 1px solid gray; } 
+/*옵션테이블*/
+.optiontable, .optiontable td { border: 1px solid #E4E5E1; } 
 .optiontable{
 	position: relative;
-	bottom : 50px;
+	bottom : 30px;
+}
+.optiontable td,tr{
+	max-height: 120px;
 }
 		
 /*전체 lay*/
@@ -90,14 +110,18 @@ span.adel{
    
 /*셀렉트박스*/
 select { 
-	width: 300px; 
-	padding: .4em .8em; /* 여백으로 높이 설정 */ 
+	position: relative;
+	bottom :7px;
+	float:right;
+	width: 340px; 
+	padding: .6em .8em; /* 여백으로 높이 설정 */ 
 	font-family: inherit; /* 폰트 상속 */ 
 	background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; /* 네이티브 화살표 대체 */ 
 	border: 1px solid #ddd; 
 	border-radius: 0px; /* iOS 둥근모서리 제거 */ 
 	-webkit-appearance: none; /* 네이티브 외형 감추기 */ 
 	-moz-appearance: none; appearance: none; 
+	
 }
 
 /*수량추가 input box*/
@@ -191,11 +215,11 @@ input[type=number]::-webkit-outer-spin-button {
 	</div>
 	
 	<div class="rightlay">
-      <table class="optiontable" style="width: 400px; height: 700px" >
+      <table class="optiontable" style="width: 400px; height: 650px" >
       	<tr>
-      		<td style="font-size: 25px; font-weight: 600;">${dto.pname}</td>
+      		<td style="font-size: 28px; font-weight: 600;">${dto.pname}</td>
       	</tr>
-		<tr style="text-align: right;">
+		<tr style="text-align: right; font-weight: 600;">
 			<td><fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원</td>
 		</tr>
 		
@@ -206,10 +230,10 @@ input[type=number]::-webkit-outer-spin-button {
 		<!-- 최종적으로 수량추가 tr에 value(수량)에 따라 총 금액 ++(상품가_옵션포함*수량) 되어야함 -->
 		<!-- But, goods는 수량추가만 -->
 		<tr>
-			<td>옵션 &nbsp;
-				<select name="pop" id="pop">
-				    <option value="" selected="selected" disabled="disabled"
-				    style="color: gray">옵션선택</option>
+			<td><div style="float: left; display: flex;">옵션 &nbsp;</div>
+				<select name="pop" id="pop" style="font-size: 15px; color: gray;">
+				    <option value="" selected="selected" disabled="disabled">&nbsp;
+				    옵션선택</option>
 				    <option value="no">선택안함</option>
 				    <option value="40">40ml</option>
 				    <option value="80">80ml</option>
@@ -228,24 +252,29 @@ input[type=number]::-webkit-outer-spin-button {
 		</tr>
 		
 		<tr>
-			<td>총 상품금액
-			<fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원</td>
+			<td style="border-top: 1px solid #B6B7B4;">
+				<div style="float: left;">총 상품금액</div>
+	      	    <div style="float: right; font-weight: 600;">
+	            <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원
+	        	</div>
+			</td>
 		</tr>
+		
 		<tr>	
-			<td>
+			<td style="height: 120px;">
 				 <button class="directbtn">바로 구매</button>
 				 <button class="cartbtn">장바구니</button>
 			</td>
 		</tr>
       </table>
     
-      <br><br><br><br><br><br><br>
+      <br><br><br><br><br>
       </div><!-- right -->
       <!-- tab -->
       <div class="container">
 
 		<ul class="tabs">
-			<li class="tab-link current" data-tab="tab-1">상품 상세정보</li>
+			<li class="tab-link current" data-tab="tab-1">상세정보</li>
 			<li class="tab-link" data-tab="tab-2">사용법 및 주의사항</li>
 			<li class="tab-link" data-tab="tab-3">배송 및 반품안내</li>
 			<li class="tab-link" data-tab="tab-4">상품후기</li>
@@ -256,10 +285,37 @@ input[type=number]::-webkit-outer-spin-button {
 			${dto.pcontent}
 		</div>
 		<div id="tab-2" class="tab-content">
-			사용법 및 주의사항
+			<br><br>
+			<img src="../save/use.jpg" style="width: 1000px;"><br><br>
+			귀 뒤나 손목 안쪽 등 맥박이 느껴지거나 체온이 높은 부위에 가볍게 1~2회 뿌려줍니다.<br>
+			기능성화장품 심사필여부 : 해당사항 없음<br>				
+			사용시 주의사항 : 1) 화장품 사용 시 또는 사용 후 직사광선에 의하여 사용부위가 붉은 반점, 부어오름 또는 가려움증 등의 이상 증상이나 부작용이 있는 경우 전문의 등과 상담 할 것 <br>
+			2) 상처가 있는 부위 등에는 사용을 자제할 것 <br>
+			3) 안구 및 점막에 묻지 않도록 주의하고 묻었을 경우 즉시 흐르는 물에 씻어낸 후 의사와 상의할 것 <br><br>
+			[보관 및 취급시의 주의사항] <br>가) 어린이의 손에 닿지 않는 곳에 보관할 것 <br>나) 직사광선을 피해서 보관할 것<br>
+			품질보증기준 : 공정거래위원회 고시 소비자분쟁해결기준에 의해 보상해 드립니다.
 		</div>
 		<div id="tab-3" class="tab-content">
-			배송 및 반품안내
+			<br><br><br><br>
+			<table style="border: none; width: 1000px; height: 210px; font-size: 20px;"  class="tab-3con" >
+				<tr>
+					<th>환불보증기준</th>
+					<td>출고일로부터 7일이내에 개봉하지 않은 새 제품 (개봉흔적X)일 경우에 가능합니다.</td>
+				</tr>
+				<tr>
+					<th>품질보증기준</th>
+					<td>상품에 이상이 있을경우 공정거래위원회 고시 소비자분쟁해결 기준에 의해 보상해드립니다.</td>
+				</tr>
+				<tr>
+					<th>소비자상담관련 전화번호</th>
+					<td>소비자 상담실 : 1544-5012</td>
+				</tr>
+				<tr>
+					<th>예상배송기간</th>
+					<td>주문 후 1~2일(예약상품과 입고지연상품 제외<br>택배사 상황에 따라 지연될 수도 있으니 양해부탁드립니다.</td>
+				</tr>
+				
+			</table>
 		</div>
 		<div id="tab-4" class="tab-content">
 			상품후기
@@ -269,6 +325,7 @@ input[type=number]::-webkit-outer-spin-button {
 		</div>
 		
 	</div><!-- container -->
+	<br><br><br>
 	
 		<script type="text/javascript">
 			$(document).ready(function(){
@@ -333,7 +390,7 @@ input[type=number]::-webkit-outer-spin-button {
 <!--    </form> -->
    <input type="hidden" value="${dto.pnum}" id="pnum"/>
    <button type="button" class="btn btn-default" id="addcart">장바구니 추가</button>
-    
+   <br><br><br><br><br><br><br><br>
 </body>
 
 

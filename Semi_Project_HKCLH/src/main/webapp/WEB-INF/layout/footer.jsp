@@ -102,7 +102,7 @@ section {
 	<!--footer-->
 	<div id="wrap">
 		<section>
-			<br> <a href="">FragBit</a>
+			<br> <a href="">Untitled</a>
 		</section>
 		<footer>
 			<ul class="navbar_icons">
