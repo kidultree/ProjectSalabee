@@ -1,7 +1,6 @@
 package data.controller;
 
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,10 +25,14 @@ public class MemberController {
 	}
 	
 	@PostMapping("/insert")
-	public void insert(@ModelAttribute MemberDto dto)
+	public String insert(@ModelAttribute MemberDto dto)
 	{
+		
+		
+		
 		membermapper.insertMember(dto);	
 		
+		return "/";		
 	}
 	
 
