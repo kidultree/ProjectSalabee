@@ -10,30 +10,27 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
+
  
  
 <c:set var="root" value="<%=request.getContextPath() %>"></c:set>
 <link rel="stylesheet" type="text/css" href="${root}/css1/animate.css">
 <link rel="stylesheet" type="text/css" href="${root}/css1/animsition.min.css">
-<link rel="stylesheet" type="text/css" href="${root}/css1/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${root}/css1/daterangepicker.css">
 <link rel="stylesheet" type="text/css" href="${root}/css1/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="${root}/css1/hamburgers.min.css">
 <link rel="stylesheet" type="text/css" href="${root}/css1/main.css">
-<link rel="stylesheet" type="text/css" href="${root}/css1/material-design-iconic-font.min.css">
 <link rel="stylesheet" type="text/css" href="${root}/css1/select2.min.css">
 <link rel="stylesheet" type="text/css" href="${root}/css1/util.css">
 
 <script type="text/javascript" src="${root}/js1/analytics.js"></script>
 <script type="text/javascript" src="${root}/js1/animsition.min.js"></script>
-<script type="text/javascript" src="${root}/js1/bootstrap.min.js"></script>
 <script type="text/javascript" src="${root}/js1/countdowntime.js"></script>
 <script type="text/javascript" src="${root}/js1/daterangepicker.js"></script>
 <script type="text/javascript" src="${root}/js1/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="${root}/js1/main.js"></script>
 <script type="text/javascript" src="${root}/js1/moment.min.js"></script>
-<script type="text/javascript" src="${root}/js1/popper.js"></script>
 <script type="text/javascript" src="${root}/js1/select2.min.js"></script>
 
 
@@ -56,59 +53,38 @@ div.all div.signup{
 }
 
 </style>
+<script type="text/javascript">
+	function checked(){		
+		
+		return false;
+	}
+	onsubmit="return checked();"
 
-
+</script>
 
 </head>
+
+
 <body>
-<!-- <div class="title">
-	<h1>로그인</h1>
-	<form action="process" method="post">
-	
-	<div class="body">
-		<label>User name</label><br>
-		<input class="inputid" name="mId" type="text" placeholder="id"><span class="bi bi-person"></span><br>
-		<span></span>
-	</div>
-	
-	<div class="body">
-		<label>Password</label><br>
-		<input class="inputpass" name="mPassword" type="password" placeholder="pass word"><span class="bi bi-lock"></span><br>
-		<span></span>
-	</div>
-		<input type="checkbox">로그인 상태 유지
-		
-		
-		<a href="/member/joinform">sign up</a><br>
-		<a href="/login/forgotid">forgot id??</a><br>
-		<a href="/login/forgotpass">forgot password??</a><br>
-		
-		<button type="submit" class="login" >로그인</button><br>
-		<button type="submit" class="login" >네이버</button><br>
-		<button type="submit" class="login" >구글</button>
-	</div>
-		
-	</form>
-<<<<<<< HEAD
-	</div> -->
-
-
 	<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54 all">
-		<form class="login100-form validate-form" action="process" method="post">
+		<form class="login100-form validate-form" action="process" method="post"  >
 			<span class="login100-form-title p-b-49"> Login </span>
 			<div class="wrap-input100 validate-input m-b-23"
 				data-validate="Username is reauired">
 				<span class="label-input100">Username</span> 
-					<input class="input100"	type="text" name="mId" placeholder="Type your username">
+					<input class="input100"	type="text" id="mId" name="mId" placeholder="Type your username">
 				<span class="focus-input100" data-symbol=""></span>
 			</div>
 			
 			<div class="wrap-input100 validate-input"
 				data-validate="Password is required">
 				<span class="label-input100">Password</span> 
-					<input class="input100" type="password" name="mPassword" placeholder="Type your password">
+					<input class="input100" id="mPassword" type="password" name="mPassword" placeholder="Type your password">
 				<span class="focus-input100" data-symbol=""></span>
 			</div>
+			<c:if test="${sessionScope.error=='error'}">
+			<div style="color:red; font-family: Noto Sans KR; font-size: 0.6em;"> 아이디 또는 비밀번호가 일치하지 않습니다.</div>
+			</c:if>
 			
 			<div class="text-right p-t-8 p-b-31">
 				<a href="/login/findid"> Forgot Id? </a><br>
@@ -118,7 +94,7 @@ div.all div.signup{
 			<div class="container-login100-form-btn">
 				<div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn"></div>
-					<button type="submit" class="login100-form-btn">Login</button>
+					<button type="submit" class="login100-form-btn login">Login</button>
 				</div>
 			</div>
 			
@@ -146,4 +122,6 @@ div.all div.signup{
 	<br><br><br><br><br><br><br><br><br><br><br>
 
 </body>
+
+
 </html>

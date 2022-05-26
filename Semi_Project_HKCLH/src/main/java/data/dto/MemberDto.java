@@ -27,6 +27,7 @@ public class MemberDto {
 	private String mPassword;
 	
 	private int mPost;
+	
 	private String mAddress1; // 주소
 	private String mAddress2; // 상세 주소
 	

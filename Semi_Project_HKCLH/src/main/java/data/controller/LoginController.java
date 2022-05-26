@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import data.mapper.MemberMapperInter;
 
@@ -32,15 +32,13 @@ public class LoginController {
 	
 	//로그인
 	@PostMapping("/process")
-	public String process(@RequestParam String mId,
+	public ModelAndView process(@RequestParam String mId,
 			@RequestParam String mPassword,
 			@RequestParam(required = false) String chkid,
-			@RequestParam(required = false) String success,
 			HttpSession session) {
-		
-		System.out.println(chkid);
-		
+				
 		Map<String, String> map=new HashMap<>();
+		ModelAndView mview = new ModelAndView();
 		
 		map.put("mId", mId);
 		map.put("mPassword", mPassword);
@@ -57,13 +55,18 @@ public class LoginController {
 			session.setAttribute("mId", mId);
 			session.setAttribute("saveok", chkid==null?"no":"yes");
 			session.setAttribute("loginok", "yes");
-			session.setAttribute("success", "yes");
 			
-			return "redirect:/";
+			
+			mview.setViewName("redirect:/");
+			return mview;
 
 		}
-		else {
-			return "redirect:loginform";
+		else {			
+			
+			mview.setViewName("redirect:/login/loginform");
+			session.setAttribute("error", "error");
+			
+			return mview;
 
 		}
 }
@@ -74,7 +77,7 @@ public class LoginController {
 	public String logout(HttpSession session)
 	{
 		session.removeAttribute("loginok");
-		
+		session.removeAttribute("error");		
 		return "redirect:/";
 	}
 	
