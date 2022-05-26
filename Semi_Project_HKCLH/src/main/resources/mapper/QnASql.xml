@@ -17,7 +17,7 @@ insert into QnA (qnum, qcate, qtitle, mid, qcontent, qimg, qstate, qdate) values
 
 
 <!-- 수정 -->
-<select id="getQnA" parameterType="int" resultType="qna">
+<select id="getData" parameterType="int" resultType="qna">
 select * from QnA where qnum = #{qnum}
 </select>
 
