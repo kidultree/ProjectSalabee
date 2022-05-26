@@ -18,13 +18,13 @@
 
 
 <style type="text/css">
-
+ 
 
 	input::placeholder {
 		font-size: 0.7em;
 	}
 	
-	body *{
+	form *{
 	font-family: 'Noto Sans KR';
 	}
 	
@@ -93,6 +93,10 @@ function chk(){
 	}
 	if(pass2.value==""){
 		$("div.pass2").text("비밀번호를 한번더 입력해 주세요");
+		$("#pass2").focus();
+		return false;
+	}else if(pass2.value!=pass1.value){
+		$("div.pass2").text("비밀번호가 일치하지 않습니다");
 		$("#pass2").focus();
 		return false;
 	}
@@ -234,12 +238,7 @@ function chk(){
 				$("div.aggr").html("");
 			}	
 		})
-		
-		
-		
-		
 
-		
 	});
 </script>
 <c:set var="root" value="<%=request.getContextPath() %>"></c:set>
@@ -251,17 +250,17 @@ function chk(){
 	<div class="container">
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
-        <h3 class="mb-3" style="text-align: center;">회원가입</h3><br><br>
-        <form class="validation-form" action="insert" method="post" onsubmit="return chk();">
+        <form class="validation-form" action="insert" method="post" onsubmit="return chk();">   
+        <label style="margin-left: 43%; font-size: 2.5em;">회원 가입</label><br><br> 
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="mId" >아이디</label>
+              <label for="mId" style="margin-bottom: 10px;">아이디</label> &nbsp;&nbsp;&nbsp;<button style="background-color: black; color: white;">중복확인</button><br>
               <input type="text" class="form-control" name="mId" id="mId" placeholder="영어 대소문자,숫자 포함 4~12자리">
               <div class="id">
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="mName">이름</label>
+              <label for="mName" style="margin-bottom: 12.5px;">이름</label><br>
               <input type="text" class="form-control" name="mName" id="mName" placeholder="이름">
               <div class="name">
               </div>
@@ -307,7 +306,7 @@ function chk(){
             <div class="col-md-6 mb-3">
               <label for="member_addr">주소&nbsp;&nbsp;&nbsp;</label>
           	  
-              <input type="text" class="form-control" name="mAddress1" id="mAddress1" placeholder="서울특별시 강남구"
+              <input type="text" class="form-control" name="mAddress1" id="mAddress1" placeholder="주소 찾기를 눌러서 주소를 입력해주세요"
               readonly="readonly">
               <div class="invalid-feedback">
               </div>
