@@ -3,8 +3,7 @@
 <mapper namespace="data.mapper.CartMapperInter">
 	<!-- Semi Product -->
 	
-	
-	
+
    <insert id="insertCart" parameterType="cart">
 	insert into cart
 

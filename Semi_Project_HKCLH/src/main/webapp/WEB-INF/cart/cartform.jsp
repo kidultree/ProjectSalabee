@@ -30,15 +30,13 @@
 			totalPrice += parseInt($(element).find(".individual_totalPrice_input").val());
 			// 총 갯수
 			totalCount += parseInt($(element).find(".individual_cquantity_input").val());
-			// 총 종류
-			//totalKind += 1;
-		
+			
 			
 			/* 배송비 결정 */
 			if(totalPrice >= 30000){
 				deliveryPrice = 0;
 			} else if(totalPrice == 0){
-				deliveryPrice = 0;
+				deliveryPrice = 0;	
 			} else {
 				deliveryPrice = 3000;	
 			}
@@ -78,9 +76,8 @@
 	<c:forEach var="cList2" items="${cList}" varStatus="i">
 	<tr>
 		<td class="cart_info_td">
-				<input type="hidden" class="individual_pprice_input" value="${cList2.pprice}">
 				<input type="hidden" class="individual_cquantity_input" value="${cList2.cquantity}">
-				<input type="hidden" class="individual_totalPrice_input" value="${cList2.cquantity*(cList2.pprice+cList2.addprice)}">
+				<input type="hidden" class="individual_totalPrice_input" value="${cList2.SUM_PRICE}">
 		</td>
 		<td></td>
 		
@@ -118,7 +115,7 @@
 		<th style="width:100px;">추가금액</th>
 		<th/>
 		<th style="width:100px;">배송비</th>
-		<th/>
+		<th/>++
 		<th style="width:100px;">총 결제금액</th>
 	</tr>
 	
