@@ -60,6 +60,9 @@
 
 <body>
 
+<div class="wrapper">
+
+<div class="wrap">
 
 <br><br><br><br><br>
 
@@ -70,10 +73,7 @@
    <table class="cart-table" style="width:1200px;">
 	<tr>
 		<th class="th_width_1"></th>
-		
-		<th class="th_width_2">
-		<input type="checkbox" id="allcheck" >   전체선택    |     
-		<span id="Cartdel">선택삭제</span></th>
+		<th class="th_width_2"><input type="checkbox" id="allcheck">전체선택|<div id="Cartdel">선택삭제</div></th>
 		
 		<th class="th_width_3">제품정보</th>	
 		<th class="th_width_4">수량</th>
@@ -86,7 +86,7 @@
 		<td class="cart_info_td">
 				<input type="hidden" class="individual_cquantity_input" value="${cList2.cquantity}">
 				<input type="hidden" class="individual_totalPrice_input" value="${cList2.SUM_PRICE}">
-	</td>
+		</td>
 		
 		<!-- 체크박스 -->
 		<td><input type="checkbox" class="del" cid="${cList2.cid}"></td>
@@ -105,46 +105,51 @@
 		
 		<!-- 해당 상품 금액 -->
 		<td><span class="sum_price"><fmt:formatNumber value="${cList2.SUM_PRICE}" pattern="#,### 원" /></span></td>
-
+		
+		<!-- 삭제버튼 -->
+		<td class="delete_btn"><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
 		</tr>
 	</c:forEach>
 </table>
 
 <br><br><br><br><br><br><br>
 
-<div class="total">
-	<div class="total-head">
-		<div class="total-1">총 상품가격</div>
-		<div class="total-2"></div>
-		<div class="total-1">추가금액</div>
-		<div class="total-2"></div>
-		<div class="total-1">배송비</div>
-		<div class="total-2"></div>
-		<div class="total-1">총 결제금액</div>
-	</div>
-	<div class="total-body">
-		<div class="total-1"><span class="totalPrice_span"></span> 원</div>
-		
-		<div class="total-2"><img src="${root}/image/-.PNG"></div>
-		
-		<div class="total-1">0원</div>
-		
-		<div class="total-2"><img src="${root}/image/+.PNG"></div>
-		
-		<div class="total-1"><span class="delivery_price"></span>원</div>
-		
-		<div class="total-2"><img src="${root}/image/=.PNG"></div>
-		
-		<div class="total-1"><span class="finalTotalPrice_span"></span> 원</div>
-	</div>
+<table class="a" style="width:1000px;">
+	<tr>
+		<th style="width:100px;">총 상품가격</th>
+		<th/>
+		<th style="width:100px;">추가금액</th>
+		<th/>
+		<th style="width:100px;">배송비</th>
+		<th/>
+		<th style="width:100px;">총 결제금액</th>
+	</tr>
 	
-</div>
+	<tr>	
+		<td><span class="totalPrice_span"></span> 원</td>
+		
+		<td><img src="${root}/image/-.PNG" id="m" style="width:50px"></td>
+		
+		<td>0원</td>
+		
+		<td><img src="${root}/image/+.PNG" id="p" style="width:50px"></td>
+		
+		<td><span class="delivery_price"></span>원</td>
+		
+		<td><img src="${root}/image/=.PNG" id="e" style="width:50px"></td>
+		
+		<td><span class="finalTotalPrice_span"></span> 원</td>
+	</tr>
+</table>
+
+<br><br><br><br>
 
 <div class="buybtn" onclick="location.href='buy'">주문하기</div>
 <br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
+</div>	<!-- class="wrap" -->
+</div>	<!-- class="wrapper" -->
 </body>
 
 <script type="text/javascript">
