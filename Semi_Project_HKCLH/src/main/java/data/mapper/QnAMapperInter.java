@@ -12,13 +12,13 @@ public interface QnAMapperInter {
 
 	public void insertQnA(QnADto dto);
 	public void updateQnA(QnADto dto);
-	public void deleteQnA(int num);
+	public void deleteQnA(int qnum);
 	
 	public List<QnADto> getQnAList(Map<String, Integer> map);
 	
-	public QnADto getQnA(int num);
+	public QnADto getQnA(int qnum);
 	public int getTotalQnACount();
 	public int getMaxNum();
 	public void updateReStep(Map<String, Integer> map);
-	public QnADto getData(int num);
+	public QnADto getData(int qnum);
 }

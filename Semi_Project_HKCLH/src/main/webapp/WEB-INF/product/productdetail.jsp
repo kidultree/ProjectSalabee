@@ -206,8 +206,19 @@ input[type=number]::-webkit-outer-spin-button {
 	text-align: center; text-decoration: none; display: inline-block;
 	font-size: 15px; margin: 4px; cursor: pointer;
 }
+/*.rebtn, .qnabtn{
+	width:140px;
+	height:40px;
+	font-weight : 550;
+	background-color: black; border: 1.5px solid black; border-radius:5%; color: white; 
+	text-align: center; text-decoration: none; display: inline-block;
+	font-size: 15px; margin: 4px; cursor: pointer;
+}
+이미지 슬라이드*/
+.rebtn, .qnabtn{
+	
+}
 
-/*이미지 슬라이드*/
 	/*GLOBALS*/
 	*{margin:0; padding:0; list-style:none;}
 	a{text-decoration:none; color:#666;}
@@ -395,8 +406,7 @@ input[type=number]::-webkit-outer-spin-button {
 	  	 </div>
 	
 	</div> <!-- leftlay -->
-	
-	
+
 	
 	<div class="rightlay">
       <table class="optiontable" style="width: 400px; height: 650px" >
@@ -414,24 +424,105 @@ input[type=number]::-webkit-outer-spin-button {
 		<!-- 최종적으로 수량추가 tr에 value(수량)에 따라 총 금액 ++(상품가_옵션포함*수량) 되어야함 -->
 		<!-- But, goods는 수량추가만 -->
 		<tr>
-			<td><div style="float: left; display: flex;">옵션 &nbsp;</div>
-				<select name="pop" id="pop" style="font-size: 15px; color: gray;">
-				    <option value="" selected="selected" disabled="disabled">&nbsp;
+			<td><div style="float: left; display: flex;" >옵션 &nbsp;</div>
+				<select name="pop" id="pop" onchange="changeOp()"
+				style="font-size: 15px; color: gray;">
+				    <option value="">&nbsp;
 				    - 옵션을 선택해주세요 -</option>
-				    <option value="no">선택안함</option>
-				    <option value="40">40ml</option>
-				    <option value="80">80ml</option>
+				    <c:forEach var="list" items="${opdto}"> <!-- list < opdto 호출시 list.으로-->	    	
+					    <option value="${list.oname}">${list.oname}</option> <!-- value /text -->
+				    </c:forEach>
 				</select>
+	
+				        
+			         
+			         <script type="text/javascript">
+			         var array = [];	
+			         var cnt = 0;
+			         
+					function changeOp() {
+						console.log(JSON.stringify(array));
+						console.log('### ::',$('#pop').val());
+						var Select = document.getElementById("pop");
+					    // select element에서 선택된 option의 value가 저장된다.
+					    var selectValue = Select.options[Select.selectedIndex].value;
+					    // select element에서 선택된 option의 text가 저장된다.
+					    var selectText = Select.options[Select.selectedIndex].text;
+					    
+					    //acnt==0 선택한옵션이 이미 배열에있다.
+					    var aCnt = 0;
+					    
+					    if(array.length == 0 ){
+					    
+					    	aCnt++;
+					    	
+					    } else {
+					    	
+					    	for(var i = 0; i < array.length ; i++) {
+					    		
+					    		console.log(array[i]);
+					    		console.log(selectValue);
+					    		if(array[i] == selectValue) {
+					    			aCnt = 0;
+					    			break;
+					    		} else {
+					    			aCnt++;
+					    		}					    		
+					    	}	    	
+					    	
+					    }
+					    
+					    if(aCnt == 0) {
+					    	alert("선택된 값이 이미 존재합니다.");
+					    	return;
+					    } else {
+					    	array.push(selectValue);
+					    	var s="";
+				   		   s+="<table style='width:200px;' class='t'>";
+				   		   //opdto_List i=바깥배열 d안쪽 뱌열
+				   			   s+="<tr>";
+				   			   s+="<td><span style='width:80px;'>수량 선택 &nbsp;</span>";
+				   			   s+= selectValue;
+				   			   s+="<div class='number-input'>";
+				   			   s+="<button id='minus' class='minus'></button>";
+				   			   s+="<input class='quantity' id='quantity' min='0' value='1' type='number' >";
+				   			   s+="<button id='plus' class='plus'></button>";				   			   	
+				   			   s+="</td></tr>";
+				   		   s+="</table>";
+				   		   const a = document.querySelector('#addOption');
+				   		   a.innerHTML += s;
+				   		
+				   		   
+					    }
+
+			    	  $('#minus').on('click', function(e) {
+			   				console.log('e.target ::',e.target);
+		   					if($('#quantity').val() > 1){
+		   						var test = Number($('#quantity').val())-1 ;
+		   						$('#quantity').val(test);			   			
+		   					}else if($('#quantity').val() == 1){
+		   						alert("최소주문수량은 1개 입니다.");
+			   				}
+			  										 
+			  		  });
+			    	  
+			    	  $('#plus').on('click', function(e) {
+				   			console.log('e.target ::',e.target);
+			   				//if($('#quantity').val() > 1){
+			   					var test = Number($('#quantity').val())+1 ;
+			   					$('#quantity').val(test);			   			
+			   				//}						 
+				  		  });
+				   		
+			   	   
+					}
+				</script>
 			</td>
 		</tr>
 		<tr>	
 			<td>
-				<span style="width: 80px;">수량 선택 &nbsp;</span>
-				<div class="number-input">
-				  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-				  <input class="quantity" min="0" name="quantity" value="1" type="number" id="quantity">
-				  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-				</div>
+			<div id="addOption"></div> <!-- option row추가 자리 -->
+
 			</td>
 		</tr>
 		
@@ -439,8 +530,7 @@ input[type=number]::-webkit-outer-spin-button {
 			<td style="border-top: 1px solid #B6B7B4;">
 				<div style="float: left;"><br>총 상품금액</div>
 	      	    <div style="float: right; font-weight: 600;"><br>
-	            <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원
-	        	</div>
+	            0원</div>
 			</td>
 		</tr>
 		
@@ -462,7 +552,7 @@ input[type=number]::-webkit-outer-spin-button {
 			<li class="tab-link" data-tab="tab-2">사용법 및 주의사항</li>
 			<li class="tab-link" data-tab="tab-3">배송 및 반품안내</li>
 			<li class="tab-link" data-tab="tab-4">상품후기</li>
-			<li class="tab-link" data-tab="tab-4">상품문의</li>
+			<li class="tab-link" data-tab="tab-5">상품문의</li>
 		</ul>
 	
 		<div id="tab-1" class="tab-content current">
@@ -470,7 +560,7 @@ input[type=number]::-webkit-outer-spin-button {
 		</div>
 		<div id="tab-2" class="tab-content">
 			<br><br>
-			<img src="../save/use.jpg" style="width: 1000px;"><br><br>
+			<img src="../save/use.jpg" style="width: 900px;"><br><br>
 			귀 뒤나 손목 안쪽 등 맥박이 느껴지거나 체온이 높은 부위에 가볍게 1~2회 뿌려줍니다.<br>
 			기능성화장품 심사필여부 : 해당사항 없음<br>				
 			사용시 주의사항 : 1) 화장품 사용 시 또는 사용 후 직사광선에 의하여 사용부위가 붉은 반점, 부어오름 또는 가려움증 등의 이상 증상이나 부작용이 있는 경우 전문의 등과 상담 할 것 <br>
@@ -481,6 +571,8 @@ input[type=number]::-webkit-outer-spin-button {
 		</div>
 		<div id="tab-3" class="tab-content">
 			<br><br><br><br>
+			<img src="../save/del.jpg" style="width: 1000px; ">
+			<br>
 			<table style="border: none; width: 1000px; height: 210px; font-size: 20px;"  class="tab-3con" >
 				<tr>
 					<th>환불보증기준</th>
@@ -498,14 +590,14 @@ input[type=number]::-webkit-outer-spin-button {
 					<th>예상배송기간</th>
 					<td>주문 후 1~2일(예약상품과 입고지연상품 제외<br>택배사 상황에 따라 지연될 수도 있으니 양해부탁드립니다.</td>
 				</tr>
-				
 			</table>
+			
 		</div>
 		<div id="tab-4" class="tab-content">
-			상품후기
+			<button type="button" class="rebtn" onclick="location.href='../review/form'">리뷰 작성하기</button>
 		</div>
 		<div id="tab-5" class="tab-content">
-			상품문의
+			<button type="button" class="qnabtn" onclick="location.href='../qna/form'">1:1 문의하기</button>
 		</div>
 		
 	</div><!-- container -->
@@ -526,7 +618,6 @@ input[type=number]::-webkit-outer-spin-button {
 			});	
 		});
 	</script>
-	
 	
      
       <button type="button" class="btn btn-default go-top" id="go-top"
@@ -579,7 +670,6 @@ input[type=number]::-webkit-outer-spin-button {
 			  $('#previous').click(function(){
 			    slideLeft();
 			  });
-			  
 			
 			  //automatic slider
 			  var autoSlider = setInterval(slideRight, 3000);
@@ -691,36 +781,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 <script type="text/javascript">
 <!--수량추가-->
-$('.btn-plus, .btn-minus').on('click', function(e) {
-	  const isNegative = $(e.target).closest('.btn-minus').is('.btn-minus');
-	  const input = $(e.target).closest('.input-group').find('input');
-	  if (input.is('input')) {
-	    input[0][isNegative ? 'stepDown' : 'stepUp']()
-	  };
-	});
 
-<!-- 카트 담기 스크립트 -->
-$(document).ready(function() {
-	$("#addcart").click(function(){
-		
-		var pnum = ${dto.pnum};
-		
-		$.ajax({
-         type:"post",
-         dataType:"json",
-         url:"/cart/insert",
-         data:{
-        	 "mid":$("#mid").val()
-        	 "pnum":$("#pnum").val()
-        	 "cquantity":$("#cquantity").val()
-         },
-         success:function(data){
-        	alert(data.message);
-         }   
-        });
-	}
-	});
-	
-	
+
 </script>
 </html>

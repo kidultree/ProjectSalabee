@@ -38,7 +38,7 @@ Signika+Negative:wght@300&display=swap"
 div.imgtitle {
 	position: absolute;
 	top: 23%;
-	left: 41%;
+	left: 42%;
 	color: white;
 	font-size: 5rem;
 	font-family: 'sans-serif';
@@ -48,7 +48,7 @@ div.imgtitle {
 div.imgpre-title {
 	position: absolute;
 	top: 35%;
-	left: 31%;
+	left: 34%;
 	color: white;
 	font-size: 2.6rem;
 	font-family: 'Malgun Gothic';
@@ -63,8 +63,8 @@ div.imgpre-title {
 	color: #000;
 	text-decoration: none;
 	user-select: none;
-	position: relative;
-	left: 45%;
+	position: absolute;
+	left: 49%;
 	top: 100px;
 	transform: translateX(-50%);
 	display: flex;
@@ -90,15 +90,15 @@ div.imgpre-title {
 .-button2 { -
 	-swiper-theme-color: #007aff; -
 	-swiper-navigation-size: 44px;
-	font: 1.1em Verdana, Dotum, AppleGothic, sans-serif;
+	font: 0.8em Verdana, Dotum, AppleGothic, sans-serif;
 	font-family: "Helvetica Neue", "Helvetica", "Noto Sans KR",
 		"Malgun Gothic", sans-serif !important;
 	color: white;
 	text-decoration: none;
 	user-select: none;
-	position: relative;
+	position: absolute;
 	left: 50%;
-	bottom: 150px;
+	top: 3120px;
 	transform: translateX(-50%);
 	display: flex;
 	-webkit-box-align: center;
@@ -124,11 +124,6 @@ div.imgpre-title {
 div.mainbottomimg {
 	margin-top: -15px;
 }
-div.bottomimage{
-	position:relative;
-	height: 700px;
-}
-
 /*body end*/
 </style>
 

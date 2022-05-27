@@ -64,7 +64,6 @@ public class LoginController {
 		else {			
 			
 			session.setAttribute("error", "error");
-			
 			return "redirect:/login/loginform";
 
 		}
