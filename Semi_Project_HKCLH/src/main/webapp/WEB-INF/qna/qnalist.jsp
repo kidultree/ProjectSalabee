@@ -23,6 +23,7 @@
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
 	
@@ -31,6 +32,7 @@
             $("#" + row).toggle();
         }
     </script>
+    
   
     <style type = "text/css">
         body {
@@ -47,10 +49,12 @@
             text-align: center;
             width: 995px;
             
-        }
-  
+        }  
   
         #table_detail {
+        	font-family: 'Noto Sans KR';
+        	font-weight: 500;
+        	font-size: 17px;
             width: 1000px;
             text-align: left;
             border-collapse: collapse;
@@ -69,30 +73,49 @@
         }
         
         tr{
-        line-height: 60px;
+        line-height: 65px;
         }
         
         #table_detail th{
         text-align: center;
-        border-bottom: solid #444444;}
+        border-bottom: solid #444444;
+        font-size: 20px;}
         
         .hidden_row{
         background-color: #F2F2F2;
+        font-family: 'Noto Sans KR';
+        font-weight: 400;
+    
         }
         
-        #qnaboard th{
-        	text-align: center;
+        h2 b {
+        	font-family: 'Noto Sans KR';
+        	font-size: 35px;	
         }
-        
+  		
+  		#qna_board {
+  			position: relative;
+  			left: 330px;
+  			font-family: 'Noto Sans KR';
+  			font-size: 20px;
+  			border-collapse: collapse;
+
+  		}     
+  
+	   #qna_board th{
+        border-bottom: solid #444444;
+        text-align: center;
+        	font-family: 'Noto Sans KR';
+        	font-size: 20px;
+        }
   
     </style>
 </head>
 
 <body>
 
-
+<h2><b>자주묻는질문</b></h2>
     <div id="wrapper">
-<h3><b>자주묻는질문</b></h3>
         <table id="table_detail" 
             align=center cellpadding=10>
   			
@@ -212,12 +235,13 @@
         </table>
 </div>
 
+
     <br><br>                    <!-- QnA 테이블  -->
-	<h2>QnA</h2>
+	<h2><b>QnA</b></h2>
 	<div class="qnaboard" id="qnaboard";>
-		<table class="table table-bordered" style="width: 1400px;">
+		<table class="table table-reflow" id="qna_board" style="width: 1400px;">
 			
-			<tr style="background-color: #ddd">
+			<tr>
 				<th style="width: 50px;">번호</th>
 				<th style="width: 100px;">카테고리</th>
 				<th style="width: 400px;">제목</th>
@@ -225,7 +249,7 @@
 				<th style="width: 100px;">문의상태</th>
 				<th style="width: 150px;">작성일</th>
 			</tr>
-			
+			</div>
 					<tr>
 				<c:forEach var="dto" items="${list}">
 					</tr>
@@ -253,6 +277,36 @@
 		 </c:if>
 	</div>
 
+<button type="button" class="btn btn-default go-top" id="go-top"
+style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyphicon-chevron-up"></span></button> 
+
+  <script type="text/javascript">
+
+/* 클릭시 스크롤 이동 */
+$(document).ready(function($) {
+    $(".scroll_move").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);
+    });
+    
+/* scroll top button */
+	// 1. 특정 위치에서 부터 버튼 나타고, 사라지게(fade)
+    $(window).scroll(function () {
+		if ($(this).scrollTop() > 400) {
+			$('.go-top').fadeIn(200);
+		} else {
+			$('.go-top').fadeOut(200);
+		}
+	});
+
+	// 2. 버튼 클릭하면 원하는 위치로 이동
+	$('.go-top').click(function (event) {
+		event.preventDefault();
+		$('html, body').animate({ scrollTop: 0 }, 300);
+	});
+	
+});
+</script>
 </body>
 
 </html>

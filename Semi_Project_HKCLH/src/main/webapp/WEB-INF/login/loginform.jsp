@@ -39,7 +39,11 @@
 
 div.all{
 	position:absolute;
-	left: 570px;
+<<<<<<< HEAD
+	left: 40%;
+=======
+	left: 39%;
+>>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
 	height: 800px;
 }
 
@@ -83,7 +87,7 @@ div.all div.signup{
 				<span class="focus-input100" data-symbol=""></span>
 			</div>
 			<c:if test="${sessionScope.error=='error'}">
-			<i style="color:red; font-family: Noto Sans KR; font-size: 0.5em;"> 아이디 또는 비밀번호가 일치하지 않습니다.</i>
+			<i style="color:red; font-family: Noto Sans KR; font-size: 0.9em;"> 아이디 또는 비밀번호가 일치하지 않습니다.</i>
 			</c:if>
 			
 			<div class="text-right p-t-8 p-b-31">
@@ -122,6 +126,8 @@ div.all div.signup{
 	<br><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br>
+	
 
 </body>
 

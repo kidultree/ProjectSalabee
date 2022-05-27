@@ -15,10 +15,10 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
   #faq-title {
   	font-family: 'Noto Sans KR';
-    font-size: 30px;
+    font-size: 35px;
     position: absolute;
-  	top: 120px;
-  	left: 50px;
+  	top: 140px;
+  	left: 150px;
   }
   
  .answer {
@@ -51,22 +51,24 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   [id$="-toggle"] {
     margin-right: 15px;
   }
-  div.junghababo{
-  width: 500px;
+  div.notice{
+  width: 800px;
   position:relative;
   left: 500px;
+  top: 80px;
   }
+  
 </style>
-
 </head>
 <body>
 
+
 <span id="faq-title"><b>공지사항</b></span>
-<div class="junghababo">
+<div class="notice">
 <div class="faq-content">
   <button class="question" id="que-1"><span id="que-1-toggle">+</span>
   <span>배송기간 안내 (주문 후 3~4일 예상)</span></button>
-  <div class="answer" id="ans-1">BitFrag는 월/수/금 출고가 진행되고 있으며,<br>
+  <div class="answer" id="ans-1">FragBit는 월/수/금 출고가 진행되고 있으며,<br>
 
 그럴 경우 주문 후 3~4일 내에 제품을 받아보실 수 있으실 것으로 예상됩니다.<br>
 
@@ -74,7 +76,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </div>
 <div class="faq-content">
   <button class="question" id="que-2"><span id="que-2-toggle">+</span><span>택배 파업에 따른 배송 지연 안내</span></button>
-  <div class="answer" id="ans-2">안녕하세요. BitFrag입니다.<br>
+  <div class="answer" id="ans-2">안녕하세요. FragBit입니다.<br>
 
 
 
@@ -88,7 +90,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 
 
-Bit Frag 드림</div>
+FragBit 드림</div>
 
 </div>
 <div class="faq-content">
@@ -103,15 +105,15 @@ Bit Frag 드림</div>
 
 <div class="faq-content">
   <button class="question" id="que-4"><span id="que-4-toggle">+</span><span>제주도 추가 배송비 무료 안내</span></button>
-  <div class="answer" id="ans-4">안녕하세요, 파펨입니다.<br>
+  <div class="answer" id="ans-4">안녕하세요, FragBit입니다.<br>
 
-2021.07.08 (목) 부터 2021.07.25 (일) 까지 제주도 추가 배송비가 무료로 진행됩니다.<br>
+2022.05.26 (목) 부터 2022.06.03 (금) 까지 제주도 추가 배송비가 무료로 진행됩니다.<br>
 
 배송비로만 5,500원을 부담해야 하는 제주도민분들이 <br>
 
 부담 없이 다양한 향기를 즐기실 수 있도록 약 2주간 추가 배송비 무료 이벤트를 진행하오니, <br>
 
-파펨에서 나만의 '시그니처 향기'를 찾을 수 있길 바랍니다! <br>
+FragBit에서 나만의 '시그니처 향기'를 찾을 수 있길 바랍니다! <br>
 
 <br><br>
 또한, 데일리 키트 구매 후 이벤트 기간 안에 40ml 구매 시, <br>
@@ -134,7 +136,7 @@ Bit Frag 드림</div>
 
 7월 2주간 진행하는 제주도 추가 배송비 무료 혜택을 놓치지 마세요!<br>
 
-향기가 필요한 순간, 파펨이 함께 합니다.<br>
+향기가 필요한 순간, FragBit가 함께 합니다.<br>
 
 
 <br>
@@ -151,7 +153,7 @@ Bit Frag 드림</div>
 
 
 
-주문 및 배송 관련 문의는 홈페이지 1:1 게시판이나 help@bitfrag.com 으로 남겨주시면 순차적으로 응대 해드리고 있습니다.<br>
+주문 및 배송 관련 문의는 홈페이지 1:1 게시판이나 help@fragbit.com 으로 남겨주시면 순차적으로 응대 해드리고 있습니다.<br>
 
 
 
@@ -161,7 +163,7 @@ Bit Frag 드림</div>
 <div class="faq-content">
   <button class="question" id="que-6"><span id="que-6-toggle">+</span><span>기존 사이트 주문 취소 안내</span></button>
   <div class="answer" id="ans-6">
-  <img src="${root}/save/notice_cancel.jpg" style="width: 700px";>
+  <img src="${root}/save/notice_cancel.png" style="width: 700px";>
   </div>
 </div>
 
@@ -190,7 +192,7 @@ Bit Frag 드림</div>
 (3) 회수된 상품은 배달완료 및 입고/검수 후에 환불 진행 됩니다.<br>
 
 고객센터 : 070-8260-8028 (평일 10:00 ~ 17:00, 주말 및 공휴일 휴무 / 점심시간 제외)<br>
-반품주소 : 서울 용산구 새창로 14길 4 지층 (수신인 : 파펨)<br>
+반품주소 : 서울 용산구 새창로 14길 4 지층 (수신인 : FragBit)<br>
 
 <br><Br>
 3. 환불 소요 기간<br>

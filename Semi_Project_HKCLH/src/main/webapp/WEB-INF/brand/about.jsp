@@ -16,12 +16,13 @@
    div{ font-family: Noto Sans KR; text-align: center;}
    div.video{
 	width:auto; height:800px;
+	
 	}
    #bg{
     left:0; top:0;
     width:100%; height:800px;
     min-width:100%; min-height:100%;
-    z-index: 0;
+  
 	}
 	div.content-box{
 	width:auto; height:600px;
@@ -44,7 +45,7 @@
 	width:auto; height:auto;
 	}
 	
-	div.title{ font-size:35px; font-weight:bold; }
+	/* div.title{ font-size:35px; font-weight:bold; } */
 	div.subtitle{ font-size:25px; }
 	div.description{ font-size:18px; }
 	
@@ -82,6 +83,7 @@ $(document).ready(function($) {
 
 <button type="button" class="btn btn-default go-top" id="go-top"
 style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyphicon-chevron-up"></span></button> 
+
 
 <!-- 메인비디오 재생 -->
 <div class="video">

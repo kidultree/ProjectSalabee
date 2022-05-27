@@ -38,7 +38,7 @@ Signika+Negative:wght@300&display=swap"
 div.imgtitle {
 	position: absolute;
 	top: 23%;
-	left: 37%;
+	left: 42%;
 	color: white;
 	font-size: 5rem;
 	font-family: 'sans-serif';
@@ -47,8 +47,8 @@ div.imgtitle {
 
 div.imgpre-title {
 	position: absolute;
-	top: 300px;
-	left: 25%;
+	top: 35%;
+	left: 34%;
 	color: white;
 	font-size: 2.6rem;
 	font-family: 'Malgun Gothic';
@@ -98,7 +98,7 @@ div.imgpre-title {
 	user-select: none;
 	position: absolute;
 	left: 50%;
-	top: 2210px;
+	top: 3120px;
 	transform: translateX(-50%);
 	display: flex;
 	-webkit-box-align: center;

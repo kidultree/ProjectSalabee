@@ -3,8 +3,7 @@
 <mapper namespace="data.mapper.CartMapperInter">
 	<!-- Semi Product -->
 	
-	
-	
+
    <insert id="insertCart" parameterType="cart">
 	insert into cart
 
@@ -17,8 +16,11 @@
    </insert>
    
    <select id="getAllCart" parameterType="Map" resultType="Map">
-	select c.cid, c.mid, c.pnum, c.cquantity, pr.pprice, po.oid, po.oname, pr.pname, pr.pphoto,
-	po.addprice, c.cquantity*(pr.pprice+po.addprice) AS SUM_PRICE
+	select 
+	c.cid, c.mid, c.pnum, c.cquantity, 
+	pr.pname, pr.pphoto, 
+	po.oid, po.oname, po.oprice
+	,c.cquantity*po.oprice as sum_price
 	
 	from cart c
 	join member m
@@ -27,13 +29,14 @@
 
 	where c.mid = m.mid
 	and c.pnum = pr.pnum
-	and pr.oid = po.oid
-
+	and po.pnum = pr.pnum
+	and c.oid = po.oid
+	
 	and m.mid = #{mid};
    </select>
    
    <!-- 삭제 -->
-   <delete id="deleteCart" parameterType="cart">
+   <delete id="deleteCart" parameterType="String">
       delete from cart where cid = #{cid}
    </delete>
    
