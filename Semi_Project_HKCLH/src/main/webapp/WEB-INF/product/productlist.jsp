@@ -96,13 +96,26 @@ color: brown;
 #winter:hover{
 color: silver;
 }
-#add-button {
+#load_image {
     margin-top: 18px;
     position: relative;
     bottom: 20px;
     cursor: pointer;
     width: 40px;
     height: 40px;
+    border: 1px solid #b9b9b9;
+    border-radius: 50%;
+}
+.selected-image {
+    margin-top: 18px;
+    position: relative;
+    float: left;
+    padding: 50px;
+    margin-left: 100px;
+    bottom: 20px;
+    cursor: pointer;
+    width: 90px;
+    height: 90px;
     border: 1px solid #b9b9b9;
     border-radius: 50%;
 }
@@ -126,8 +139,27 @@ right: 30px;
    </div>
    </div>
    <br><br><br><br><br><br><br><br><br><br><br>
-
- 
+   <div class="box">
+  <div class="selected-image">
+   	<img src="" id="img" >
+   	</div>
+    <div class="selected-image">
+   	<img src="" id="img" >
+   	</div>
+   	 <div class="selected-image">
+   	<img src="" id="img" >
+   	</div>
+   	 <div class="selected-image">
+   	<img src="" id="img" >
+   	</div>
+   	 <div class="selected-image">
+   	<img src="" id="img" >
+   	</div>
+   	 <div class="selected-image">
+   	<img src="" id="img" >
+   	</div>
+ 						</div>
+ 						<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<div class="features">
 	<div class="weather">
 		<a class="scroll_move" href="#div1" id="spring">봄</a>
@@ -140,7 +172,7 @@ right: 30px;
 		
 		
 		
-	</div>
+	
 <div class="content-box">
 <c:forEach var="dto" items="${list}">
 <ul class="product_list">
@@ -154,13 +186,30 @@ right: 30px;
           <div class="info">40ml / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
         </dd>
         </dl>
-       <button type="button" class="btn btn- waring" id="add-button">+</button>
+       <button type="button" id="load_image" img="${dto.pphoto}">+</button>
         </li>
 
        
   </ul>
                         </c:forEach>
 </div>
+<script>
+  	// id가 img인 요소 접근
+ 	const img = document.getElementById("img");
+ 	
+ 	/* load_img인 요소 변수 생성 */
+ 	const load_btn = document.getElementById("load_img");
+ 	//load_btn 클릭시 이벤트 처리
+ 	load_btn.addEventListener('click', (e) =>{
+ 		//img의 src 값에 사진의 경로를 설정
+ 	img.setAttribute('src','../save/${dto.pphoto}')
+ 	}); 
+ </script> 
+<button type="button" class="btn btn-default go-top" id="go-top"
+style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyphicon-chevron-up"></span></button> 
+
+  <script type="text/javascript">
+
 <button type="button" class="btn btn-default go-top" id="go-top"
 style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyphicon-chevron-up"></span></button> 
 
