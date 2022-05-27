@@ -68,7 +68,7 @@
 
 
 <div class="title">Cart</div>
-   
+   <input type="hidden" id="mid" value="${cList[0].mid}">
    <!-- 카트 첫 행 -->
    <table class="cart-table" style="width:1200px;">
    <thead>
@@ -86,8 +86,10 @@
 	<c:forEach var="cList2" items="${cList}" varStatus="i">
 	<tr>
 		<td class="cart_info_td">
-				<input type="hidden" class="individual_cquantity_input" value="${cList2.cquantity}">
 				<input type="hidden" class="individual_totalPrice_input" value="${cList2.sum_price}">
+				<input type="hidden" class="individual_cquantity_input param_quantity" value="${cList2.cquantity}">
+				<input type="hidden" class="param_pnum" value="${cList2.pnum}">
+				<input type="hidden" class="param_oid" value="${cList2.oid}">
 		</td>
 		
 		<!-- 체크박스 -->
@@ -150,7 +152,11 @@
 
 <br><br><br><br>
 
-<div class="buybtn" onclick="location.href='buy'">주문하기</div>
+<!-- <div class="buybtn" onclick="location.href='buy'">주문하기</div> -->
+
+<div class="buybtn" id="buybtn" >주문하기</div>
+
+
 <br><br>
 
 
@@ -195,13 +201,45 @@
 	             type:"get",
 	             dataType:"text",
 	             data:{"cids":cids},
-	             url:"delete",
+	             url:"/cart/delete",
 	             success:function(data){
 	                //새로고침
 	                location.reload();
 	             }
 	          });
 	       });
+		
+		
+		/* 주문하기로 보내기 버튼 */
+			$("#buybtn").click(function(){
+// 				// 회원 정보
+				let param_string = '';
+				if($("#mid").val() != ''){
+					
+					$("table.cart-table tbody tr").each(function (index, item) {
+					     console.log(item);
+					     param_string += $(item).find('td.cart_info_td').find("input.param_pnum").val() + ',';
+					     param_string += $(item).find('td.cart_info_td').find("input.param_oid").val() + ',';
+					     param_string += $(item).find('td.cart_info_td').find("input.param_quantity").val() + '|';
+					});	
+					debugger;
+				}
+				
+				
+				$.ajax({
+		         type:"post",
+		         dataType:"text",
+		         url:"/orderinfo/buy",
+		         data:{
+		        	 "mid":$("#mid").val(),
+		        	 "param_string":param_string
+		         },
+		         success:function(data){
+		        	alert(data.message);
+		         }   
+		        });
+			});
+			
 	    });
 
 </script>
