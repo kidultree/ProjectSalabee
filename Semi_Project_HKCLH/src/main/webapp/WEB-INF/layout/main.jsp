@@ -48,7 +48,7 @@ div.imgtitle {
 div.imgpre-title {
 	position: absolute;
 	top: 35%;
-	left: 33%;
+	left: 31%;
 	color: white;
 	font-size: 2.6rem;
 	font-family: 'Malgun Gothic';
