@@ -90,7 +90,7 @@ body {
 <tr>
 <th style="width: 100px; background-color:#FFE3EE">리뷰 이미지</th>
 <td>
- <input type="file" name="file" class="form-control"
+ <input type="file" name="upload" class="form-control"
  multiple="multiple">
 </td>
 </tr>

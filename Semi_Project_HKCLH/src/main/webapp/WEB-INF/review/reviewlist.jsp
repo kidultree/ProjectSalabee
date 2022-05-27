@@ -39,7 +39,11 @@
 					<fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
 				</tr>
 				<tr>
-					<td colspan="2">${dto.rphoto}</td>
+					<td colspan="2"><!-- 사진이 들어있는 경우 출력하기 -->
+					<c:if test = "${dto.rphoto!=''}">
+						<img src="../save/${dto.rphoto}" width="100" height="100" border="1">
+						&nbsp;&nbsp;
+					</c:if></td>
 					<td colspan="2">구매상품 : ${dto.pnum}</td>
 				</tr>
 				<tr>
