@@ -37,7 +37,7 @@
 <c:if test="${sessionScope.loginok==null}">
 	<script type="text/javascript">
 		alert("다시 로그인 후 글쓰기를 시도해 주세요");
-		location.href='../login/form'
+		location.href='../login/loginform'
 	</script>
 </c:if>
 	<form action="insert" method="post" enctype="multipart/form-data">

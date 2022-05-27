@@ -1,12 +1,21 @@
 package data.controller;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import Util.FileUtil;
 import data.dto.ReviewDto;
 import data.mapper.ReviewMapperInter;
 
@@ -28,13 +37,33 @@ public class ReviewController {
 		}
 		
 		
-		
 		@PostMapping("/insert")
-		public String insert
-		(@ModelAttribute ReviewDto dto)
+		public String insert (@ModelAttribute ReviewDto dto,
+		@RequestParam MultipartFile upload,
+		HttpSession session,
+		HttpServletRequest request)
 		{
-			reviewMapper.insertReview(dto);
-			return "redirect:list";
+		//사진을 저장할 경우
+		String path = request.getServletContext().getRealPath("/save");
+		
+		String rphoto=upload.getOriginalFilename();
+		  dto.setRphoto(rphoto);
+		  try {
+			upload.transferTo(new File(path+"\\"+rphoto));
+		} catch (IllegalStateException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-	}
+
+			reviewMapper.insertReview(dto);
+			return "redirect:list"; 
+			
+		}
+		
+		
+		
+		
+		
+}
+
 
