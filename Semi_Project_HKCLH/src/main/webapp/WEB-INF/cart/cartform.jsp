@@ -71,7 +71,8 @@
    
    <!-- 카트 첫 행 -->
    <table class="cart-table" style="width:1200px;">
-	<tr>
+   <thead>
+   	<tr>
 		<th class="th_width_1"></th>
 		<th class="th_width_2"><input type="checkbox" id="allcheck">전체선택|<div id="Cartdel">선택삭제</div></th>
 		
@@ -80,12 +81,13 @@
 		<th class="th_width_5">금액</th>
 		<th></th>
 	</tr>
-	
+   </thead>
+   <tbody>
 	<c:forEach var="cList2" items="${cList}" varStatus="i">
 	<tr>
 		<td class="cart_info_td">
 				<input type="hidden" class="individual_cquantity_input" value="${cList2.cquantity}">
-				<input type="hidden" class="individual_totalPrice_input" value="${cList2.SUM_PRICE}">
+				<input type="hidden" class="individual_totalPrice_input" value="${cList2.sum_price}">
 		</td>
 		
 		<!-- 체크박스 -->
@@ -97,19 +99,23 @@
 		<!-- 수량선택 -->	
 		<td>
 			<div class="number-input">	
-				<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-				<input class="quantity" min="0" name="quantity" value="${cList2.cquantity}" type="number" id="quantity">
-				<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+				<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus btn-minus"></button>
+				<input class="quantity" min="1" name="quantity" value="${cList2.cquantity}" type="number">
+				<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus btn-plus"></button>
 			</div>
 		</td>
 		
 		<!-- 해당 상품 금액 -->
-		<td><span class="sum_price"><fmt:formatNumber value="${cList2.SUM_PRICE}" pattern="#,### 원" /></span></td>
+		<td class="price_td">
+		<input class="oprice" type="hidden" value="${cList2.oprice}">
+		<span class="sum_price">${cList2.sum_price}</span> 원
+		</td>
 		
 		<!-- 삭제버튼 -->
 		<td class="delete_btn"><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
 		</tr>
 	</c:forEach>
+	</tbody>
 </table>
 
 <br><br><br><br><br><br><br>
@@ -204,12 +210,21 @@
 <script type="text/javascript">
 <!--수량추가(뭔지 모르겠음)-->
 $('.btn-plus, .btn-minus').on('click', function(e) {
-	  const isNegative = $(e.target).closest('.btn-minus').is('.btn-minus');
-	  const input = $(e.target).closest('.input-group').find('input');
-	  if (input.is('input')) {
-	    input[0][isNegative ? 'stepDown' : 'stepUp']()
-	  };
-	});
+
+	let quantity = $(e.target).siblings('input.quantity').val();
+	let oprice = $(e.target).parent().parent().siblings('td.price_td').find('input.oprice').val();
+	
+	$(e.target).parent().parent().siblings('td.price_td').find("span.sum_price").text(quantity*oprice);
+	
+	let price = 0;
+	$("table.cart-table tbody tr").each(function (index, item) {
+	     console.log(item);
+	     price += $(item).find('td.price_td').find("span.sum_price").text() * 1;
+	});	
+	
+	$("span.finalTotalPrice_span, span.totalPrice_span").text(price);
+});
+
 
 </script>
 </html>
