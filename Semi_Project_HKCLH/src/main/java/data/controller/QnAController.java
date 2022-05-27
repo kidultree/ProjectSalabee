@@ -42,13 +42,13 @@ public class QnAController {
 		ModelAndView mview = new ModelAndView();
 	      //답글일 경우 읽어야 할 5개의 값 (새 글일 경우는 값이 안넘어옴 = 모두 null)
 	      String currentPage=map.get("currentPage");
-	      String num=map.get("num");
+	      String qnum=map.get("qnum");
 	      String reg=map.get("reg");
 	      String restep=map.get("restep");
 	      String relevel=map.get("relevel");
 	      
 	      mview.addObject("currentPage",currentPage==null?"1":currentPage);
-	      mview.addObject("num",num==null?"0":num);
+	      mview.addObject("qnum",qnum==null?"0":qnum);
 	      mview.addObject("reg",reg==null?"0":reg);
 	      mview.addObject("restep",restep==null?"0":restep);
 	      mview.addObject("relevel",relevel==null?"0":relevel);
@@ -70,7 +70,7 @@ public class QnAController {
 		int perPage=5; //한 페이지당 보여질 글의 갯수
 		int perBlock=5; //한 블럭당 보여질 글의 갯수 (◀이전 1,2,3,4,5 다음▶)
 		int totalPage; //총 페이지수
-		int startNum; //한 페이지에서 보여질 시작 글번호
+		int startQNum; //한 페이지에서 보여질 시작 글번호
 		int startPage; //한 블럭에서 보여질 시작 페이지 번호
 		int endPage; //한 블럭에서 보여질 끝 페이지 번호
 		int no; //각 페이지당 보여질 시작번호
@@ -87,11 +87,11 @@ public class QnAController {
 			endPage=totalPage;
 		}
 		
-		startNum = (currentPage-1)*perPage;
+		startQNum = (currentPage-1)*perPage;
 		no = totalCount-(currentPage-1)*perPage;
 		
 		//데이터 가져오기
-		List<QnADto> list = qnaService.getQnAList(startNum, perPage);
+		List<QnADto> list = qnaService.getQnAList(startQNum, perPage);
 		
 		//각 데이터에 id를 이용해서 이름 넣어주기
 				for(QnADto dto:list)
@@ -120,6 +120,7 @@ public class QnAController {
 	   public String insert
 	   (@ModelAttribute QnADto dto,	
 		@RequestParam String currentPage,
+		@RequestParam int qnum,
 		@RequestParam ArrayList<MultipartFile> upload,
 		HttpSession session,
 		HttpServletRequest request
@@ -137,11 +138,11 @@ public class QnAController {
 			dto.setQimg("no");
 		}else {
 			FileUtil fileUtil = new FileUtil();
-			String photos = "";
+			String qimg = "";
 			for(MultipartFile f:upload)
 			{
 				String rename = fileUtil.changeFileName(f.getOriginalFilename());
-				photos+=rename+",";
+				qimg+=rename+",";
 				
 				File file = new File(path+"\\"+rename);
 				try {
@@ -152,12 +153,11 @@ public class QnAController {
 				}
 			}
 			//마지막 컴마 제거
-			photos = photos.substring(0,photos.length()-1);
-			System.out.println(photos);
-			dto.setQimg(photos);
+			qimg = qimg.substring(0,qimg.length()-1);
+			System.out.println(qimg);
+			dto.setQimg(qimg);
 		}
 	
-		
 			//db update
 		qnaService.insertQnA(dto);
 	      return "redirect:list?currentPage="+ currentPage;
@@ -165,7 +165,7 @@ public class QnAController {
 	
 	@GetMapping("/content")
 	public ModelAndView content(
-			@RequestParam int num,
+			@RequestParam int qnum,
 			@RequestParam String currentPage
 			)
 	
@@ -173,7 +173,7 @@ public class QnAController {
 		ModelAndView mview = new ModelAndView();
 
 		//num에 해당하는 dto
-		QnADto dto = qnaService.getData(num);
+		QnADto dto = qnaService.getData(qnum);
 		//이름 넣어주기
 		String name = memberMapper.getmName(dto.getMid());
 		dto.setMid(name); 

@@ -37,7 +37,7 @@
 <c:if test="${sessionScope.loginok==null}">
 	<script type="text/javascript">
 		alert("다시 로그인 후 글쓰기를 시도해 주세요");
-		location.href='../login/form'
+		location.href='../login/loginform'
 	</script>
 </c:if>
 	<form action="insert" method="post" enctype="multipart/form-data">
@@ -72,7 +72,7 @@
 <tr>
 <th style="width: 100px; background-color:#FFE3EE">제목</th>
 <td>
- <input type="text" class="form-control" required="required" name="qtitle">
+ <input type="text" class="form-control" name="qtitle" required="required"> 
 </td>
 </tr>
 
@@ -80,7 +80,7 @@
 <tr>
 <th style="width: 100px; background-color: gray;">작성자</th>
 <td>
-<input type="text" class="form-control" required="required" name="mid">
+<input type="text" class="form-control" name="mid" required="required">
 </td>
 </tr>
 
