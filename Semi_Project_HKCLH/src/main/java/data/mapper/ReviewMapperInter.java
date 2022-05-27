@@ -15,5 +15,5 @@ public interface ReviewMapperInter {
 	public List<ReviewDto> getReviewList();
 	
 	public ReviewDto getReview(int num);
-	public int getTotalCount();
+	public int getTotalReviewCount();
 }

@@ -2,6 +2,7 @@ package data.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import Util.FileUtil;
 import data.dto.ReviewDto;
@@ -32,8 +34,19 @@ public class ReviewController {
 	
 	
 		@GetMapping("/list")
-		public String list() {
-			return "/review/reviewlist";
+		public ModelAndView list() 
+		{			
+			ModelAndView mview = new ModelAndView();
+			
+			int totalCount = reviewMapper.getTotalReviewCount();
+			List<ReviewDto> list = reviewMapper.getReviewList();
+			
+			mview.addObject("totalCount", totalCount);
+			mview.addObject("list",list);
+			
+			mview.setViewName("/review/reviewlist");
+			return mview;
+			
 		}
 		
 		
