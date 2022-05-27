@@ -10,15 +10,9 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<link
-<<<<<<< HEAD
-	href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap"
-=======
-	href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gowun+Dodum&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
->>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
 <style type="text/css">
-<<<<<<< HEAD
+
 
 #review_table{
 	font-family: 'Noto Sans KR';
@@ -27,21 +21,12 @@
 	border: 1px solid black;
 
 }
-=======
-	body {
-	font-size: 2rem;
-	font-family: 'Jua';
-	}
->>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
+
 </style>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
 </head>
 <body>
-<<<<<<< HEAD
+
 	<br><br><br><br><br><br><br><br><br><br>
 	<h2>Review</h2>
 	<c:forEach var="dto" items="${list}">
@@ -65,8 +50,5 @@
 	</div>
 	</c:forEach>
 
-=======
-	
->>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
 </body>
 </html>
