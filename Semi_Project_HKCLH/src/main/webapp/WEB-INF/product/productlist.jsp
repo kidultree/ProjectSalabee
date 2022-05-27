@@ -17,13 +17,7 @@
         padding:0;    
     }
     
-  .container{
-			width:1080px;
-			margin: 0 auto;
-			position:absolute;
-			right: 147px;
-			top: 45%;
-		}
+
 	.product-header{
 	width: 100%;
 	height:172px;
@@ -84,13 +78,13 @@ font-family:'Noto Sans KR';
 color:black;
 text-decoration: none;
 position:relative;
-left: 330px;
+left: 430px;
 }
  a.scroll_move:hover{
 text-decoration:none;
 } 
 #spring:hover{
-color:yellow;
+color:gold;
 
 }
 #summer:hover{
@@ -102,26 +96,47 @@ color: brown;
 #winter:hover{
 color: silver;
 }
+#add-button {
+    margin-top: 18px;
+    position: relative;
+    bottom: 20px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #b9b9b9;
+    border-radius: 50%;
+}
+div.weather a {
+position:relative;
+left: 620px;
+}
+div.product-title b{
+position:relative;
+right: 30px;
+
+}
+
 </style>
 </head>
 <body>
 
    <div class="product-header">
    <div class="product-title">
-   	FRAGRANCE
+   	<b>FRAGRANCE</b>
    </div>
    </div>
-   <br><br><br><br><br>
-   <div class="content-box">
+   <br><br><br><br><br><br><br><br><br><br><br>
+
+ 
 	<div class="features">
+	<div class="weather">
 		<a class="scroll_move" href="#div1" id="spring">봄</a>
 		<a class="scroll_move" href="#div2" id="summer">여름</a>
 		<a class="scroll_move" href="#div3" id="fall">가을</a>
 		<a class="scroll_move" href="#div4" id="winter">겨울</a> <br><br>
 	</div>
-</div>
   
-	
+	</div>
 		
 		
 		
@@ -137,9 +152,9 @@ color: silver;
         <dd class="tags">${dto.pcontent} </dd>
         <dd class="btm">
           <div class="info">40ml / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
-        
         </dd>
         </dl>
+       <button type="button" class="btn btn- waring" id="add-button">+</button>
         </li>
 
        
@@ -182,10 +197,10 @@ $(document).ready(function($) {
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br>
-		<div id="div1">div1</div>
-		<div id="div2">div2</div>
-		<div id="div3">div3</div>
-		<div id="div4">div4</div>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<div id="div3"></div>
+		<div id="div4"></div>
 	
 <!-- 등록 (관리자만) -->   
          <button type="button" class="btn btn-info" id="formbtn"
