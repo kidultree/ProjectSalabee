@@ -14,9 +14,9 @@
 <style type="text/css">
  	html, body{
         margin:0;
-        padding:0;
-        background-color:white;
+        padding:0;    
     }
+    
   .container{
 			width:1080px;
 			margin: 0 auto;
@@ -40,33 +40,29 @@
 	}
 	#div1{
 	position:absolute;
-	top:500px;
+	top:300px;
 	}
 	#div2{
 	position:absolute;
-	top:800px;
+	top:900px;
 	}
 	#div3{
 	position:absolute;
-	top:1100px;
+	top:1400px;
 	}
 	#div4{
 	position:absolute;
-	top:1600px;
+	top:1900px;
 	}
 	#div5{
 	position:absolute;
-	top:2000px;
+	top:2700px;
 	}
-    div.content-box
+  
+
 .product_list {margin-left: 120px; list-style: none;}
-/* .product_list:after {
-content:"";
-display:
-clear:both;
-} */
 .product_list li {float:left; margin:0 20px 50px 0; position:relative; width:374px; height:501px; border: 1px solid #d9d9d9;}
-.product_list li:hover{border-color: black;}
+.product_list li:hover{border-color: skyblue;}
 .product_list dl{padding:374px 0 0 0 ;}
 .product_list dt{padding: 14px 15px 14px; border-top: 1px solid #f0f0f0;}
 .product_list dt a { font-size: 16px; color: #1a1a1a; font-weight: bold; text-decoration: none; position:absolute; left:130px;}
@@ -78,8 +74,34 @@ clear:both;
 .product_list div.info{ position: relative; left: 110px;}
 
 
+div.features{
+	border-bottom: 0.5px solid silver;
+}
+a.scroll_move{
+padding: 50px;
+font-size: 2rem;
+font-family:'Noto Sans KR';
+color:black;
+text-decoration: none;
+position:relative;
+left: 330px;
+}
+ a.scroll_move:hover{
+text-decoration:none;
+} 
+#spring:hover{
+color:yellow;
 
-
+}
+#summer:hover{
+color:blue;
+}
+#fall:hover{
+color: brown;
+}
+#winter:hover{
+color: silver;
+}
 </style>
 </head>
 <body>
@@ -89,14 +111,13 @@ clear:both;
    	FRAGRANCE
    </div>
    </div>
-   <br><br><br><br><br><br><br><br><br><br><br>
+   <br><br><br><br><br>
    <div class="content-box">
 	<div class="features">
-		<a class="scroll_move" href="#div1">ALL</a>
-		<a class="scroll_move" href="#div2">봄</a>
-		<a class="scroll_move" href="#div3">여름</a>
-		<a class="scroll_move" href="#div4">가을</a>
-		<a class="scroll_move" href="#div5">겨울</a>
+		<a class="scroll_move" href="#div1" id="spring">봄</a>
+		<a class="scroll_move" href="#div2" id="summer">여름</a>
+		<a class="scroll_move" href="#div3" id="fall">가을</a>
+		<a class="scroll_move" href="#div4" id="winter">겨울</a> <br><br>
 	</div>
 </div>
   
@@ -165,7 +186,7 @@ $(document).ready(function($) {
 		<div id="div2">div2</div>
 		<div id="div3">div3</div>
 		<div id="div4">div4</div>
-		<div id="div5">div5</div>
+	
 <!-- 등록 (관리자만) -->   
          <button type="button" class="btn btn-info" id="formbtn"
          onclick="location.href='form'">

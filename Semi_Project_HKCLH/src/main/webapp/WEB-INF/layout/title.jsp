@@ -209,7 +209,7 @@ ul.sub li {
 				<li><a>COMMUNITY</a>
 					<ul class="sub">
 						<li><a href="/notice/list">Notice</a></li>
-						<li><a href="#">Review</a></li>
+						<li><a href="/review/list">Review</a></li>
 						<li><a href="/qna/list">QnA</a></li>
 					</ul></li>
 			</ul>
