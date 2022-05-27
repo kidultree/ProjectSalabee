@@ -15,8 +15,8 @@
 		select mname from member where mid=#{mId}
 	</select>
 	
-	<select id="getmId" parameterType="String" resultType="String">
-		select mid from member where mid=#{mId}
+	<select id="getmId" parameterType="String" resultType="int">
+		select count(*) from member where mid=#{mId}
 	</select>
 	
 	
