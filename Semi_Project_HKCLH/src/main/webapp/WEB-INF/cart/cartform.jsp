@@ -30,15 +30,13 @@
 			totalPrice += parseInt($(element).find(".individual_totalPrice_input").val());
 			// 총 갯수
 			totalCount += parseInt($(element).find(".individual_cquantity_input").val());
-			// 총 종류
-			//totalKind += 1;
-		
+			
 			
 			/* 배송비 결정 */
 			if(totalPrice >= 30000){
 				deliveryPrice = 0;
 			} else if(totalPrice == 0){
-				deliveryPrice = 0;
+				deliveryPrice = 0;	
 			} else {
 				deliveryPrice = 3000;	
 			}
@@ -61,35 +59,44 @@
 </script>
 
 <body>
-<div class="content">
+
+<div class="wrapper">
+
+<div class="wrap">
+
 <br><br><br><br><br>
+
+
 <div class="title">Cart</div>
    
    <!-- 카트 첫 행 -->
    <table class="cart-table" style="width:1200px;">
 	<tr>
-		<th></th><th></th>
-		<th style="text-align: center;">제품정보</th>
-		<th style="text-align: center;">수량</th>
-		<th style="text-align: center;">금액</th>
+		<th class="th_width_1"></th>
+		<th class="th_width_2"><input type="checkbox" id="allcheck">전체선택|<div id="Cartdel">선택삭제</div></th>
+		
+		<th class="th_width_3">제품정보</th>	
+		<th class="th_width_4">수량</th>
+		<th class="th_width_5">금액</th>
 		<th></th>
 	</tr>
 	
 	<c:forEach var="cList2" items="${cList}" varStatus="i">
 	<tr>
 		<td class="cart_info_td">
-				<input type="hidden" class="individual_pprice_input" value="${cList2.pprice}">
 				<input type="hidden" class="individual_cquantity_input" value="${cList2.cquantity}">
-				<input type="hidden" class="individual_totalPrice_input" value="${cList2.cquantity*(cList2.pprice+cList2.addprice)}">
+				<input type="hidden" class="individual_totalPrice_input" value="${cList2.SUM_PRICE}">
 		</td>
-		<td></td>
+		
+		<!-- 체크박스 -->
+		<td><input type="checkbox" class="del" cid="${cList2.cid}"></td>
 		
 		<!-- 이미지&제품정보 -->
-		<td><img src="${root}/save/${cList2.pphoto}" style="width:100px;">&nbsp;&nbsp;${cList2.pname }</td>
+		<td><img src="${root}/save/${cList2.pphoto}" style="width:100px;">&nbsp;&nbsp;${cList2.pname}</td>
 		
-		<!-- 수량선택 -->
+		<!-- 수량선택 -->	
 		<td>
-			<div class="number-input">
+			<div class="number-input">	
 				<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
 				<input class="quantity" min="0" name="quantity" value="${cList2.cquantity}" type="number" id="quantity">
 				<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
@@ -100,7 +107,7 @@
 		<td><span class="sum_price"><fmt:formatNumber value="${cList2.SUM_PRICE}" pattern="#,### 원" /></span></td>
 		
 		<!-- 삭제버튼 -->
-		<td class="delete_btn"><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button> </td>
+		<td class="delete_btn"><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
 		</tr>
 	</c:forEach>
 </table>
@@ -118,7 +125,7 @@
 		<th style="width:100px;">총 결제금액</th>
 	</tr>
 	
-	<tr>
+	<tr>	
 		<td><span class="totalPrice_span"></span> 원</td>
 		
 		<td><img src="${root}/image/-.PNG" id="m" style="width:50px"></td>
@@ -139,9 +146,60 @@
 
 <div class="buybtn" onclick="location.href='buy'">주문하기</div>
 <br><br>
-</div>
 
+
+</div>	<!-- class="wrap" -->
+</div>	<!-- class="wrapper" -->
 </body>
+
+<script type="text/javascript">
+	$(function(){
+		
+		/* 체크박스 전체선택 */
+		$("#allcheck").click(function(){
+			var chk = $(this).is(":checked"); //체크상태 확인
+			console.log(chk);
+			if(chk){
+				$(".del").prop("checked",true); //속성변경(true/false일 경우 prop사용)
+			}else{
+				$(".del").prop("checked",false);
+			}
+		});
+		
+		/* delete 버튼 - 삭제 */
+		$("#Cartdel").click(function(){
+			//체크 수 구하기
+			var len = $(".del:checked").length;
+			//0명일 경우
+			if(len==0){
+				alert("삭제할 상품을 선택해 주세요")
+				return;
+			}
+			//체크한 곳의 cid값 가져오기
+			var cids = "";
+			$(".del:checked").each(function(i, element){
+				var cid = $(this).attr("cid");
+				cids+=cid+",";
+			});
+			//마지막 컴마(,) 제거
+			cids = cids.substring(0, cids.length-1);
+			//alert(nums);
+			
+	         $.ajax({
+	             type:"get",
+	             dataType:"text",
+	             data:{"cids":cids},
+	             url:"delete",
+	             success:function(data){
+	                //새로고침
+	                location.reload();
+	             }
+	          });
+	       });
+	    });
+
+</script>
+
 
 <script type="text/javascript">
 <!--수량추가(뭔지 모르겠음)-->

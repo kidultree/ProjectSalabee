@@ -41,7 +41,6 @@
 		color: red;
 	}
 
-
 </style>
 
 <script type="text/javascript">
@@ -60,7 +59,6 @@ function chk(){
 	var phonereg=/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/; //휴대폰 번호 정규식
 	var mAddress1=document.getElementById("mAddress1");
 	var aggr=document.getElementById("aggrement");
-	var idunchk=document.getElementById("idunchk")
 	
 	
 	if(mId.value==""){
@@ -69,13 +67,9 @@ function chk(){
 		return false;
 	}
 	else if(!idreg.test(mId.value)){
-		$("div.id").text("최소 4자 최대 12자,하나이상의 문자,하나 이상의 숫자를 포함시켜주세요");
+		$("div.id").text("최소 4 자,하나이상의 문자,하나 이상의 숫자를 포함시켜주세요");
 		$("#mId").focus();
 		return false;		
-	}
-	if(idunchk.value=="idunchk"){
-		$("div.id").text("아이디 중복체크를 해주세요");
-		return false;
 	}
 	if(mName.value==""){
 		$("div.name").text("이름을 입력해 주세요");
@@ -140,22 +134,6 @@ function chk(){
 		return false;
 	}
 	else true;
-}
-
-function openidchk(){
-	
-	var mId=document.getElementById("mId");
-	var idreg=/^[a-zA-z0-9]{4,12}$/; //아이디 정규식
-
-	if(!mId){
-		return false;		
-	}else if(!idreg.test(mId.value)){
-		return false;
-	}else{
-		window.name="parentForm";
-		window.open("<%=request.getContextPath()%>/idchkform.jsp",
-				"중복 확인","width=800,height=500, resizable=no,scrollbar=no");
-	}	
 }
 		
 	
@@ -264,7 +242,7 @@ function openidchk(){
 	});
 </script>
 <c:set var="root" value="<%=request.getContextPath() %>"></c:set>
- 
+
 </head>
 <body>
 
@@ -276,11 +254,9 @@ function openidchk(){
         <label style="margin-left: 43%; font-size: 2.5em;">회원 가입</label><br><br> 
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="mId" style="margin-bottom: 10px;">아이디</label> &nbsp;&nbsp;&nbsp;
-              <button style="background-color: black; color: white;" onclick="openidchk()">중복확인</button><br>
-              <input type="hidden" id="idunchk" name="idunchk" value="idunchk">
+              <label for="mId" style="margin-bottom: 10px;">아이디</label> &nbsp;&nbsp;&nbsp;<button style="background-color: black; color: white;">중복확인</button><br>
               <input type="text" class="form-control" name="mId" id="mId" placeholder="영어 대소문자,숫자 포함 4~12자리">
-              <div class="id" id="idmsg">
+              <div class="id">
               </div>
             </div>
             <div class="col-md-6 mb-3">
@@ -341,6 +317,8 @@ function openidchk(){
             <div class="col-md-6 mb-3">
               <label for="mPost">우편번호</label>              
               <input type="text" class="form-control" name="mPost" id="mPost" readonly="readonly">
+
+
             </div>
             
           </div>

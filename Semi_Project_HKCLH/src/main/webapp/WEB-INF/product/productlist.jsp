@@ -14,10 +14,16 @@
 <style type="text/css">
  	html, body{
         margin:0;
-        padding:0;    
+        padding:0;
+        background-color:white;
     }
-    
-
+  .container{
+			width:1080px;
+			margin: 0 auto;
+			position:absolute;
+			right: 147px;
+			top: 45%;
+		}
 	.product-header{
 	width: 100%;
 	height:172px;
@@ -34,29 +40,33 @@
 	}
 	#div1{
 	position:absolute;
-	top:300px;
+	top:500px;
 	}
 	#div2{
 	position:absolute;
-	top:900px;
+	top:800px;
 	}
 	#div3{
 	position:absolute;
-	top:1400px;
+	top:1100px;
 	}
 	#div4{
 	position:absolute;
-	top:1900px;
+	top:1600px;
 	}
 	#div5{
 	position:absolute;
-	top:2700px;
+	top:2000px;
 	}
-  
-
+    div.content-box
 .product_list {margin-left: 120px; list-style: none;}
+/* .product_list:after {
+content:"";
+display:
+clear:both;
+} */
 .product_list li {float:left; margin:0 20px 50px 0; position:relative; width:374px; height:501px; border: 1px solid #d9d9d9;}
-.product_list li:hover{border-color: skyblue;}
+.product_list li:hover{border-color: black;}
 .product_list dl{padding:374px 0 0 0 ;}
 .product_list dt{padding: 14px 15px 14px; border-top: 1px solid #f0f0f0;}
 .product_list dt a { font-size: 16px; color: #1a1a1a; font-weight: bold; text-decoration: none; position:absolute; left:130px;}
@@ -68,53 +78,7 @@
 .product_list div.info{ position: relative; left: 110px;}
 
 
-div.features{
-	border-bottom: 0.5px solid silver;
-}
-a.scroll_move{
-padding: 50px;
-font-size: 2rem;
-font-family:'Noto Sans KR';
-color:black;
-text-decoration: none;
-position:relative;
-left: 430px;
-}
- a.scroll_move:hover{
-text-decoration:none;
-} 
-#spring:hover{
-color:gold;
 
-}
-#summer:hover{
-color:blue;
-}
-#fall:hover{
-color: brown;
-}
-#winter:hover{
-color: silver;
-}
-#add-button {
-    margin-top: 18px;
-    position: relative;
-    bottom: 20px;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border: 1px solid #b9b9b9;
-    border-radius: 50%;
-}
-div.weather a {
-position:relative;
-left: 620px;
-}
-div.product-title b{
-position:relative;
-right: 30px;
-
-}
 
 </style>
 </head>
@@ -122,21 +86,21 @@ right: 30px;
 
    <div class="product-header">
    <div class="product-title">
-   	<b>FRAGRANCE</b>
+   	FRAGRANCE
    </div>
    </div>
    <br><br><br><br><br><br><br><br><br><br><br>
-
- 
+   <div class="content-box">
 	<div class="features">
-	<div class="weather">
-		<a class="scroll_move" href="#div1" id="spring">봄</a>
-		<a class="scroll_move" href="#div2" id="summer">여름</a>
-		<a class="scroll_move" href="#div3" id="fall">가을</a>
-		<a class="scroll_move" href="#div4" id="winter">겨울</a> <br><br>
+		<a class="scroll_move" href="#div1">ALL</a>
+		<a class="scroll_move" href="#div2">봄</a>
+		<a class="scroll_move" href="#div3">여름</a>
+		<a class="scroll_move" href="#div4">가을</a>
+		<a class="scroll_move" href="#div5">겨울</a>
 	</div>
+</div>
   
-	</div>
+	
 		
 		
 		
@@ -152,9 +116,9 @@ right: 30px;
         <dd class="tags">${dto.pcontent} </dd>
         <dd class="btm">
           <div class="info">40ml / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
+        
         </dd>
         </dl>
-       <button type="button" class="btn btn- waring" id="add-button">+</button>
         </li>
 
        
@@ -197,11 +161,11 @@ $(document).ready(function($) {
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br>
-		<div id="div1"></div>
-		<div id="div2"></div>
-		<div id="div3"></div>
-		<div id="div4"></div>
-	
+		<div id="div1">div1</div>
+		<div id="div2">div2</div>
+		<div id="div3">div3</div>
+		<div id="div4">div4</div>
+		<div id="div5">div5</div>
 <!-- 등록 (관리자만) -->   
          <button type="button" class="btn btn-info" id="formbtn"
          onclick="location.href='form'">

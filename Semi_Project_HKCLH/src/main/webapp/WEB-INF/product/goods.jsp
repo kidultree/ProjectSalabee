@@ -14,9 +14,9 @@
 <style type="text/css">
  	html, body{
         margin:0;
-        padding:0;    
+        padding:0;
+        background-color:white;
     }
-    
   .container{
 			width:1080px;
 			margin: 0 auto;
@@ -38,80 +38,55 @@
 	right: 43%;
 	top: 30%;
 	}
-	#div1{
-	position:absolute;
-	top:300px;
-	}
-	#div2{
-	position:absolute;
-	top:900px;
-	}
-	#div3{
-	position:absolute;
-	top:1400px;
-	}
-	#div4{
-	position:absolute;
-	top:1900px;
-	}
-	#div5{
-	position:absolute;
-	top:2700px;
-	}
-  
+		ul.tabs{
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		ul.tabs li{
+			background: none;
+			color: #222;
+			display: inline-block;
+			padding: 10px 15px;
+			cursor: pointer;
+		}
 
+		ul.tabs li.current{
+			background: #ededed;
+			color: #222;
+		}
+
+		.tab-content{
+			display: none;
+			background: #ededed;
+			padding: 15px;
+		}
+
+		.tab-content.current{
+			display: inherit;
+		}
+		
+    
 .product_list {margin-left: 120px; list-style: none;}
+/* .product_list:after {
+content:"";
+display:
+clear:both;
+} */
 .product_list li {float:left; margin:0 20px 50px 0; position:relative; width:374px; height:501px; border: 1px solid #d9d9d9;}
-.product_list li:hover{border-color: skyblue;}
+.product_list li:hover{border-color: black;}
 .product_list dl{padding:374px 0 0 0 ;}
 .product_list dt{padding: 14px 15px 14px; border-top: 1px solid #f0f0f0;}
-.product_list dt a { font-size: 16px; color: #1a1a1a; font-weight: bold; text-decoration: none; position:absolute; left:130px;}
+.product_list dt a { font-size: 16px; color: #1a1a1a; font-weight: bold; text-decoration: none; position:absolute; left:115px;}
 .product_list .img { position: absolute; left:35px; top:0;}
-.product_list .tags {padding: 0 0 0 0px; font-size: 15px; color:black; opacity: 0.7;  position: absolute; left: 100px; bottom: 45px;}
+.product_list .tags {padding: 0 0 0 0px; font-size: 15px; color:black; opacity: 0.7;  position: absolute; left: 50px; bottom: 45px;}
 .product_list .btm {position: absolute; right: 3px; bottom:0; width: 99%; border-top: 1px solid #f0f0f0; background: #fafafa;}
 .product_list .btm div { float:left; width: 40%; height: 30px; line-height: 30px; text-align: center; font-size: 12px; color:#767676;}
 .product_list .btm div a {font-size:12px; color:#767676;}
 .product_list div.info{ position: relative; left: 110px;}
 
 
-div.features{
-	border-bottom: 0.5px solid silver;
-}
-a.scroll_move{
-padding: 50px;
-font-size: 2rem;
-font-family:'Noto Sans KR';
-color:black;
-text-decoration: none;
-position:relative;
-left: 430px;
-}
- a.scroll_move:hover{
-text-decoration:none;
-} 
-#spring:hover{
-color:gold;
 
-}
-#summer:hover{
-color:blue;
-}
-#fall:hover{
-color: brown;
-}
-#winter:hover{
-color: silver;
-}
-#add-button {
-    margin-top: 18px;
-    position: relative;
-    bottom: 20px;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border: 1px solid #b9b9b9;
-    border-radius: 50%;
-}
 
 </style>
 </head>
@@ -119,24 +94,11 @@ color: silver;
 
    <div class="product-header">
    <div class="product-title">
-   	goods
+   	GOODS
    </div>
    </div>
-   <br><br><br><br><br>
-
- 
-	<div class="features">
-		<a class="scroll_move" href="#div1" id="spring">봄</a>
-		<a class="scroll_move" href="#div2" id="summer">여름</a>
-		<a class="scroll_move" href="#div3" id="fall">가을</a>
-		<a class="scroll_move" href="#div4" id="winter">겨울</a> <br><br>
-	</div>
-  
-	
-		
-		
-		
-	</div>
+   <br><br><br><br><br><br><br><br><br><br><br>
+   
 <div class="content-box">
 <c:forEach var="dto" items="${list}">
 <ul class="product_list">
@@ -148,56 +110,17 @@ color: silver;
         <dd class="tags">${dto.pcontent} </dd>
         <dd class="btm">
           <div class="info">40ml / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
+        
         </dd>
         </dl>
-       <button type="button" class="btn btn- waring" id="add-button">+</button>
         </li>
 
        
   </ul>
                         </c:forEach>
 </div>
-<button type="button" class="btn btn-default go-top" id="go-top"
-style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyphicon-chevron-up"></span></button> 
-
-  <script type="text/javascript">
-
-/* 클릭시 스크롤 이동 */
-$(document).ready(function($) {
-    $(".scroll_move").click(function(event){
-            event.preventDefault();
-            $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);
-    });
-    
-/* scroll top button */
-	// 1. 특정 위치에서 부터 버튼 나타고, 사라지게(fade)
-    $(window).scroll(function () {
-		if ($(this).scrollTop() > 600) {
-			$('.go-top').fadeIn(100);
-		} else {
-			$('.go-top').fadeOut(100);
-		}
-	});
-
-	// 2. 버튼 클릭하면 원하는 위치로 이동
-	$('.go-top').click(function (event) {
-		event.preventDefault();
-		$('html, body').animate({ scrollTop: 0 }, 300);
-	});
-	
-});
-</script>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br>
-		<div id="div1"></div>
-		<div id="div2"></div>
-		<div id="div3"></div>
-		<div id="div4"></div>
-	
+  
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!-- 등록 (관리자만) -->   
          <button type="button" class="btn btn-info" id="formbtn"
          onclick="location.href='form'">

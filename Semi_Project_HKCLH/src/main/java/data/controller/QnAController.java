@@ -42,13 +42,13 @@ public class QnAController {
 		ModelAndView mview = new ModelAndView();
 	      //답글일 경우 읽어야 할 5개의 값 (새 글일 경우는 값이 안넘어옴 = 모두 null)
 	      String currentPage=map.get("currentPage");
-	      String qnum=map.get("qnum");
+	      String num=map.get("num");
 	      String reg=map.get("reg");
 	      String restep=map.get("restep");
 	      String relevel=map.get("relevel");
 	      
 	      mview.addObject("currentPage",currentPage==null?"1":currentPage);
-	      mview.addObject("qnum",qnum==null?"0":qnum);
+	      mview.addObject("num",num==null?"0":num);
 	      mview.addObject("reg",reg==null?"0":reg);
 	      mview.addObject("restep",restep==null?"0":restep);
 	      mview.addObject("relevel",relevel==null?"0":relevel);
@@ -132,16 +132,16 @@ public class QnAController {
 		String mid = (String)session.getAttribute("mid");
 		dto.setMid(mid); //dto에 id 넣기
 		
-		//사진을 업로드 안했을 경우 qimg 에 'no'라고 저장
+		//사진을 업로드 안했을 경우 photos 에 'no'라고 저장
 		if(upload.get(0).getOriginalFilename().equals("")) {
 			dto.setQimg("no");
 		}else {
 			FileUtil fileUtil = new FileUtil();
-			String qimg = "";
+			String photos = "";
 			for(MultipartFile f:upload)
 			{
 				String rename = fileUtil.changeFileName(f.getOriginalFilename());
-				qimg+=rename+",";
+				photos+=rename+",";
 				
 				File file = new File(path+"\\"+rename);
 				try {
@@ -152,16 +152,16 @@ public class QnAController {
 				}
 			}
 			//마지막 컴마 제거
-			qimg = qimg.substring(0,qimg.length()-1);
-			System.out.println(qimg);
-			dto.setQimg(qimg);
+			photos = photos.substring(0,photos.length()-1);
+			System.out.println(photos);
+			dto.setQimg(photos);
 		}
-
+	
+		
 			//db update
 		qnaService.insertQnA(dto);
 	      return "redirect:list?currentPage="+ currentPage;
 	   }
-	
 	
 	@GetMapping("/content")
 	public ModelAndView content(
