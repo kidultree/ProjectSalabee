@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -48,6 +48,7 @@
 function chk(){	
 	var mId=document.getElementById("mId");
 	var idreg=/^[a-zA-z0-9]{4,12}$/; //아이디 정규식
+	var idunchk=document.getElementById("idunchk");
 	var mName=document.getElementById("mName");
 	var namereg=/^[가-힣]{2,5}$/; //이름 정규식
 	var pass1=document.getElementById("pass1");
@@ -70,7 +71,11 @@ function chk(){
 		$("div.id").text("최소 4 자,하나이상의 문자,하나 이상의 숫자를 포함시켜주세요");
 		$("#mId").focus();
 		return false;		
+	}else if(idunchk.value=="idunchk"){
+		$("div.id").text("아이디 중복확인을 해주세요");
+		return false;
 	}
+
 	if(mName.value==""){
 		$("div.name").text("이름을 입력해 주세요");
 		$("#mName").focus();
@@ -135,7 +140,6 @@ function chk(){
 	}
 	else true;
 }
-<<<<<<< HEAD
 
 function openidchk(){
 	
@@ -153,8 +157,6 @@ function openidchk(){
 				"중복 확인","width=800,height=500, resizable=no,scrollbar=no");
 	}	
 }
-=======
->>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
 		
 	
 
@@ -274,9 +276,10 @@ function openidchk(){
         <label style="margin-left: 43%; font-size: 2.5em;">회원 가입</label><br><br> 
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="mId" style="margin-bottom: 10px;">아이디</label> &nbsp;&nbsp;&nbsp;<button style="background-color: black; color: white;">중복확인</button><br>
+              <label for="mId" style="margin-bottom: 10px;">아이디</label> &nbsp;&nbsp;&nbsp;<button style="background-color: black; color: white;" onclick="openidchk() ">중복확인</button><br>
               <input type="text" class="form-control" name="mId" id="mId" placeholder="영어 대소문자,숫자 포함 4~12자리">
-              <div class="id">
+              <input type="hidden" id="idunchk" value="idunchk">
+              <div class="id" id="idmsg">
               </div>
             </div>
             <div class="col-md-6 mb-3">
@@ -364,8 +367,7 @@ function openidchk(){
     </div>
 
   </div>
-</form>
-
+ 	
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 </body>

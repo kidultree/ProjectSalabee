@@ -62,6 +62,10 @@ $(function(){
 		$("#hidden").val("");
 		$("div.id").text("");
 	})
+	$("#mId").keyup(function(){
+		$("#hidden").val("");
+		$("div.id").text("");
+	})
 });
 
 function test(){
@@ -80,7 +84,7 @@ function test(){
 				return false;
 			}
 			else if(!idreg.test(mId.value)){
-				$("div.id").text("최소 4자 최대 12자,하나이상의 문자,하나 이상의 숫자를 포함시켜주세요").css("color","blue");
+				$("div.id").text("최소 4자 최대 12자,하나이상의 문자,하나 이상의 숫자를 포함시켜주세요").css("color","red");
 				$("#mId").focus();
 				return false;		
 			}else if(data.count==0){
@@ -102,10 +106,11 @@ function test(){
 		if($("#hidden").val()=='ok'){
 		opener.document.getElementById("idunchk").value="idchk";
 		opener.document.getElementById("idmsg").innerHTML ="";
-		//중복체크 결과값 전달
 		opener.document.getElementById("mId").value=document.getElementById("mId").value;
 		window.close();
+
 		}else
+			$("div.id").text("이미 사용중인 아이디입니다").css("color","red");
 			return false;
 	}
 </script>

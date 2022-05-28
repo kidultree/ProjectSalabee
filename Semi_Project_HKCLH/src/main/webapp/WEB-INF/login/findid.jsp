@@ -98,7 +98,7 @@
 			<input id="mEmail" type="email" name="mEmail" placeholder="E-Mail">
 			<label for="mEmail">E-Mail</label>
 		</div>
-		<a style="float: right; cursor: pointer;" href="/login/findpass">forgot password?</a><br><br>	
+		<a style="float: right; cursor: pointer;" href="/login/findpasspage">forgot password?</a><br><br>	
 			<button type="button" id="btn" style="background: black; color: white; border-radius: 5px;
 			width: 600px; height: 40px; font-size: 1.2em;">확 인</button><br><br>
 			
