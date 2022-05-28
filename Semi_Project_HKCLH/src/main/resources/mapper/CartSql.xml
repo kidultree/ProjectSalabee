@@ -35,6 +35,7 @@
 	and m.mid = #{mid};
    </select>
    
+   
    <!-- 삭제 -->
    <delete id="deleteCart" parameterType="String">
       delete from cart where cid = #{cid}
