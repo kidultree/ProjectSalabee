@@ -4,14 +4,40 @@
 	
    
    <select id="selectLastOrderId" parameterType="orderInfo">
-   Select Case when orderid is null or '' then 0 else orderid end as last_orderid
+   		Select Case when orderid is null or '' then 0 else orderid end as last_orderid
    </select>
    
+   <insert id="insertOrderInfo" parameterType="orderInfo">
+		insert into orderinfo 
+		(orderid, mid, pnum, oid, oquantity) 
+		values 
+		(#{orderId},#{mid},#{pnum},#{oid},#{oquantity})
+	</insert>
    
    
-   <!-- 오더 인포의 리스트 출력 -->
    
    
-   <!-- 삭제? (안만드는게 나을 듯) -->
+   
+   
+   
+   <select id="getOrderInfo" parameterType="Map" resultType="Map">
+	select 
+	c.cid, c.mid, c.pnum, c.cquantity, 
+	pr.pname, pr.pphoto, 
+	po.oid, po.oname, po.oprice
+	,c.cquantity*po.oprice as sum_price
+	
+	from cart c
+	join member m
+	join product pr
+	join poption po
+
+	where c.mid = m.mid
+	and c.pnum = pr.pnum
+	and po.pnum = pr.pnum
+	and c.oid = po.oid
+	
+	and m.mid = #{mid};
+   </select>
    
 </mapper>

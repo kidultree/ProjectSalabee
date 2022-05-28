@@ -12,4 +12,8 @@ public class OrderInfoDto {
 	private int pnum;
 	private int oquantity;
 	private int oid;  
+	
+	private int orderId;  
+	
+
 }
