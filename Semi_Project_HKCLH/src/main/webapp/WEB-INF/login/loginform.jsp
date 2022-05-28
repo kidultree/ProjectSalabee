@@ -39,12 +39,8 @@
 
 div.all{
 	position:absolute;
-<<<<<<< HEAD
-	left: 40%;
-=======
-	left: 39%;
->>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
-	height: 800px;
+	left: 38%;
+
 }
 
 div.all div.url{
@@ -91,8 +87,8 @@ div.all div.signup{
 			</c:if>
 			
 			<div class="text-right p-t-8 p-b-31">
-				<a href="/login/findid"> Forgot Id? </a><br>
-				<a href="/login/findpass"> Forgot password? </a>
+				<a href="/login/findidpage"> Forgot Id? </a><br>
+				<a href="/login/findpasspage"> Forgot password? </a>
 			</div>
 			
 			<div class="container-login100-form-btn">

@@ -152,6 +152,7 @@ function openidchk(){
 	}else if(!idreg.test(mId.value)){
 		return false;
 	}else{
+		$("div.id").text("");
 		window.name="parentForm";
 		window.open("<%=request.getContextPath()%>/idchkform.jsp",
 				"중복 확인","width=800,height=500, resizable=no,scrollbar=no");

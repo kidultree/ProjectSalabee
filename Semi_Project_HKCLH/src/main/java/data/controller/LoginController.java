@@ -7,14 +7,17 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.MemberDto;
+import data.mapper.LoginMapperInter;
 import data.mapper.MemberMapperInter;
 
 
@@ -23,6 +26,7 @@ import data.mapper.MemberMapperInter;
 public class LoginController {
 	
 	@Autowired MemberMapperInter memberMapper;
+	@Autowired LoginMapperInter loginMapper;
 
 	@GetMapping("/loginform")
 	public String login()
@@ -80,15 +84,29 @@ public class LoginController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("/findid")
-	public String findid() {
+	@GetMapping("/findidpage")
+	public String findidpage() {
 		
 		return "/login/findid";
 	}
 	
-	@GetMapping("/findpass")
-	public String findpass() {
+	@GetMapping("/findpasspage")
+	public String findpasspage() {
 		
 		return "/login/findpass";
+	}
+	
+	@PostMapping("/findid")
+	@ResponseBody
+	public Map<String, Integer> findid(@RequestParam String mName,
+			@RequestParam String mEmail){
+		
+		Map<String, Integer> map=new HashMap<>();
+		
+		int n=loginMapper.findmId(mName, mEmail);
+		
+		map.put("count", n);
+				
+		return map;		
 	}
 }

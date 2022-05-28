@@ -58,7 +58,10 @@
 
 <script type="text/javascript">
 $(function(){
-	
+	$("#mId").keydown(function(){
+		$("#hidden").val("");
+		$("div.id").text("");
+	})
 });
 
 function test(){
@@ -68,18 +71,23 @@ function test(){
 		url: "member/idchkform",
 		data: {"mId":$("#mId").val()},
 		success:function(data){
-			var id=document.getElementById("mId").value;
+			var mId=document.getElementById("mId");
 			var idreg=/^[a-zA-z0-9]{4,12}$/; //아이디 정규식
 
-			if(!id){
-				return false;		
-			}else if(!idreg.test(id.value)){
+			if(mId.value==""){
+				$("div.id").text("아이디를 입력해 주세요");
+				$("#mId").focus();
 				return false;
+			}
+			else if(!idreg.test(mId.value)){
+				$("div.id").text("최소 4자 최대 12자,하나이상의 문자,하나 이상의 숫자를 포함시켜주세요").css("color","blue");
+				$("#mId").focus();
+				return false;		
 			}else if(data.count==0){
 				$("div.id").text("사용 가능한 아이디입니다").css("color","blue");
 				$("#hidden").val("ok");
 			}else{
-				$("div.id").text("이미 사용중인 아이디입니다");
+				$("div.id").text("이미 사용중인 아이디입니다").css("color","red");
 				$("#hidden").val("no");
 			}
 		}
