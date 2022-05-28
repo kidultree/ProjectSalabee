@@ -10,7 +10,7 @@ import data.dto.OrderInfoDto;
 @Mapper
 public interface OrderInfoMapperInter {
 
-	public int selectLastOrderId(String mid); //제일 큰 orderId select
+	public Integer selectLastOrderId(String mid); //제일 큰 orderId select
 	
 	public int insertOrderInfo(OrderInfoDto dto);  //오더인포에 담기
 	

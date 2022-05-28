@@ -4,7 +4,7 @@ import org.apache.ibatis.type.Alias;
 
 import lombok.Data;
 
-@Alias("orderinfo")  //sql.xml - parameterType="cart"
+@Alias("orderinfo")  
 @Data
 public class OrderInfoDto {
 	private String mid;
@@ -15,5 +15,4 @@ public class OrderInfoDto {
 	
 	private int orderId;  
 	
-
 }
