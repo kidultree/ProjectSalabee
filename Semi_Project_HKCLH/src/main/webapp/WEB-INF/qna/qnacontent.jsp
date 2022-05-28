@@ -61,7 +61,7 @@
 <script type="text/javascript">
 	//댓글 출력하는 함수
 function list(){
-	var num=${dto.num};
+	var num=${dto.qnum};
 	var login ='${sessionScope.loginok}';
 	var loginid='${sessionScope.loginid}';
 	console.log(login,loginid);
@@ -70,7 +70,7 @@ function list(){
 		type:"get",
 		dataType:"json",
 		url:"../answer/list",
-		data:{"num":num},
+		data:{"qnum":qnum},
 		success:function(data){
 			//댓글 갯수
 			$("span.answercnt").text(data.count);
@@ -205,7 +205,7 @@ $(function () {
 			onclick="location.href='list?currentPage=${currentPage}'">목록</button>
 			
 			<button type="button" class="btn btn-default" 
-			onclick="location.href='form?num=${dto.qnum}&reg=${dto.reg}&restep=${dto.restep}&relevel=${dto.relevel}&currentPage=${currentPage}'">답글</button>
+			onclick="location.href='form?qnum=${dto.qnum}&reg=${dto.reg}&restep=${dto.restep}&relevel=${dto.relevel}&currentPage=${currentPage}'">답글</button>
 			
 			<c:if test="${sessionScope.loginok!=null}">
 				<c:if test="${sessionScope.loginid==dto.mid}">

@@ -256,7 +256,7 @@
 						<td>${dto.qnum}</td>
 						<td>${dto.qcate}</td>
 							<!-- 제목 출력 -->
-							<td><a href="content?num=${dto.qnum}&currentPage=${currentPage}">
+							<td><a href="content?qnum=${dto.qnum}&currentPage=${currentPage}">
 								${dto.qtitle}
 							</a></td>
 							<td>${dto.mid}</td>

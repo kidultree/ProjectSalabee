@@ -27,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 import Util.FileUtil;
 
 import data.dto.ProductDto;
+import data.dto.ProductOptionDto;
 import data.mapper.ProductMapperInter;
 @Controller
 @RequestMapping("/product")
@@ -96,14 +97,24 @@ public class ProductController {
    @GetMapping("/detail")
    public ModelAndView detail(
 		   @RequestParam int pnum
-		   //,@RequestParam int currentPage
 		   ) {
 	   //num에 해당하는 dto얻기
 	   ProductDto dto = productMapper.getProduct(pnum);
+	   List <ProductOptionDto> opdto = productMapper.getProductOptionList(pnum);
 	   ModelAndView mview = new ModelAndView();
 	   mview.addObject("dto",dto);
-	   //mview.addObject("currentPage",currentPage);
+	   mview.addObject("opdto",opdto);
 	   mview.setViewName("/product/productdetail");
+	   System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");	   
+	   
+	   for(int i = 0; i < opdto.size(); i++) {
+		   
+		   ProductOptionDto opdto1 = (ProductOptionDto)opdto.get(i);
+		   System.out.println(" opdto1.oname : " + opdto1.getOname());
+		   
+	   }
+	   
+	   System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
 	   return mview;
 	   
    }

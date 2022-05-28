@@ -29,7 +29,12 @@
 
 <!-- LIST -->
 	<select id="getReviewList" resultType="review">
-		select * from review
+		select * from review order by rnum desc
 	</select>
+	
+   <select id="getTotalReviewCount" resultType="int">
+      select count(*) from review
+   </select>	
+	
 	
 	</mapper>
