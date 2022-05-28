@@ -234,6 +234,13 @@ ul.sub li {
 						id="loginicon" style="width: 30px">
 					</a>
 				</c:if>
+				
+				<c:if test="${sessionScope.loginok!=null}">
+					<a href="/mypage/mypageform?mid=${sessionScope.mId}"> <img src="${root}/image/login.png"
+						id="loginicon" style="width: 30px">
+					</a>
+				</c:if>
+				
 				<c:if test="${sessionScope.loginok!=null}">
 					<a href="/login/logout"> <img src="${root}/image/logout.png" id="logouticon"
 						style="width: 30px">
