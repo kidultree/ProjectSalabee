@@ -159,7 +159,7 @@
 
 <!-- <div class="buybtn" onclick="location.href='buy'">주문하기</div> -->
 
-<div class="buybtn" id="buybtn" >주문하기</div>
+<div class="buybtn" id="buybtn">주문하기</div>
 
 
 <br><br>
@@ -220,7 +220,6 @@
 		
 		
 		
-		
 		/* 주문하기로 보내기 버튼 */
 		
 			$("#buybtn").click(function(){
@@ -251,7 +250,9 @@
 		        	 "param_string":param_string
 		         },
 		         success:function(data){
-		        	alert(data.message);
+		        	//alert(data.message);
+		        	
+		        	location.href="/cart/buyform";
 		         }   
 		        });
 			});

@@ -3,21 +3,22 @@
 <mapper namespace="data.mapper.OrderInfoMapperInter">
 	
    
-   <select id="selectLastOrderId" parameterType="orderInfo">
-   		Select Case when orderid is null or '' then 0 else orderid end as last_orderid
+   <select id="selectLastOrderId" parameterType="String" resultType="int">
+   		Select Case when orderid is null or '' then 0 else orderid end as last_orderid 
+   		
+   		From orderinfo 
+   		
+   		where mid = #{mid} 
+   		
+   		limit 1 
    </select>
    
-   <insert id="insertOrderInfo" parameterType="orderInfo">
+   <insert id="insertOrderInfo" parameterType="orderinfo">
 		insert into orderinfo 
 		(orderid, mid, pnum, oid, oquantity) 
 		values 
 		(#{orderId},#{mid},#{pnum},#{oid},#{oquantity})
 	</insert>
-   
-   
-   
-   
-   
    
    
    <select id="getOrderInfo" parameterType="Map" resultType="Map">
