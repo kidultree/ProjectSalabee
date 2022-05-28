@@ -64,11 +64,46 @@ public class LoginController {
 
 		}
 		else {			
-			
-			session.setAttribute("error", "error");
 			return "redirect:/login/loginform";
 
 		}
+	}
+	
+	@PostMapping("/process2")
+	@ResponseBody
+	public Map<String, String> pocess(@RequestParam String mId,
+			@RequestParam String mPassword,
+			@RequestParam(required = false) String chkid,
+			HttpSession session){
+		
+		Map<String, String> map=new HashMap<>();
+		
+		map.put("mId", mId);
+		map.put("mPassword", mPassword);
+		
+		int n=memberMapper.login(map);
+		if(n==1)
+		{
+			session.setAttribute("mId", mId);
+			
+			//로그인한 아이디의 mName값 얻어오기
+			String mName=memberMapper.getmName(mId);
+			session.setAttribute("mName", mName);
+			session.setAttribute("mId", mId);
+			session.setAttribute("saveok", chkid==null?"no":"yes");
+			session.setAttribute("loginok", "yes");
+			
+			map.put("error", "ok");
+			
+			return map;
+
+		}
+		else {			
+			map.put("error", "no");
+			return map;
+
+		}
+		
 	}
 	
 	@GetMapping("/logout")
@@ -76,7 +111,6 @@ public class LoginController {
 	public String logout(HttpSession session)
 	{
 		session.removeAttribute("loginok");
-		session.removeAttribute("error");		
 		return "redirect:/";
 	}
 	
