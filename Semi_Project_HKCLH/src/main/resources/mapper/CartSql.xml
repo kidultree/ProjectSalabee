@@ -38,6 +38,6 @@
    <!-- 삭제 -->
    <delete id="deleteCart" parameterType="String">
       delete from cart where cid = #{cid}
-   </delete>
+   </delete>  
    
 </mapper>

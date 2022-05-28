@@ -16,7 +16,7 @@
    div{ font-family: Noto Sans KR; text-align: center;}
    div.video{
 	width:auto; height:800px;
-	
+	  
 	}
    #bg{
     left:0; top:0;

@@ -29,7 +29,7 @@ public class OrderInfoController {
 	
 	@PostMapping("/buy")
 	public ModelAndView buy(@RequestParam String mid, HttpServletRequest request, HttpServletResponse response)
-	{
+	{  
 
 		String paramString = request.getParameter("param_string");
 		String setParamString [] = paramString.split("[|]");

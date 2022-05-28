@@ -18,4 +18,4 @@ public interface OrderInfoMapperInter {
 	
 	public void deleteOrderInfo(int orderid); //상품 삭제
 	
-}
+}  

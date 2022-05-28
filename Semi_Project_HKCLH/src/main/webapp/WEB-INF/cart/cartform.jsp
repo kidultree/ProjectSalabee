@@ -17,7 +17,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		
+		  
 		/* 종합 정보 섹션 정보 삽입 */
 		let totalPrice = 0;				// 총 가격
 		let totalCount = 0;				// 총 갯수

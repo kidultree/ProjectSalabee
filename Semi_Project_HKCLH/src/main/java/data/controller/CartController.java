@@ -80,7 +80,7 @@ public class CartController {
 		String cid[]=cids.split(",");
 		for(String n:cid) {
 			cartmapper.deleteCart(n);
-		}
+		}  
 	}
 
 

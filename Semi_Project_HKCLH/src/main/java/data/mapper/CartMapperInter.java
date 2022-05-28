@@ -21,5 +21,5 @@ public interface CartMapperInter {
 	
 	public void deleteCart(String cid); //카트 물건 삭제
 	
-	
+	  
 }
