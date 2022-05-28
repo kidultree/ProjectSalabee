@@ -33,7 +33,30 @@ public class MypageController {
 		mview.addObject("dto", dto);
 		
 		
-		mview.setViewName("/mypage/mypageform");
+		mview.setViewName("/mypage/myPage");
 		return mview;
 	}
+	
+	@GetMapping("/list")
+	public String mylist() {
+		return "/mypage/myList";
+	}
+	
+	@GetMapping("/review")
+	public String myreview() {
+		return "/mypage/myReview";
+	}
+	
+	@GetMapping("/qna")
+	public String myqna() {
+		return "/mypage/myQnA";
+	}
+	
+	@GetMapping("/alter")
+	public String myalter() {
+		return "/mypage/myAlter";
+	}
+	
+	
+	
 }
