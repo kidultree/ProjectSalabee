@@ -7,14 +7,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.MemberDto;
 import data.mapper.LoginMapperInter;
@@ -71,8 +69,7 @@ public class LoginController {
 			return "redirect:/login/loginform";
 
 		}
-}
-	
+	}
 	
 	@GetMapping("/logout")
 	//@ResponseBody
@@ -97,15 +94,33 @@ public class LoginController {
 	
 	@PostMapping("/findid")
 	@ResponseBody
-	public Map<String, Integer> findid(@RequestParam String mName,
+	public Map<String, String> findid(@RequestParam String mName,
 			@RequestParam String mEmail){
 		
-		Map<String, Integer> map=new HashMap<>();
+		Map<String, String> map=new HashMap<>();
 		
-		int n=loginMapper.findmId(mName, mEmail);
+		String mId=loginMapper.findmId(mName, mEmail);
 		
-		map.put("count", n);
-				
+		map.put("mId", mId);		
+		
+		return map;		
+	}
+	
+	@PostMapping("/findpass")
+	@ResponseBody
+	public Map<String, String> findpass(@RequestParam String mId,
+			@RequestParam String mName,
+			@RequestParam String mEmail){
+		
+		Map<String, String> map=new HashMap<>();
+		
+		String mPassword=loginMapper.findmPassword(mId,mName, mEmail);
+		
+		map.put("mPassword", mPassword);	
+		map.put("mId", mId);
+		map.put("mName", mName);
+		map.put("mEmail", mEmail);
+		
 		return map;		
 	}
 }

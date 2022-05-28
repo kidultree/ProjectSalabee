@@ -110,7 +110,7 @@ function test(){
 		window.close();
 
 		}else
-			$("div.id").text("이미 사용중인 아이디입니다").css("color","red");
+			$("div.id").text("아이디 중복확인을 해주세요").css("color","red");
 			return false;
 	}
 </script>

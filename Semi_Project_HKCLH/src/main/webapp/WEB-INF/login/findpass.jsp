@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
 <style type="text/css">
            header{
                 display:flex;
@@ -73,31 +73,57 @@
                 margin:10px 0px;
             }
 </style>
+
+<script type="text/javascript">
+	$(function(){
+		$("#btn").click(function(){
+
+			$.ajax({
+				type:"post",
+				datatype:"json",
+				url:"findpass",
+				data:{"mId":$("#mId").val(),"mName":$("#mName").val(),"mEmail":$("#mEmail").val()},
+				success:function(data){
+					if(data.mPassword==null){
+						$("#res").html("회원정보와 일치하는 비밀번호가 없습니다");
+					}else{
+						$("#res").html($("#mId").val()+"님의 비밀번호는 "+data.mPassword+"입니다");										
+					}
+				}
+			});
+			
+			
+		});
+	});
+</script>
+
 </head>
 
 <body>
 
-	<form action="" method="POST" style="width: 600px; margin-left: 37%; margin-top: 5%;">
+	<form style="width: 600px; margin-left: 37%; margin-top: 5%;">
 		<h2 style="text-align: center;">비밀번호 찾기</h2>
 	
 		<div class="input-box">
-			<input id="username" type="text" name="username" placeholder="이름">
-			<label for="username">아이디</label>
+			<input id="mId" type="text" name="mId" placeholder="이름">
+			<label for="mId">아이디</label>
 		</div>
 		
 		<div class="input-box">
-			<input id="username" type="text" name="username" placeholder="이름">
-			<label for="username">이름</label>
+			<input id="mName" type="text" name="mName" placeholder="이름">
+			<label for="mName">이름</label>
 		</div>
 				
 		<div class="input-box">
-			<input id="password" type="password" name="password" placeholder="E-Mail">
-			<label for="password">E-Mail</label>
+			<input id="mEmail" type="email" name="mEmail" placeholder="E-Mail">
+			<label for="mEmail">E-Mail</label>
 		</div>
-		<a style="float: right; cursor: pointer;" href="/login/findpass">forgot password?</a>
-			<input type="submit" style="background: black;"  value="확 인"><br><br>
+		
+		<div id="res" style="border: 1px solid black;"></div>
+		
+		<button type="button" id="btn" style="background: black; color: white; border-radius: 5px;
+		width: 600px; height: 40px; font-size: 1.2em;">확 인</button><br><br>
 			
-		<div style="border: 1px solid black;"></div>
 		</form>
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>

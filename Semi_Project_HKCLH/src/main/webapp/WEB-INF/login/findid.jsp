@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
 <style type="text/css">
            header{
                 display:flex;
@@ -77,7 +77,22 @@
 <script type="text/javascript">
 	$(function(){
 		$("#btn").click(function(){
-			alert(1);
+
+			$.ajax({
+				type:"post",
+				datatype:"json",
+				url:"findid",
+				data:{"mName":$("#mName").val(),"mEmail":$("#mEmail").val()},
+				success:function(data){
+					if(data.mId==null){
+						$("#res").html("회원 정보와 일치하는 아이디가 없습니다");
+					}else{
+						$("#res").html($("#mName").val()+"님의 아이디는"+data.mId+"입니다.");						
+					
+					}
+				}
+			});
+			
 			
 		});
 	});
