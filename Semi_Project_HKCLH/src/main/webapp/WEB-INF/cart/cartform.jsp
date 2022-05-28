@@ -18,7 +18,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		  
-		/* 종합 정보 섹션 정보 삽입 */
+		/* 종합 정보 섹션 정보 삽입(초기) */
 		let totalPrice = 0;				// 총 가격
 		let totalCount = 0;				// 총 갯수
 		let deliveryPrice = 0;			// 배송비
@@ -68,8 +68,12 @@
 
 
 <div class="title">Cart</div>
+
+	<!-- 회원 ID 가져오기 -->
    <input type="hidden" id="mid" value="${cList[0].mid}">
-   <!-- 카트 첫 행 -->
+   
+   
+   <!-- 카트 테이블 첫 행 -->
    <table class="cart-table" style="width:1200px;">
    <thead>
    	<tr>
@@ -87,6 +91,7 @@
 	<tr>
 		<td class="cart_info_td">
 				<input type="hidden" class="individual_totalPrice_input" value="${cList2.sum_price}">
+				
 				<input type="hidden" class="individual_cquantity_input param_quantity" value="${cList2.cquantity}">
 				<input type="hidden" class="param_pnum" value="${cList2.pnum}">
 				<input type="hidden" class="param_oid" value="${cList2.oid}">
@@ -162,7 +167,10 @@
 
 </div>	<!-- class="wrap" -->
 </div>	<!-- class="wrapper" -->
+
+
 </body>
+
 
 <script type="text/javascript">
 	$(function(){
@@ -177,6 +185,7 @@
 				$(".del").prop("checked",false);
 			}
 		});
+		
 		
 		/* delete 버튼 - 삭제 */
 		$("#Cartdel").click(function(){
@@ -210,19 +219,26 @@
 	       });
 		
 		
+		
+		
 		/* 주문하기로 보내기 버튼 */
+		
 			$("#buybtn").click(function(){
-// 				// 회원 정보
+
+				// 회원 정보
 				let param_string = '';
+				
 				if($("#mid").val() != ''){
 					
 					$("table.cart-table tbody tr").each(function (index, item) {
+						
 					     console.log(item);
 					     param_string += $(item).find('td.cart_info_td').find("input.param_pnum").val() + ',';
 					     param_string += $(item).find('td.cart_info_td').find("input.param_oid").val() + ',';
 					     param_string += $(item).find('td.cart_info_td').find("input.param_quantity").val() + '|';
+					
 					});	
-					debugger;
+// 					debugger;
 				}
 				
 				
@@ -246,7 +262,7 @@
 
 
 <script type="text/javascript">
-<!--수량추가(뭔지 모르겠음)-->
+<!--  수량추가  -->
 $('.btn-plus, .btn-minus').on('click', function(e) {
 
 	let quantity = $(e.target).siblings('input.quantity').val();

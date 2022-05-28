@@ -8,7 +8,12 @@ import lombok.Data;
 @Data
 public class OrderInfoDto {
 	private String mid;
+	
 	private int pnum;
 	private int oquantity;
 	private int oid;  
+	
+	private int orderId;  
+	
+
 }
