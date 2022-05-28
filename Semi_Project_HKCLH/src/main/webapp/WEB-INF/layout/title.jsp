@@ -236,7 +236,7 @@ ul.sub li {
 				</c:if>
 				
 				<c:if test="${sessionScope.loginok!=null}">
-					<a href="/mypage/mypageform?mid=${sessionScope.mId}"> <img src="${root}/image/login.png"
+					<a href="/mypage?mId=${sessionScope.mId}"> <img src="${root}/image/login.png"
 						id="loginicon" style="width: 30px">
 					</a>
 				</c:if>

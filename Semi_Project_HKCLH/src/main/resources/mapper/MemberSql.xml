@@ -19,6 +19,10 @@
 		select count(*) from member where mid=#{mId}
 	</select>
 	
+	<select id="getmemberData" parameterType="String" resultType="member">
+		select * from member where mid=#{mId}
+	</select>
+	
 	
 	
 	

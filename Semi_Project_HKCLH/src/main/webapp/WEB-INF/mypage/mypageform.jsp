@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>마이페이쥐이이이이이잉</h1>
+<input type="hidden" value="${mId}">
+<h1>${mId } 마이페이쥐이이이이이잉 ${mName } ${mPassword }</h1>
 </body>
 </html>

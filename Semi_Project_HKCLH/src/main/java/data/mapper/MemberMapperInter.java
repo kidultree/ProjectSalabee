@@ -14,7 +14,7 @@ public interface MemberMapperInter {
 	public void insertMember(MemberDto dto);
 	public int getmId(String mId);
 	
-	public List<MemberDto> getAllMembers();
+	public List<MemberDto> getmemberData(String mId);
 	public void deleteMember(String num);
 	
 	public String getmName(String id);
