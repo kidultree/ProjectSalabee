@@ -1,14 +1,21 @@
 package data.controller;
 
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import java.util.HashMap;
 import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.MemberDto;
@@ -56,6 +63,52 @@ public class MypageController {
 	public String myalter() {
 		return "/mypage/myAlter";
 	}
+	
+	@GetMapping("/delete")
+	public String mydelete() {
+		return "/mypage/myDelete";
+	}
+	
+	@PostMapping("/update")
+	public String update(@ModelAttribute MemberDto dto) {
+		
+		memberMapper.alterMember(dto);
+		
+		return "/mypage/myAlter";
+		
+	}
+	
+	
+	@PostMapping("/memberdelete")
+	public String memberdelete(@RequestParam String mId,
+			@RequestParam String mPassword,
+			HttpSession session)
+			
+	{		
+		Map<String, String> map=new HashMap<>();
+		map.put("mId", mId);
+		map.put("mPassword", mPassword);
+		
+		int n=memberMapper.login(map);
+		
+		if(n==1) {
+			memberMapper.deleteMember(mId);
+			
+			session.removeAttribute("loginok");
+			return "redirect:/";
+		
+		}else {
+			
+			return "redirect:/mypage/delete";
+		}
+
+	}
+	
+	
+	
+
+	
+
 	
 	
 	
