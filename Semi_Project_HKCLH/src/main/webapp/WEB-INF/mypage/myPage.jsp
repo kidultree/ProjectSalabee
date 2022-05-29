@@ -78,6 +78,9 @@ pageEncoding="UTF-8"%>
 		$("div.alter").click(function(){
 			   location.href = "/mypage/alter";
 		});
+		$("div.delete").click(function(){
+			   location.href = "/mypage/delete";
+		});
 	})
 </script>
 </head>
@@ -110,11 +113,16 @@ pageEncoding="UTF-8"%>
   <button class="question" id="que-6"><span id="que-6-toggle">+</span><span>회원 정보 수정</span></button>
 </div>
 
-<div class="faq-content">
-  <button class="question" id="que-7"><span id="que-7-toggle">+</span><span>교환 및 반품 규정</span></button>
+<div class="faq-content delete">
+  <button class="question" id="que-6"><span id="que-6-toggle">+</span><span>회원 탈퇴</span></button>
 </div>
 
+<div class="container" style="position: absolute; left: 600px; top:200px; border: 1px solid black;">
+</div>
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
 </div>
 </body>
 </html>

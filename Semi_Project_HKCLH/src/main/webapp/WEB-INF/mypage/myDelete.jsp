@@ -156,7 +156,7 @@ function chk(){
   <button class="question" id="que-6"><span id="que-6-toggle">+</span><span">회원 정보 수정</span></button>
 </div>
 
-<div class="faq-content alter">
+<div class="faq-content delete">
   <button class="question delete" id="que-6"><span id="que-6-toggle">+</span><span  style="font-weight: bold; font-size: 20px;">회원 탈퇴</span></button>
 </div>
 </div>
