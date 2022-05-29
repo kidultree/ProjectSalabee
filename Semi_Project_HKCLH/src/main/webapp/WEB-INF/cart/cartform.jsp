@@ -168,7 +168,6 @@
 </div>	<!-- class="wrap" -->
 </div>	<!-- class="wrapper" -->
 
-
 </body>
 
 
@@ -251,8 +250,9 @@
 		         },
 		         success:function(data){
 		        	//alert(data.message);
+		        	//location.reload();
 		        	
-		        	location.href="/cart/buyform";
+		        	location.href="/cart/buy";
 		         }   
 		        });
 			});
