@@ -82,7 +82,59 @@ pageEncoding="UTF-8"%>
 </script>
 </head>
 <body>
+<!--  <script type="text/javascript">
 
+   
+   function list(){
+      var num=${dto.num};
+      var login ='${sessionScope.loginok}';
+      var loginid='${sessionScope.loginid}';
+      console.log(login,loginid);
+      
+      $.ajax({
+         type:"get",
+         dataType:"json",
+         url:"../review/list",
+         data:{"num":num},
+         success:function(data){
+               if(login=='y2es' && loginid==d.id){ //
+                  s+="&nbsp;<span class='glyphicon glyphicon-remove adel' idx="+d.idx+"></span>";
+               }
+               s+="</td>";
+               s+="</tr>";
+            });
+            
+            s+="</table>";
+            $("div.alist").html(s);
+         }
+      });
+   }
+   
+<c:forEach var="dto" items="${list}">
+	<div id="review">
+		<table class="table table-bordered" id="review_table">
+			<thead>
+				<tr>
+					<td colspan="4">별점 : ${dto.rrate}</td>
+					<td colspan="2" rowspan="3">${dto.rname}님이 작성한 리뷰입니다.<br>작성일: 
+					<fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<c:if test = "${dto.rphoto!=''}">
+						<img src="../save/${dto.rphoto}" width="100" height="100" border="1">
+						&nbsp;&nbsp;
+					</c:if></td>
+					<td colspan="2">구매상품 : ${dto.pnum}</td>
+				</tr>
+				<tr>
+					<td colspan="4">리뷰내용 : ${dto.rcontent}</td>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	</c:forEach>}   -->
+	
 <input type="hidden" value="${mId}">
 <span id="faq-title"><b>${mId } 마이페이쥐이이이이이잉 ${mName }</b></span>
 <div class="notice">

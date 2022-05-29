@@ -50,7 +50,7 @@ nav.navbar {
 	color: white;
 	text-align: center;
 	position: relative;
-	right: 200px;
+	right: 170px;
 	font-family: fantasy;
 }
 

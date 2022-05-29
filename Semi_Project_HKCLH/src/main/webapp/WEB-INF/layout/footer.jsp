@@ -114,7 +114,7 @@ section {
 			</ul>
 			<nav>
 
-				<a href="">BRAND</a>&nbsp;&nbsp; <a href="">AGREEMENT</a>&nbsp;&nbsp;
+				<a href="/cart/about">BRAND</a>&nbsp;&nbsp; <a href="">AGREEMENT</a>&nbsp;&nbsp;
 				<a href="">PRIVACY POLICY</a>&nbsp;&nbsp; <a href="">GUIDE</a>
 			</nav>
 			<p>

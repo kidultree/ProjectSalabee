@@ -12,7 +12,7 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style type="text/css">
- 	html, body{
+ /	html, body{
         margin:0;
         padding:0;    
     }
@@ -52,7 +52,10 @@
 	position:absolute;
 	top:2700px;
 	}
-  
+
+ product_img{
+width: 306px; height: 379px;
+} 
 
 .product_list {margin-left: 120px; list-style: none;}
 .product_list li {float:left; margin:0 20px 50px 0; position:relative; width:374px; height:501px; border: 1px solid #d9d9d9;}
@@ -60,7 +63,7 @@
 .product_list dl{padding:374px 0 0 0 ;}
 .product_list dt{padding: 14px 15px 14px; border-top: 1px solid #f0f0f0;}
 .product_list dt a { font-size: 16px; color: #1a1a1a; font-weight: bold; text-decoration: none; position:absolute; left:130px;}
-.product_list .img { position: absolute; left:35px; top:0;}
+.product_list .product_img { position: absolute; left:35px; top:0; width:306px; height:379px;}
 .product_list .tags {padding: 0 0 0 0px; font-size: 15px; color:black; opacity: 0.7;  position: absolute; left: 100px; bottom: 45px;}
 .product_list .btm {position: absolute; right: 3px; bottom:0; width: 99%; border-top: 1px solid #f0f0f0; background: #fafafa;}
 .product_list .btm div { float:left; width: 40%; height: 30px; line-height: 30px; text-align: center; font-size: 12px; color:#767676;}
@@ -96,7 +99,7 @@ color: brown;
 #winter:hover{
 color: silver;
 }
-#load_image {
+#add-button {
     margin-top: 18px;
     position: relative;
     bottom: 20px;
@@ -128,8 +131,10 @@ position:relative;
 right: 30px;
 
 }
-
+ 
 </style>
+
+
 </head>
 <body>
 
@@ -139,27 +144,10 @@ right: 30px;
    </div>
    </div>
    <br><br><br><br><br><br><br><br><br><br><br>
-   <div class="box">
-  <div class="selected-image">
-   	<img src="" id="img" >
-   	</div>
-    <div class="selected-image">
-   	<img src="" id="img" >
-   	</div>
-   	 <div class="selected-image">
-   	<img src="" id="img" >
-   	</div>
-   	 <div class="selected-image">
-   	<img src="" id="img" >
-   	</div>
-   	 <div class="selected-image">
-   	<img src="" id="img" >
-   	</div>
-   	 <div class="selected-image">
-   	<img src="" id="img" >
-   	</div>
- 						</div>
- 						<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <!-- 이미지가 생성될 영역 -->
+ <!-- <img src="" width="300" id="img"> <button id="load_img">이미지 생성</button> -->
+ 
+ 						
 	<div class="features">
 	<div class="weather">
 		<a class="scroll_move" href="#div1" id="spring">봄</a>
@@ -172,7 +160,7 @@ right: 30px;
 		
 		
 		
-	
+	</div>
 <div class="content-box">
 <c:forEach var="dto" items="${list}">
 <ul class="product_list">
@@ -180,20 +168,21 @@ right: 30px;
     <li>
       <dl>
         <dt><a href="#a"> ${dto.pname}</a></dt>
-        <dd class="img"><a href="#a"><img src="../save/${dto.pphoto}" alt="이미지"></a></dd>
+        <dd class="product_img" id="img"><a href="#a"><img src="../save/${dto.pphoto}" alt="이미지"></a></dd>
         <dd class="tags">${dto.pcontent} </dd>
         <dd class="btm">
           <div class="info">40ml / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
         </dd>
         </dl>
-       <button type="button" id="load_image" img="${dto.pphoto}">+</button>
+       <button type="button" class="add-button" id="load_img" num="${dto.pnum}">+</button>
         </li>
 
        
   </ul>
+    
                         </c:forEach>
 </div>
-<script>
+ <script>
   	// id가 img인 요소 접근
  	const img = document.getElementById("img");
  	
@@ -205,11 +194,6 @@ right: 30px;
  	img.setAttribute('src','../save/${dto.pphoto}')
  	}); 
  </script> 
-<button type="button" class="btn btn-default go-top" id="go-top"
-style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyphicon-chevron-up"></span></button> 
-
-  <script type="text/javascript">
-
 <button type="button" class="btn btn-default go-top" id="go-top"
 style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyphicon-chevron-up"></span></button> 
 
