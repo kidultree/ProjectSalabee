@@ -15,8 +15,9 @@
 </head>
 <body>
 
-<div class="content">
-  
+<div class="div-buy-1">
+
+<br><br><br><br><br><br><br><br><br><br>
 <div class="title">주문서</div>
 <div class="title2">주문하실 상품명 및 수량을 정확하게 확인해 주세요.</div>
 
@@ -94,6 +95,9 @@
 <br><br><br><br>
 
 
+<!-- ------------------ 주문 상품 --------------------------- -->
+
+
 <div class="content">
 
 <div class="one">
@@ -104,9 +108,9 @@
 
 	<c:forEach var="oList" items="${orderList}" varStatus="i">
 	
-<table>
+<table class="buy-sangpum0">
     <tr>
-        <td><img src="${root}/save/${oList.pphoto}" style="width: 100px; height: 100px" align="left"></td>
+        <td class="buy-sangpum1"><img src="${root}/save/${oList.pphoto}" style="width: 100px; height: 100px" align="left"></td>
         <td>
             <table>
                 <tr>

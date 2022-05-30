@@ -39,7 +39,7 @@ public class ReviewController {
 			ModelAndView mview = new ModelAndView();
 			
 			int totalCount = reviewMapper.getTotalReviewCount();
-			List<ReviewDto> list = reviewMapper.getReviewList();
+			List<ReviewDto> list = reviewMapper.getPnumReviewList();
 			
 			mview.addObject("totalCount", totalCount);
 			mview.addObject("list",list);
@@ -49,7 +49,16 @@ public class ReviewController {
 			
 		}
 		
-		
+		@GetMapping("/pnumlist")
+		public ModelAndView pnumlist() {
+			
+		ModelAndView mview = new ModelAndView();
+		 List<ReviewDto> pnumlist = reviewMapper.getPnumReviewList();
+			
+			mview.addObject("pnumlist", pnumlist);
+			mview.setViewName("/review/pnumreviewlist");
+			return mview;
+		}
 		
 		
 		@PostMapping("/insert")

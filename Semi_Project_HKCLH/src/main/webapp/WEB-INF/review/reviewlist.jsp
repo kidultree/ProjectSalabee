@@ -75,7 +75,7 @@ div #review_cate{
 	<label id="pnumreviewlist">상품별 리뷰보기</label>
 
 </div><br><br>
-	<c:forEach var="dto" items="${list}">
+	<c:forEach var="dto" items="${list}" varStatus="i">
 	<div id="review">
 		<table class="table table-borderless" id="review_table">
 			<thead>
@@ -100,15 +100,14 @@ div #review_cate{
 					<c:if test="${dto.rrate == '5'}">
 						<label id="star">★★★★★ 아주 좋아요</label>
 					</c:if>
-	</div>
 					
 					</td>
-					<td colspan="2" rowspan="3"><b>${sessionScope.mName}</b>&nbsp;님이 작성한 리뷰입니다.<br>
+					<td colspan="2" rowspan="3"><b>${sessionScope.mname}</b>&nbsp;님이 작성한 리뷰입니다.<br>
 					<br><b>작성일:</b> <fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<img src="${root}/save/${cList2.pphoto}" style="width:100px;">&nbsp;&nbsp;${cList2.pname}
+						<img src="${root}/save/${dto.pphoto}" style="width:100px;">&nbsp;&nbsp;${dto.pname}
 						</td>
 					<td colspan="2">구매상품 : ${dto.pnum}</td>
 				</tr>

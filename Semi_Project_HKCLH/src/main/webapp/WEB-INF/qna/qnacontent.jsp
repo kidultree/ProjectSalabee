@@ -116,6 +116,10 @@
 				<span class="glyphicon glyphicon-trash"></span>
 				삭제</button>
 				
+				</c:if>
+			</c:if>	
+			</div>
+	</div>
 				<br><br>
 				<!-- 삭제시 컨펌 -->
                <script type="text/javascript">
@@ -129,9 +133,6 @@
                   });
                });
                </script>
-				</c:if>
-			</c:if>	
-	</div>
-	</div>
+			
 </body>
 </html>
