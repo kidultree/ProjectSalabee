@@ -13,7 +13,7 @@ public interface ReviewMapperInter {
 	public void deleteReview(int num);
 	
 	public List<ReviewDto> getReviewList();
-	public List<ReviewDto> getReviewList_latest();
+	public List<ReviewDto> getPnumReviewList();
 	
 	public ReviewDto getReview(int num);
 	public int getTotalReviewCount();

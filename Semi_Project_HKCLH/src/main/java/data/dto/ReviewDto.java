@@ -18,6 +18,9 @@ public class ReviewDto {
 	private String rphoto;
 	private Timestamp rdate;
 	
+	private String pname;
+	private String pphoto;
+	
 	private int pnum;
 	private String mid;
 }
