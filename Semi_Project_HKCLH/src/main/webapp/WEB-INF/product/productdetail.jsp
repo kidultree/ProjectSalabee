@@ -425,7 +425,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
             <img  src="../save/${dto.pphoto}" style="width: 480px; height: 600px" align="left">
              </li>
              <li>               
-            <img  src="../save/${dto.pphoto2}" style="width: 480px; height: 600px" align="left">
+            <img  src="../save/detailpphoto.jpg" style="width: 480px; height: 600px" align="left">
              </li>     
             </ul>   
               <!--controls-->
@@ -684,10 +684,15 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
      
       <div class="buttons" style="margin-left: 0px;">   
       <br>   
-         
+         <!-- 목록 -->   
+         <button type="button" class="btn btn-info" id="listbtn"
+         onclick="location.href='list'">
+         목록</button>
           
          <!-- 수정삭제(관리자만) -->
-            <c:if test="${mId=='fragbit'}">
+<%--          <c:if test="${sessionScope.loginok!=null}"> 
+            <c:if test="${dto.id==sessionScope.loginid}">  --%>
+            
                <button type="button" class="btn btn-warning" id="upbtn"   
                onclick="location.href='updateform?num=${dto.pnum}'"> 
                수정</button> 
@@ -710,17 +715,18 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
                   
                });
                </script>
-          </c:if> 
+<%--             </c:if> --%>
+<%--          </c:if> --%>
       </div> 
       <br><br>
    </div> <!-- content전체!!!! -->
    
-   <!-- 카트 담기 버튼 -->
+   <%-- -- 카트 담기 버튼 -->
    <form action="/cart/insert">
       <input type="hidden" value="${dto.pnum}" id="pnum"/>
       <input type="hidden" value="${mId}" id="mId"/>
       
-      <%-- 얘는 여러개가 나온단 말이지 
+      <!-- 얘는 여러개가 나온단 말이지 -
       <input type="hidden" value="${opdto.oid}" id="oid"/>
       <input type="hidden" value="${oid별 개수}" id=""/>--%>
       
@@ -735,7 +741,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
 
 
 <script type="text/javascript">
-<!--장바구니추가-->
+<%--장바구니추가-->
 $(document).ready(function() {
       $("#addcart").on("click",function(){
          let form_contents='';
@@ -763,7 +769,7 @@ $(document).ready(function() {
             }   
            });
       }
-      });
+      });--%>
       
 <!--수량추가-->
 var array = [];   
