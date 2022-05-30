@@ -10,6 +10,9 @@
 	<select id="login" parameterType="Map" resultType="int">
 		select count(*) from member where mid=#{mId} and mpassword=#{mPassword}
 	</select>
+	<select id="kakaologin" parameterType="Map" resultType="int">
+		select count(*) from member where mid=#{kakaoid} and mpassword=#{kakaopass}
+	</select>
 	
 	<select id="getmName" parameterType="String" resultType="String">
 		select mname from member where mid=#{mId}

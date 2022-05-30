@@ -69,6 +69,24 @@ div.all div.signup{
 			}
 		});
 	}
+	
+	function kakao(){
+		alert(1);
+		
+		$.ajax({
+			type:"post",
+			datatype:"json",
+			url:"kakao",
+			data:{"kakaoid":$("#kakaoid").val(),"kakaopass":$("#kakaopass").val()},
+			success:function(data){
+				if(data.msg=="ok")
+					location.href="../";
+				else{
+					location.href="../";	
+					}
+			}
+		})
+	}
 
 </script>
 
@@ -125,7 +143,27 @@ div.all div.signup{
 			</div>
 
 		</form>
+		
+		<form action="kakao">
+			<input type="hidden" name="kakaoid" id="kakaoid">
+			<input type="hidden" name="kakaopass" id="kakaopass">
+		</form>
 	</div>
+	
+		<ul>
+			<li onclick="kakaoLogin();">
+		      <a href="javascript:void(0)">
+		          <span>카카오 로그인</span>
+		      </a>
+			</li>
+			<li onclick="kakaoLogout();">
+		      <a href="javascript:void(0)">
+		          <span>카카오 로그아웃</span>
+		      </a>
+			</li>
+		</ul>
+	
+	
 
 	<br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
@@ -136,5 +174,53 @@ div.all div.signup{
 
 </body>
 
+<!-- 카카오 스크립트 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+Kakao.init('fd2660146f474993fc012dbb6b9f7b06'); //발급받은 키 중 javascript키를 사용해준다.
+console.log(Kakao.isInitialized()); // sdk초기화여부판단
+//카카오로그인
+function kakaoLogin() {
+    Kakao.Auth.login({
+      success: function (response) {
+    	  console.log(JSON.stringify(response))
+        Kakao.API.request({
+          url: '/v2/user/me',
+          success: function (response) {
+        	  let id = "kakao_" + response.id;
+        	  let pass = "kakao_" + response.id;
+              
+        	  $("#kakaoid").val(id);
+        	  $("#kakaopass").val(pass);
 
+        	  kakao();
+        	  
+             },
+          fail: function (error) {
+            console.log(error)
+          },
+        })
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+    })
+  }
+//카카오로그아웃  
+function kakaoLogout() {
+    if (Kakao.Auth.getAccessToken()) {
+      Kakao.API.request({
+        url: '/v1/user/unlink',
+        success: function (response) {
+        	console.log(response)
+        	logout();
+        },
+        fail: function (error) {
+          console.log(error)
+        },
+      })
+      Kakao.Auth.setAccessToken(undefined)
+    }
+  }  
+</script>
 </html>

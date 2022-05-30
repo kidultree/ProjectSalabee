@@ -34,6 +34,42 @@ public class LoginController {
 	}
 	
 	
+	@PostMapping("kakao")
+	@ResponseBody
+		public String kakao(@RequestParam String kakaoid,
+				@RequestParam String kakaopass,
+				@RequestParam(required = false) String chkid,
+				HttpSession session) {
+		
+			Map<String, String> map=new HashMap<>();
+			
+			map.put("kakaoid", kakaoid);
+			map.put("kakaopass", kakaopass);
+			
+			int n=memberMapper.kakaologin(map);
+			
+			if(n==0) {
+				String msg="ok";
+				
+				session.setAttribute("mId", kakaoid);
+				
+				//로그인한 아이디의 mName값 얻어오기
+				String mName=kakaopass;
+				session.setAttribute("mName", mName);
+				session.setAttribute("saveok", chkid==null?"no":"yes");
+				session.setAttribute("loginok", "kakao");
+				
+				return msg;
+			}else {
+				String msg="no";
+				
+				return msg;
+			}
+			
+		}
+	
+	
+	
 	//로그인
 	@PostMapping("/process")
 	public String process(@ModelAttribute MemberDto dto,
@@ -109,6 +145,13 @@ public class LoginController {
 	@GetMapping("/logout")
 	//@ResponseBody
 	public String logout(HttpSession session)
+	{
+		session.removeAttribute("loginok");
+		return "redirect:/";
+	}
+	
+	@PostMapping("/kakaoout")
+	public String kakaoout(HttpSession session)
 	{
 		session.removeAttribute("loginok");
 		return "redirect:/";

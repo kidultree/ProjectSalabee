@@ -241,25 +241,106 @@ ul.sub li {
 					</a>
 				</c:if>
 				
-				<c:if test="${sessionScope.loginok!=null}">
-					<a href="/login/logout"> <img src="${root}/image/logout.png" id="logouticon"
+				<c:if test="${sessionScope.loginok!=null&&sessionScope.loginok!='kakao'}">
+					<a href="/login/logout"><img src="${root}/image/logout.png" id="logouticon"
 						style="width: 30px">
 					</a>
 				</c:if>
 				
-				<c:if test="${sessionScope.loginok==null}">
-				<a href="/login/loginform"> <img src="${root}/image/cart.png"
-						id="carticon" style="width: 30px">
+				<c:if test="${sessionScope.loginok=='kakao'}">
+					<a href="/login/logout"><img src="${root}/image/logout.png" id="logouticon"
+						style="width: 30px">
 					</a>
 				</c:if>
+				
+				<c:if test="${sessionScope.loginok=='kakao'}">
+					<a href="javascript:kakaoLogout()">카카오 로그아웃
+					</a>
+				</c:if>
+				
+				<c:if test="${sessionScope.loginok==null}">
+			
+				<a href="/cart/list"> <img src="${root}/image/cart.png"
+						id="carticon" style="width: 30px">
+				</a>
+				
+				</c:if>
+				
 				<c:if test="${sessionScope.loginok!=null}">
 				<a href="/cart/list?mid=${sessionScope.mId}"> <img src="${root}/image/cart.png"
 					id="carticon" style="width: 30px"></a>
 				</c:if>
+				
+				
+				
+
 			</div>
 	</div>
 	</nav>
 	</div>
 	<!--헤드 끝-->
 </body>
+
+<!-- 카카오 스크립트 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+Kakao.init('fd2660146f474993fc012dbb6b9f7b06'); //발급받은 키 중 javascript키를 사용해준다.
+console.log(Kakao.isInitialized()); // sdk초기화여부판단
+//카카오로그인
+function kakaoLogin() {
+    Kakao.Auth.login({
+      success: function (response) {
+    	  console.log(JSON.stringify(response))
+        Kakao.API.request({
+          url: '/v2/user/me',
+          success: function (response) {
+        	  let id = "kakao_" + response.id;
+        	  let pass = "kakao_" + response.id;
+              
+        	  $("#kakaoid").val(id);
+        	  $("#kakaopass").val(pass);
+        	  
+             },
+          fail: function (error) {
+            console.log(error)
+          },
+        })
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+    })
+  }
+//카카오로그아웃  
+function kakaoLogout() {
+	alert(3);
+    Kakao.API.request({
+        url: '/v1/user/unlink',
+        success: function (response) {
+        	console.log(response)
+        },
+        fail: function (error) {
+          console.log(error)
+        },
+      })
+      Kakao.Auth.setAccessToken(undefined) 
+      
+      
+}
+
+
+/*     if (Kakao.Auth.getAccessToken()) {
+      Kakao.API.request({
+        url: '/v1/user/unlink',
+        success: function (response) {
+        	console.log(response)
+        },
+        fail: function (error) {
+          console.log(error)
+        },
+      })
+      Kakao.Auth.setAccessToken(undefined) 
+    }
+  }  */
+</script>
 </html>
