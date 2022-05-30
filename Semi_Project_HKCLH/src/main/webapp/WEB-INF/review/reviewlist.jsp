@@ -58,6 +58,15 @@ div #review_cate{
 	color: white;
 	font-weight: 400;
 }
+
+a:visited{
+	color: white;
+}
+
+a:link{
+	color: white;
+}
+
 </style>
 
 </head>
@@ -70,7 +79,7 @@ div #review_cate{
 	<b>/</b>
 	<label id="high_rrate">별점순</label>
 	<b>/</b>
-	<label id="pnumreviewlist">상품별 리뷰보기</label>
+	<label id="pnumreviewlist"><a href="/review/pnumlist">상품별 리뷰보기</a></label>
 
 </div><br><br>
 	<c:forEach var="dto" items="${list}" varStatus="i">

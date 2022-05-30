@@ -4,8 +4,8 @@
 
 <!-- qna 삽입 -->
 <insert id="insertQnA" parameterType="qna">
-insert into QnA (qnum, qcate, qtitle, qcontent, mid, qimg, qstate, qdate) values (
-#{qnum}, #{qcate}, #{qtitle}, #{qcontent}, #{mid}, #{qimg}, #{qstate}, now()
+insert into QnA (qnum, qcate, qtitle, qcontent, mid, qimg, qstate, qdate, reg, restep, relevel) values (
+#{qnum}, #{qcate}, #{qtitle}, #{qcontent}, #{mid}, #{qimg}, #{qstate}, now(), #{reg}, #{restep}, #{relevel}
 )
 </insert>
 
@@ -49,8 +49,6 @@ select count(*) from QnA
 		</if>
 			where qnum=#{qnum}
 	</update>
-
-
 
 
 </mapper>
