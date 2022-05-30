@@ -23,7 +23,6 @@ import org.springframework.web.servlet.ModelAndView;
 import Util.FileUtil;
 import data.dto.NoticeDto;
 import data.dto.QnADto;
-import data.mapper.AnswerMapperInter;
 import data.mapper.MemberMapperInter;
 import data.mapper.QnAMapperInter;
 import data.service.QnABoardService;
@@ -34,9 +33,6 @@ public class QnAController {
 
 	@Autowired
 	private QnABoardService qnaService;
-	
-	@Autowired
-	private AnswerMapperInter answerMapper;
 	
 	@Autowired
 	private MemberMapperInter memberMapper;
@@ -103,11 +99,7 @@ public class QnAController {
 					String id = dto.getMid();
 					String name = memberMapper.getmName(id);
 					dto.setMid(name);
-					
-					//댓글 갯수 acount에 넣기
-					int acount = answerMapper.getAnswerList(dto.getQnum()).size();
-					dto.setAcount(acount);
-				
+			
 				}
 		
 		
@@ -249,7 +241,7 @@ public class QnAController {
 		mview.addObject("dto",dto);
 		mview.addObject("currentPage",currentPage);
 		
-		mview.setViewName("/sub2/board/updateform");
+		mview.setViewName("/sub2/qna/updateform");
 		return mview;
 	}
 	

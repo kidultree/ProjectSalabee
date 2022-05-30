@@ -64,11 +64,14 @@ public class CartController {
 		return mview;
 	}
 	
+	
+	
 	@GetMapping("/buy")
 	public String buy()
 	{
 		return "/cart/buyform";		
 	}
+	
 	
 	
 	/*  카트 삭제 */
@@ -83,5 +86,11 @@ public class CartController {
 		}  
 	}
 
+	
+	@GetMapping("/nocart")
+	public String nocart()
+	{
+		return "/cart/nocart";		
+	}
 
 }

@@ -91,7 +91,7 @@ left: 500px;
 <tr>
 <th width="120">구매자</th>
 <td colspan="3">
-<input type="text" name="rname" class="form-control"
+<input type="text" name="mid" class="form-control"
  required="required" autofocus="autofocus">
 </td>
 </tr>

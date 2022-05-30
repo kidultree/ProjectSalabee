@@ -45,6 +45,7 @@ public class ProductController {
    @PostMapping("/insert") //값이나 상태변경
    public String insert(@ModelAttribute ProductDto dto,
 		    @RequestParam MultipartFile upload,
+		    @RequestParam MultipartFile upload2,
 			HttpSession session,
 			HttpServletRequest request)
    {
@@ -53,31 +54,34 @@ public class ProductController {
 		
 	  System.out.println("1:"+dto.getPnum());
 	  String pphoto=upload.getOriginalFilename();
+	  String pphoto2=upload2.getOriginalFilename();
 	  dto.setPphoto(pphoto);
+	  dto.setPphoto2(pphoto2);
 	  try {
 		upload.transferTo(new File(path+"\\"+pphoto));
+		upload.transferTo(new File(path+"\\"+pphoto2));
 	} catch (IllegalStateException | IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	  
+	  	  
       productMapper.insertProduct(dto);
       return "redirect:list";
    }
 
-   @GetMapping("/list")
+   @GetMapping("/fragrance")
    public ModelAndView list()
    {
       ModelAndView mview=new ModelAndView();
       
       //mapper 로부터 총 갯수 가져오기
-      int totalCount=productMapper.getTotalProductCount();
-      List<ProductDto> list=productMapper.getProductList();
+      int totalCount=productMapper.getTotalProductCount("fragrance");
+      List<ProductDto> list=productMapper.getProductList("fragrance");
       //model에 저장
       mview.addObject("totalCount", totalCount);
       mview.addObject("list", list);
 
-      mview.setViewName("/product/productlist");
+      mview.setViewName("/product/fragrance");
       return mview;
    }
    
@@ -88,8 +92,8 @@ public class ProductController {
       ModelAndView mview=new ModelAndView();
       
       //mapper 로부터 총 갯수 가져오기
-      int totalCount=productMapper.getTotalProductCount();
-      List<ProductDto> list=productMapper.getProductList();
+      int totalCount=productMapper.getTotalProductCount("goods");
+      List<ProductDto> list=productMapper.getProductList("goods");
       //model에 저장
       mview.addObject("totalCount", totalCount);
       mview.addObject("list", list);
@@ -103,8 +107,8 @@ public class ProductController {
       ModelAndView mview=new ModelAndView();
       
       //mapper 로부터 총 갯수 가져오기
-      int totalCount=productMapper.getTotalProductCount();
-      List<ProductDto> list=productMapper.getProductList();
+      int totalCount=productMapper.getTotalProductCount("myset");
+      List<ProductDto> list=productMapper.getProductList("myset");
       //model에 저장
       mview.addObject("totalCount", totalCount);
       mview.addObject("list", list);

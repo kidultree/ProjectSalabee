@@ -5,11 +5,8 @@
 <!-- INSERT -->
 	<insert id="insertReview" parameterType="review">
 		insert into review
-		(rnum, pnum, rrate, rname, mid, rcontent, rphoto,
-		rdate) values
-		(
-		#{rnum}, #{pnum}, #{rrate}, #{rname}, #{mid}, #{rcontent},
-		#{rphoto}, now()
+		(rnum, pnum, rrate, mid, rcontent, rphoto, rdate) values
+		(#{rnum}, #{pnum}, #{rrate}, #{mid}, #{rcontent},#{rphoto}, now()
 		)
 	</insert>
 
@@ -32,9 +29,29 @@
 		select * from review order by rnum desc
 	</select>
 	
+	
+	<select id="getPnumReviewList" resultType="review">
+		select * 
+		
+		from review 
+		
+		join product
+		join member
+		
+		where product.pnum = review.pnum 
+		and member.mid = review.mid 
+		
+	</select>
+	
    <select id="getTotalReviewCount" resultType="int">
       select count(*) from review
    </select>	
+   
+   
+   <!-- 평균 별점 계산 -->
+	<select id="getAvgRrate" resultType="review">
+		select pnum, AVG(rrate) from review group by pnum;
+	</select>
 	
 	
 	</mapper>

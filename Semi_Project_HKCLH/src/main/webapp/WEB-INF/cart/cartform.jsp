@@ -157,13 +157,9 @@
 
 <br><br><br><br>
 
-<!-- <div class="buybtn" onclick="location.href='buy'">주문하기</div> -->
-
-<div class="buybtn" id="buybtn">주문하기</div>
-
+<div class="buybtn" id="buybtn" >주문하기</div>
 
 <br><br>
-
 
 </div>	<!-- class="wrap" -->
 </div>	<!-- class="wrapper" -->
@@ -173,6 +169,14 @@
 
 <script type="text/javascript">
 	$(function(){
+		
+        /* 페이지 들어오자마자 체크박스  체크 */
+            if ($("#mid").val() == '') {
+                $("#allcheck").prop("checked", false);
+            } else {
+                $("#allcheck").prop("checked", true);
+                $(".del").prop("checked", true);
+            }
 		
 		/* 체크박스 전체선택 */
 		$("#allcheck").click(function(){
@@ -223,6 +227,18 @@
 		
 			$("#buybtn").click(function(){
 
+				var len = $(".del:checked").length;
+				//0명일 경우
+				
+				if(len==0){
+					window.name="parentForm";
+					window.open("<%=request.getContextPath()%>/nocart.jsp",
+							"상품 확인","width=400,height=200, resizable=no,scrollbar=no");
+					
+					//alert("장바구니에 상품이 없습니다.")
+					return;
+				}
+				
 				// 회원 정보
 				let param_string = '';
 				
@@ -251,8 +267,8 @@
 		         success:function(data){
 		        	//alert(data.message);
 		        	//location.reload();
-		        	
-		        	location.href="/cart/buy";
+		        	//location.href="/cart/buy";
+		        	 location.href="/orderinfo/buy?mid=${sessionScope.mId}";
 		         }   
 		        });
 			});
@@ -269,6 +285,8 @@ $('.btn-plus, .btn-minus').on('click', function(e) {
 	let quantity = $(e.target).siblings('input.quantity').val();
 	let oprice = $(e.target).parent().parent().siblings('td.price_td').find('input.oprice').val();
 	
+	let deliveryPrice2 = 0;			// 배송비
+	
 	$(e.target).parent().parent().siblings('td.price_td').find("span.sum_price").text(quantity*oprice);
 	
 	let price = 0;
@@ -277,7 +295,17 @@ $('.btn-plus, .btn-minus').on('click', function(e) {
 	     price += $(item).find('td.price_td').find("span.sum_price").text() * 1;
 	});	
 	
-	$("span.finalTotalPrice_span, span.totalPrice_span").text(price);
+	if(price >= 30000){
+		deliveryPrice2 = 0;
+	} else if(price == 0){
+		deliveryPrice2 = 0;	
+	} else {
+		deliveryPrice2 = 3000;	
+	}
+	
+	$("span.totalPrice_span").text(price);
+	$("span.finalTotalPrice_span").text(price+deliveryPrice2);
+	$("span.delivery_price").text(deliveryPrice2);
 });
 
 

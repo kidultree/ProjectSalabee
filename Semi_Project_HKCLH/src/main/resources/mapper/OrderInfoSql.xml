@@ -24,23 +24,22 @@
    
    
    <select id="getOrderInfo" parameterType="Map" resultType="Map">
-	select 
-	c.cid, c.mid, c.pnum, c.cquantity, 
-	pr.pname, pr.pphoto, 
-	po.oid, po.oname, po.oprice
-	,c.cquantity*po.oprice as sum_price
+	select * 
 	
-	from cart c
-	join member m
-	join product pr
-	join poption po
+	from orderinfo oi 
+	join member m 
+	join product pr 
+	join poption po 
 
-	where c.mid = m.mid
-	and c.pnum = pr.pnum
+	where oi.mid = m.mid
+	and oi.pnum = pr.pnum
 	and po.pnum = pr.pnum
-	and c.oid = po.oid
+	and oi.oid = po.oid
 	
-	and m.mid = #{mid};
+	and m.mid = #{mid}
+	and oi.orderid = (select max(oi.orderid) from orderinfo)
    </select>
+   <!-- and oi.oid = (select oid from orderinfo order by oid desc limt 1) -->
+   <!-- and oi.oid = (select max(oid) from orderinfo) -->
    
 </mapper>

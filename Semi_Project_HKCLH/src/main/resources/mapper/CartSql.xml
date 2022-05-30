@@ -12,7 +12,7 @@
 	values
 
 	('Testid', 2, 1);
-	<!-- ( #{mid}, #{pnum}, #{cquantity} ) 돌려줘 경주코드-->
+	<!-- ( #{mid}, #{pnum}, #{cquantity} )-->
    </insert>
    
    <select id="getAllCart" parameterType="Map" resultType="Map">

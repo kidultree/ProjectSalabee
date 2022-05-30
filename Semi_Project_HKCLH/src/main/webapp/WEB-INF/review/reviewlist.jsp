@@ -21,18 +21,15 @@
 	border-bottom: solid;
 }
 
-*{
-	font-family: 'Noto Sans KR';
-}
-
 #review{
 
 	position: relative;
 	left: 400px
+
 }
 
 .review_label{
-
+	font-family: 'Noto Sans KR';
 	position: absolute;
 	top: 140px;
   	left: 150px;
@@ -43,6 +40,32 @@ label{
 	font-size: 15px;
 }
 
+div #review_cate{
+	font-family: 'Noto Sans KR';
+	font-size : 20px;
+	width: 260px;
+	height: 50px;
+	position: relative;
+	top: 100px;
+	left: 100px;
+	border-top: 3px solid #000000;
+}
+
+#review_cate label{
+
+	cursor: pointer;
+	background-color: #000000;
+	color: white;
+	font-weight: 400;
+}
+
+a:visited{
+	color: white;
+}
+
+a:link{
+	color: white;
+}
 
 </style>
 
@@ -50,7 +73,16 @@ label{
 <body>
 <br><br>
 <label style="font-size: 40px;" class="review_label">Review</label>
-	<c:forEach var="dto" items="${list}">
+<div id="review_cate">
+<br>&nbsp; &nbsp; <!-- 리뷰 정렬 카테고리 -->
+	<label id="latest">최신순</label>
+	<b>/</b>
+	<label id="high_rrate">별점순</label>
+	<b>/</b>
+	<label id="pnumreviewlist"><a href="/review/pnumlist">상품별 리뷰보기</a></label>
+
+</div><br><br>
+	<c:forEach var="dto" items="${list}" varStatus="i">
 	<div id="review">
 		<table class="table table-borderless" id="review_table">
 			<thead>
@@ -75,22 +107,27 @@ label{
 					<c:if test="${dto.rrate == '5'}">
 						<label id="star">★★★★★ 아주 좋아요</label>
 					</c:if>
-	</div>
 					
 					</td>
-					<td colspan="2" rowspan="3">${dto.rname}님이 작성한 리뷰입니다.<br>
-					<br>작성일: <fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
+					<td colspan="2" rowspan="3"><b>${dto.mid}</b>&nbsp;님이 작성한 리뷰입니다.<br>
+					<br><b>작성일:</b> <fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
 				</tr>
 				<tr>
-					<td colspan="2"><!-- 사진이 들어있는 경우 출력하기 -->
-					<c:if test = "${dto.rphoto!=''}">
-						<img src="../save/${dto.rphoto}" width="80" height="80" border="1">
-						&nbsp;&nbsp;
-					</c:if></td>
-					<td colspan="2">구매상품 : ${dto.pnum}</td>
+					<td colspan="2">
+						<img src="${root}/save/${dto.pphoto}" style="width:100px;">
+						</td>
+					<td colspan="2">구매상품 : ${dto.pname}</td>
 				</tr>
 				<tr>
-					<td colspan="4">리뷰내용 : ${dto.rcontent}</td>
+				<c:choose>
+					<c:when test = "${dto.rphoto!=''}">
+					<td colspan="4"><img src="../save/${dto.rphoto}" width="80" height="80" border="1">
+					
+					리뷰내용 : ${dto.rcontent}</td></c:when>
+					
+					<c:otherwise>
+					<td>리뷰내용 : ${dto.rcontent}</td></c:otherwise>
+				</c:choose>
 				</tr>
 			</thead>
 		</table>

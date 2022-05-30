@@ -1,12 +1,15 @@
 package data.controller;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -71,4 +74,21 @@ public class OrderInfoController {
 		return mview;		
 	}
 
+	
+	@GetMapping("/buy")
+	public ModelAndView getOrderInfo(
+			@RequestParam String mid
+			)throws Exception
+	{
+		ModelAndView mview = new ModelAndView(); //Model -> view로 전달
+		//Integer orderId = mapper.selectLastOrderId(mid);
+		
+		List<Map<String,Object>> orderList = mapper.getOrderInfo(mid);
+		
+		mview.addObject("orderList", orderList);
+		
+		mview.setViewName("/cart/buyform");
+		return mview;
+	}
+	
 }

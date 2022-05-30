@@ -58,14 +58,14 @@ width: 306px; height: 379px;
 } 
 
 .product_list {margin-left: 120px; list-style: none;}
-.product_list li {float:left; margin:0 20px 50px 0; position:relative; width:374px; height:501px; border: 1px solid #d9d9d9;}
+.product_list li {float:left; margin:0 20px 50px 0; position:relative; width:374px; height:501px; border: 0px solid #d9d9d9;}
 .product_list li:hover{border-color: skyblue;}
 .product_list dl{padding:374px 0 0 0 ;}
-.product_list dt{padding: 14px 15px 14px; border-top: 1px solid #f0f0f0;}
-.product_list dt a { font-size: 16px; color: #1a1a1a; font-weight: bold; text-decoration: none; position:absolute; left:130px;}
+.product_list dt{padding: 14px 15px 14px; border-top: 0px solid #f0f0f0;}
+.product_list dt a { font-size: 19px; color: #1a1a1a; font-weight: bold; text-decoration: none; position:absolute; left:130px;}
 .product_list .product_img { position: absolute; left:35px; top:0; width:306px; height:379px;}
 .product_list .tags {padding: 0 0 0 0px; font-size: 15px; color:black; opacity: 0.7;  position: absolute; left: 100px; bottom: 45px;}
-.product_list .btm {position: absolute; right: 3px; bottom:0; width: 99%; border-top: 1px solid #f0f0f0; background: #fafafa;}
+.product_list .btm {position: absolute; right: 3px; bottom:0; width: 99%; border-top: 0px solid #f0f0f0; background: white;}
 .product_list .btm div { float:left; width: 40%; height: 30px; line-height: 30px; text-align: center; font-size: 12px; color:#767676;}
 .product_list .btm div a {font-size:12px; color:#767676;}
 .product_list div.info{ position: relative; left: 110px;}
@@ -168,13 +168,13 @@ right: 30px;
     <li>
       <dl>
         <dt><a href="detail?pnum=${dto.pnum}#"> ${dto.pname}</a></dt>
-        <dd class="product_img" id="img"><a href="detail?pnum=${dto.pnum}"><img src="../save/${dto.pphoto}" alt="이미지"></a></dd>
+        <dd class="product_img" id="img"><a href="detail?pnum=${dto.pnum}"><img src="../save/${dto.pphoto}" alt="이미지" style="width:300px; height: 378px;"></a></dd>
         <dd class="tags">${dto.pcontent} </dd>
         <dd class="btm">
-          <div class="info">40ml / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
+          <div class="info">  / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
         </dd>
         </dl>
-       <button type="button" class="add-button" id="load_img" num="${dto.pnum}">+</button>
+    
         </li>
 
        
