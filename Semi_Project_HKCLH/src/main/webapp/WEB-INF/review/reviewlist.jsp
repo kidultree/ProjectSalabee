@@ -29,6 +29,7 @@
 
 	position: relative;
 	left: 400px
+
 }
 
 .review_label{
@@ -43,13 +44,37 @@ label{
 	font-size: 15px;
 }
 
+div #review_cate{
+	width: 260px;
+	height: 50px;
+	position: relative;
+	top: 100px;
+	left: 100px;
+	border-top: 3px solid #000000;
+}
 
+#review_cate label{
+	font-size: 17px;
+	cursor: pointer;
+	background-color: #000000;
+	color: white;
+	font-weight: 400;
+}
 </style>
 
 </head>
 <body>
 <br><br>
 <label style="font-size: 40px;" class="review_label">Review</label>
+<div id="review_cate">
+<br>&nbsp; &nbsp; <!-- 리뷰 정렬 카테고리 -->
+	<label id="latest">최신순</label>
+	<b>/</b>
+	<label id="high_rrate">별점순</label>
+	<b>/</b>
+	<label id="pnumreviewlist">상품별 리뷰보기</label>
+
+</div><br><br>
 	<c:forEach var="dto" items="${list}">
 	<div id="review">
 		<table class="table table-borderless" id="review_table">
@@ -78,8 +103,8 @@ label{
 	</div>
 					
 					</td>
-					<td colspan="2" rowspan="3">${dto.rname}님이 작성한 리뷰입니다.<br>
-					<br>작성일: <fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
+					<td colspan="2" rowspan="3"><b>${sessionScope.mName}</b>&nbsp;님이 작성한 리뷰입니다.<br>
+					<br><b>작성일:</b> <fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
 				</tr>
 				<tr>
 					<td colspan="2"><!-- 사진이 들어있는 경우 출력하기 -->

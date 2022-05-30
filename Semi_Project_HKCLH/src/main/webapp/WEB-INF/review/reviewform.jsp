@@ -91,8 +91,8 @@ left: 500px;
 <tr>
 <th width="120">구매자</th>
 <td colspan="3">
-<input type="text" name="rname" class="form-control"
- required="required" autofocus="autofocus">
+<input type="text" name="rname" class="form-control" value="${sessionScope.mName}"
+ required="required" autofocus="autofocus" disabled>
 </td>
 </tr>
 

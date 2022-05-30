@@ -32,6 +32,11 @@
 		select * from review order by rnum desc
 	</select>
 	
+	<select id="getReviewList_latest" resultType="review">
+		select * from review order by rdate desc
+	</select>
+	
+	
    <select id="getTotalReviewCount" resultType="int">
       select count(*) from review
    </select>	
