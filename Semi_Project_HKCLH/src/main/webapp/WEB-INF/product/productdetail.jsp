@@ -430,99 +430,16 @@ input[type=number]::-webkit-outer-spin-button {
 				    <option value="">&nbsp;
 				    - 옵션을 선택해주세요 -</option>
 				    <c:forEach var="list" items="${opdto}"> <!-- list < opdto 호출시 list.으로-->	    	
-					    <option value="${list.oname}">${list.oname}</option> <!-- value /text -->
+					    <option value="${list.oprice}">${list.oname}</option> <!-- value /text -->
+					    <!-- 2개이상 db컬럼 가져올시 input hidden으로 하면댐 -->
+					    
 				    </c:forEach>
 				</select>
-	
-				        
-			         
-			         <script type="text/javascript">
-			         var array = [];	
-			         var cnt = 0;
-			         
-					function changeOp() {
-						console.log(JSON.stringify(array));
-						console.log('### ::',$('#pop').val());
-						var Select = document.getElementById("pop");
-					    // select element에서 선택된 option의 value가 저장된다.
-					    var selectValue = Select.options[Select.selectedIndex].value;
-					    // select element에서 선택된 option의 text가 저장된다.
-					    var selectText = Select.options[Select.selectedIndex].text;
-					    
-					    //acnt==0 선택한옵션이 이미 배열에있다.
-					    var aCnt = 0;
-					    
-					    if(array.length == 0 ){
-					    
-					    	aCnt++;
-					    	
-					    } else {
-					    	
-					    	for(var i = 0; i < array.length ; i++) {
-					    		
-					    		console.log(array[i]);
-					    		console.log(selectValue);
-					    		if(array[i] == selectValue) {
-					    			aCnt = 0;
-					    			break;
-					    		} else {
-					    			aCnt++;
-					    		}					    		
-					    	}	    	
-					    	
-					    }
-					    
-					    if(aCnt == 0) {
-					    	alert("선택된 값이 이미 존재합니다.");
-					    	return;
-					    } else {
-					    	array.push(selectValue);
-					    	var s="";
-				   		   s+="<table style='width:200px;' class='t'>";
-				   		   //opdto_List i=바깥배열 d안쪽 뱌열
-				   			   s+="<tr>";
-				   			   s+="<td><span style='width:80px;'>수량 선택 &nbsp;</span>";
-				   			   s+= selectValue;
-				   			   s+="<div class='number-input'>";
-				   			   s+="<button id='minus' class='minus'></button>";
-				   			   s+="<input class='quantity' id='quantity' min='0' value='1' type='number' >";
-				   			   s+="<button id='plus' class='plus'></button>";				   			   	
-				   			   s+="</td></tr>";
-				   		   s+="</table>";
-				   		   const a = document.querySelector('#addOption');
-				   		   a.innerHTML += s;
-				   		
-				   		   
-					    }
-
-			    	  $('#minus').on('click', function(e) {
-			   				console.log('e.target ::',e.target);
-		   					if($('#quantity').val() > 1){
-		   						var test = Number($('#quantity').val())-1 ;
-		   						$('#quantity').val(test);			   			
-		   					}else if($('#quantity').val() == 1){
-		   						alert("최소주문수량은 1개 입니다.");
-			   				}
-			  										 
-			  		  });
-			    	  
-			    	  $('#plus').on('click', function(e) {
-				   			console.log('e.target ::',e.target);
-			   				//if($('#quantity').val() > 1){
-			   					var test = Number($('#quantity').val())+1 ;
-			   					$('#quantity').val(test);			   			
-			   				//}						 
-				  		  });
-				   		
-			   	   
-					}
-				</script>
 			</td>
 		</tr>
 		<tr>	
 			<td>
-			<div id="addOption"></div> <!-- option row추가 자리 -->
-
+			<div id="addOption"></div> <!-- option row추가 자리 --> 
 			</td>
 		</tr>
 		
@@ -530,7 +447,7 @@ input[type=number]::-webkit-outer-spin-button {
 			<td style="border-top: 1px solid #B6B7B4;">
 				<div style="float: left;"><br>총 상품금액</div>
 	      	    <div style="float: right; font-weight: 600;"><br>
-	            0원</div>
+	            <span id="totPayment">0</span><span></span>원</div> 
 			</td>
 		</tr>
 		
@@ -781,7 +698,148 @@ input[type=number]::-webkit-outer-spin-button {
 
 <script type="text/javascript">
 <!--수량추가-->
+var array = [];	
 
+function changeOp() {
+	 						 
+	//opdto oname	
+	var Select = document.getElementById("pop");
+   // select element에서 선택된 option의 value가 저장된다. >>oprice
+   var selectValue = Select.options[Select.selectedIndex].value;
+   // select element에서 선택된 option의 text가 저장된다. >>oname
+   var selectText = Select.options[Select.selectedIndex].text;
+   
+   //acnt==0 선택한옵션이 이미 배열에있다.
+   var aCnt = 0;
+   
+   if(selectValue==""){ //옵션선택은 value로 나눠도됌(not Text) text이기때문에
+   	return;
+   }
+   					    
+   if(array.length == 0 ){
+   
+   	aCnt++;
+   	
+   } else {
+   	
+   	for(var i = 0; i < array.length ; i++) {
+   		
+   		if(array[i] == selectText) {
+   			aCnt = 0;
+   			break;
+   		} else {
+   			aCnt++;
+   		}					    		
+   	}	    	
+   	
+   }
+   
+   if(aCnt == 0) {
+   	alert("선택된 값이 이미 존재합니다.");
+   	Select.selectedIndex = 0;
+   	return;
+   } else {
+   						    	
+   	array.push(selectText);
+   	var s="";
+   	//테이블전체가 로우
+		   s+="<table id='tb_" + selectText + "' class='t'>";
+		   //opdto_List i=바깥배열 d안쪽 뱌열
+			   s+="<tr>";
+			   s+="<td style='width:350px;'><div><span>수량 선택 &nbsp;</span>";
+			   s+= selectText + "</div>";
+			   s+="<div class='number-input'>";
+			   s+="<button id='minus' name='min_" + selectText + "' class='minus'></button>";
+			   s+="<input class='quantity' id='qua_" + selectText + "' min='0' type='number' value='1'/>";			   
+			   s+="<button id='plus' name='pl_" + selectText + "' class='plus'></button></div>";
+			   s+="<div><span id='pri_" + selectText + "' class='price'>"+ selectValue + "</span><span>원</span></div>";
+			   s+="<input type='hidden' id='hid_pri_" + selectText + "' value='" + selectValue + "' />";
+		   	   s+="<button id='del' name='del_" + selectText + "' class='del'>x</button>";	
+			   s+="</td></tr>";
+		   s+="</table>";
+		   const a = document.querySelector('#addOption');
+		   
+		   a.innerHTML += s;
+		   
+		   totPayCal();   
+   }
+   
+ //가격... 근본적.... span에 value가 있냐, #id, 선언된걸찾았냐, 변수를 왜그렇게 썻냐 
+ //아마 id는 중복되면 뒤에 +1인줄알았지만, +1안되고 위애것만 됨 > 각각 id를 줘야함
+ $('.plus').on('click', function(e) {		    		  
+	  
+	  //수량++
+	  var tarName = e.target.name.replace("pl_",""); //== selectText(40ml)
+	  //var tarPname = e.target.name.replace("pri",""); //text말고 value(40ml)를 가져옴
+		  var qua = Number($('#qua_' + tarName).val())+1;  //selectText(40ml)의 값qua에 +1 
+		  //$('#qua_' + tarName).val(qua);		  
+		  
+		  //document.getElementById("qua_" + tarName).value = qua;
+		  
+		  $('input[id=qua_' + tarName + ']').attr('value',qua);
+		  $('#qua_' + tarName).val(qua);
+		  
+		  //가격
+		  //var price = $("#pri_" + selectText).attr();
+	  	  //const price = document.getElementById("#pri_" + selectText);
+	      
+		  var price = Number($("#hid_pri_" + tarName).val()) * qua; //not)#pri_selectText
+		  $('#pri_' + tarName).text(price);
+ 
+		  totPayCal();
+ 
+ 	  //console.log($("#pri_" + selectText).val());
+ 	  
+	  });
+
+ 
+	 $('.minus').on('click', function(e) {
+			var tarName = e.target.name.replace("min_","");		
+			
+			if($('#qua_' + tarName).val() > 1) {
+				//수량 증가
+				var qua = Number($('#qua_' + tarName).val())-1;
+				$('input[id=qua_' + tarName + ']').attr('value',qua);
+				$('#qua_' + tarName).val(qua);	
+				//수량에 따른 가격증가
+				var price = Number($("#hid_pri_" + tarName).val()) * qua; //not)#pri_selectText
+				$('#pri_' + tarName).text(price);
+	 
+				totPayCal();
+				
+			} else if($('#qua_' + tarName).val() == 1) {
+				alert("최소주문수량은 1개 입니다.");
+				return;
+			}
+	  });
+ 
+ $('.del').on('click', function(e) {			    		  
+	  var tarName = e.target.name.replace("del_","");	
+	  $("#tb_"+tarName).remove();
+	  for(var i=0; i<array.length; i++){
+		  if(array[i]==tarName){
+			  array.splice(i,1);
+			  //i--; 한번민 빼면되니까 배열을 또 안쓰니까
+			  break;
+		  }
+	  }
+	  
+	  totPayCal();
+	  
+	  });
+
+}
+
+function totPayCal() {
+	
+	var totPrice = 0;
+  
+	for(var i = 0; i < array.length; i++) {  
+		totPrice = totPrice + Number($('#pri_' + array[i]).text());	  
+	}
+	
+	$('#totPayment').text(totPrice);	
+}
 
 </script>
 </html>
