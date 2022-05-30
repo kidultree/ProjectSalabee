@@ -45,6 +45,7 @@ public class ProductController {
    @PostMapping("/insert") //값이나 상태변경
    public String insert(@ModelAttribute ProductDto dto,
 		    @RequestParam MultipartFile upload,
+		    @RequestParam MultipartFile upload2,
 			HttpSession session,
 			HttpServletRequest request)
    {
@@ -53,14 +54,17 @@ public class ProductController {
 		
 	  System.out.println("1:"+dto.getPnum());
 	  String pphoto=upload.getOriginalFilename();
+	  String pphoto2=upload2.getOriginalFilename();
 	  dto.setPphoto(pphoto);
+	  dto.setPphoto2(pphoto2);
 	  try {
 		upload.transferTo(new File(path+"\\"+pphoto));
+		upload.transferTo(new File(path+"\\"+pphoto2));
 	} catch (IllegalStateException | IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	  
+	  	  
       productMapper.insertProduct(dto);
       return "redirect:list";
    }

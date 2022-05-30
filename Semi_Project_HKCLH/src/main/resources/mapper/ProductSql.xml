@@ -5,8 +5,8 @@
 	
 	<!-- form==#{dto}==dto -->
    <insert id="insertProduct" parameterType="product"> <!-- ProductDto의 @Alias("product") -->
-      insert into product (pname, pprice, pcate1, pcate2, pdate, pphoto, pcontent) values (
-      #{pname}, #{pprice}, #{pcate1}, #{pcate2}, #{pdate}, #{pphoto}, #{pcontent}
+      insert into product (pname, pprice, pcate1, pcate2, pdate, pphoto, pphoto2, pcontent) values (
+      #{pname}, #{pprice}, #{pcate1}, #{pcate2}, #{pdate}, #{pphoto}, #{pphoto2}, #{pcontent}
       )
    </insert>
    

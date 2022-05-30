@@ -94,7 +94,13 @@ function change_bt(act){
 		<tr>
 			<th>대표사진</th>
 			<td>
-				<input type="file" name="upload" id="currentDate" value="">
+				<input type="file" name="upload" id="pphoto" value="">
+			</td>
+		</tr>
+		<tr>
+			<th>대표사진2</th>
+			<td>
+				<input type="file" name="upload2" id="pphoto2" value="">
 			</td>
 		</tr>
 		<tr>상품상세</tr>
