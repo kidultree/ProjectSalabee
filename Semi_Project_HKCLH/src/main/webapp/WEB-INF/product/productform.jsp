@@ -27,7 +27,21 @@
    
 </head>
 <body>
-<form action="insert" method="post" enctype="multipart/form-data">
+<script type="text/javascript">
+//넘어오는 변수값에 따라 액션페이지 지정
+function change_bt(act){
+	if (act='myset')
+	{
+	document.insert.action="/myset";
+	}else if(act='goods'){
+		document.insert.action="goods";
+		else{
+			document.insert.action="list";
+		}
+	}
+}
+</script>
+<form name="insert" action="insert" method="post" enctype="multipart/form-data">
 <!-- hidden 5개 -->
 
 	<table class="table table-bordered product" style="width: 700px;">
@@ -42,7 +56,7 @@
 		<tr>
 			<th width="120" bgcolor="">메뉴</th>
 			<td colspan="3">
-				<select name="pcate1" id="pcate1">
+				<select name="pcate1" id="pcate1" onchange="change_bt(this.value);">
 				    <option value="" selected="selected" disabled="disabled">메뉴1선택</option>
 				    <option value="MySet">MySet</option>
 				    <option value="fragrance">fragrance</option>

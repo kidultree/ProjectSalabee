@@ -167,8 +167,8 @@ right: 30px;
 
     <li>
       <dl>
-        <dt><a href="#a"> ${dto.pname}</a></dt>
-        <dd class="product_img" id="img"><a href="#a"><img src="../save/${dto.pphoto}" alt="이미지"></a></dd>
+        <dt><a href="detail?pnum=${dto.pnum}#"> ${dto.pname}</a></dt>
+        <dd class="product_img" id="img"><a href="detail?pnum=${dto.pnum}"><img src="../save/${dto.pphoto}" alt="이미지"></a></dd>
         <dd class="tags">${dto.pcontent} </dd>
         <dd class="btm">
           <div class="info">40ml / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
