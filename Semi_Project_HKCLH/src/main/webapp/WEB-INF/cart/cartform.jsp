@@ -157,9 +157,7 @@
 
 <br><br><br><br>
 
-<!-- <div class="buybtn" onclick="location.href='buy'">주문하기</div> -->
-
-<div class="buybtn" id="buybtn">주문하기</div>
+<div class="buybtn" id="buybtn" >주문하기</div>
 
 
 <br><br>
@@ -252,7 +250,9 @@
 		        	//alert(data.message);
 		        	//location.reload();
 		        	
-		        	location.href="/cart/buy";
+		        	//location.href="/cart/buy";
+		        	
+		        	 location.href="/orderinfo/buy?mid=${sessionScope.mId}";
 		         }   
 		        });
 			});

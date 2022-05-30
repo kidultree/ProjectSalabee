@@ -47,12 +47,12 @@
 		<td>
 			<input id="member_post" name="mPost" type="text" placeholder="우편 번호" readonly>
 			<button type="button" class="btn btn-sm" onclick="findAddr()">주소검색</button><br>
-			<input id="member_addr" name="addr1" type="text" placeholder="주소" readonly  style="width: 580px;" value="${dto.mAddress }"><br>
+			<input id="member_addr" name="addr1" type="text" placeholder="주소" readonly  style="width: 580px;" value="${oList.mAddress }"><br>
 			<input type="text" name="addr2" placeholder="상세 주소" style="width: 580px;" >
 		</td>
 	</tr>
 	<tr>
-		<th style="width: 80px; line-height:500%;" >휴대전화*</th>
+		<th style="width: 80px; line-height:500%;" value="${oList.mPhone }">휴대전화*</th>
 		<td>
 			<input type="text" name="mPhone" placeholder="- 없이 번호만 입력해 주세요" required="required" maxlength="11">
 		</td>
@@ -92,7 +92,60 @@
 
 </div><!-- div content닫기 -->
 <br><br><br><br>
+
+
+<div class="content">
+
+<div class="one">
+<div class="one1">주문상품</div>
+
+
+<div class="bae">
+
+	<c:forEach var="oList" items="${orderList}" varStatus="i">
+	
+<table>
+    <tr>
+        <td><img src="${root}/save/${oList.pphoto}" style="width: 100px; height: 100px" align="left"></td>
+        <td>
+            <table>
+                <tr>
+                    <td colspan="2">${oList.pname}</td>
+                </tr>
+                <tr>
+                    <td>옵션 : </td>
+                    <td>${oList.oname}</td>
+                </tr>
+                <tr>
+                    <td>수량 : </td>
+                    <td>${oList.oquantity} 개</td>
+                </tr>
+                <tr>
+                    <td>[조건]</td>
+                    <td> / 기본배송 </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+	</c:forEach>
+
+
+<br><br><br><br><br><br><br><br>
+
+
+
+</div><!-- div bae 닫기 -->
+
+</div><!-- div one닫기 -->
+
+</div><!-- div content닫기 -->
+
+
+
 </body>
+
+
 <script type="text/javascript">
 function findAddr(){
 	new daum.Postcode({

@@ -14,7 +14,7 @@ public interface OrderInfoMapperInter {
 	
 	public int insertOrderInfo(OrderInfoDto dto);  //오더인포에 담기
 	
-	public List<Map<String,Object>> getOrderInfo(String mid, int orderId); //오더인포 상품출력
+	public List<Map<String,Object>> getOrderInfo(String mid); //오더인포 상품출력 , int orderId
 	
 	public void deleteOrderInfo(int orderid); //상품 삭제
 	
