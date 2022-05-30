@@ -13,6 +13,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/resources/css/buy.css">
 </head>
+<script type="text/javascript">
+$(function(){
+	
+	
+    if ($(".ordername").val() == '') {
+        $("#sameaddr0").prop("checked", true);
+    } 
+
+	
+	
+	if($("#sameaddr1").prop("checked",true)){
+		$("input.ordername").val(0);
+	}
+
+
+});
+</script>
+
 <body>
 
 <div class="div-buy-1">
@@ -26,7 +44,7 @@
 <div class="one1">배송지</div>
 
 <div>
-	<input type="radio" id="sameaddr0" name="sameaddr" autocomplete="off">
+	<input type="radio" id="sameaddr0" name="sameaddr" autocomplete="off" checked>
 	<label for="sameaddr0">회원 정보와 동일</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="sameaddr1" name="sameaddr" autocomplete="off">
 	<label for="sameaddr1">새로운 배송지</label>
@@ -34,11 +52,14 @@
 
 
 <div class="bae">
+
 <table>
+	
+<c:forEach var="orderList" items="${orderList}" begin="0" end="">
 	<tr>
 		<th style="width: 80px; line-height:500%;">받는사람*</th>
 		<td style="width: 650px;">
-			<input type="text" name="mName" placeholder="이름을 입력해 주세요" required="required" value="${sessionScope.mName }"
+			<input type="text" class="ordername" name="mName" placeholder="이름을 입력해 주세요" required="required" value="${orderList.mname}"
 			 autofocus="autofocus" style="width: 580px;" >
 		</td>
 	</tr>
@@ -48,30 +69,23 @@
 		<td>
 			<input id="member_post" name="mPost" type="text" placeholder="우편 번호" readonly>
 			<button type="button" class="btn btn-sm" onclick="findAddr()">주소검색</button><br>
-			<input id="member_addr" name="addr1" type="text" placeholder="주소" readonly  style="width: 580px;" value="${oList.mAddress }"><br>
-			<input type="text" name="addr2" placeholder="상세 주소" style="width: 580px;" >
+			<input id="member_addr" name="addr1" type="text" placeholder="주소" readonly  style="width: 580px;" value="${orderList.maddress1}"><br>
+			<input type="text" name="addr2" placeholder="상세 주소" style="width: 580px;" value="${orderList.maddress2}">
 		</td>
 	</tr>
 	<tr>
-		<th style="width: 80px; line-height:500%;" value="${oList.mPhone }">휴대전화*</th>
+		<th style="width: 80px; line-height:500%;">휴대전화*</th>
 		<td>
-			<input type="text" name="mPhone" placeholder="- 없이 번호만 입력해 주세요" required="required" maxlength="11">
+			<input type="text" name="mPhone" placeholder="- 없이 번호만 입력해 주세요" required="required" maxlength="11" value="${orderList.mphone}">
 		</td>
 	</tr>
 	<tr>
 		<th style="width: 80px; line-height:500%;">E-Mail*</th>
 			<td>
-				<input type="text" name="mEmail" placeholder="이메일을 입력해 주세요" required="required">
-				@
-				<select style="width: 300px; font-size:15px; height: 35px; color:#333;">
-					<option>직접입력</option>
-					<option value="@naver.com">naver.com</option>
-					<option value="@daum.net">daum.net</option>
-					<option value="@google.com">google.com</option>
-					<option value="@nate.com">nate.com</option>
-				</select>
+				<input type="text" name="mEmail" placeholder="이메일을 입력해 주세요" required="required" value="${orderList.memail}">
 			</td>
 		</tr>
+		</c:forEach>
 </table>
 
 <div class="shippingmsg" style="line-height:300%;">
@@ -98,9 +112,9 @@
 <!-- ------------------ 주문 상품 --------------------------- -->
 
 
-<div class="content">
+<div class="div-buy-2">
 
-<div class="one">
+<div class="div-two">
 <div class="one1">주문상품</div>
 
 
@@ -135,8 +149,6 @@
 	</c:forEach>
 
 
-<br><br><br><br><br><br><br><br>
-
 
 
 </div><!-- div bae 닫기 -->
@@ -146,7 +158,7 @@
 </div><!-- div content닫기 -->
 
 
-
+<br><br><br><br><br><br><br><br><br><br>
 </body>
 
 
