@@ -35,7 +35,7 @@ public class ProductController {
 
    @Autowired
    ProductMapperInter productMapper; //private?
-   
+     
    @GetMapping("/form") //보여주기
    public String form()
    {
