@@ -304,7 +304,7 @@
 							</c:if>
 							
 						</td>
-						<td>${dto.mid}</td>
+						<td>${sessionScope.mName}</td>
 						<td>${dto.qstate}</td>
 						<td><fmt:formatDate value="${dto.qdate}"
 							pattern="yyyy-MM-dd"/></td>
@@ -344,7 +344,7 @@
 	 <button type="button" class="btn-lg btn-success"
 		 style="width: 150px; background-color: black;
 		 border: black;" onclick="location.href='form'">
-		 	<span class="glyphicon glyphicon-question-sign">질문등록</span>
+		 	<span class="glyphicon glyphicon-question-sign">문의작성</span>
 		 </button>
 		 </c:if>
 	</div>

@@ -51,12 +51,13 @@ public class LoginController {
 		
 		if(n==1)
 		{
+			session.setMaxInactiveInterval(60*60*8); //로그인 8시간동안 유지
 			session.setAttribute("mId", mId);
 			
 			//로그인한 아이디의 mName값 얻어오기
 			String mName=memberMapper.getmName(mId);
 			session.setAttribute("mName", mName);
-			session.setAttribute("mId", mId);
+			//session.setAttribute("mId", mId);
 			session.setAttribute("saveok", chkid==null?"no":"yes");
 			session.setAttribute("loginok", "yes");
 			

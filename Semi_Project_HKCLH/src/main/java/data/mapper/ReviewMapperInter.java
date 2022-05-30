@@ -16,4 +16,5 @@ public interface ReviewMapperInter {
 	
 	public ReviewDto getReview(int num);
 	public int getTotalReviewCount();
+	
 }

@@ -21,9 +21,7 @@
 	.qna_form{
 	position: relative;
 	left: 500px;
-	
 	}
-	
 	
 	
 </style>
@@ -59,7 +57,7 @@
 <div class="qna_form">	
 <table class="table table-borderless qna" style="width: 800px;">
 
-<caption><b>${qnum==0?"글쓰기":"답글쓰기"}</b></caption>
+<h2>QnA 작성</h2>
 <br><br>
 <tr>
 <th width="120">말머리</th>
@@ -89,7 +87,7 @@
 <tr>
 <th style="width: 100px;">작성자</th>
 <td>
-<input type="text" class="form-control" name="mid" required="required">
+<input type="text" class="form-control" name="mid" required="required" value="${sessionScope.mName}" disabled>
 </td>
 </tr>
 

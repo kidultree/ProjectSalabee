@@ -35,6 +35,11 @@
    <select id="getTotalReviewCount" resultType="int">
       select count(*) from review
    </select>	
-	
+   
+   
+   <!-- 평균 별점 계산 -->
+	<select id="getAvgRrate" resultType="review">
+		select pnum, AVG(rrate) from review group by pnum;
+	</select>
 	
 	</mapper>
