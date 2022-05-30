@@ -80,7 +80,8 @@ public class MypageController {
 	
 	
 	@PostMapping("/memberdelete")
-	public String memberdelete(@RequestParam String mId,
+	@ResponseBody
+	public Map<String, String> memberdelete(@RequestParam String mId,
 			@RequestParam String mPassword,
 			HttpSession session)
 			
@@ -92,14 +93,15 @@ public class MypageController {
 		int n=memberMapper.login(map);
 		
 		if(n==1) {
-			memberMapper.deleteMember(mId);
 			
 			session.removeAttribute("loginok");
-			return "redirect:/";
+			map.put("msg", "ok");
+			memberMapper.deleteMember(mId);
+			return map;
 		
 		}else {
-			
-			return "redirect:/mypage/delete";
+			map.put("msg", "no");
+			return map;
 		}
 
 	}

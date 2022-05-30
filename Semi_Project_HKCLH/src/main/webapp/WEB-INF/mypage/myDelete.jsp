@@ -124,6 +124,44 @@ function chk(){
 			   location.href = "/mypage/alter";
 		});
 		
+		$("#pass1").keyup(function(){
+			$("div.passchk").text("");
+		});
+		$("#pass1").keydown(function(){
+			$("div.passchk").text("");
+		});
+		
+		//댓글 삭제 이벤트
+		$(document).on("click","#btn",function(){
+			
+			var pass1=document.getElementById("pass1");	
+			
+			if(pass1.value==""){
+				$("div.passchk").text("비밀번호를 입력해 주세요");
+				$("#pass1").focus();
+				return false;
+			}
+
+			var ans=confirm("정말 탈퇴 하시겟습니까 ?");
+
+			if(ans)
+			{
+				$.ajax({
+					type:"post",
+					dataType:"json",
+					data:{"mId":$("#mId").val(),"mPassword":$("#pass1").val()},
+					url:"memberdelete",
+					success:function(data){
+						if(data.msg=="no"){
+							$("div.passchk").text("비밀번호를 확인해주세요");
+						}else if(data.msg=="ok"){
+							alert("회원탈퇴가 완료되었습니다");
+							location.href="../";
+						}
+					}
+				});
+			}	
+		});
 		
 	})
 </script>
@@ -164,8 +202,8 @@ function chk(){
 	<div class="container" style="position: absolute; left: 600px; top:200px;">
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
-        <form class="validation-form" action="memberdelete" method="post" onsubmit="return chk();">   
-        <label style="margin-left: 40%; font-size: 2.5em;">회원 정보 수정</label><br><br> 
+        <form class="validation-form">   
+        <label style="margin-left: 44%; font-size: 2.5em;">회원 탈퇴</label><br><br> 
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="mId" style="margin-bottom: 10px;">아이디</label> &nbsp;&nbsp;&nbsp;
@@ -185,13 +223,12 @@ function chk(){
           <div class="mb-3">
             <label for="mPassword">비밀번호</label>
             <input type="text" class="form-control" name="mPassword" id="pass1" placeholder="최소 8 자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자를 입력해주세요">
-            <div class="pass1">
-            </div>
+            <div class="passchk" style="color: red; font-size: 0.9em;"></div>
           </div>
 		<br><br>
           
 
-          <button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color: black; border: black; border-radius: 10px;">탈 퇴</button>
+          <button class="btn btn-primary btn-lg btn-block" type="button" id="btn" style="background-color: black; border: black; border-radius: 10px;">탈 퇴</button>
         </form><br><br>
       	
     </div>
