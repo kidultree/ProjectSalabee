@@ -10,12 +10,12 @@ import data.dto.ProductOptionDto;
 @Mapper
 public interface ProductMapperInter {
    public void insertProduct(ProductDto dto);
-   public List<ProductDto> getProductList();
+   public List<ProductDto> getProductList(String opt); 
    
    
    public void deleteProduct(int pnum); 
    public void updateProduct(ProductDto dto);
-   public int getTotalProductCount();
+   public int getTotalProductCount(String opt);
    
    //디테일
    public ProductDto getProduct(int pnum); //()dto에서 받아옴

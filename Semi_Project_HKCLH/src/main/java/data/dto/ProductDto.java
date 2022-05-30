@@ -19,6 +19,6 @@ public class ProductDto {
 	private String pphoto;
 	private String pphoto2;
 	private String pcontent;
-	
+	private String ptag;
 	
 }

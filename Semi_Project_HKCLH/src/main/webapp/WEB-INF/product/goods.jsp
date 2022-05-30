@@ -140,7 +140,7 @@ right: 30px;
 
    <div class="product-header">
    <div class="product-title">
-   	<b>GOODS</b>
+   	<b>FRAGRANCE</b>
    </div>
    </div>
    <br><br><br><br><br><br><br><br><br><br><br>
@@ -167,14 +167,14 @@ right: 30px;
 
     <li>
       <dl>
-        <dt><a href="#a"> ${dto.pname}</a></dt>
-        <dd class="product_img" id="img"><a href="#a"><img src="../save/${dto.pphoto}" alt="이미지"></a></dd>
+        <dt><a href="detail?pnum=${dto.pnum}#"> ${dto.pname}</a></dt>
+        <dd class="product_img" id="img"><a href="detail?pnum=${dto.pnum}"><img src="../save/${dto.pphoto}" alt="이미지" style="width:300px; height: 378px;"></a></dd>
         <dd class="tags">${dto.pcontent} </dd>
         <dd class="btm">
-          <div class="info">40ml / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
+          <div class="info">  / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
         </dd>
         </dl>
-       <button type="button" class="add-button" id="load_img" num="${dto.pnum}">+</button>
+ 
         </li>
 
        
