@@ -6,6 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="../save/fragbit.ico">
+<link rel="short cut icon" href="../save/fragbit.ico">
 <meta charset="UTF-8">
 <title>상품등록form</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -15,6 +17,12 @@
 	*{
 		font-family: 'Noto Sans KR', sans-serif;
 	}
+	
+	.productform{
+	position: relative;
+	left: 500px;
+	}
+	
 </style>
 
 
@@ -41,11 +49,11 @@ function change_bt(act){
 	}
 }
 </script>
-<form name="insert" action="insert" method="post" enctype="multipart/form-data">
+<form name="insert" action="insert" method="post" enctype="multipart/form-data" class="productform">
 <!-- hidden 5개 -->
 
-	<table class="table table-bordered product" style="width: 700px;">
-		<caption><h3>상품 등록</h3></caption>
+	<table class="table table-borderless product" style="width: 700px;">
+		<h2>상품 등록</h2><br><br>
 		<tr>
 			<th width="120" bgcolor="">상품명</th>
 			<td colspan="3">
@@ -103,7 +111,7 @@ function change_bt(act){
 				<input type="file" name="upload2" id="pphoto2" value="">
 			</td>
 		</tr>
-		<tr>상품상세</tr>
+		<tr ><th colspan="2">상품상세</th></tr>
 		<tr>
 			<td colspan="2">
 				<textarea name="pcontent" id= "pcontent" required="required"
