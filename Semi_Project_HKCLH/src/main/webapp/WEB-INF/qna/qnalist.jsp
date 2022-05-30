@@ -12,10 +12,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 	
 </script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js">
-	
-</script>
+
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"
@@ -95,7 +92,7 @@
   		
   		#qna_board {
   			position: relative;
-  			left: 330px;
+  			left: 200px;
   			font-family: 'Noto Sans KR';
   			font-size: 20px;
   			border-collapse: collapse;
@@ -104,17 +101,28 @@
   
 	   #qna_board th{
         border-bottom: solid #444444;
+        border-top: transparent;
         text-align: center;
-        	font-family: 'Noto Sans KR';
-        	font-size: 20px;
+        font-family: 'Noto Sans KR';
+        font-size: 20px;
         }
+        
+        .addqna{
+        
+        position: relative;
+        left: 200px;
+        
+        }
+        
+        
   
     </style>
 </head>
 
 <body>
-
+<br><br>
 <h2><b>자주묻는질문</b></h2>
+	<br>
     <div id="wrapper">
         <table id="table_detail" 
             align=center cellpadding=10>
@@ -238,8 +246,9 @@
 
     <br><br>                    <!-- QnA 테이블  -->
 	<h2><b>QnA</b></h2>
+	<br>
 	<div class="qnaboard" id="qnaboard";>
-		<table class="table table-reflow" id="qna_board" style="width: 1400px;">
+		<table class="table table-borderless qna" id="qna_board" style="width: 1400px;">
 			
 			<tr>
 				<th style="width: 50px;">번호</th>
@@ -250,32 +259,99 @@
 				<th style="width: 150px;">작성일</th>
 			</tr>
 			</div>
-					<tr>
+				<c:if test="${totalCount==0}">
+				<tr>
+					<td colspan="6" align="center">
+						<b>등록된 글이 없습니다</b>
+					</td>
+				</tr>
+			</c:if>
+			<c:if test="${totalCount>0}">
 				<c:forEach var="dto" items="${list}">
-					</tr>
-						<td>${dto.qnum}</td>
+					<tr>
+						
+						<td>${no}</td>
+						<c:set var="no" value="${no-1}"/>
 						<td>${dto.qcate}</td>
+						<!-- 제목 -->
+						<td>
+							<!-- 답글인 경우만 해당 -->
+							<c:if test="${dto.relevel>0}">
+								<!-- level 1당 빈칸 3칸 -->
+								<c:forEach begin="1" end="${dto.relevel}">
+								 	&nbsp;&nbsp;
+								</c:forEach>
+								<img src="../image/re.png">
+							</c:if>
+							
+							
 							<!-- 제목 출력 -->
-							<td><a href="content?qnum=${dto.qnum}&currentPage=${currentPage}">
+							<a href="content?qnum=${dto.qnum}&currentPage=${currentPage}">
 								${dto.qtitle}
-							</a></td>
-							<td>${dto.mid}</td>
-							<td>${dto.qstate}</td>		
-							<td><fmt:formatDate value="${dto.qdate}"
-							pattern="yyyy/MM/dd HH:mm"/></td>
-					</c:forEach>
-				
-			</table>
+							</a>
+							<!-- 사진이 포함되어 있는 경우 아이콘 표시 -->
+							<c:if test="${dto.qimg!='no'}">
+								<span class="glyphicon glyphicon-picture"
+							style="color: gray; font-size: 0.8em;"></span>
+							</c:if>
+							
+							<!-- 댓글 갯수 출력 -->
+							<c:if test="${dto.acount>0}">
+							<a href="content?qnum=${dto.qnum}&currentPage=${currentPage}#alist"
+							style="color: red;">
+								[${dto.acount}]
+							</a>
+							</c:if>
+							
+						</td>
+						<td>${dto.mid}</td>
+						<td>${dto.qstate}</td>
+						<td><fmt:formatDate value="${dto.qdate}"
+							pattern="yyyy-MM-dd"/></td>
+					</tr>
+				</c:forEach>
+			</c:if>
+		
+		</table>
+		<div class="paging" style="margin-left: 300px;">
+			<ul class="pagination">
 			
-	</div>
+			<!-- 이전 -->
+            <c:if test="${startPage>1}">
+               <li><a href="list?currentPage=${startPage-1}">이전</a></li>
+            </c:if>
+
+				<c:forEach var="pp" begin="${startPage}" end="${endPage}">
+					<c:if test="${pp==currentPage}">
+						<li class="active"><a href="list?currentPage=${pp}">${pp}</a></li>
+					</c:if>
+					<c:if test="${pp!=currentPage}">
+						<li><a href="list?currentPage=${pp}">${pp}</a></li>
+					</c:if>
+				</c:forEach>
+				
+			<!-- 다음 -->
+			<c:if test="${endPage<totalPage}">
+				<li><a href="list?currentPage=${endPage+1}">다음</a></li>
+			</c:if>
+			</ul>
+			
+		</div>
+
+
 	<div id="addqna">
 	<c:if test="${sessionScope.loginok!=null}">
-	 <button type="button" class="btn btn-success"
-		 style="width: 100px;" onclick="location.href='form'">
-		 	<span class="glyphicon glyphicon-question">질문등록</span>
+	 <button type="button" class="btn-lg btn-success"
+		 style="width: 150px; background-color: black;
+		 border: black;" onclick="location.href='form'">
+		 	<span class="glyphicon glyphicon-question-sign">질문등록</span>
 		 </button>
 		 </c:if>
 	</div>
+	<br><br>
+
+
+
 
 <button type="button" class="btn btn-default go-top" id="go-top"
 style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyphicon-chevron-up"></span></button> 

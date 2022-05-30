@@ -14,8 +14,8 @@
 	href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gowun+Dodum&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
 	rel="stylesheet">
 <style type="text/css">
-	div.content {
-	font-family: 'Jua';
+	*{
+		font-family: 'Noto Sans KR';
 	}
 	
 	span.heart{
@@ -24,10 +24,12 @@
 	}
 	
 	td.asave{
-		font-size: 25px;
+		text-align: center;
+		font-size: 15px;
 		font-weight: bold;
 		cursor: pointer;
 		background-color: #ebebeb;
+
 	}
 	
 	#afrm{
@@ -56,12 +58,19 @@
 		color: red;
 		cursor: pointer;
 	}
+	
+	.qnacontent{
+	position: relative;
+	left: 26%;
+	}
+	
+	
 </style>
 </head>
 <script type="text/javascript">
 	//댓글 출력하는 함수
 function list(){
-	var num=${dto.qnum};
+	var qnum=${dto.qnum};
 	var login ='${sessionScope.loginok}';
 	var loginid='${sessionScope.loginid}';
 	console.log(login,loginid);
@@ -78,11 +87,11 @@ function list(){
 			s+="<table style='width: 600px;'>";
 			$.each(data.alist, function(i,d){
 				s+="<tr>";
-				s+="<td width='70'>"+d.name+"</td>";
-				s+="<td width=320><pre class='m'>"+d.message+"</pre></td>";
-				s+="<td><span class='day'>&nbsp;"+d.writeday;
-				if(login=='yes' && loginid==d.id){ //자기가 쓴 댓글에만 삭제 가능표시
-					s+="&nbsp;<span class='glyphicon glyphicon-remove adel' idx="+d.idx+"></span>";
+				s+="<td width='70'>"+d.mname+"</td>";
+				s+="<td width=320><pre class='m'>"+d.acontent+"</pre></td>";
+				s+="<td><span class='day'>&nbsp;"+d.adate;
+				if(login=='yes' && loginid==d.mid){ //자기가 쓴 댓글에만 삭제 가능표시
+					s+="&nbsp;<span class='glyphicon glyphicon-remove adel' idx="+d.aansnum+"></span>";
 				}
 				s+="</td>";
 				s+="</tr>";
@@ -101,15 +110,15 @@ $(function () {
 	//댓글 삭제 이벤트
 	$(document).on("click","span.adel",function(){
 		//idx 얻기
-		var idx=$(this).attr("idx");
+		var aansnum=$(this).attr("aansnum");
 		//confim - true 일 경우 ajax 함수를 통해서
 		//댓글 삭제 후 목록 다시 출력
-		var ans=confirm("삭제하려면 [확인]을 눌러주세요");
+		var ans = confirm("삭제하려면 [확인]을 눌러주세요");
 		if(ans){
 			$.ajax({
 				type:"get",
 				dataType: "text",
-				data:{"idx":idx},
+				data:{"aansnum":aansnum},
 				url:"../answer/delete",
 				success:function(){
 					list();	
@@ -131,7 +140,7 @@ $(function () {
 			data: data,
 			success: function(){
 				list();
-				$("#message").val("");
+				$("#acontent").val("");
 			}
 		});
 	});
@@ -140,7 +149,8 @@ $(function () {
 <body>
 
 	<!-- 글 내용 -->
-	<div class = "qnacontent" style="width: 800px;">
+	<br><br>
+	<div class = "qnacontent" style="width: 800px; border:1px solid black;">
 		<h2><b>${dto.qtitle}</b></h2>
 		<span class="glyphicon glyphicon-user"></span>&nbsp;<b>${dto.mid}</b>
 		<hr>
@@ -166,7 +176,7 @@ $(function () {
 			
 			<!-- 댓글 부분 -->
 			<h4 class="alist" style="cursor: pointer;"><b>댓글</b></h4>
-			<div class="alist" id="alist">&nbsp;&nbsp;댓글 목록 나올 곳 ~~~</div>
+			<div class="alist" id="alist">&nbsp;&nbsp;</div>
 			<script type="text/javascript">
 				$("h4.alist").click(function(){
 					$("div.alist").slideToggle('fast');
@@ -175,29 +185,28 @@ $(function () {
 			
 			<!-- 로그인을 한 상태에서만 댓글 입력을 할 수 있다 -->
 			<c:if test="${sessionScope.loginok!=null}">
-			<br><br><br><br>
+
 			<form id="afrm">
 				<!--  hidden -->
 				<input type="hidden" name="qnum" value="${dto.qnum}">
-				<input type="hidden" name="id" value="${sessionScope.loginid}">
-				<input type="hidden" name="name" value="${sessionScope.loginname}">
+				<input type="hidden" name="mid" value="${sessionScope.loginid}">
+				<input type="hidden" name="mname" value="${sessionScope.loginname}">
 				<table style="width: 600px;" class="table table-bordered">
 					<tr height="70">
 						<td>
 							<!-- 댓글 남기는창  --> 
 							<textarea style="width: 100%; height: 70px;"
-							name="message" id="message"
+							name="acontent" id="acontent"
 							class="form-control"
 							placeholder="댓글을 남겨주세요"></textarea>
 						</td>
 						<td class="asave">
-							저장
+							<br>저장
 						</td>
 					</tr>
 				</table>
 			</form>
 			</c:if>
-		
 		
 		<!-- 댓글창 아래 작은 버튼들  -->
 		<div class="buttons">
@@ -209,11 +218,11 @@ $(function () {
 			
 			<c:if test="${sessionScope.loginok!=null}">
 				<c:if test="${sessionScope.loginid==dto.mid}">
-				<button type="button" class="btn btn-default" onclick="location.href='updateform?num=${dto.qnum}&currentPage=${currentPage}'">
+				<button type="button" class="btn btn-default" onclick="location.href='updateform?qnum=${dto.qnum}&currentPage=${currentPage}'">
 				<span class="glyphicon glyphicon-edit"></span>
 				수정</button>
 				
-				<button type="button" class="btn btn-default" id="delbtn" onclick="location.href='delete?num=${dto.qnum}&currentPage=${currentPage}'">
+				<button type="button" class="btn btn-default" id="delbtn" onclick="location.href='delete?qnum=${dto.qnum}&currentPage=${currentPage}'">
 				<span class="glyphicon glyphicon-trash"></span>
 				삭제</button>
 				
@@ -222,7 +231,7 @@ $(function () {
                $(document).ready(function() {
                   $("#delbtn").click(function(){
                      var choice = confirm("삭제 하시겠습니까");
-                     var del = "delete?num=${dto.qnum}&currentPage=${currentPage}";
+                     var del = "delete?qnum=${dto.qnum}&currentPage=${currentPage}";
                      if(choice){
                         location.assign(del);
                      };

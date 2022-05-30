@@ -66,7 +66,7 @@ public class ReviewController {
 			  try {
 				upload.transferTo(new File(path+"\\"+rphoto));
 			} catch (IllegalStateException | IOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}  
 	 
