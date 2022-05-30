@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import Util.FileUtil;
 import data.dto.NoticeDto;
 import data.dto.QnADto;
+import data.mapper.AnswerMapperInter;
 import data.mapper.MemberMapperInter;
 import data.mapper.QnAMapperInter;
 import data.service.QnABoardService;
@@ -33,6 +34,9 @@ public class QnAController {
 
 	@Autowired
 	private QnABoardService qnaService;
+	
+	@Autowired
+	private AnswerMapperInter answerMapper;
 	
 	@Autowired
 	private MemberMapperInter memberMapper;
@@ -67,7 +71,7 @@ public class QnAController {
 		ModelAndView mview = new ModelAndView();
 		//페이징 처리
 		int totalCount; //총 갯수
-		int perPage=5; //한 페이지당 보여질 글의 갯수
+		int perPage=10; //한 페이지당 보여질 글의 갯수
 		int perBlock=5; //한 블럭당 보여질 글의 갯수 (◀이전 1,2,3,4,5 다음▶)
 		int totalPage; //총 페이지수
 		int startQNum; //한 페이지에서 보여질 시작 글번호
@@ -99,6 +103,10 @@ public class QnAController {
 					String id = dto.getMid();
 					String name = memberMapper.getmName(id);
 					dto.setMid(name);
+					
+					//댓글 갯수 acount에 넣기
+					int acount = answerMapper.getAnswerList(dto.getQnum()).size();
+					dto.setAcount(acount);
 				
 				}
 		
@@ -130,8 +138,8 @@ public class QnAController {
 		String path = request.getServletContext().getRealPath("/save");
 		
 		//세션으로부터 로그인한 아이디 얻기
-		String mid = (String)session.getAttribute("mid");
-		dto.setMid(mid); //dto에 id 넣기
+		String loginid = (String)session.getAttribute("loginid");
+		dto.setMid(loginid); //dto에 id 넣기
 		
 		//사진을 업로드 안했을 경우 photos 에 'no'라고 저장
 		if(upload.get(0).getOriginalFilename().equals("")) {
@@ -158,7 +166,7 @@ public class QnAController {
 			dto.setQimg(qimg);
 		}
 	
-			//db update
+			//db insert
 		qnaService.insertQnA(dto);
 	      return "redirect:list?currentPage="+ currentPage;
 	   }
@@ -175,8 +183,8 @@ public class QnAController {
 		//num에 해당하는 dto
 		QnADto dto = qnaService.getData(qnum);
 		//이름 넣어주기
-		String name = memberMapper.getmName(dto.getMid());
-		dto.setMid(name); 
+		String mname = memberMapper.getmName(dto.getMid());
+		dto.setMid(mname); 
 		
 		mview.addObject("dto", dto);
 		mview.addObject("currentPage", currentPage);
@@ -184,4 +192,91 @@ public class QnAController {
 		mview.setViewName("/qna/qnacontent");
 		return mview;
 	}
+	
+	@PostMapping("/update")
+	public String update(
+		@ModelAttribute QnADto dto,
+		@RequestParam String currentPage,
+		@RequestParam ArrayList<MultipartFile> upload,
+		HttpServletRequest request
+		) 
+	{	//사진을 저장할 경우
+		String path = request.getServletContext().getRealPath("/save");
+		
+		//사진을 업로드 안했을 경우 photos 에 'null'이라고 저장
+		if(upload.get(0).getOriginalFilename().equals("")) {
+			dto.setQimg(null);
+		}else {
+			FileUtil fileUtil = new FileUtil();
+			String qimg = "";
+			for(MultipartFile f:upload)
+			{
+				String rename = fileUtil.changeFileName(f.getOriginalFilename());
+				qimg+=rename+",";
+				
+				File file = new File(path+"\\"+rename);
+				try {
+					f.transferTo(file); //save 폴더에 업로드됨
+				} catch (IllegalStateException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			//마지막 컴마 제거
+			qimg = qimg.substring(0,qimg.length()-1);
+			//System.out.println(photos);
+			dto.setQimg(qimg);
+		}
+		
+		//db update
+		qnaService.updateQnA(dto);
+		//내용보기로 이동한다
+		return "redirect:content?currentPage="+currentPage+"&qnum="+dto.getQnum(); //해당 페이지로 이동
+	}
+	
+	
+	@GetMapping("/updateform")
+	public ModelAndView updateForm(
+			
+			@RequestParam int qnum,
+			@RequestParam int currentPage
+			) {
+		
+		ModelAndView mview = new ModelAndView();
+		//num에 해당하는 dto
+		QnADto dto = qnaService.getData(qnum);
+		//model에 저장
+		mview.addObject("dto",dto);
+		mview.addObject("currentPage",currentPage);
+		
+		mview.setViewName("/sub2/board/updateform");
+		return mview;
+	}
+	
+	@GetMapping("/delete")
+	public String delete(
+			@RequestParam int qnum,
+			@RequestParam int currentPage,
+			HttpServletRequest request
+			)
+	{	//save 폴더의 위치 구하기
+		String path = request.getServletContext().getRealPath("/save"); //save의 실제 경로
+		//일단 save 폴더의 파일 삭제
+		String qimg = qnaService.getData(qnum).getQimg();
+		if(!qimg.equals("no")) {
+			String []fileName=qimg.split(",");
+			for(String f:fileName) {
+				File file = new File(path+"\\"+f);
+				if(file.exists())
+					file.delete();
+			}
+		}
+		
+		//db에서 데이터 삭제
+		qnaService.deleteQnA(qnum);
+		//보던 페이지로 이동
+		return "redirect:list?currentPage="+currentPage;
+	}		
+	
+	
 }

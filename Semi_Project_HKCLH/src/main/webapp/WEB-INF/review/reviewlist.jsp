@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
@@ -16,32 +16,75 @@
 
 #review_table{
 	font-family: 'Noto Sans KR';
-	width: 1400px;
-	height: 300px;
-	border: 1px solid black;
-
+	width: 1000px;
+	height: 250px;
+	border-bottom: solid;
 }
+
+*{
+	font-family: 'Noto Sans KR';
+}
+
+#review{
+
+	position: relative;
+	left: 400px
+}
+
+.review_label{
+
+	position: absolute;
+	top: 140px;
+  	left: 150px;
+  	margin-bottom: 30px;
+}
+
+label{
+	font-size: 15px;
+}
+
 
 </style>
 
 </head>
 <body>
-
-	<br><br><br><br><br><br><br><br><br><br>
-	<h2>Review</h2>
+<br><br>
+<label style="font-size: 40px;" class="review_label">Review</label>
 	<c:forEach var="dto" items="${list}">
 	<div id="review">
-		<table class="table table-bordered" id="review_table">
+		<table class="table table-borderless" id="review_table">
 			<thead>
-				<tr>
-					<td colspan="4">별점 : ${dto.rrate}</td>
-					<td colspan="2" rowspan="3">${dto.rname}님이 작성한 리뷰입니다.<br>작성일: 
-					<fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
+				<tr style="height: 30px;">
+					<td colspan="4"> <!-- 별점 value 따라서 별 show -->
+					<c:if test="${dto.rrate == '1'}">
+						<label id="star">★ 별로에요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '2'}">
+						<label id="star">★★ 그냥 그래요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '3'}">
+						<label id="star">★★★ 보통이에요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '4'}">
+						<label id="star">★★★★ 맘에 들어요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '5'}">
+						<label id="star">★★★★★ 아주 좋아요</label>
+					</c:if>
+	</div>
+					
+					</td>
+					<td colspan="2" rowspan="3">${dto.rname}님이 작성한 리뷰입니다.<br>
+					<br>작성일: <fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
 				</tr>
 				<tr>
 					<td colspan="2"><!-- 사진이 들어있는 경우 출력하기 -->
 					<c:if test = "${dto.rphoto!=''}">
-						<img src="../save/${dto.rphoto}" width="100" height="100" border="1">
+						<img src="../save/${dto.rphoto}" width="80" height="80" border="1">
 						&nbsp;&nbsp;
 					</c:if></td>
 					<td colspan="2">구매상품 : ${dto.pnum}</td>
