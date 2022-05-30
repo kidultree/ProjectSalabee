@@ -27,7 +27,7 @@
    </select>
    
    <update id="updateProduct" parameterType="product">
-   	  update product set pname=#{pname}, pprice=#{pprice},  pphoto=#{pphoto}, pcontent=#{pcontent}
+   	  update product set pname=#{pname}, pprice=#{pprice}, pcate1=#{pcate1}, pcate2=#{pcate2}, pphoto=#{pphoto}, pphoto2=#{pphoto2}, pcontent=#{pcontent}
    	  <if test="pphoto!=null">
    	  	,pphoto=#{pphoto}
    	  </if>
