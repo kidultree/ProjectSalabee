@@ -159,9 +159,7 @@
 
 <div class="buybtn" id="buybtn" >주문하기</div>
 
-
 <br><br>
-
 
 </div>	<!-- class="wrap" -->
 </div>	<!-- class="wrapper" -->
@@ -249,9 +247,7 @@
 		         success:function(data){
 		        	//alert(data.message);
 		        	//location.reload();
-		        	
 		        	//location.href="/cart/buy";
-		        	
 		        	 location.href="/orderinfo/buy?mid=${sessionScope.mId}";
 		         }   
 		        });
@@ -269,6 +265,8 @@ $('.btn-plus, .btn-minus').on('click', function(e) {
 	let quantity = $(e.target).siblings('input.quantity').val();
 	let oprice = $(e.target).parent().parent().siblings('td.price_td').find('input.oprice').val();
 	
+	let deliveryPrice2 = 0;			// 배송비
+	
 	$(e.target).parent().parent().siblings('td.price_td').find("span.sum_price").text(quantity*oprice);
 	
 	let price = 0;
@@ -277,7 +275,17 @@ $('.btn-plus, .btn-minus').on('click', function(e) {
 	     price += $(item).find('td.price_td').find("span.sum_price").text() * 1;
 	});	
 	
-	$("span.finalTotalPrice_span, span.totalPrice_span").text(price);
+	if(price >= 30000){
+		deliveryPrice2 = 0;
+	} else if(price == 0){
+		deliveryPrice2 = 0;	
+	} else {
+		deliveryPrice2 = 3000;	
+	}
+	
+	$("span.totalPrice_span").text(price);
+	$("span.finalTotalPrice_span").text(price+deliveryPrice2);
+	$("span.delivery_price").text(deliveryPrice2);
 });
 
 
