@@ -10,7 +10,7 @@ public interface QnABoardServiceInter {
 	public int getTotalCount();
 	public List<QnADto> getQnAList(int start, int perpage);
 	public void insertQnA(QnADto dto);
-	public QnADto getData(int num);
+	public QnADto getData(int qnum);
 	public void updateQnA(QnADto dto);
-	public void deleteQnA(int num);
+	public void deleteQnA(int qnum);
 }

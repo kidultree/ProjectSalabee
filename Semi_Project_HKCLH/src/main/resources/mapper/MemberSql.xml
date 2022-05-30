@@ -15,9 +15,28 @@
 		select mname from member where mid=#{mId}
 	</select>
 	
-	<select id="getmId" parameterType="String" resultType="String">
-		select mid from member where mid=#{mId}
+	<select id="getmId" parameterType="String" resultType="int">
+		select count(*) from member where mid=#{mId}
 	</select>
+	
+	<select id="getchk" parameterType="String" resultType="int">
+		select count(*) from member where mid=#{mId} and mpsssword=#{mPassword}
+	</select>
+	
+	<select id="getmemberData" parameterType="String" resultType="member">
+		select * from member where mid=#{mId}
+	</select>
+	
+	<update id="alterMember" parameterType="member">
+		update member set mpassword=#{mPassword},memail=#{mEmail},
+		mphone=#{mPhone},mbirth=#{mBirth},maddress1=#{mAddress1},maddress2=#{mAddress2},mpost=#{mPost} where mid=#{mId}
+	</update>
+	
+	<delete id="deleteMember" parameterType="String">
+		delete from member where mid=#{mId}
+	</delete>
+	
+	
 	
 	
 	

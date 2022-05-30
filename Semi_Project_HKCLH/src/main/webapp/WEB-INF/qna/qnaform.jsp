@@ -14,10 +14,18 @@
 	href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gowun+Dodum&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
 	rel="stylesheet">
 <style type="text/css">
-	body {
-	font-size: 2rem;
-	font-family: 'Jua';
+	* {
+	font-family: 'Noto Sans KR';
 	}
+	
+	.qna_form{
+	position: relative;
+	left: 500px;
+	
+	}
+	
+	
+	
 </style>
 
 <script type="text/javascript" src="/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
@@ -37,7 +45,7 @@
 <c:if test="${sessionScope.loginok==null}">
 	<script type="text/javascript">
 		alert("다시 로그인 후 글쓰기를 시도해 주세요");
-		location.href='../login/form'
+		location.href='../login/loginform'
 	</script>
 </c:if>
 	<form action="insert" method="post" enctype="multipart/form-data">
@@ -47,13 +55,14 @@
 	<input type="hidden" name="reg" value="${reg}">
 	<input type="hidden" name="restep" value="${restep}">
 	<input type="hidden" name="relevel" value="${relevel}">
-	
-<table class="table table-bordered notice" style="width: 800px;">
 
-<br><br><br><br>
-<caption><h3>QnA 등록하기</h3></caption>
+<div class="qna_form">	
+<table class="table table-borderless qna" style="width: 800px;">
+
+<caption><b>${qnum==0?"글쓰기":"답글쓰기"}</b></caption>
+<br><br>
 <tr>
-<th width="120" bgcolor="#FFE3EE">말머리</th>
+<th width="120">말머리</th>
 <td colspan="3">
 
 	<select name = "qcate" id= "qcate">
@@ -70,17 +79,17 @@
 </script>
 
 <tr>
-<th style="width: 100px; background-color:#FFE3EE">제목</th>
+<th style="width: 100px;">제목</th>
 <td>
- <input type="text" class="form-control" required="required" name="qtitle">
+ <input type="text" class="form-control" name="qtitle" required="required"> 
 </td>
 </tr>
 
 <!-- 로그인해야 쓸수있음 -->
 <tr>
-<th style="width: 100px; background-color: gray;">작성자</th>
+<th style="width: 100px;">작성자</th>
 <td>
-<input type="text" class="form-control" required="required" name="mid">
+<input type="text" class="form-control" name="mid" required="required">
 </td>
 </tr>
 
@@ -90,7 +99,7 @@
 			</td>
 			
 	<tr>
-	<th style="width: 100px; background-color:#FFE3EE">문의상태</th>
+	<th style="width: 100px;">문의상태</th>
 		<td>
 		접수<input type="radio" name = "qstate" id = "qstate" value = "접수" checked>&nbsp;
 		답변완료<input type="radio" name = "qstate" id = "qstate" value = "답변완료">
@@ -113,6 +122,8 @@ style="width:140px;" onclick="submitContents(this)">등록</button>
 </table>
 <br><br>
 </form>
+</div>
+
 <!-- 스마트게시판에 대한 스크립트 코드 넣기 -->
 <script type="text/javascript">
    var oEditors = [];

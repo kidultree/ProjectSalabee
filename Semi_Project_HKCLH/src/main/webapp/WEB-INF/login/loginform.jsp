@@ -39,12 +39,8 @@
 
 div.all{
 	position:absolute;
-<<<<<<< HEAD
-	left: 40%;
-=======
-	left: 39%;
->>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
-	height: 800px;
+	left: 38%;
+
 }
 
 div.all div.url{
@@ -60,9 +56,19 @@ div.all div.signup{
 <script type="text/javascript">
 	function checked(){		
 		
-		return false;
+		$.ajax({
+			type:"post",
+			datatype:"json",
+			url:"process2",
+			data:{"mId":$("#mId").val(),"mPassword":$("#mPassword").val()},
+			success:function(data){
+				if(data.error!="ok"){
+					alert("아이디 또는 비밀번호가 일치하지 않습니다");
+					//$("#error").text("아이디 또는 비밀번호가 일치하지 않습니다");
+				}
+			}
+		});
 	}
-	onsubmit="return checked();"
 
 </script>
 
@@ -71,7 +77,8 @@ div.all div.signup{
 
 <body>
 	<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54 all">
-		<form class="login100-form validate-form" action="process" method="post"  >
+		<form class="login100-form validate-form" action="process" method="post" onsubmit="return checked()" >
+			<input type="hidden" id="res" value="">
 			<span class="login100-form-title p-b-49"> Login </span>
 			<div class="wrap-input100 validate-input m-b-23"
 				data-validate="Username is reauired">
@@ -86,19 +93,17 @@ div.all div.signup{
 					<input class="input100" id="mPassword" type="password" name="mPassword" placeholder="Type your password">
 				<span class="focus-input100" data-symbol=""></span>
 			</div>
-			<c:if test="${sessionScope.error=='error'}">
-			<i style="color:red; font-family: Noto Sans KR; font-size: 0.9em;"> 아이디 또는 비밀번호가 일치하지 않습니다.</i>
-			</c:if>
+			<div id="error" style="color:red; font-family: Noto Sans KR; font-size: 0.9em;"></div>
 			
 			<div class="text-right p-t-8 p-b-31">
-				<a href="/login/findid"> Forgot Id? </a><br>
-				<a href="/login/findpass"> Forgot password? </a>
+				<a href="/login/findidpage"> Forgot Id? </a><br>
+				<a href="/login/findpasspage"> Forgot password? </a>
 			</div>
 			
 			<div class="container-login100-form-btn">
 				<div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn"></div>
-					<button type="submit" class="login100-form-btn login">Login</button>
+					<button type="submit" class="login100-form-btn login" >Login</button>
 				</div>
 			</div>
 			

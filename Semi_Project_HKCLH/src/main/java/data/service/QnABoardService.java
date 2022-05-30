@@ -73,8 +73,8 @@ public class QnABoardService implements QnABoardServiceInter {
 
 
 	@Override
-	public QnADto getData(int num) {
-		return mapper.getData(num);
+	public QnADto getData(int qnum) {
+		return mapper.getData(qnum);
 	}
 	
 	@Override
@@ -83,8 +83,8 @@ public class QnABoardService implements QnABoardServiceInter {
 	}
 	
 	@Override
-	public void deleteQnA(int num) {
-		mapper.deleteQnA(num);
+	public void deleteQnA(int qnum) {
+		mapper.deleteQnA(qnum);
 	}
 
 }

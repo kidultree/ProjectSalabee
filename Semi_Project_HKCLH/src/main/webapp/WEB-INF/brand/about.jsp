@@ -10,13 +10,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
 <style type="text/css">
    div{ font-family: Noto Sans KR; text-align: center;}
    div.video{
 	width:auto; height:800px;
-	
+	  
 	}
    #bg{
     left:0; top:0;
@@ -45,7 +44,7 @@
 	width:auto; height:auto;
 	}
 	
-	/* div.title{ font-size:35px; font-weight:bold; } */
+	div.title{ font-size:35px; font-weight:bold; }
 	div.subtitle{ font-size:25px; }
 	div.description{ font-size:18px; }
 	
@@ -102,7 +101,7 @@ style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyph
 <div class="content1">
 <div class="ft1">
 	<div class="title" id="div1"><br><br>Find Your Signature</div>
-		<div class="subtitle""><br><br>‘가장 나다운 향’을 찾기 위한 여정을 함께합니다.</div> 
+		<div class="subtitle"><br><br>‘가장 나다운 향’을 찾기 위한 여정을 함께합니다.</div> 
 		
         <div class="cards">
         
@@ -159,6 +158,6 @@ style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyph
 		<div class="description"><br><br>글로벌 탑 퀄리티의 프래그런스 오일을<br>사용하여, 더 좋은 향기를 만듭니다.</div>
 		</div></div>
 </div></div>
-<br><br>
+<br><br><br><br>
 </body>
 </html>

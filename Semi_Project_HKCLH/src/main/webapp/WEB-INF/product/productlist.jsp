@@ -12,18 +12,12 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style type="text/css">
- 	html, body{
+ /	html, body{
         margin:0;
-        padding:0;
-        background-color:white;
+        padding:0;    
     }
-  .container{
-			width:1080px;
-			margin: 0 auto;
-			position:absolute;
-			right: 147px;
-			top: 45%;
-		}
+    
+
 	.product-header{
 	width: 100%;
 	height:172px;
@@ -40,37 +34,36 @@
 	}
 	#div1{
 	position:absolute;
-	top:500px;
+	top:300px;
 	}
 	#div2{
 	position:absolute;
-	top:800px;
+	top:900px;
 	}
 	#div3{
 	position:absolute;
-	top:1100px;
+	top:1400px;
 	}
 	#div4{
 	position:absolute;
-	top:1600px;
+	top:1900px;
 	}
 	#div5{
 	position:absolute;
-	top:2000px;
+	top:2700px;
 	}
-    div.content-box
+
+ product_img{
+width: 306px; height: 379px;
+} 
+
 .product_list {margin-left: 120px; list-style: none;}
-/* .product_list:after {
-content:"";
-display:
-clear:both;
-} */
 .product_list li {float:left; margin:0 20px 50px 0; position:relative; width:374px; height:501px; border: 1px solid #d9d9d9;}
-.product_list li:hover{border-color: black;}
+.product_list li:hover{border-color: skyblue;}
 .product_list dl{padding:374px 0 0 0 ;}
 .product_list dt{padding: 14px 15px 14px; border-top: 1px solid #f0f0f0;}
 .product_list dt a { font-size: 16px; color: #1a1a1a; font-weight: bold; text-decoration: none; position:absolute; left:130px;}
-.product_list .img { position: absolute; left:35px; top:0;}
+.product_list .product_img { position: absolute; left:35px; top:0; width:306px; height:379px;}
 .product_list .tags {padding: 0 0 0 0px; font-size: 15px; color:black; opacity: 0.7;  position: absolute; left: 100px; bottom: 45px;}
 .product_list .btm {position: absolute; right: 3px; bottom:0; width: 99%; border-top: 1px solid #f0f0f0; background: #fafafa;}
 .product_list .btm div { float:left; width: 40%; height: 30px; line-height: 30px; text-align: center; font-size: 12px; color:#767676;}
@@ -78,29 +71,92 @@ clear:both;
 .product_list div.info{ position: relative; left: 110px;}
 
 
+div.features{
+	border-bottom: 0.5px solid silver;
+}
+a.scroll_move{
+padding: 50px;
+font-size: 2rem;
+font-family:'Noto Sans KR';
+color:black;
+text-decoration: none;
+position:relative;
+left: 430px;
+}
+ a.scroll_move:hover{
+text-decoration:none;
+} 
+#spring:hover{
+color:gold;
 
+}
+#summer:hover{
+color:blue;
+}
+#fall:hover{
+color: brown;
+}
+#winter:hover{
+color: silver;
+}
+#add-button {
+    margin-top: 18px;
+    position: relative;
+    bottom: 20px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #b9b9b9;
+    border-radius: 50%;
+}
+.selected-image {
+    margin-top: 18px;
+    position: relative;
+    float: left;
+    padding: 50px;
+    margin-left: 100px;
+    bottom: 20px;
+    cursor: pointer;
+    width: 90px;
+    height: 90px;
+    border: 1px solid #b9b9b9;
+    border-radius: 50%;
+}
+div.weather a {
+position:relative;
+left: 620px;
+}
+div.product-title b{
+position:relative;
+right: 30px;
 
+}
+ 
 </style>
+
+
 </head>
 <body>
 
    <div class="product-header">
    <div class="product-title">
-   	FRAGRANCE
+   	<b>FRAGRANCE</b>
    </div>
    </div>
    <br><br><br><br><br><br><br><br><br><br><br>
-   <div class="content-box">
+   <!-- 이미지가 생성될 영역 -->
+ <!-- <img src="" width="300" id="img"> <button id="load_img">이미지 생성</button> -->
+ 
+ 						
 	<div class="features">
-		<a class="scroll_move" href="#div1">ALL</a>
-		<a class="scroll_move" href="#div2">봄</a>
-		<a class="scroll_move" href="#div3">여름</a>
-		<a class="scroll_move" href="#div4">가을</a>
-		<a class="scroll_move" href="#div5">겨울</a>
+	<div class="weather">
+		<a class="scroll_move" href="#div1" id="spring">봄</a>
+		<a class="scroll_move" href="#div2" id="summer">여름</a>
+		<a class="scroll_move" href="#div3" id="fall">가을</a>
+		<a class="scroll_move" href="#div4" id="winter">겨울</a> <br><br>
 	</div>
-</div>
   
-	
+	</div>
 		
 		
 		
@@ -112,19 +168,32 @@ clear:both;
     <li>
       <dl>
         <dt><a href="#a"> ${dto.pname}</a></dt>
-        <dd class="img"><a href="#a"><img src="../save/${dto.pphoto}" alt="이미지"></a></dd>
+        <dd class="product_img" id="img"><a href="#a"><img src="../save/${dto.pphoto}" alt="이미지"></a></dd>
         <dd class="tags">${dto.pcontent} </dd>
         <dd class="btm">
           <div class="info">40ml / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
-        
         </dd>
         </dl>
+       <button type="button" class="add-button" id="load_img" num="${dto.pnum}">+</button>
         </li>
 
        
   </ul>
+    
                         </c:forEach>
 </div>
+ <script>
+  	// id가 img인 요소 접근
+ 	const img = document.getElementById("img");
+ 	
+ 	/* load_img인 요소 변수 생성 */
+ 	const load_btn = document.getElementById("load_img");
+ 	//load_btn 클릭시 이벤트 처리
+ 	load_btn.addEventListener('click', (e) =>{
+ 		//img의 src 값에 사진의 경로를 설정
+ 	img.setAttribute('src','../save/${dto.pphoto}')
+ 	}); 
+ </script> 
 <button type="button" class="btn btn-default go-top" id="go-top"
 style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyphicon-chevron-up"></span></button> 
 
@@ -161,11 +230,11 @@ $(document).ready(function($) {
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br>
-		<div id="div1">div1</div>
-		<div id="div2">div2</div>
-		<div id="div3">div3</div>
-		<div id="div4">div4</div>
-		<div id="div5">div5</div>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<div id="div3"></div>
+		<div id="div4"></div>
+	
 <!-- 등록 (관리자만) -->   
          <button type="button" class="btn btn-info" id="formbtn"
          onclick="location.href='form'">

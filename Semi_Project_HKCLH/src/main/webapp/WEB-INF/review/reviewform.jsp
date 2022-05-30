@@ -15,6 +15,10 @@ pageEncoding="UTF-8"%>
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
 <style type="text/css">
 
+* {
+font-family: 'Noto Sans KR';
+}
+
 body {
   padding: 1rem;
   text-align: center;
@@ -37,7 +41,7 @@ body {
  
 .star-rating label {
   -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 2.3px;
+  -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #2b2a29;
   cursor: pointer;
 }
@@ -49,6 +53,12 @@ body {
 .star-rating label:hover,
 .star-rating label:hover ~ label {
   -webkit-text-fill-color: #fff58c;
+}
+
+#review_table{
+position: relative;
+left: 500px;
+
 }
 
 
@@ -64,14 +74,13 @@ body {
 </head>
 <body>
 <form action="insert" method="post" enctype="multipart/form-data">
-
-
-<table class="table table-bordered notice" style="width: 800px;">
-<caption><h3>리뷰 작성</h3></caption>
-
-
+<br><br>
+<label class="review_write" style="font-size: 40px;">Review</label>
+<br><br>
+<div id="review_table">
+<table class="table table-borderless review" style="width: 800px;">
 <tr>
-<th width="120" bgcolor="#FFE3EE">구매상품</th>
+<th width="120">구매상품</th>
 <td colspan="3">
 <input type="text" name="pnum" class="form-control"
  required="required" autofocus="autofocus">
@@ -80,7 +89,7 @@ body {
 
 
 <tr>
-<th width="120" bgcolor="#FFE3EE">구매자</th>
+<th width="120">구매자</th>
 <td colspan="3">
 <input type="text" name="rname" class="form-control"
  required="required" autofocus="autofocus">
@@ -88,7 +97,7 @@ body {
 </tr>
 
 <tr>
-<th style="width: 100px; background-color:#FFE3EE">리뷰 이미지</th>
+<th style="width: 100px;">리뷰 이미지</th>
 <td>
  <input type="file" name="upload" class="form-control"
  multiple="multiple">
@@ -96,7 +105,7 @@ body {
 </tr>
 
 <tr> <!-- 별점 부분 -->
-<th width="120" bgcolor="#FFE3EE" >상품은 만족하셨나요?</th>
+<th width="150">상품은 만족하셨나요?</th>
 <td colspan="3">
 <div class="star-rating space-x-4 mx-auto">
 	<input type="radio" id="5-stars" name="rrate" value="5" v-model="ratings"/>
@@ -123,14 +132,15 @@ body {
 <textarea style="width: 100%; height: 100px;" name="rcontent" id="rcontent"
 class="form-control" required="required"></textarea>
 </tr>
-
+<br>
 <tr>
 <td colspan="4" align="center">
-<button type="submit" class="btn btn-success"
-style="width:140px;" onclick="submitContents(this)">리뷰 작성</button>
+<button class="btn btn-primary btn-lg btn-block" type="submit" 
+style="background-color: black; border-radius: 10px;" onclick="submitContents(this)">리뷰 등록</button>
 </td>
 </tr>
 </table>
+</div>
 <br><br>
 </form>
 

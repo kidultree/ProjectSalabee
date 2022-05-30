@@ -93,7 +93,7 @@
 		<tr>
 			<td colspan="2" align="center">
 				<button type="submit" class="btn btn-danger" 
-				onclick="submitContents(this)">상품 등록</button>
+				onclick="submitContents(this)">등록하기</button>
 			</td>
 		</tr>
 	</table>

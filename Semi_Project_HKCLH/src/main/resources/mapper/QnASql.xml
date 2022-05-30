@@ -3,20 +3,20 @@
 <mapper namespace="data.mapper.QnAMapperInter">
 
 <!-- qna 삽입 -->
-<insert id="insertQnA" parameterType="notice">
-insert into QnA (qnum, qcate, mid, qcontent, qimg, qstate, qdate) values (
-#{qnum}, #{qcate}, #{qtitle}, #{mid}, #{qcontent}, #{qimg}, #{qstate}, now()
+<insert id="insertQnA" parameterType="qna">
+insert into QnA (qnum, qcate, qtitle, qcontent, mid, qimg, qstate, qdate) values (
+#{qnum}, #{qcate}, #{qtitle}, #{qcontent}, #{mid}, #{qimg}, #{qstate}, now()
 )
 </insert>
 
 
 <!-- 리스트 -->
 <select id="getQnAList" parameterType="Map" resultType="qna">
-	select * from QnA 
+	select * from QnA order by qnum desc
 </select>
 
 
-<!-- 수정 -->
+
 <select id="getData" parameterType="int" resultType="qna">
 select * from QnA where qnum = #{qnum}
 </select>
@@ -40,6 +40,18 @@ select count(*) from QnA
 		update QnA set restep=restep+1 where reg=#{reg} and restep > #{restep} 
 		<!-- 같은 그룹이면서 전달받은 restep보다 큰 경우 모조리 +1 -->
 	</update>
+
+<!-- 수정 -->
+<update id="updateQnA" parameterType="qna">
+		update QnA set qtitle = #{qtitle}, qcontent=#{qcontent}
+		<if test="qimg!=null">
+			,qimg=#{qimg}
+		</if>
+			where qnum=#{qnum}
+	</update>
+
+
+
 
 </mapper>
 	

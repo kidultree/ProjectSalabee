@@ -50,7 +50,7 @@ nav.navbar {
 	color: white;
 	text-align: center;
 	position: relative;
-	right: 200px;
+	right: 170px;
 	font-family: fantasy;
 }
 
@@ -209,7 +209,7 @@ ul.sub li {
 				<li><a>COMMUNITY</a>
 					<ul class="sub">
 						<li><a href="/notice/list">Notice</a></li>
-						<li><a href="#">Review</a></li>
+						<li><a href="/review/list">Review</a></li>
 						<li><a href="/qna/list">QnA</a></li>
 					</ul></li>
 			</ul>
@@ -234,6 +234,13 @@ ul.sub li {
 						id="loginicon" style="width: 30px">
 					</a>
 				</c:if>
+				
+				<c:if test="${sessionScope.loginok!=null}">
+					<a href="/mypage?mId=${sessionScope.mId}"> <img src="${root}/image/login.png"
+						id="loginicon" style="width: 30px">
+					</a>
+				</c:if>
+				
 				<c:if test="${sessionScope.loginok!=null}">
 					<a href="/login/logout"> <img src="${root}/image/logout.png" id="logouticon"
 						style="width: 30px">

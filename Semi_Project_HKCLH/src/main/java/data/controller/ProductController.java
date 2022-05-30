@@ -83,16 +83,35 @@ public class ProductController {
    
    
    @GetMapping("/goods")
-	public String goods()
-	{
-		return "/product/goods";		
-	}
-	
+   public ModelAndView goods()
+   {
+      ModelAndView mview=new ModelAndView();
+      
+      //mapper 로부터 총 갯수 가져오기
+      int totalCount=productMapper.getTotalProductCount();
+      List<ProductDto> list=productMapper.getProductList();
+      //model에 저장
+      mview.addObject("totalCount", totalCount);
+      mview.addObject("list", list);
+
+      mview.setViewName("/product/goods");
+      return mview;
+   }
    @GetMapping("/myset")
-	public String myset()
-	{
-		return "/product/myset";		
-	}
+   public ModelAndView myset()
+   {
+      ModelAndView mview=new ModelAndView();
+      
+      //mapper 로부터 총 갯수 가져오기
+      int totalCount=productMapper.getTotalProductCount();
+      List<ProductDto> list=productMapper.getProductList();
+      //model에 저장
+      mview.addObject("totalCount", totalCount);
+      mview.addObject("list", list);
+
+      mview.setViewName("/product/myset");
+      return mview;
+   }
 	
    @GetMapping("/detail")
    public ModelAndView detail(

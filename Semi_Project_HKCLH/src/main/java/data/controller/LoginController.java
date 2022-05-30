@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import data.dto.MemberDto;
+import data.mapper.LoginMapperInter;
 import data.mapper.MemberMapperInter;
 
 
@@ -23,6 +24,7 @@ import data.mapper.MemberMapperInter;
 public class LoginController {
 	
 	@Autowired MemberMapperInter memberMapper;
+	@Autowired LoginMapperInter loginMapper;
 
 	@GetMapping("/loginform")
 	public String login()
@@ -62,32 +64,97 @@ public class LoginController {
 
 		}
 		else {			
-			
-			session.setAttribute("error", "error");
 			return "redirect:/login/loginform";
 
 		}
-}
+	}
 	
+	@PostMapping("/process2")
+	@ResponseBody
+	public Map<String, String> pocess(@RequestParam String mId,
+			@RequestParam String mPassword,
+			@RequestParam(required = false) String chkid,
+			HttpSession session){
+		
+		Map<String, String> map=new HashMap<>();
+		
+		map.put("mId", mId);
+		map.put("mPassword", mPassword);
+		
+		int n=memberMapper.login(map);
+		if(n==1)
+		{
+			session.setAttribute("mId", mId);
+			
+			//로그인한 아이디의 mName값 얻어오기
+			String mName=memberMapper.getmName(mId);
+			session.setAttribute("mName", mName);
+			session.setAttribute("mId", mId);
+			session.setAttribute("saveok", chkid==null?"no":"yes");
+			session.setAttribute("loginok", "yes");
+			
+			map.put("error", "ok");
+			
+			return map;
+
+		}
+		else {			
+			map.put("error", "no");
+			return map;
+
+		}
+		
+	}
 	
 	@GetMapping("/logout")
 	//@ResponseBody
 	public String logout(HttpSession session)
 	{
 		session.removeAttribute("loginok");
-		session.removeAttribute("error");		
 		return "redirect:/";
 	}
 	
-	@GetMapping("/findid")
-	public String findid() {
+	@GetMapping("/findidpage")
+	public String findidpage() {
 		
 		return "/login/findid";
 	}
 	
-	@GetMapping("/findpass")
-	public String findpass() {
+	@GetMapping("/findpasspage")
+	public String findpasspage() {
 		
 		return "/login/findpass";
+	}
+	
+	@PostMapping("/findid")
+	@ResponseBody
+	public Map<String, String> findid(@RequestParam String mName,
+			@RequestParam String mEmail){
+		
+		Map<String, String> map=new HashMap<>();
+		
+		String mId=loginMapper.findmId(mName, mEmail);
+		
+		map.put("mId", mId);		
+		
+		return map;		
+	}
+	
+	@PostMapping("/findpass")
+	@ResponseBody
+	public Map<String, String> findpass(@RequestParam String mId,
+			@RequestParam String mName,
+			@RequestParam String mEmail){
+		
+		Map<String, String> map=new HashMap<>();
+		
+		String mPassword=loginMapper.findmPassword(mId,mName, mEmail);
+		
+		map.put("mPassword", mPassword);	
+		map.put("mId", mId);
+		map.put("mName", mName);
+		map.put("mEmail", mEmail);
+		
+		return map;		
 	}
 }
