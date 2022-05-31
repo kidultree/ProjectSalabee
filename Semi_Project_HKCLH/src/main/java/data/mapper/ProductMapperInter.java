@@ -19,7 +19,7 @@ public interface ProductMapperInter {
    
    //디테일
    public ProductDto getProduct(int pnum); //()dto에서 받아옴
-   public List<ProductOptionDto> getProductOptionList(int pnum);
-   //List 이차원배열
+   public List<ProductOptionDto> getProductOptionList(int pnum);//List 이차원배열
+   
    
 }

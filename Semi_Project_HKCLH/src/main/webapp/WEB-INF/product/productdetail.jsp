@@ -411,10 +411,51 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
     }
 .del:hover{color:#b13e3e; }
 
-
+/*qna*/
+.qwrapper {
+            margin: 0;
+            padding: 0px;
+            text-align: center;
+            width: 995px;
+            
+        }  
+  
+        #table_detail {
+        	font-family: 'Noto Sans KR';
+        	font-weight: 500;
+        	font-size: 15px;
+            width: 1000px;
+            text-align: left;
+            border-collapse: collapse;
+            color: #2E2E2E;
+            border: #A4A4A4;
+            height: 300px;
+        }
+  
+        #table_detail tr:hover {
+            background-color: #F2F2F2;
+        }
+  
+        #table_detail .hidden_row {
+            display: none;
+        }
+        
+        #table_detail tr{
+        line-height: 65px;
+        }
+        
+        #table_detail th{
+        text-align: center;
+        border-bottom: solid #444444;
+        font-size: 17px;}
+        
+        /*.qtitle{
+        	background-color: #F2F2F2;
+        }*/
 </style>
 </head>
 <body>
+<br>
 <div class="content">
    <div class="leftlay">
       
@@ -425,7 +466,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
             <img  src="../save/${dto.pphoto}" style="width: 480px; height: 600px" align="left">
              </li>
              <li>               
-            <img  src="../save/detailpphoto.jpg" style="width: 480px; height: 600px" align="left">
+            <img  src="../save/${dto.pphoto2}" style="width: 480px; height: 600px" align="left">
              </li>     
             </ul>   
               <!--controls-->
@@ -495,11 +536,12 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
       </tr>
       </table>
     
-      <br><br><br><br><br>
+      <br><br><br><br><br><br>
       </div><!-- right -->
+      
+      
       <!-- tab -->
       <div class="container">
-
       <ul class="tabs">
          <li class="tab-link current" data-tab="tab-1">상세정보</li>
          <li class="tab-link" data-tab="tab-2">사용법 및 주의사항</li>
@@ -511,6 +553,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
       <div id="tab-1" class="tab-content current">
          ${dto.pcontent}
       </div>
+      
       <div id="tab-2" class="tab-content">
          <br><br>
          <img src="../save/use.jpg" style="width: 900px;"><br><br>
@@ -522,6 +565,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
          [보관 및 취급시의 주의사항] <br>가) 어린이의 손에 닿지 않는 곳에 보관할 것 <br>나) 직사광선을 피해서 보관할 것<br>
          품질보증기준 : 공정거래위원회 고시 소비자분쟁해결기준에 의해 보상해 드립니다.
       </div>
+      
       <div id="tab-3" class="tab-content">
          <br><br><br><br>
          <img src="../save/del.jpg" style="width: 1000px; ">
@@ -544,15 +588,155 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
                <td>주문 후 1~2일(예약상품과 입고지연상품 제외<br>택배사 상황에 따라 지연될 수도 있으니 양해부탁드립니다.</td>
             </tr>
          </table>
-         
-      </div>
-      <div id="tab-4" class="tab-content">
-         <button type="button" class="rebtn" id="rebtn" onclick="location.href='../review/form'">리뷰 작성하기</button>
-      </div>
-      <div id="tab-5" class="tab-content">
-         <button type="button" class="qnabtn" id="qnabtn" onclick="location.href='../qna/form'">1:1 문의하기</button>
       </div>
       
+      <div id="tab-4" class="tab-content">
+         <button type="button" class="rebtn" id="rebtn" onclick="location.href='../review/form'">리뷰 작성하기</button>
+         
+<label style="font-size: 40px;" class="review_label">Review</label>
+<div id="review_cate">
+<br>&nbsp; &nbsp; <!-- 리뷰 정렬 카테고리 -->
+	<label id="latest">최신순</label>
+	<b>/</b>
+	<label id="high_rrate">별점순</label>
+	<b>/</b>
+	<label id="pnumreviewlist">상품별 리뷰보기</label>
+
+</div><br><br>
+	<c:forEach var="dto" items="${list}" varStatus="i">
+	<div id="review">
+		<table class="table table-borderless" id="review_table">
+			<thead>
+				<tr style="height: 30px;">
+					<td colspan="4"> <!-- 별점 value 따라서 별 show -->
+					<c:if test="${dto.rrate == '1'}">
+						<label id="star">★ 별로에요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '2'}">
+						<label id="star">★★ 그냥 그래요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '3'}">
+						<label id="star">★★★ 보통이에요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '4'}">
+						<label id="star">★★★★ 맘에 들어요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '5'}">
+						<label id="star">★★★★★ 아주 좋아요</label>
+					</c:if>
+					
+					</td>
+					<td colspan="2" rowspan="3"><b>${sessionScope.mname}</b>&nbsp;님이 작성한 리뷰입니다.<br>
+					<br><b>작성일:</b> <fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<img src="${root}/save/${dto.pphoto}" style="width:100px;">&nbsp;&nbsp;${dto.pname}
+						</td>
+					<td colspan="2">구매상품 : ${dto.pnum}</td>
+				</tr>
+				<tr>
+					<td colspan="4"><img src="../save/${dto.rphoto}" width="80" height="80" border="1">
+					리뷰내용 : ${dto.rcontent}</td>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	</c:forEach>
+      </div>
+      
+      <div id="tab-5" class="tab-content">
+      	 <br><br><br>
+         <div class="qwrapper">
+           <table id="table_detail"  style="align:center; cellpadding:10;">
+            <tr class="qtitle">
+                <th>제목</th>
+                <th>작성일</th>
+            </tr>
+            
+            <tr onclick="showHideRow('hidden_row1');">
+                <td>계절별 향수를 알고싶어요</td>
+                <td style="text-align: center;">2022-05-24 12:15</td>
+            </tr>
+           
+            <tr id="hidden_row1" class="hidden_row">
+                <td colspan=4 >
+                    <br>&nbsp;&nbsp;
+                    	각 제품 상세페이지에 해당 제품을 즐기기 좋은 계절이 표기되어 있습니다.<br>&nbsp;&nbsp;
+						상세 페이지를 참고해 주셔도 좋고 아래의 내용을 참고로 고르셔도 좋습니다.<br><br>&nbsp;&nbsp;
+ 						봄 : 백색향, 물기 머금은 장미, 은은한 비누, 로맨틱로즈, 너티크림 초코라떼, 여름의 오렌지길 <br>&nbsp;&nbsp;
+  						#부드러운 #비누향 #사랑스러운 #깔끔한 #장미 # 가벼운 #포근한 #꽃잎 
+    			        #깔끔한 #청순한 #달콤한 #달달한 #커피 #초콜릿 #초여름 #투명한 #푸르른<br><br>&nbsp;&nbsp;
+						여름 : 연둣빛 풀꽃, 물속으로 다이빙, 봄비에 꽃망울, 풀잎 위 아침이슬, 오렌지빛 꽃물, 놀이동산 데이트, 회색빛 시간, 초록빛 기억 <br>&nbsp;&nbsp;
+					    #청량한 #투명한 #풀숲  #시원한  #샤프한  #물  #내추럴  #프리지아  #산뜻한  
+					    #풀잎  #오렌지  #새콤한 #순수한 #풀꽃 #데일리 #소나무  #시원한  #차분한 #들꽃 <br><br>&nbsp;&nbsp;
+						가을 : 달빛 가득 돌담길, 밤바다 드라이브, 우아한 코트  <br>&nbsp;&nbsp;
+						#나무껍질  #차분한  #지적인  #열정적인  #시원한  #물  #우아한  #자스민  #달콤한<br><br>    &nbsp;&nbsp; 
+						겨울:  투명한 바람, 바삭한 가을바람, 상큼달달 과즙, 어른의 솜사탕, 포근한 겨울밤, 평온한 인센스, 서랍 깊은 곳에 잠들어 있는 손편지의 추억<br>&nbsp;&nbsp;
+						#차분한  #깔끔한  #겨울숲  #지적인  #나무  #섬세한  #달콤한  #귀여운  #과일  
+						#달달한  #바닐라  #어른이  #부드러운  #바닐라  #포근한  #다정한  #빈티지우드<br><br>&nbsp;&nbsp;
+				 </td>
+            </tr>
+  
+            <tr onclick="showHideRow('hidden_row2');">
+                <td>향 테스트를 해보고 싶어요</td>
+                <td style="text-align: center;">2022-05-24 14:20</td>
+               
+            </tr>
+            <tr id="hidden_row2" class="hidden_row">
+                <td colspan=4 >
+                  &nbsp;&nbsp;직접 시향하지 않아도 취향 맞춤 향을 추천해주는 퍼퓸텔러를 통해 소용량인 데일리키트 구매를 추천해 드립니다.
+                </td>
+            </tr>
+  
+            <tr onclick="showHideRow('hidden_row3');">
+                <td>직접 가서 시향할 수 있는 오프라인 매장은 없나요?</td>
+                <td style="text-align: center;">2022-05-24 14:22</td>
+               
+            </tr>
+            <tr id="hidden_row3" class="hidden_row">
+                <td colspan=4>
+                   &nbsp;&nbsp;오프라인 매장은 운영하고 있지 않습니다.<br>
+				   &nbsp;&nbsp;My Set를 통해 나에게 맞는 향을 추천받고 소용량의 데일리키트로 먼저 체험해보시길 권장드립니다.<br>
+                </td>
+            </tr>
+  
+            <tr onclick="showHideRow('hidden_row4');">
+                <td>문의사항이 있을 경우에는 어느 채널을 통해 문의해야 하나요?</td>
+                <td style="text-align: center;">2022-05-25 11:25</td>
+            
+            </tr>
+            <tr id="hidden_row4" class="hidden_row">
+                <td colspan=4>
+                   각종 문의를 하실 수 있는 fragbit의 채널은 다음과 같습니다.<br>
+				<br>- fragbit web site 1:1 문의 게시판<br>
+				- fragbit 고객센터 메일: help@fragbit.com <br>
+				- fragbit 1:1 대화 : 홈페이지 우측 하단 1:1  클릭 <br>
+				- 고객센터 전화 : 070-4948-8028 <br>
+                </td>
+            </tr>
+            <tr onclick="showHideRow('hidden_row5');">
+                <td>FragBit의 이전 향수를 구입하고 싶어요</td>
+                <td style="text-align: center;">2022-05-25 13:11</td>
+            </tr>
+            <tr id="hidden_row5" class="hidden_row">
+                <td colspan=4>
+                    fragbit의 향수가 2019년 8월 리뉴얼되어 이전 상품은 더 이상 공식 판매하고 있지 않습니다. <br>
+					일부 판매되던 향수의 경우도 유통기한 마감으로 인해 더 이상 판매되지 않고 있으니 양해 부탁드립니다.<br>
+					감사합니다.
+                </td>
+            </tr>
+        </table>
+	   </div>
+	   <br><br><br>
+	   <button type="button" class="qnabtn" id="qnabtn" onclick="location.href='../qna/form'" 
+	   style="float: right; margin-right: 105px;">1:1 문의하기</button>
+      </div><!-- tap5 -->
+ 
    </div><!-- container -->
    
    <br><br><br>
@@ -684,14 +868,8 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
      
       <div class="buttons" style="margin-left: 0px;">   
       <br>   
-         <!-- 목록 -->   
-         <button type="button" class="btn btn-info" id="listbtn"
-         onclick="location.href='list'">
-         목록</button>
-          
          <!-- 수정삭제(관리자만) -->
-<%--          <c:if test="${sessionScope.loginok!=null}"> 
-            <c:if test="${dto.id==sessionScope.loginid}">  --%>
+            <c:if test="${mId=='fragbit'}">  
             
                <button type="button" class="btn btn-warning" id="upbtn"   
                onclick="location.href='updateform?num=${dto.pnum}'"> 
@@ -715,8 +893,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
                   
                });
                </script>
-<%--             </c:if> --%>
-<%--          </c:if> --%>
+             </c:if> 
       </div> 
       <br><br>
    </div> <!-- content전체!!!! -->
@@ -741,11 +918,16 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
 
 
 <script type="text/javascript">
+<%--tap5 qna--%>
+function showHideRow(row) {
+    $("#" + row).toggle();
+}
+
 <%--장바구니추가-->
 $(document).ready(function() {
       $("#addcart").on("click",function(){
-         let form_contents='';
-         let orderNumber = 0;
+      	 var cart =[];
+
          
          $(".addop").each(function(index,element){
            let oid = $(element).find().val();
@@ -758,6 +940,7 @@ $(document).ready(function() {
             type:"post",
             dataType:"json",
             url:"/cart/insert",
+            traditional : true,
             data:{
                 "pnum":$("#pnum").val()//상품번호
                 "mid":$("#mid").val()//로그인아이디
@@ -914,6 +1097,8 @@ function totPayCal() {
    
    $('#totPayment').text(totPrice);   
 }
+
+
 
 </script>
 </html>

@@ -30,7 +30,12 @@
 	</select>
 
 	<select id="getmIdReviewList" parameterType="String" resultType="review">
-		select * from review where mid=#{mId}
+		select * from review 
+		
+		join product
+		
+		where mid=#{mId}
+		and product.pnum=review.pnum
 	</select>
 
 

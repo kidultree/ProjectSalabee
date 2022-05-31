@@ -18,11 +18,27 @@
 		font-family: 'Noto Sans KR', sans-serif;
 	}
 	
-	.productform{
-	position: relative;
-	left: 500px;
-	}
 	
+	.insertbtn {
+        display:block;
+        width:200px; 
+        height:40px;  
+        border:1.5px black solid;;
+        font-size:15px;
+        background-color:white;  
+        text-align:center; 
+        cursor: pointer;  
+
+        color:#333; 
+        transition:all 0.9s, color 0.3;  
+    }
+    
+.insertbtn:hover{color:#fff; background-color: black;}
+
+.ct{
+	margin: 0 auto;
+	width:50%;
+}
 </style>
 
 
@@ -49,10 +65,11 @@ function change_bt(act){
 	}
 }
 </script>
+<div class="ct">
 <form name="insert" action="insert" method="post" enctype="multipart/form-data" class="productform">
 <!-- hidden 5개 -->
 
-	<table class="table table-borderless product" style="width: 700px;">
+	<table class="table table-borderless product" style="width: 916px;">
 		<h2>상품 등록</h2><br><br>
 		<tr>
 			<th width="120" bgcolor="">상품명</th>
@@ -119,15 +136,15 @@ function change_bt(act){
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center">
-				<button type="submit" class="btn btn-danger" 
-				onclick="submitContents(this)">등록하기</button>
+			<td colspan="2" align="center" style="height: 100px; margin-top: 30px;"  >
+				<button type="submit" class="insertbtn" 
+				onclick="submitContents(this)">상품등록</button>
 			</td>
 		</tr>
 	</table>
 	<br><br>
 </form>
-
+</div>
 <!-- 스마트게시판에 대한 스크립트 코드 넣기 -->
 <script type="text/javascript">
 	var oEditors = [];

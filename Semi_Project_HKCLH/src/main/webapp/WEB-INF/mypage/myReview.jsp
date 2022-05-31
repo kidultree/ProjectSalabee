@@ -63,6 +63,41 @@ pageEncoding="UTF-8"%>
   
   }
   
+  #review_table{
+	font-family: 'Noto Sans KR';
+	width: 1000px;
+	height: 250px;
+	border-bottom: solid;
+}
+
+#review{
+
+	position: relative;
+	left: 400px
+
+}
+
+.review_label{
+	font-family: 'Noto Sans KR';
+	position: absolute;
+	top: 140px;
+  	left: 150px;
+  	margin-bottom: 30px;
+}
+
+div #review_cate{
+	font-family: 'Noto Sans KR';
+	font-size : 20px;
+	width: 260px;
+	height: 50px;
+	position: relative;
+	top: 100px;
+	left: 100px;
+	border-top: 3px solid #000000;
+}
+
+
+  
 </style>
 <script type="text/javascript">
 
@@ -91,7 +126,6 @@ pageEncoding="UTF-8"%>
 
 	
 <input type="hidden" id="mId" name="mId" value="${mId}">
-<span id="faq-title"><b>${mId } 마이페이쥐이이이이이잉 ${mName }</b></span>
 <div class="notice">
 <a>
 
@@ -123,15 +157,15 @@ pageEncoding="UTF-8"%>
   <button class="question" id="que-6"><span id="que-6-toggle">+</span><span>회원 탈퇴</span></button>
 </div>
 
-<div class="container" style="position: absolute; left: 600px; top:200px; border: 1px solid black;">
+<div class="container" style="position: absolute; left: 300px; top:-20px; border: 0px solid black;">
 <label style="font-size: 40px;" class="review_label">Review</label>
 <div id="review_cate">
 <br>&nbsp; &nbsp; <!-- 리뷰 정렬 카테고리 -->
-	<label id="latest">최신순</label>
+	<!-- <label id="latest">최신순</label>
 	<b>/</b>
 	<label id="high_rrate">별점순</label>
 	<b>/</b>
-	<label id="pnumreviewlist"><a href="/review/pnumlist">상품별 리뷰보기</a></label>
+	<label id="pnumreviewlist"><a href="/review/pnumlist">상품별 리뷰보기</a></label>-->
 
 </div><br><br>
 	<c:forEach var="dto" items="${list}" varStatus="i">
@@ -161,7 +195,7 @@ pageEncoding="UTF-8"%>
 					</c:if>
 					
 					</td>
-					<td colspan="2" rowspan="3"><b>${dto.mid}</b>&nbsp;님이 작성한 리뷰입니다.<br>
+					<td colspan="2" rowspan="3"><b>${mId}</b>&nbsp;님이 작성한 리뷰입니다.<br>
 					<br><b>작성일:</b> <fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
 				</tr>
 				<tr>
