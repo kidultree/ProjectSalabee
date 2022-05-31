@@ -281,7 +281,7 @@
 								<c:forEach begin="1" end="${dto.relevel}">
 								 	&nbsp;&nbsp;
 								</c:forEach>
-								<img src="../image/re.png">
+								<img src="../save/re.png">
 							</c:if>
 							
 							
