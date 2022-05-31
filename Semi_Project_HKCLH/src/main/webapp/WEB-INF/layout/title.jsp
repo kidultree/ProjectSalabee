@@ -260,7 +260,7 @@ ul.sub li {
 				
 				<c:if test="${sessionScope.loginok==null}">
 			
-				<a href="/cart/list"> <img src="${root}/image/cart.png"
+				<a href="/login/loginform"> <img src="${root}/image/cart.png"
 						id="carticon" style="width: 30px">
 				</a>
 				

@@ -28,6 +28,10 @@
 	<select id="getReviewList" resultType="review">
 		select * from review order by rnum desc
 	</select>
+
+	<select id="getmIdReviewList" resultType="review">
+		select * from review where mid=#{mId}
+	</select>
 	
 	
 	<select id="getPnumReviewList" resultType="review">
