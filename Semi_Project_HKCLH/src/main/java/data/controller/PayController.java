@@ -56,6 +56,10 @@ public class PayController {
 				
 			}
 		}
+		
+		mapper.deleteOrderinfo();
+		mapper.deleteCart();
+		
 		return "/cart/buyform";		
 	}
 }

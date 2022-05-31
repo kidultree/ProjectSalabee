@@ -10,4 +10,7 @@ public interface PayMapperInter {
 
 	public void insertPay(PayDto dto);
 	
+	public void deleteOrderinfo();
+	public void deleteCart();
+	
 }

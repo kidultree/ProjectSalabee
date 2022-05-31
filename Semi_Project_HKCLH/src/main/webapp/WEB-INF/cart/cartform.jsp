@@ -59,12 +59,12 @@
 </script>
 
 <body>
-<br><br><br><br><br><br><br>
+<br><br><br>
 <div class="wrapper">
 
 <div class="wrap">
 
-<br><br><br><br><br>
+<br><br>
 
 
 <div class="cart-title">Cart</div>
