@@ -106,7 +106,7 @@
 		<td>
 			<div class="number-input">	
 				<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus btn-minus"></button>
-				<input class="quantity" min="1" name="quantity" value="${cList2.cquantity}" type="number">
+				<input class="quantity" min="1" name="quantity" value="${cList2.cquantity}" type="number" id="quantity">
 				<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus btn-plus"></button>
 			</div>
 		</td>
@@ -305,6 +305,8 @@ $('.btn-plus, .btn-minus').on('click', function(e) {
 	$("span.totalPrice_span").text(price);
 	$("span.finalTotalPrice_span").text(price+deliveryPrice2);
 	$("span.delivery_price").text(deliveryPrice2);
+	var s=$("span.finalTotalPrice_span").text(price+deliveryPrice2);
+	$("#quantity").value(s);
 });
 
 

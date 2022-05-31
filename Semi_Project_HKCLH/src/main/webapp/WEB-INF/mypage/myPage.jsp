@@ -87,7 +87,6 @@ pageEncoding="UTF-8"%>
 <body>
 
 <input type="hidden" value="${mId}">
-<span id="faq-title"><b>${mId } 마이페이쥐이이이이이잉 ${mName }</b></span>
 <div class="notice">
 <a>
 <div class="faq-content" >

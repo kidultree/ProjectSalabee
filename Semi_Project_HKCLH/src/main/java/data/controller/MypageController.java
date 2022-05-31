@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.MemberDto;
+import data.dto.QnADto;
 import data.dto.ReviewDto;
 import data.mapper.CartMapperInter;
 import data.mapper.LoginMapperInter;
 import data.mapper.MemberMapperInter;
+import data.mapper.QnAMapperInter;
 import data.mapper.ReviewMapperInter;
 
 @Controller
@@ -33,6 +35,7 @@ public class MypageController {
 	@Autowired LoginMapperInter loginMapper;
 	@Autowired CartMapperInter cartMapper;
 	@Autowired ReviewMapperInter reviewMapper;
+	@Autowired QnAMapperInter qnaMapper;
 
 	
 	@GetMapping()
@@ -69,8 +72,17 @@ public class MypageController {
 
 	
 	@GetMapping("/qna")
-	public String myqna() {
-		return "/mypage/myQnA";
+	public ModelAndView myqna(@RequestParam String mId) {
+		ModelAndView mview=new ModelAndView();
+				
+		List<QnADto> list=qnaMapper.getmyQnA(mId);
+		
+		mview.addObject("list",list);
+		
+		
+		mview.setViewName("/mypage/myQnA");
+		
+		return mview;
 	}
 	
 	@GetMapping("/alter")

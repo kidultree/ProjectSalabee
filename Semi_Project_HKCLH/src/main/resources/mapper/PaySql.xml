@@ -3,7 +3,7 @@
 
 <mapper namespace="data.mapper.PayMapperInter">
 	<insert id="insertPay" parameterType="Pay">
-		insert into pay (mid,pydate,pyname,pyphoto,pyoption,pyquantity,pydelivery)
-		 values (#{mid},#now(),#{pyname},#{pyphoto},#{pyoption},#{pyquantity},#{pydelivery})
+		insert into pay (mid,pydate,pyname,pyprice,pyphoto,pyoption,pyquantity,pydelivery)
+		 values (#{mid},now(),#{pyname},#{pyprice},#{pyphoto},#{pyoption},#{pyquantity},"배송 준비중")
 	</insert>
 </mapper>

@@ -21,5 +21,6 @@ public interface QnAMapperInter {
 	public int getMaxNum();
 	public void updateReStep(Map<String, Integer> map);
 	public QnADto getData(int qnum);
+	public List<QnADto> getmyQnA(String mId);
 
 }

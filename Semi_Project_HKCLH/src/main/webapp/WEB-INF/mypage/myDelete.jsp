@@ -118,7 +118,7 @@ function chk(){
 			   location.href = "/mypage/review?mId=${sessionScope.mId}";
 		});
 		$("div.qna").click(function(){
-			   location.href = "/mypage/qna";
+			   location.href = "/mypage/qna?mId=${sessionScope.mId}";
 		});
 		$("div.alter").click(function(){
 			   location.href = "/mypage/alter";
@@ -169,7 +169,6 @@ function chk(){
 <body>
 
 <input type="hidden" value="${mId}">
-<span id="faq-title"><b>${mId } 마이페이쥐이이이이이잉 ${mName }</b></span>
 <div class="notice">
 <div class="faq-content mypage" >
   <button class="question" id="que-1"><span id="que-1-toggle">+</span>
