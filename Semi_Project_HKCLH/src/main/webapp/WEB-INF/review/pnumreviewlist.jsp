@@ -40,17 +40,21 @@
 <body>
 <br><br>
 <label style="font-size: 35px;" id="pnumreview_label">상품별 리뷰보기</label>
-	<c:forEach var="dto" items="${pnumlist}">
-	<div id="pnum_review">
+
+	
+	<c:forEach var="list" items="${pnumlist}">
+
+		<c:forEach var="dto" items="${list}"> <!-- 안에 받아올 부분 -->
+			<div id="pnum_review">
 		<table class="table table-borderless" id="pnum_review_table">
-<thead>
+	<thead>
   <tr>
     <td rowspan="5" width="200px;"><img src="${root}/save/${dto.pphoto}" style="width: 160px;"></td>
     <td colspan="2" width="330px;">${dto.pname}</td>
     <td rowspan="2">개의 리뷰 전체보기</td>
   </tr>
   <tr>
-    <td colspan="2">★${dto.rrate} 리뷰${totalCount}</td>
+    <td colspan="2">★${dto.rrate}리뷰${totalCount}</td>
   </tr>
   <tr>
     <td colspan="3">별점 + 내용 한줄 (1)</td>
@@ -63,8 +67,9 @@
   </tr>
 </thead>
 </table>
-
-	</div>
+</div>
+	
+		</c:forEach>
 	</c:forEach>
 </body>
 </html>

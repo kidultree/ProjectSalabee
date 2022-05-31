@@ -39,8 +39,7 @@
 	</select>
 
 
-	
-	
+	<!-- 전체 review list -->
 	<select id="getPnumReviewList" resultType="review">
 		select * 
 		
@@ -52,17 +51,60 @@
 		where product.pnum = review.pnum 
 		and member.mid = review.mid 
 		
+		order by rnum desc
+		
 	</select>
 	
+
+	<!-- pnumlist 전체 list -->
+	<select id="getPnumList" resultType="int">
+		select product.pnum
+		
+		from review 
+		
+		join product
+		join member
+		
+		where product.pnum = review.pnum 
+		and member.mid = review.mid group by product.pnum
+	</select>
+	
+	<!-- 안쪽 list (상품별 table) -->
+	<select id="getPnumReviewPartList" resultType="review" parameterType="int">
+		select * 
+		
+		from review 
+		
+		join product
+		join member
+		
+		where product.pnum = review.pnum 
+		and member.mid = review.mid and product.pnum=#{pnum} group by product.pnum
+		
+	</select>
+
+	
+	<!-- pnum review table 들어가는 부분  -->
+
+	<!-- 총 리뷰 갯수 -->
    <select id="getTotalReviewCount" resultType="int">
       select count(*) from review
    </select>	
+   
+   <!-- 상품별 총 리뷰 갯수 -->
+      <select id="getTotalPnumReviewCount" resultType="int">
+      select count(*) from review group by pnum;
+   </select>
    
    
    <!-- 평균 별점 계산 -->
 	<select id="getAvgRrate" resultType="review">
 		select pnum, AVG(rrate) from review group by pnum;
 	</select>
-	
-	
+
+
+	<!-- 리뷰 3줄씩만 가져오기 -->
+	<select id = ""></select>
+
+
 	</mapper>

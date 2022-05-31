@@ -35,9 +35,9 @@ $(function(){
 <div class="div-buy-1">
 
 <br><br><br><br><br><br><br><br><br><br>
-<div class="title">주문서</div>
+<div class="buy-title">주문서</div>
 <div class="title2">주문하실 상품명 및 수량을 정확하게 확인해 주세요.</div>
-
+<input type="hidden" id="mid" value="${orderList[0].mid}">
 
 <div class="one">
 <div class="buy-title">배송지</div>
@@ -116,34 +116,30 @@ $(function(){
 <div class="div-two">
 <div class="buy-title">주문상품</div>
 
-<form class="hidden-buyform" action="../pay/insert" method="post">   
-          <button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color: black; border: black; border-radius: 10px;">Sign up</button>
-
 <div class="bae">
 
 	<c:forEach var="oList" items="${orderList}" varStatus="i">
 	
 <table class="buy-sangpum0">
+<tbody>
     <tr>
-        <td class="cart_info_td">
+        <td class="buy-sangpum1"><img src="${root}/save/${oList.pphoto}" style="width: 100px; height: 100px" align="left"></td>
+        
+        <td>
+            <table class="buy-sangpum1">
+            <tr>
+            <td class="cart_info_td">
 				<input type="hidden" class="individual_totalPrice_input" value="${oList.oquantity*oList.oprice}">
 				<input type="hidden" class="individual_cquantity_input param_quantity" value="${oList.oquantity}">
 		
 				<!-- pay table로 보내기 -->
-				<input type="hidden" name="mid" value="${oList.mid}">
-				<input type="hidden" name="pyname" value="${oList.pname}">
-				<input type="hidden" name="pyphoto" value="${oList.pphoto}">
-				<input type="hidden" name="pyprice" value="${oList.oprice}">
-				<input type="hidden" name="pyoption" value="${oList.oname}">
-				<input type="hidden" name="pyquantity" value="${oList.oquantity}">
-		</td>
-        
-        <td class="buy-sangpum1"><img src="${root}/save/${oList.pphoto}" style="width: 100px; height: 100px" align="left"></td>
-        
-        <td>
-            <table>
+				<input type="hidden" class="param_pnum" value="${oList.pnum}">
+				<input type="hidden" class="param_oid" value="${oList.oid}">
+				<input type="hidden" class="param_quantity" value="${oList.oquantity}">
+			</td>
+			</tr>
                 <tr>
-                    <td colspan="2" nam>${oList.pname}</td>
+                    <td colspan="2">${oList.pname}</td>
                 </tr>
                 <tr>
                     <td>옵션 : </td>
@@ -164,11 +160,12 @@ $(function(){
             </table>
         </td>
     </tr>
+</tbody>
 </table>
 	</c:forEach>
 
 
-</div><!-- one1--></form>
+</div><!-- one1-->
 </div><!-- div-two -->
 </div><!-- div-buy-2 -->
 
@@ -325,22 +322,22 @@ $(function(){
 				
 				if($("#mid").val() != ''){
 					
-					$("table.cart-table tbody tr").each(function (index, item) {
+					$("table.buy-sangpum1 tr").each(function (index, item) {
 						
 					     console.log(item);
-					     param_string += $(item).find('td.cart_info_td').find("input.param_pnum").val() + ',';
-					     param_string += $(item).find('td.cart_info_td').find("input.param_oid").val() + ',';
-					     param_string += $(item).find('td.cart_info_td').find("input.param_quantity").val() + '|';
+					     param_string += $(item).find("input.param_pnum").val() + ',';
+					     param_string += $(item).find("input.param_oid").val() + ',';
+					     param_string += $(item).find("input.param_quantity").val() + '|';
 					
 					});	
-// 					debugger;
+					debugger;
 				}
 				
 				
 				$.ajax({
 		         type:"post",
 		         dataType:"text",
-		         url:"/orderinfo/buy",
+		         url:"/pay/complete",
 		         data:{
 		        	 "mid":$("#mid").val(),
 		        	 "param_string":param_string
