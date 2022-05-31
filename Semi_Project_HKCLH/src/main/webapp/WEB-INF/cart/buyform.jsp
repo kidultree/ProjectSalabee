@@ -34,8 +34,8 @@ $(function(){
 
 <div class="div-buy-1">
 
-<br><br><br><br><br><br><br><br><br><br>
-<div class="buy-title">주문서</div>
+<br><br><br><br><br>
+<div class="buy-title0">주문서</div>
 <div class="title2">주문하실 상품명 및 수량을 정확하게 확인해 주세요.</div>
 <input type="hidden" id="mid" value="${orderList[0].mid}">
 
