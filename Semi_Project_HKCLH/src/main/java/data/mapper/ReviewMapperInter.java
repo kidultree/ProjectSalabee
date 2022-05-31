@@ -1,6 +1,7 @@
 package data.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -23,5 +24,10 @@ public interface ReviewMapperInter {
 	
 	public ReviewDto getReview(int num);
 	public int getTotalReviewCount();
+	
+	
+	public int getTotalPnumReviewCount();
+	public double getAvgRrate();
+	public List<ReviewDto> get3ReviewsList(Map<Integer, String> map);
 	
 }

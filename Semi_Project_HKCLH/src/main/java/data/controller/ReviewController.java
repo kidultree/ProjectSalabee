@@ -54,6 +54,7 @@ public class ReviewController {
 		public ModelAndView pnumlist() {
 			
 		ModelAndView mview = new ModelAndView();
+		
 		List<Integer> p = reviewMapper.getPnumList();
 		List<List<ReviewDto>> pnumlist = new ArrayList<List<ReviewDto>>();
 		 
@@ -63,6 +64,7 @@ public class ReviewController {
 			 pnumlist.add(list);			 
 			 
 		 }
+		 	
 			mview.addObject("pnumlist", pnumlist);
 			mview.setViewName("/review/pnumreviewlist");
 			return mview;

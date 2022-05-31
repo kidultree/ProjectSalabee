@@ -54,7 +54,7 @@
     <td rowspan="2">개의 리뷰 전체보기</td>
   </tr>
   <tr>
-    <td colspan="2">★${dto.rrate}리뷰${totalCount}</td>
+    <td colspan="2">★${dto.rrate}리뷰${totalCount}개</td>
   </tr>
   <tr>
     <td colspan="3">별점 + 내용 한줄 (1)</td>

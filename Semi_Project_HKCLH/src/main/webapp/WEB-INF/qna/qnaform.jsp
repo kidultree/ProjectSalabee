@@ -87,7 +87,7 @@
 <tr>
 <th style="width: 100px;">작성자</th>
 <td>
-<input type="text" class="form-control" name="mid" required="required" value="${sessionScope.mName}" disabled>
+<input type="text" class="form-control" name="mid" required="required" value="${mId}" readonly="readonly">
 </td>
 </tr>
 

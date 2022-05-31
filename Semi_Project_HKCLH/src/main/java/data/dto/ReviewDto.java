@@ -12,7 +12,6 @@ public class ReviewDto {
 
 	private int rnum;
 	private int rrate;
-	private double avgrrate;
 	private int rtitle;
 	private String rname;
 	private String rcontent;

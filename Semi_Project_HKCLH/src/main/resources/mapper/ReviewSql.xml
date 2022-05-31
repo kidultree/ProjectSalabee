@@ -84,16 +84,17 @@
 	</select>
 
 	
-	<!-- pnum review table 들어가는 부분  -->
 
 	<!-- 총 리뷰 갯수 -->
    <select id="getTotalReviewCount" resultType="int">
       select count(*) from review
    </select>	
    
+   	<!-- pnum review table 들어가는 부분  -->
+   	
    <!-- 상품별 총 리뷰 갯수 -->
       <select id="getTotalPnumReviewCount" resultType="int">
-      select count(*) from review group by pnum;
+      select pnum, count(*) from review group by pnum;
    </select>
    
    
@@ -104,7 +105,9 @@
 
 
 	<!-- 리뷰 3줄씩만 가져오기 -->
-	<select id = ""></select>
+	<select id = "get3ReviewsList" resultType="review">
+ 		select pnum, rcontent from review where pnum = ${pnum} limit 3 ;
+	</select>
 
 
 	</mapper>
