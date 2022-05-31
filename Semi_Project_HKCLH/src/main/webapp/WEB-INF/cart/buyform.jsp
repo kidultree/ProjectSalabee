@@ -116,6 +116,8 @@ $(function(){
 <div class="div-two">
 <div class="buy-title">주문상품</div>
 
+<form class="hidden-buyform" action="insert" method="post">   
+          <button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color: black; border: black; border-radius: 10px;">Sign up</button>
 
 <div class="bae">
 
@@ -126,6 +128,14 @@ $(function(){
         <td class="cart_info_td">
 				<input type="hidden" class="individual_totalPrice_input" value="${oList.oquantity*oList.oprice}">
 				<input type="hidden" class="individual_cquantity_input param_quantity" value="${oList.oquantity}">
+		
+				<!-- pay table로 보내기 -->
+				<input type="hidden" name="mid" value="${oList.mid}">
+				<input type="hidden" name="pyname" value="${oList.pname}">
+				<input type="hidden" name="pyphoto" value="${oList.pphoto}">
+				<input type="hidden" name="pyprice" value="${oList.oprice}">
+				<input type="hidden" name="pyoption" value="${oList.oname}">
+				<input type="hidden" name="pyquantity" value="${oList.oquantity}">
 		</td>
         
         <td class="buy-sangpum1"><img src="${root}/save/${oList.pphoto}" style="width: 100px; height: 100px" align="left"></td>
@@ -133,7 +143,7 @@ $(function(){
         <td>
             <table>
                 <tr>
-                    <td colspan="2">${oList.pname}</td>
+                    <td colspan="2" nam>${oList.pname}</td>
                 </tr>
                 <tr>
                     <td>옵션 : </td>
@@ -158,7 +168,7 @@ $(function(){
 	</c:forEach>
 
 
-</div><!-- one1-->
+</div><!-- one1--></form>
 </div><!-- div-two -->
 </div><!-- div-buy-2 -->
 
@@ -301,6 +311,53 @@ $(function(){
 		});
 	});
 </script>
+
+
+<script type="text/javascript">
+	$(function(){
+		
+		/* 결제하기 버튼 */
+			$("#paybtn").click(function(){
+
+				
+				// 회원 정보
+				let param_string = '';
+				
+				if($("#mid").val() != ''){
+					
+					$("table.cart-table tbody tr").each(function (index, item) {
+						
+					     console.log(item);
+					     param_string += $(item).find('td.cart_info_td').find("input.param_pnum").val() + ',';
+					     param_string += $(item).find('td.cart_info_td').find("input.param_oid").val() + ',';
+					     param_string += $(item).find('td.cart_info_td').find("input.param_quantity").val() + '|';
+					
+					});	
+// 					debugger;
+				}
+				
+				
+				$.ajax({
+		         type:"post",
+		         dataType:"text",
+		         url:"/orderinfo/buy",
+		         data:{
+		        	 "mid":$("#mid").val(),
+		        	 "param_string":param_string
+		         },
+		         success:function(data){
+		        	//alert(data.message);
+		        	//location.reload();
+		        	//location.href="/cart/buy";
+		        	 location.href="/orderinfo/buy?mid=${sessionScope.mId}";
+		         }   
+		        });
+			});
+			
+	    });
+
+</script>
+
 
 <script type="text/javascript">
 function findAddr(){
