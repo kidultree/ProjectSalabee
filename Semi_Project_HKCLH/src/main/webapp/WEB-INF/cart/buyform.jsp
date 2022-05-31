@@ -151,7 +151,7 @@ $(function(){
                 </tr>
                 <tr>
                     <td>금액 : </td>
-                    <td>${oList.oprice} 원</td>
+                    <td>${oList.oquantity*oList.oprice} 원</td>
                 </tr>
                 <tr>
                     <td>[조건]&nbsp;</td>
