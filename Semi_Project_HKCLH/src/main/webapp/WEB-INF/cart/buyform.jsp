@@ -116,7 +116,7 @@ $(function(){
 <div class="div-two">
 <div class="buy-title">주문상품</div>
 
-<form class="hidden-buyform" action="insert" method="post">   
+<form class="hidden-buyform" action="../pay/insert" method="post">   
           <button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color: black; border: black; border-radius: 10px;">Sign up</button>
 
 <div class="bae">

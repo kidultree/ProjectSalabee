@@ -22,6 +22,6 @@ public class PayDto {
 	private int pyprice;
 	
 	private String pyoption;
-	private String pyquantity;
+	private int pyquantity;
 	private String pydelivery;
 }
