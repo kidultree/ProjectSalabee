@@ -107,7 +107,7 @@
 			onclick="location.href='form?qnum=${dto.qnum}&reg=${dto.reg}&restep=${dto.restep}&relevel=${dto.relevel}&currentPage=${currentPage}'">답글</button>
 			
 			<c:if test="${sessionScope.loginok!=null}">
-				<c:if test="${sessionScope.loginid==dto.mid}">
+				<c:if test="${mId=='fragbit'}">
 				<button type="button" class="btn btn-default" onclick="location.href='updateform?qnum=${dto.qnum}&currentPage=${currentPage}'">
 				<span class="glyphicon glyphicon-edit"></span>
 				수정</button>
@@ -125,10 +125,11 @@
                <script type="text/javascript">
                $(document).ready(function() {
                   $("#delbtn").click(function(){
-                     var choice = confirm("삭제 하시겠습니까");
+                     var choice = confirm("삭제 하시겠습니까?");
                      var del = "delete?qnum=${dto.qnum}&currentPage=${currentPage}";
                      if(choice){
                         location.assign(del);
+                        alert("삭제되었습니다.");
                      };
                   });
                });

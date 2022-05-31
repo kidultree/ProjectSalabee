@@ -14,33 +14,43 @@
 <style type="text/css">
 
 #pnum_review_table{
-	width: 1400px;
+	width: 1100px;
 	height: 250px;
+	font-family: 'Noto Sans KR';
+	border-bottom: 2px solid #000000
 
 }
 
+#pnum_review{
+	position: relative;
+	left: 280px;
+
+}
+
+#pnumreview_label{
+	font-family: 'Noto Sans KR';
+	color: white;
+	background-color: #000000;
+	position: relative;
+	left: 20px;
+}
 </style>
 
 </head>
 <body>
 <br><br>
-<label style="font-size: 40px;" class="pnumreview_label">상품별 리뷰보기</label>
-<div id="review_cate">
-<br>&nbsp; &nbsp; <!-- 리뷰 정렬 카테고리 -->
-	<label id="pnumreviewlist">상품별 리뷰보기</label>
-
-</div><br><br>
+<label style="font-size: 35px;" id="pnumreview_label">상품별 리뷰보기</label>
 	<c:forEach var="dto" items="${pnumlist}">
 	<div id="pnum_review">
-		<table class="table table-bordered" id="pnum_review_table">
+		<table class="table table-borderless" id="pnum_review_table">
 <thead>
   <tr>
-    <td rowspan="5">${dto.pphoto}</td>
-    <td colspan="2">${dto.pname}</td>
+    <td rowspan="5" width="200px;"><img src="${root}/save/${dto.pphoto}" style="width: 160px;"></td>
+    <td colspan="2" width="330px;">${dto.pname}</td>
     <td rowspan="2">개의 리뷰 전체보기</td>
   </tr>
   <tr>
-    <td colspan="2">${dto.rrate}&nbsp;</td>
+    <td colspan="2">★${dto.rrate} 리뷰${totalCount}</td>
   </tr>
   <tr>
     <td colspan="3">별점 + 내용 한줄 (1)</td>

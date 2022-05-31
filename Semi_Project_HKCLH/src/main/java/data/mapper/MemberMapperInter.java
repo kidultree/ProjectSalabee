@@ -23,5 +23,6 @@ public interface MemberMapperInter {
 	public String getmName(String id);
 	
 	public int login(Map<String, String> map);
+	public int kakaologin(Map<String, String> map);
 	
 }

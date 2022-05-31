@@ -70,19 +70,19 @@ public class ProductController {
       return "redirect:list";
    }
 
-   @GetMapping("/list")
+   @GetMapping("/fragrance")
    public ModelAndView list()
    {
       ModelAndView mview=new ModelAndView();
       
       //mapper 로부터 총 갯수 가져오기
-      int totalCount=productMapper.getTotalProductCount();
-      List<ProductDto> list=productMapper.getProductList();
+      int totalCount=productMapper.getTotalProductCount("fragrance");
+      List<ProductDto> list=productMapper.getProductList("fragrance");
       //model에 저장
       mview.addObject("totalCount", totalCount);
       mview.addObject("list", list);
 
-      mview.setViewName("/product/productlist");
+      mview.setViewName("/product/fragrance");
       return mview;
    }
    
@@ -93,8 +93,8 @@ public class ProductController {
       ModelAndView mview=new ModelAndView();
       
       //mapper 로부터 총 갯수 가져오기
-      int totalCount=productMapper.getTotalProductCount();
-      List<ProductDto> list=productMapper.getProductList();
+      int totalCount=productMapper.getTotalProductCount("goods");
+      List<ProductDto> list=productMapper.getProductList("goods");
       //model에 저장
       mview.addObject("totalCount", totalCount);
       mview.addObject("list", list);
@@ -108,8 +108,8 @@ public class ProductController {
       ModelAndView mview=new ModelAndView();
       
       //mapper 로부터 총 갯수 가져오기
-      int totalCount=productMapper.getTotalProductCount();
-      List<ProductDto> list=productMapper.getProductList();
+      int totalCount=productMapper.getTotalProductCount("myset");
+      List<ProductDto> list=productMapper.getProductList("myset");
       //model에 저장
       mview.addObject("totalCount", totalCount);
       mview.addObject("list", list);

@@ -28,6 +28,17 @@
 	<select id="getReviewList" resultType="review">
 		select * from review order by rnum desc
 	</select>
+
+	<select id="getmIdReviewList" parameterType="String" resultType="review">
+		select * from review 
+		
+		join product
+		
+		where mid=#{mId}
+		and product.pnum=review.pnum
+	</select>
+
+
 	
 	
 	<select id="getPnumReviewList" resultType="review">
@@ -52,5 +63,6 @@
 	<select id="getAvgRrate" resultType="review">
 		select pnum, AVG(rrate) from review group by pnum;
 	</select>
+	
 	
 	</mapper>

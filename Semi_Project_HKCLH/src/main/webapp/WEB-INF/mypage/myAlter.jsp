@@ -168,7 +168,7 @@ function chk(){
 			   location.href = "/mypage/list";
 		});
 		$("div.review").click(function(){
-			   location.href = "/mypage/review";
+			   location.href = "/mypage/review?mId=${sessionScope.mId}";
 		});
 		$("div.qna").click(function(){
 			   location.href = "/mypage/qna";

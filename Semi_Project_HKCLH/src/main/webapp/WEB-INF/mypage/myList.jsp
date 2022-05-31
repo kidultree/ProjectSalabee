@@ -70,7 +70,7 @@ pageEncoding="UTF-8"%>
 			   location.href = "/mypage?mId=${sessionScope.mId}";
 		});
 		$("div.review").click(function(){
-			   location.href = "/mypage/review";
+			   location.href = "/mypage/review?mId=${sessionScope.mId}";
 		});
 		$("div.qna").click(function(){
 			   location.href = "/mypage/qna";

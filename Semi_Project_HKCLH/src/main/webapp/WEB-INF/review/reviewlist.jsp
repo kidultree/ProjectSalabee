@@ -21,10 +21,6 @@
 	border-bottom: solid;
 }
 
-*{
-	font-family: 'Noto Sans KR';
-}
-
 #review{
 
 	position: relative;
@@ -33,7 +29,7 @@
 }
 
 .review_label{
-
+	font-family: 'Noto Sans KR';
 	position: absolute;
 	top: 140px;
   	left: 150px;
@@ -45,6 +41,8 @@ label{
 }
 
 div #review_cate{
+	font-family: 'Noto Sans KR';
+	font-size : 20px;
 	width: 260px;
 	height: 50px;
 	position: relative;
@@ -54,12 +52,21 @@ div #review_cate{
 }
 
 #review_cate label{
-	font-size: 17px;
+
 	cursor: pointer;
 	background-color: #000000;
 	color: white;
 	font-weight: 400;
 }
+
+a:visited{
+	color: white;
+}
+
+a:link{
+	color: white;
+}
+
 </style>
 
 </head>
@@ -72,7 +79,7 @@ div #review_cate{
 	<b>/</b>
 	<label id="high_rrate">별점순</label>
 	<b>/</b>
-	<label id="pnumreviewlist">상품별 리뷰보기</label>
+	<label id="pnumreviewlist"><a href="/review/pnumlist">상품별 리뷰보기</a></label>
 
 </div><br><br>
 	<c:forEach var="dto" items="${list}" varStatus="i">
@@ -102,18 +109,25 @@ div #review_cate{
 					</c:if>
 					
 					</td>
-					<td colspan="2" rowspan="3"><b>${sessionScope.mname}</b>&nbsp;님이 작성한 리뷰입니다.<br>
+					<td colspan="2" rowspan="3"><b>${dto.mid}</b>&nbsp;님이 작성한 리뷰입니다.<br>
 					<br><b>작성일:</b> <fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<img src="${root}/save/${dto.pphoto}" style="width:100px;">&nbsp;&nbsp;${dto.pname}
+						<img src="${root}/save/${dto.pphoto}" style="width:100px;">
 						</td>
-					<td colspan="2">구매상품 : ${dto.pnum}</td>
+					<td colspan="2">구매상품 : ${dto.pname}</td>
 				</tr>
 				<tr>
+				<c:choose>
+					<c:when test = "${dto.rphoto!=''}">
 					<td colspan="4"><img src="../save/${dto.rphoto}" width="80" height="80" border="1">
-					리뷰내용 : ${dto.rcontent}</td>
+					
+					리뷰내용 : ${dto.rcontent}</td></c:when>
+					
+					<c:otherwise>
+					<td>리뷰내용 : ${dto.rcontent}</td></c:otherwise>
+				</c:choose>
 				</tr>
 			</thead>
 		</table>

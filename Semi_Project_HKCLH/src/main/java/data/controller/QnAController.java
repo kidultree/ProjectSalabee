@@ -241,7 +241,7 @@ public class QnAController {
 		mview.addObject("dto",dto);
 		mview.addObject("currentPage",currentPage);
 		
-		mview.setViewName("/sub2/board/updateform");
+		mview.setViewName("/sub2/qna/updateform");
 		return mview;
 	}
 	

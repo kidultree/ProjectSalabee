@@ -59,7 +59,7 @@
 </script>
 
 <body>
-
+<br><br><br><br><br><br><br>
 <div class="wrapper">
 
 <div class="wrap">
@@ -71,7 +71,6 @@
 
 	<!-- 회원 ID 가져오기 -->
    <input type="hidden" id="mid" value="${cList[0].mid}">
-   
    
    <!-- 카트 테이블 첫 행 -->
    <table class="cart-table" style="width:1200px;">
@@ -170,6 +169,14 @@
 <script type="text/javascript">
 	$(function(){
 		
+        /* 페이지 들어오자마자 체크박스  체크 */
+            if ($("#mid").val() == '') {
+                $("#allcheck").prop("checked", false);
+            } else {
+                $("#allcheck").prop("checked", true);
+                $(".del").prop("checked", true);
+            }
+		
 		/* 체크박스 전체선택 */
 		$("#allcheck").click(function(){
 			var chk = $(this).is(":checked"); //체크상태 확인
@@ -219,6 +226,18 @@
 		
 			$("#buybtn").click(function(){
 
+				var len = $(".del:checked").length;
+				//0명일 경우
+				
+				if(len==0){
+					window.name="parentForm";
+					window.open("<%=request.getContextPath()%>/nocart.jsp",
+							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
+					
+					//alert("장바구니에 상품이 없습니다.")
+					return;
+				}
+				
 				// 회원 정보
 				let param_string = '';
 				

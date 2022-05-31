@@ -6,12 +6,12 @@
 	<!-- form==#{dto}==dto -->
    <insert id="insertProduct" parameterType="product"> <!-- ProductDto의 @Alias("product") -->
       insert into product (pname, pprice, pcate1, pcate2, pdate, pphoto, pphoto2, pcontent) values (
-      #{pname}, #{pprice}, #{pcate1}, #{pcate2}, #{pdate}, #{pphoto}, #{pphoto2}, #{pcontent}
+      #{pname}, #{pprice}, #{pcate1}, #{pcate2}, #{pdate}, #{pphoto}, #{pphoto2}, #{pcontent}, #{ptag}
       )
    </insert>
    
-   <select id="getProductList" resultType="product">
-      select * from product order by pnum desc 
+   <select id="getProductList" parameterType="String" resultType="product">
+     select * from product where pcate1 = #{opt}  order by pnum desc 
    </select>
    
    <select id="getProduct" parameterType="int" resultType="product">
@@ -22,8 +22,8 @@
       delete from product where pnum=#{pnum}
    </delete>
    
-   <select id="getTotalProductCount" resultType="int">
-      select count(*) from product
+   <select id="getTotalProductCount" parameterType="String" resultType="int">
+      select count(*) from product where pcate1 = #{opt}
    </select>
    
    <update id="updateProduct" parameterType="product">

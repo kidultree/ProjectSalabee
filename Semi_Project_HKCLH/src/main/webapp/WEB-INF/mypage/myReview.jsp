@@ -63,8 +63,45 @@ pageEncoding="UTF-8"%>
   
   }
   
+  #review_table{
+	font-family: 'Noto Sans KR';
+	width: 1000px;
+	height: 250px;
+	border-bottom: solid;
+}
+
+#review{
+
+	position: relative;
+	left: 400px
+
+}
+
+.review_label{
+	font-family: 'Noto Sans KR';
+	position: absolute;
+	top: 140px;
+  	left: 150px;
+  	margin-bottom: 30px;
+}
+
+div #review_cate{
+	font-family: 'Noto Sans KR';
+	font-size : 20px;
+	width: 260px;
+	height: 50px;
+	position: relative;
+	top: 100px;
+	left: 100px;
+	border-top: 3px solid #000000;
+}
+
+
+  
 </style>
 <script type="text/javascript">
+
+
 	$(function(){
 		$("div.mypage").click(function(){
 			   location.href = "/mypage?mId=${sessionScope.mId}";
@@ -84,65 +121,15 @@ pageEncoding="UTF-8"%>
 	})
 </script>
 </head>
-<body>
-<!--  <script type="text/javascript">
 
-   
-   function list(){
-      var num=${dto.num};
-      var login ='${sessionScope.loginok}';
-      var loginid='${sessionScope.loginid}';
-      console.log(login,loginid);
-      
-      $.ajax({
-         type:"get",
-         dataType:"json",
-         url:"../review/list",
-         data:{"num":num},
-         success:function(data){
-               if(login=='y2es' && loginid==d.id){ //
-                  s+="&nbsp;<span class='glyphicon glyphicon-remove adel' idx="+d.idx+"></span>";
-               }
-               s+="</td>";
-               s+="</tr>";
-            });
-            
-            s+="</table>";
-            $("div.alist").html(s);
-         }
-      });
-   }
-   
-<c:forEach var="dto" items="${list}">
-	<div id="review">
-		<table class="table table-bordered" id="review_table">
-			<thead>
-				<tr>
-					<td colspan="4">별점 : ${dto.rrate}</td>
-					<td colspan="2" rowspan="3">${dto.rname}님이 작성한 리뷰입니다.<br>작성일: 
-					<fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-					<c:if test = "${dto.rphoto!=''}">
-						<img src="../save/${dto.rphoto}" width="100" height="100" border="1">
-						&nbsp;&nbsp;
-					</c:if></td>
-					<td colspan="2">구매상품 : ${dto.pnum}</td>
-				</tr>
-				<tr>
-					<td colspan="4">리뷰내용 : ${dto.rcontent}</td>
-				</tr>
-			</thead>
-		</table>
-	</div>
-	</c:forEach>}   -->
+<body>
+
 	
-<input type="hidden" value="${mId}">
-<span id="faq-title"><b>${mId } 마이페이쥐이이이이이잉 ${mName }</b></span>
+<input type="hidden" id="mId" name="mId" value="${mId}">
 <div class="notice">
 <a>
-<div class="faq-content mypage" >
+
+<div class="faq-content mypage">
   <button class="question" id="que-1"><span id="que-1-toggle">+</span>
   <span >
   마이 페이지</span></button>
@@ -170,12 +157,85 @@ pageEncoding="UTF-8"%>
   <button class="question" id="que-6"><span id="que-6-toggle">+</span><span>회원 탈퇴</span></button>
 </div>
 
-<div class="container" style="position: absolute; left: 600px; top:200px; border: 1px solid black;">
+<div class="container" style="position: absolute; left: 300px; top:-20px; border: 0px solid black;">
+<label style="font-size: 40px;" class="review_label">Review</label>
+<div id="review_cate">
+<br>&nbsp; &nbsp; <!-- 리뷰 정렬 카테고리 -->
+	<!-- <label id="latest">최신순</label>
+	<b>/</b>
+	<label id="high_rrate">별점순</label>
+	<b>/</b>
+	<label id="pnumreviewlist"><a href="/review/pnumlist">상품별 리뷰보기</a></label>-->
+
+</div><br><br>
+	<c:forEach var="dto" items="${list}" varStatus="i">
+	<div id="review">
+		<table class="table table-borderless" id="review_table">
+			<thead>
+				<tr style="height: 30px;">
+					<td colspan="4"> <!-- 별점 value 따라서 별 show -->
+					<c:if test="${dto.rrate == '1'}">
+						<label id="star">★ 별로에요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '2'}">
+						<label id="star">★★ 그냥 그래요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '3'}">
+						<label id="star">★★★ 보통이에요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '4'}">
+						<label id="star">★★★★ 맘에 들어요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '5'}">
+						<label id="star">★★★★★ 아주 좋아요</label>
+					</c:if>
+					
+					</td>
+					<td colspan="2" rowspan="3"><b>${mId}</b>&nbsp;님이 작성한 리뷰입니다.<br>
+					<br><b>작성일:</b> <fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<img src="${root}/save/${dto.pphoto}" style="width:100px;">
+						</td>
+					<td colspan="2">구매상품 : ${dto.pname}</td>
+				</tr>
+				<tr>
+				<c:choose>
+					<c:when test = "${dto.rphoto!=''}">
+					<td colspan="4"><img src="../save/${dto.rphoto}" width="80" height="80" border="1">
+					
+					리뷰내용 : ${dto.rcontent}</td></c:when>
+					
+					<c:otherwise>
+					<td>리뷰내용 : ${dto.rcontent}</td></c:otherwise>
+				</c:choose>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	</c:forEach>
+
 </div>
+
+
+
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
 </div>
+
+
 </body>
 </html>

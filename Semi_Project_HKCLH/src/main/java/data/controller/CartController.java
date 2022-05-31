@@ -86,5 +86,11 @@ public class CartController {
 		}  
 	}
 
+	
+	@GetMapping("/nocart")
+	public String nocart()
+	{
+		return "/cart/nocart";		
+	}
 
 }
