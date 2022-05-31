@@ -66,7 +66,7 @@ public class ProductController {
 	}
 	  	  
       productMapper.insertProduct(dto);
-      return "redirect:list";
+      return "redirect:myset";
    }
 
    @GetMapping("/fragrance")
