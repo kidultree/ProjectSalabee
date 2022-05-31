@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+div{ font-family: Noto Sans KR;}
+table{ font-family: Noto Sans KR;}
 
 td.buy-sangpum1{
 	padding: 15px;
@@ -58,7 +60,7 @@ div.div-two {
 	border-bottom: 1px solid lightgray;
 }
 
-div.one1 {
+div.buy-title {
 	font-weight: bold;
 	font-size: 20px;
 	border-bottom: 1px solid black;
@@ -103,4 +105,25 @@ div.shippingmsg {
 
 th {  
 	font-size: 14px;
+}
+
+table.tg  {border-collapse:collapse;border-spacing:0; width:750px;}
+.tg td{font-size:16px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{font-family: font-family: Noto Sans KR; font-size:20px; font-weight:bold;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-lqy6{text-align:right;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+
+/*주문하기 버튼*/
+div.paybtn {
+	width: 800px;
+	height: 60px;
+	background-color: black;
+	padding: 8px;
+	margin: auto;
+	cursor: pointer;
+	text-align: center;
+	font-size: 30px;
+	color: white;
 }

@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/resources/css/buy.css">
 </head>
 <script type="text/javascript">
@@ -40,7 +40,7 @@ $(function(){
 
 
 <div class="one">
-<div class="one1">배송지</div>
+<div class="buy-title">배송지</div>
 
 <div>
 	<input type="radio" id="sameaddr0" name="sameaddr" autocomplete="off" checked>
@@ -104,7 +104,7 @@ $(function(){
 
 </div><!-- div one닫기 -->
 
-</div><!-- div content닫기 -->
+</div><!-- div-buy-1 -->
 <br><br><br><br>
 
 
@@ -114,7 +114,7 @@ $(function(){
 <div class="div-buy-2">
 
 <div class="div-two">
-<div class="one1">주문상품</div>
+<div class="buy-title">주문상품</div>
 
 
 <div class="bae">
@@ -123,7 +123,13 @@ $(function(){
 	
 <table class="buy-sangpum0">
     <tr>
+        <td class="cart_info_td">
+				<input type="hidden" class="individual_totalPrice_input" value="${oList.oquantity*oList.oprice}">
+				<input type="hidden" class="individual_cquantity_input param_quantity" value="${oList.oquantity}">
+		</td>
+        
         <td class="buy-sangpum1"><img src="${root}/save/${oList.pphoto}" style="width: 100px; height: 100px" align="left"></td>
+        
         <td>
             <table>
                 <tr>
@@ -138,7 +144,11 @@ $(function(){
                     <td>${oList.oquantity} 개</td>
                 </tr>
                 <tr>
-                    <td>[조건]</td>
+                    <td>금액 : </td>
+                    <td>${oList.oprice} 원</td>
+                </tr>
+                <tr>
+                    <td>[조건]&nbsp;</td>
                     <td> / 기본배송 </td>
                 </tr>
             </table>
@@ -148,18 +158,149 @@ $(function(){
 	</c:forEach>
 
 
+</div><!-- one1-->
+</div><!-- div-two -->
+</div><!-- div-buy-2 -->
 
 
-</div><!-- div bae 닫기 -->
-
-</div><!-- div one닫기 -->
-
-</div><!-- div content닫기 -->
+<br><br><br><br><br>
 
 
+<!-- ------------------ 결제 정보 --------------------------- -->
+
+
+<div class="div-buy-2">
+
+<div class="div-two">
+<div class="buy-title">결제 정보</div>
+
+
+<div class="bae">
+
+<table class="tg">
+<tbody>
+  <tr>
+    <td class="tg-0lax">주문상품</td>
+    <td class="tg-lqy6"><span class="totalPrice_span"></span>원</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">할인/부가결제</td>
+    <td class="tg-lqy6">- 0 원</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">배송비</td>
+    <td class="tg-lqy6"><span class="delivery_price"></span>원</td>
+  </tr>
+    <tr>
+    <th class="tg-0lax">결제금액</th>
+    <th class="tg-lqy6"><span class="finalTotalPrice_span"></span>원</th>
+  </tr>
+</tbody>
+</table>
+
+
+</div><!-- one1-->
+</div><!-- div-two -->
+</div><!-- div-buy-2 -->
+
+
+
+<br><br><br><br>
+
+
+<!-- ------------------ 결제 수단 --------------------------- -->
+
+
+<div class="div-buy-2">
+
+<div class="div-two">
+<div class="buy-title">결제 수단</div>
+
+<div class="pay-body">
+<div class="buy-subtitle">결제 수단 선택</div>
+<div>
+	<input type="radio" id="pay-info1" name="pay-info" autocomplete="off" checked>
+	<label for="pay-info1">카카오페이</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="pay-info2" name="pay-info" autocomplete="off">
+	<label for="pay-info2">신용카드</label>
+	<input type="radio" id="pay-info3" name="pay-info" autocomplete="off">
+	<label for="pay-info3">휴대폰</label>
+	<input type="radio" id="pay-info4" name="pay-info" autocomplete="off">
+	<label for="pay-info4">에스크로(가상계좌)</label>
+</div>
+<div>
+	- 카카오톡 앱을 설치한 후, 최초 1회 카드정보를 등록하셔야 사용 가능합니다.<br>
+	- 인터넷 익스플로러는 8 이상에서만 결제 가능합니다.<br>
+	- 카카오머니로 결제 시, 현금영수증 발급은 ㈜카카오페이에서 발급가능합니다.
+</div>
+<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+<label for="vehicle1">결제수단과 입력정보를 다음에도 사용</label><br>
+<div>
+	
+</div>
+</div><!-- pay-body-->
+</div><!-- div-two -->
+</div><!-- div-buy-2 -->
+
+<br><br><br><br>
+
+
+
+<div class="paybtn" id="paybtn" ><span class="finalTotalPrice_span"></span>원 결제하기</div>
+
+<div class="div-buy-2">
+<div class="div-two">
+<div>
+무이자할부가 적용되지 않은 상품과 무이자할부가 가능한 상품을 동시에 구매할 경우 전체 주문 상품 금액에 대해 무이자할부가 적용되지 않습니다. <br>
+무이자할부를 원하시는 경우 장바구니에서 무이자할부 상품만 선택하여 주문하여 주시기 바랍니다. <br> <br>
+최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.
+</div>
+</div></div>
 <br><br><br><br><br><br><br><br><br><br>
-</body>
 
+</body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		  
+		/* 종합 정보 섹션 정보 삽입(초기) */
+		let totalPrice = 0;				// 총 가격
+		let totalCount = 0;				// 총 갯수
+		let deliveryPrice = 0;			// 배송비
+		let finalTotalPrice = 0; 		// 최종 가격(총 가격 + 배송비)
+		
+		$(".cart_info_td").each(function(index, element){
+			
+			// 총 가격
+			totalPrice += parseInt($(element).find(".individual_totalPrice_input").val());
+			// 총 갯수
+			totalCount += parseInt($(element).find(".individual_cquantity_input").val());
+			
+			
+			/* 배송비 결정 */
+			if(totalPrice >= 30000){
+				deliveryPrice = 0;
+			} else if(totalPrice == 0){
+				deliveryPrice = 0;	
+			} else {
+				deliveryPrice = 3000;	
+			}
+			
+			/* 최종 가격 */
+			finalTotalPrice = totalPrice + deliveryPrice;
+			
+			/* 값 삽입 */
+			// 총 가격
+			$(".totalPrice_span").text(totalPrice.toLocaleString());
+			// 총 갯수
+			$(".totalCount_span").text(totalCount);
+			// 배송비
+			$(".delivery_price").text(deliveryPrice);	
+			// 최종 가격(총 가격 + 배송비)
+			$(".finalTotalPrice_span").text(finalTotalPrice.toLocaleString());
+
+		});
+	});
+</script>
 
 <script type="text/javascript">
 function findAddr(){
