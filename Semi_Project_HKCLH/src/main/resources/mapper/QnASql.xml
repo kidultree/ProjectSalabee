@@ -4,15 +4,15 @@
 
 <!-- qna 삽입 -->
 <insert id="insertQnA" parameterType="qna">
-insert into QnA (qnum, qcate, qtitle, qcontent, mid, qimg, qstate, qdate, reg, restep, relevel) values (
-#{qnum}, #{qcate}, #{qtitle}, #{qcontent}, #{mid}, #{qimg}, #{qstate}, now(), #{reg}, #{restep}, #{relevel}
+insert into QnA (qcate, qtitle, qcontent, mid, qimg, qstate, qdate, reg, restep, relevel) values (
+#{qcate}, #{qtitle}, #{qcontent}, #{mid}, #{qimg}, #{qstate}, now(), #{reg}, #{restep}, #{relevel}
 )
 </insert>
 
 
 <!-- 리스트 -->
 <select id="getQnAList" parameterType="Map" resultType="qna">
-	select * from QnA order by qnum desc
+	select * from QnA order by reg desc, restep asc limit #{start}, #{perpage}
 </select>
 
 
@@ -37,15 +37,15 @@ select count(*) from QnA
 	</select>
 
 <update id="updateReStep" parameterType="Map">
-		update QnA set restep=restep+1 where reg=#{reg} and restep > #{restep} 
+		update QnA set restep = restep+1 where reg=#{reg} and restep > #{restep} 
 		<!-- 같은 그룹이면서 전달받은 restep보다 큰 경우 모조리 +1 -->
 	</update>
 
 <!-- 수정 -->
 <update id="updateQnA" parameterType="qna">
-		update QnA set qtitle = #{qtitle}, qcontent=#{qcontent}
+		update QnA set qtitle = #{qtitle}, qcontent = #{qcontent}
 		<if test="qimg!=null">
-			,qimg=#{qimg}
+			qimg=#{qimg}
 		</if>
 			where qnum=#{qnum}
 	</update>
