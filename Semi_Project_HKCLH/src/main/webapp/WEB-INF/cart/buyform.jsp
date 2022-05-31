@@ -122,22 +122,22 @@ $(function(){
 	
 <table class="buy-sangpum0">
 <tbody>
-    <tr>
-        <td class="buy-sangpum1"><img src="${root}/save/${oList.pphoto}" style="width: 100px; height: 100px" align="left"></td>
-        
-        <td>
-            <table class="buy-sangpum1">
-            <tr>
-            <td class="cart_info_td">
+<tr>
+ <td class="cart_info_td">
 				<input type="hidden" class="individual_totalPrice_input" value="${oList.oquantity*oList.oprice}">
 				<input type="hidden" class="individual_cquantity_input param_quantity" value="${oList.oquantity}">
 		
 				<!-- pay table로 보내기 -->
-				<input type="hidden" class="param_pnum" value="${oList.pnum}">
-				<input type="hidden" class="param_oid" value="${oList.oid}">
-				<input type="hidden" class="param_quantity" value="${oList.oquantity}">
+				<input type="hidden" class="param_pnum1" value="${oList.pnum}">
+				<input type="hidden" class="param_oid1" value="${oList.oid}">
+				<input type="hidden" class="param_quantity1" value="${oList.oquantity}">
 			</td>
-			</tr>
+</tr>
+    <tr>
+        <td class="buy-sangpum1"><img src="${root}/save/${oList.pphoto}" style="width: 100px; height: 100px" align="left"></td>
+        
+        <td>
+            <table>
                 <tr>
                     <td colspan="2">${oList.pname}</td>
                 </tr>
@@ -318,19 +318,19 @@ $(function(){
 
 				
 				// 회원 정보
-				let param_string = '';
+				let param_string1 = '';
 				
 				if($("#mid").val() != ''){
 					
-					$("table.buy-sangpum1 tr").each(function (index, item) {
+					$("table.buy-sangpum0 tbody tr td.cart_info_td").each(function (index, item) {
 						
 					     console.log(item);
-					     param_string += $(item).find("input.param_pnum").val() + ',';
-					     param_string += $(item).find("input.param_oid").val() + ',';
-					     param_string += $(item).find("input.param_quantity").val() + '|';
+					     param_string1 += $(item).find("input.param_pnum1").val() + ',';
+					     param_string1 += $(item).find("input.param_oid1").val() + ',';
+					     param_string1 += $(item).find("input.param_quantity1").val() + '|';
 					
 					});	
-					debugger;
+// 					debugger;
 				}
 				
 				
@@ -340,13 +340,13 @@ $(function(){
 		         url:"/pay/complete",
 		         data:{
 		        	 "mid":$("#mid").val(),
-		        	 "param_string":param_string
+		        	 "param_string":param_string1
 		         },
 		         success:function(data){
 		        	//alert(data.message);
 		        	//location.reload();
 		        	//location.href="/cart/buy";
-		        	 location.href="/orderinfo/buy?mid=${sessionScope.mId}";
+// 		        	 location.href="/orderinfo/buy?mid=${sessionScope.mId}";
 		         }   
 		        });
 			});
