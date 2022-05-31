@@ -1,6 +1,7 @@
 package data.controller;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -59,7 +60,7 @@ public class ProductController {
 	  dto.setPphoto2(pphoto2);
 	  try {
 		upload.transferTo(new File(path+"\\"+pphoto));
-		upload.transferTo(new File(path+"\\"+pphoto2));
+		upload2.transferTo(new File(path+"\\"+pphoto2));
 	} catch (IllegalStateException | IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -123,6 +124,7 @@ public class ProductController {
 		   ) {
 	   //num에 해당하는 dto얻기
 	   ProductDto dto = productMapper.getProduct(pnum);
+	   System.out.println(dto.getPphoto()+","+dto.getPphoto2());
 	   List <ProductOptionDto> opdto = productMapper.getProductOptionList(pnum);
 	   ModelAndView mview = new ModelAndView();
 	   mview.addObject("dto",dto);
