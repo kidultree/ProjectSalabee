@@ -49,7 +49,7 @@ Signika+Negative:wght@300&display=swap"
 div.imgtitle {
 	position: absolute;
 	top: 23%;
-	left: 44%;
+	left: 46%;
 	color: white;
 	font-size: 5rem;
 	font-family: 'Suravaram';
@@ -59,10 +59,11 @@ div.imgtitle {
 div.imgpre-title {
 	position: absolute;
 	top: 34%;
-	left: 39%;
+	left: 41%;
 	color: white;
 	font-size: 5rem;
 	font-family: 'Suravaram';
+	text-align:center;
 }
 
 .-button { -
@@ -76,7 +77,7 @@ div.imgpre-title {
 	user-select: none;
 	position: absolute;
 	left: 50%;
-	top: 100px;
+	top: 110px;
 	transform: translateX(-50%);
 	display: flex;
 	-webkit-box-align: center;
@@ -150,7 +151,7 @@ div.mainbottomimg {
 		<p>Welcome</p>
 	</div>
 	<div class="imgpre-title">
-		<p>Find your signature</p>
+		<p>Better but different</p>
 		<a href="/product/fragrance" class="-button" style="border-color: rgb(255, 255, 255);">
 			<div class="-text" style="color: rgb(255, 255, 255);">바로가기</div>
 		</a>
