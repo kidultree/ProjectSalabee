@@ -175,15 +175,15 @@ left: 50%;
 		<script>
 		</script>
 		
-	
+	<br><br><br><br><br>
 <div class="content-box">
 <c:forEach var="dto" items="${list}">
 <ul class="product_list">
 
     <li>
       <dl>
-        <dt><a href="#a"> ${dto.pname}</a></dt>
-        <dd class="product_img" id="img"><a href="#a"><img src="../save/${dto.pphoto}" alt="이미지" style="width:300px; height: 378px;"></a></dd>
+        <dt><a href="detail?pnum=${dto.pnum}#"> ${dto.pname}</a></dt>
+        <dd class="product_img" id="img"><a href="detail?pnum=${dto.pnum}#"><img src="../save/${dto.pphoto}" alt="이미지" style="width:300px; height: 378px;"></a></dd>
         <dd class="tags">${dto.pcontent} </dd>
         <dd class="btm">
           <div class="info">  <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>

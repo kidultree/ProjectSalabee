@@ -12,7 +12,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <link
-	href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
+	href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Suravaram&family=Lobster&family=Nanum+Pen+Script&display=swap"
 	rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -49,33 +49,33 @@ Signika+Negative:wght@300&display=swap"
 div.imgtitle {
 	position: absolute;
 	top: 23%;
-	left: 40%;
+	left: 44%;
 	color: white;
 	font-size: 5rem;
-	font-family: 'sans-serif';
-	font-weight: bold;
+	font-family: 'Suravaram';
+	
 }
 
 div.imgpre-title {
 	position: absolute;
-	top: 35%;
-	left: 31%;
+	top: 34%;
+	left: 39%;
 	color: white;
-	font-size: 2.6rem;
-	font-family: 'Malgun Gothic';
+	font-size: 5rem;
+	font-family: 'Suravaram';
 }
 
 .-button { -
 	-swiper-theme-color: #007aff; -
 	-swiper-navigation-size: 44px;
-	font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+	font: 0.45em Verdana, Dotum, AppleGothic, sans-serif;
 	font-family: "Helvetica Neue", "Helvetica", "Noto Sans KR",
 		"Malgun Gothic", sans-serif !important;
 	color: #000;
 	text-decoration: none;
 	user-select: none;
 	position: absolute;
-	left: 48%;
+	left: 50%;
 	top: 100px;
 	transform: translateX(-50%);
 	display: flex;
@@ -147,11 +147,11 @@ div.mainbottomimg {
 		<img src="${root}/image/mainimage2.jpg" style="width: 100%";>
 	</div>
 	<div class="imgtitle">
-		<p>Discovery Set</p>
+		<p>Welcome</p>
 	</div>
 	<div class="imgpre-title">
-		<p>오늘, 나와 어울리는 향기를 위한 나만의 디스커버리 세트</p>
-		<a href="" class="-button" style="border-color: rgb(255, 255, 255);">
+		<p>Find your signature</p>
+		<a href="/product/fragrance" class="-button" style="border-color: rgb(255, 255, 255);">
 			<div class="-text" style="color: rgb(255, 255, 255);">바로가기</div>
 		</a>
 

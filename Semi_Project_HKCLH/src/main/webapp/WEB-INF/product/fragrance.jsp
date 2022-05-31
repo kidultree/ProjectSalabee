@@ -161,6 +161,7 @@ right: 30px;
 		
 		
 	</div>
+	<br><br><br><br><br>
 <div class="content-box">
 <c:forEach var="dto" items="${list}">
 <ul class="product_list">
