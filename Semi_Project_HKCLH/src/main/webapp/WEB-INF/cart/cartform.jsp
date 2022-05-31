@@ -67,7 +67,7 @@
 <br><br><br><br><br>
 
 
-<div class="title">Cart</div>
+<div class="cart-title">Cart</div>
 
 	<!-- 회원 ID 가져오기 -->
    <input type="hidden" id="mid" value="${cList[0].mid}">
