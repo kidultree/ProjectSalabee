@@ -67,15 +67,6 @@ public class CartController {
 	}
 	
 	
-	
-	@GetMapping("/buy")
-	public String buy()
-	{
-		return "/cart/buyform";		
-	}
-	
-	
-	
 	/*  카트 삭제 */
 	@GetMapping("/delete")
 	@ResponseBody

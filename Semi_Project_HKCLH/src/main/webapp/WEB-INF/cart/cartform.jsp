@@ -94,6 +94,7 @@
 				<input type="hidden" class="individual_cquantity_input param_quantity" value="${cList2.cquantity}">
 				<input type="hidden" class="param_pnum" value="${cList2.pnum}">
 				<input type="hidden" class="param_oid" value="${cList2.oid}">
+				<input type="hidden" class="param_quantity2" value="${cList2.cquantity}">
 		</td>
 		
 		<!-- 체크박스 -->
@@ -248,7 +249,7 @@
 					     console.log(item);
 					     param_string += $(item).find('td.cart_info_td').find("input.param_pnum").val() + ',';
 					     param_string += $(item).find('td.cart_info_td').find("input.param_oid").val() + ',';
-					     param_string += $(item).find('td.cart_info_td').find("input.param_quantity").val() + '|';
+					     param_string += $(item).find('td.cart_info_td').find("input.param_quantity2").val() + '|';
 					
 					});	
 // 					debugger;
@@ -286,6 +287,8 @@ $('.btn-plus, .btn-minus').on('click', function(e) {
 	
 	let deliveryPrice2 = 0;			// 배송비
 	
+	
+	
 	$(e.target).parent().parent().siblings('td.price_td').find("span.sum_price").text(quantity*oprice);
 	
 	let price = 0;
@@ -305,8 +308,10 @@ $('.btn-plus, .btn-minus').on('click', function(e) {
 	$("span.totalPrice_span").text(price);
 	$("span.finalTotalPrice_span").text(price+deliveryPrice2);
 	$("span.delivery_price").text(deliveryPrice2);
-	var s=$("span.finalTotalPrice_span").text(price+deliveryPrice2);
-	$("#quantity").value(s);
+// 	var s=$("span.finalTotalPrice_span").text(price+deliveryPrice2);
+// 	$("#quantity").value(s);
+	$("input.param_quantity2").val(quantity); //이게 되네?
+	
 });
 
 

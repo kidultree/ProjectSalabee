@@ -337,16 +337,13 @@ $(function(){
 				$.ajax({
 		         type:"post",
 		         dataType:"text",
-		         url:"/pay/complete",
+		         url:"/pay/done",
 		         data:{
 		        	 "mid":$("#mid").val(),
 		        	 "param_string":param_string1
 		         },
 		         success:function(data){
-		        	//alert(data.message);
-		        	//location.reload();
-		        	//location.href="/cart/buy";
-// 		        	 location.href="/orderinfo/buy?mid=${sessionScope.mId}";
+		        	 location.href="/pay/done?mid=${sessionScope.mId}";
 		         }   
 		        });
 			});

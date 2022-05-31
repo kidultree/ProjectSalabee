@@ -1,18 +1,23 @@
 package data.controller;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.PayDto;
 import data.mapper.PayMapperInter;
+
 
 @Controller
 @RequestMapping("/pay")
@@ -20,9 +25,8 @@ public class PayController {
 	
 	@Autowired PayMapperInter mapper;
 	
-	
-	@PostMapping("/complete")
-	public String insert(
+	@PostMapping("/done")
+	public ModelAndView insert(
 			@RequestParam String mid, 
 			HttpServletRequest request, 
 			HttpServletResponse response) throws Exception
@@ -30,14 +34,6 @@ public class PayController {
 
 		String paramString = request.getParameter("param_string");
 		String setParamString [] = paramString.split("[|]");
-		
-		//멤버id로 조회한 주문정보 중 orderid가 가장 큰 거를 조회
-//		Integer orderId = mapper.selectLastOrderId(mid);
-//		if(orderId == null) {
-//			orderId = 0;
-//		}else {
-//			orderId += 1;
-//		}
 		
 		if(setParamString.length  > 0) {
 			for (int i = 0; i < setParamString.length; i++) {
@@ -60,6 +56,17 @@ public class PayController {
 		mapper.deleteOrderinfo();
 		mapper.deleteCart();
 		
-		return "/cart/buyform";		
+		ModelAndView mview = new ModelAndView(); 
+		
+		mview.setViewName("/cart/done");
+		return mview;	
+	}
+	
+	@GetMapping("/done")
+	public String aaa(
+			@RequestParam String mid
+			)throws Exception
+	{
+		return "/cart/done";
 	}
 }
