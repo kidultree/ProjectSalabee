@@ -30,7 +30,7 @@
 	font-weight:bold;
 	position: absolute;
 	right: 43%;
-	top: 30%;
+	top: 25%;
 	}
 	#div1{
 	position:absolute;
@@ -76,12 +76,12 @@ div.features{
 }
 a.scroll_move{
 padding: 50px;
-font-size: 2rem;
+font-size: 2.4rem;
 font-family:'Noto Sans KR';
 color:black;
 text-decoration: none;
 position:relative;
-left: 430px;
+left: 420px;
 }
  a.scroll_move:hover{
 text-decoration:none;
@@ -124,7 +124,7 @@ color: silver;
 }
 div.weather a {
 position:relative;
-left: 620px;
+left: 600px;
 }
 div.product-title b{
 position:relative;
@@ -143,7 +143,7 @@ right: 30px;
    	<b>FRAGRANCE</b>
    </div>
    </div>
-   <br><br><br><br><br><br><br><br><br><br><br>
+   <br> <br> <br> <br> <br> <br>
    <!-- 이미지가 생성될 영역 -->
  <!-- <img src="" width="300" id="img"> <button id="load_img">이미지 생성</button> -->
  
@@ -171,7 +171,7 @@ right: 30px;
         <dd class="product_img" id="img"><a href="detail?pnum=${dto.pnum}"><img src="../save/${dto.pphoto}" alt="이미지" style="width:300px; height: 378px;"></a></dd>
         <dd class="tags">${dto.pcontent} </dd>
         <dd class="btm">
-          <div class="info">  / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
+          <div class="info"> 40ml / 80ml / <fmt:formatNumber value="${dto.pprice}" type="number" maxFractionDigits="3"/>원 / ${dto.prate}</div>
         </dd>
         </dl>
     

@@ -34,6 +34,17 @@ Signika+Negative:wght@300&display=swap"
 	z-index: 0px;
 	margin: 0px;
 }
+#bg2{
+	left: 0;
+	top: 0;
+	width: auto;
+	height: auto;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: 0px;
+	position: relative;
+	margin-top: -5px;
+}
 
 div.imgtitle {
 	position: absolute;
@@ -98,7 +109,7 @@ div.imgpre-title {
 	user-select: none;
 	position: absolute;
 	left: 50%;
-	top: 3120px;
+	top: 3075px;
 	transform: translateX(-50%);
 	display: flex;
 	-webkit-box-align: center;
@@ -149,13 +160,14 @@ div.mainbottomimg {
 		<video src="${root}/image/mainvideo.mp4" autoplay loop muted
 			poster="homepage.jpg" id="bg" style="width: 100%;"></video>
 	</div>
-	<div class="mainbottomimg">
-		<img src="${root}/image/mainimage1.jpeg" style="width: 100%";>
+	<div class="video2">
+		<video src="${root}/image/brand story.mp4" autoplay loop muted
+			poster="homepage.jpg" id="bg2" style="width: 100%;"></video>
 	</div>
 	
 	<!--  -->
 	<div class="bottomimage">
-		<img src="${root}/image/mainimage3.png" style="width: 100%";>
+		<img src="${root}/image/mainimage3.png" style="width: 100%; height:100%;">
 
 
 		<a href="/cart/about" class="-button2" style="border-color: rgb(255, 255, 255);">
