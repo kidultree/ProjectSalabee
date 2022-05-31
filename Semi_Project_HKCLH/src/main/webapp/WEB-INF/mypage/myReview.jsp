@@ -200,7 +200,8 @@ div #review_cate{
 				</tr>
 				<tr>
 					<td colspan="2">
-						<img src="${root}/save/${dto.pphoto}" style="width:100px;">
+						<a href="/product/detail?pnum=${dto.pnum }">
+						<img src="${root}/save/${dto.pphoto}" style="width:100px;"></a>
 						</td>
 					<td colspan="2">구매상품 : ${dto.pname}</td>
 				</tr>
