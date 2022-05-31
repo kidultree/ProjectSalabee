@@ -39,8 +39,6 @@
 	</select>
 
 
-	
-	
 	<select id="getPnumReviewList" resultType="review">
 		select * 
 		
@@ -53,6 +51,32 @@
 		and member.mid = review.mid 
 		
 	</select>
+	<select id="getPnumList" resultType="int">
+		select product.pnum
+		
+		from review 
+		
+		join product
+		join member
+		
+		where product.pnum = review.pnum 
+		and member.mid = review.mid group by product.pnum
+	</select>
+	
+	
+	<select id="getPnumReviewPartList" resultType="review" parameterType="int">
+		select * 
+		
+		from review 
+		
+		join product
+		join member
+		
+		where product.pnum = review.pnum 
+		and member.mid = review.mid and product.pnum=#{pnum} group by product.pnum
+		
+	</select>
+
 	
    <select id="getTotalReviewCount" resultType="int">
       select count(*) from review
@@ -63,6 +87,5 @@
 	<select id="getAvgRrate" resultType="review">
 		select pnum, AVG(rrate) from review group by pnum;
 	</select>
-	
-	
+
 	</mapper>
