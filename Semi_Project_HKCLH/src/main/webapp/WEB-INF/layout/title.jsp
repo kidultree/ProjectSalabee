@@ -244,7 +244,7 @@ ul.sub li {
 				<c:if test="${sessionScope.loginok!=null&&sessionScope.loginok!='kakao'}">
 					<a href="/login/logout"><img src="${root}/image/logout.png" id="logouticon"
 						style="width: 30px">
-					</a>
+					</a>  
 				</c:if>
 				
 				<c:if test="${sessionScope.loginok=='kakao'}">
