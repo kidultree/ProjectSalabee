@@ -29,9 +29,11 @@
 		select * from review order by rnum desc
 	</select>
 
-	<select id="getmIdReviewList" resultType="review">
+	<select id="getmIdReviewList" parameterType="String" resultType="review">
 		select * from review where mid=#{mId}
 	</select>
+
+
 	
 	
 	<select id="getPnumReviewList" resultType="review">

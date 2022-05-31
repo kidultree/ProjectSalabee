@@ -65,6 +65,8 @@ pageEncoding="UTF-8"%>
   
 </style>
 <script type="text/javascript">
+
+
 	$(function(){
 		$("div.mypage").click(function(){
 			   location.href = "/mypage?mId=${sessionScope.mId}";
@@ -84,14 +86,16 @@ pageEncoding="UTF-8"%>
 	})
 </script>
 </head>
+
 <body>
 
 	
-<input type="hidden" value="${mId}">
+<input type="hidden" id="mId" name="mId" value="${mId}">
 <span id="faq-title"><b>${mId } 마이페이쥐이이이이이잉 ${mName }</b></span>
 <div class="notice">
 <a>
-<div class="faq-content mypage" >
+
+<div class="faq-content mypage">
   <button class="question" id="que-1"><span id="que-1-toggle">+</span>
   <span >
   마이 페이지</span></button>
@@ -120,16 +124,6 @@ pageEncoding="UTF-8"%>
 </div>
 
 <div class="container" style="position: absolute; left: 600px; top:200px; border: 1px solid black;">
-</div>
-
-
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br>
-</div>
-
 <label style="font-size: 40px;" class="review_label">Review</label>
 <div id="review_cate">
 <br>&nbsp; &nbsp; <!-- 리뷰 정렬 카테고리 -->
@@ -191,6 +185,23 @@ pageEncoding="UTF-8"%>
 		</table>
 	</div>
 	</c:forEach>
+
+</div>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+</div>
+
 
 </body>
 </html>
