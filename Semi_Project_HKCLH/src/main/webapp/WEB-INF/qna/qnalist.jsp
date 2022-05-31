@@ -39,7 +39,15 @@
             width: 100%;
             
         }
-  
+ .navbar_menu li a:not([href]):not([tabindex]) {
+    color: white;
+    text-decoration: none;
+}
+.navbar_menu li a:hover:not([href]):not([tabindex]) {
+	color: gold;
+}
+
+}
         #wrapper {
             margin: 0 auto;
             padding: 0px;

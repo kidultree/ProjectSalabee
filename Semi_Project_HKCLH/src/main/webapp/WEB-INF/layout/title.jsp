@@ -201,8 +201,8 @@ ul.sub li {
 
 					<ul class="sub">
 						<li><a href="/product/fragrance">Fragrance</a></li>
-						<li><a href="/product/myset">MySet</a></li>
-						<li><a href="/product/goods">GOODS</a></li>
+						<li><a href="/product/myset">Diffuser</a></li>
+						<li><a href="/product/goods">Goods</a></li>
 					</ul></li>
 
 

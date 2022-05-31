@@ -80,7 +80,7 @@ public class OrderInfoController {
 			@RequestParam String mid
 			)throws Exception
 	{
-		ModelAndView mview = new ModelAndView(); //Model -> view로 전달
+		ModelAndView mview = new ModelAndView();
 		//Integer orderId = mapper.selectLastOrderId(mid);
 		
 		List<Map<String,Object>> orderList = mapper.getOrderInfo(mid);
