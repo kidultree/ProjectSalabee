@@ -16,17 +16,16 @@
 <script type="text/javascript">
 $(function(){
 	
+	$("#sameaddr1").click(function(){
 	
-    if ($(".ordername").val() == '') {
-        $("#sameaddr0").prop("checked", true);
-    } 
-
-	
-	
-	if($("#sameaddr1").prop("checked",true)){
-		$("input.ordername").val(0);
-	}
-
+		$("input.ordername").val("");
+		$("input.orderpost").val("");
+		$("input.orderaddr1").val("");
+		$("input.orderaddr2").val("");
+		$("input.orderphone").val("");
+		$("input.orderemail").val("");
+		
+	});
 
 });
 </script>
@@ -67,22 +66,22 @@ $(function(){
 	<tr>
 		<th style="width: 80px; line-height:500%;" >주소*</th>
 		<td>
-			<input id="member_post" name="mPost" type="text" placeholder="우편 번호" readonly>
+			<input id="member_post" class="orderpost" name="mPost" type="text" placeholder="우편 번호" readonly value="${orderList.mpost}">
 			<button type="button" class="btn btn-sm" onclick="findAddr()">주소검색</button><br>
-			<input id="member_addr" name="addr1" type="text" placeholder="주소" readonly  style="width: 580px;" value="${orderList.maddress1}"><br>
-			<input type="text" name="addr2" placeholder="상세 주소" style="width: 580px;" value="${orderList.maddress2}">
+			<input id="member_addr" class="orderaddr1" name="addr1" type="text" placeholder="주소" readonly  style="width: 580px;" value="${orderList.maddress1}"><br>
+			<input type="text" class="orderaddr2" name="addr2" placeholder="상세 주소" style="width: 580px;" value="${orderList.maddress2}">
 		</td>
 	</tr>
 	<tr>
 		<th style="width: 80px; line-height:500%;">휴대전화*</th>
 		<td>
-			<input type="text" name="mPhone" placeholder="- 없이 번호만 입력해 주세요" required="required" maxlength="11" value="${orderList.mphone}">
+			<input type="text"  class="orderphone" name="mPhone" placeholder="- 없이 번호만 입력해 주세요" required="required" maxlength="11" value="${orderList.mphone}">
 		</td>
 	</tr>
 	<tr>
 		<th style="width: 80px; line-height:500%;">E-Mail*</th>
 			<td>
-				<input type="text" name="mEmail" placeholder="이메일을 입력해 주세요" required="required" value="${orderList.memail}">
+				<input type="text"  class="orderemail" name="mEmail" placeholder="이메일을 입력해 주세요" required="required" value="${orderList.memail}">
 			</td>
 		</tr>
 		</c:forEach>
