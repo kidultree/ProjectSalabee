@@ -2,18 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="data.mapper.PayMapperInter">
-<<<<<<< HEAD
 	<insert id="insertPay" parameterType="Pay">
 		insert into pay (mid,pydate,pyname,pyprice,pyphoto,pyoption,pyquantity,pydelivery)
 		 values (#{mid},now(),#{pyname},#{pyprice},#{pyphoto},#{pyoption},#{pyquantity},"배송 준비중")
-=======
-	
-	   <insert id="insertPay" parameterType="Pay">
-		insert into pay 
-		(payid, mid, pnum, oid, pyquantity, pydate, pydelivery) 
-		values 
-		(#{payid},#{mid},#{pnum},#{oid},#{pyquantity}, now(), 배송중)
->>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
 	</insert>
-	
 </mapper>
