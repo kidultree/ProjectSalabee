@@ -210,8 +210,8 @@ pageEncoding="UTF-8"%>
   <button class="question" id="que-6"><span id="que-6-toggle">+</span><span>회원 탈퇴</span></button>
 </div>
 
-<div class="container" style="position: absolute; left: 600px; top:200px; border: 1px solid black;">
-<h2><b>자주묻는질문</b></h2>
+<div class="container" style="position: absolute; left: 400px; top:-20px; border: 0px solid black;">
+<h3 style=" position:relative; left: 70px;"><b>나의 Q&A</b></h3>
 	<br>
     <div id="wrapper">
         <table id="table_detail" 
@@ -237,7 +237,7 @@ pageEncoding="UTF-8"%>
   				<td>${dto.qdate }</td>          
             </tr>
   			<tr id="hidden_row${dto.qnum }" class="hidden_row">
-				<td colspan="6" style="text-align: center;">${dto.qtitle }</td>
+				<td colspan="6" style="text-align: center;">${dto.qcontent }</td>
             </tr>
   			</c:forEach>
 
