@@ -8,8 +8,8 @@ import lombok.Data;
 @Data
 public class CartDto {
 	private String mid;
-	private String pnum;
-	private int cquantity;
-	
+	private Integer pnum;
+	private String cquantity;
+	private String oname;
 	private String cid;
 }

@@ -21,4 +21,6 @@ public class ProductDto {
 	private String pcontent;
 	private String ptag;
 	
+	
+	private int oid;
 }

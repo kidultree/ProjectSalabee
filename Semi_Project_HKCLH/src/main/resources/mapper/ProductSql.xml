@@ -40,11 +40,7 @@
    </select>
    <!-- db=#{jsp} -->
    
-   <insert id="insertCart" parameterType="product"> <!-- ProductDto의 @Alias("product") -->
-      insert into cart (mid, pnum, cquantity, oid) values (
-      #{mid}, #{pnum}, #{cquantity}, #{oid}
-      )
-   </insert>
+
    
    
 </mapper>

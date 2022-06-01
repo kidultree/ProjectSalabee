@@ -22,7 +22,7 @@ public interface ProductMapperInter {
    public List<ProductOptionDto> getProductOptionList(int pnum);//옵션List 이차원배열
    
    //cart
-   public int insertCart(ProductDto dto);
-   
+   //public int insertCart(CartDto dto);
+   public int getOid(int pnum);
    
 }

@@ -457,6 +457,8 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
 <body>
 <br>
 <div class="content">
+<input type="hidden" value="${dto.pnum}" id="pnum"/>
+   <input type="hidden" value="${mId}" id="mid"/>
    <div class="leftlay">
       
       <div id="wrapper" style="float: left;">
@@ -508,6 +510,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
                 - 옵션을 선택해주세요 -</option>
                 <c:forEach var="list" items="${opdto}"> <!-- list < opdto 호출시 list.으로-->          
                    <option value="${list.oprice}">${list.oname}</option> <!-- value /text -->
+                   
                    <!-- 2개이상 db컬럼 가져올시 input hidden으로 하면댐 -->
                    
                 </c:forEach>
@@ -782,36 +785,42 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
         			data+=$(this).val()+","; 
         		 });
         		 alert(data); */
-        		 var data="";
+        		 let param_string='';
         		 $(".addop").each(function(){
-        			 data+=$(this).find(".op").find("div").text()+",";
-        			 data+=$(this).find('.op2').find(".quantity").val()+",";
+        			 param_string+=$(this).find(".op").find("div").text()+",";
+        			 param_string+=$(this).find('.op2').find(".quantity").val()+"|"; 
         		 });
-        		 alert(data);
-        		 
-        		 var len = $(".addop:checked").length; 
-        		 if(data==""){
- 					window.name="parentForm";
- 					window.open("<%=request.getContextPath()%>/nocart.jsp",
- 							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
- 					
- 					return;
- 				}else{
- 					
- 				}
+        		 alert(param_string);
         		 
         		 $.ajax({
-        			 type:"post",
-        			 datatype:"json",
-        			 url:"cart",
-        			 data:{"data":data},
-        			 success:function(data){
-        				 alert(1);
-        			 },
-        			 
-        		 })
-        		 .fail(function(){ alert("fail"); })
+	        			 type:"post",
+	        			 datatype:"text",
+	        			 url:"../product/cart",
+	        			data:{
+       				 	"pnum":$("#pnum").val(),
+	  		        	 "mid":$("#mid").val(),
+	  		        	 "data":param_string
+	  		         	},
+	        			 success:function(data){
+	        				 alert(1);
+	        			 },
+	        			 
+	        		 })
+ 	        		 .fail(function(){ alert("fail"); })
+        		 
+        		 
         	 });
+//         		 if(data==""){
+//  					window.name="parentForm";
+<%--  					window.open("<%=request.getContextPath()%>/nocart.jsp", --%>
+//  							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
+ 					
+//  					return;
+//  				}else{ 					
+//  				}
+        		 
+        		 
+        	
         	 <%-- -- 카트 담기 버튼 -->
         	   <form action="/cart/insert">
         	      <input type="hidden" value="${dto.pnum}" id="pnum"/>
@@ -1016,6 +1025,9 @@ function changeOp() {
    var selectValue = Select.options[Select.selectedIndex].value;
    // select element에서 선택된 option의 text가 저장된다. >>oname
    var selectText = Select.options[Select.selectedIndex].text;
+   // select element에서 선택된 option의 text가 저장된다. >>oid
+   //var selectTid = Select.inputs[Select.selectedIndex].value;
+   //alert(selectTid);
    
    //acnt==0 선택한옵션이 이미 배열에있다.
    var aCnt = 0;
@@ -1059,6 +1071,7 @@ function changeOp() {
             s+="<td class='op2'><div class='number-input' style='float:left;'>";
             s+="<button id='minus' name='min_" + selectText + "' class='minus' ></button>";
             s+="<input class='quantity' id='qua_" + selectText + "' min='0' type='number' value='1'/>";            
+            s+="<input type='hidden' id='hid_pri_" + selectText + "' value='" + selectValue + "' />";
             s+="<button id='plus' name='pl_" + selectText + "' class='plus'></button></div>&nbsp;&nbsp;&nbsp;&nbsp;</td>";
             s+="<td><div class='pridiv' style='float: left; margin-top : 6px;'><span  id='pri_" + selectText + "' class='price'>"+ selectValue + "</span><span>원</span></div>&nbsp;&nbsp;&nbsp;&nbsp;";
             s+="<input style='float: left;' type='hidden' id='hid_pri_" + selectText + "' value='" + selectValue + "' /></td>";
