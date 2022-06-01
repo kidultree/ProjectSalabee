@@ -47,7 +47,6 @@ public class OrderInfoController {
 			for (int i = 0; i < setParamString.length; i++) {
 				
 				//String 배열을 int 배열로...
-				//50,z,234\1,2,3,\1,2,3\
 				int intArr [] = Arrays.stream(setParamString[i].split(",")).mapToInt(Integer::parseInt).toArray();
 			
 				OrderInfoDto dto = new OrderInfoDto();
