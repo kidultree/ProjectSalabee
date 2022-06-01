@@ -3,17 +3,6 @@
 <mapper namespace="data.mapper.CartMapperInter">
 	<!-- Semi Product -->
 	
-
-   <insert id="insertCart" parameterType="cart">
-	insert into cart
-
-	(mid, pnum, cquantity)
-
-	values
-
-	('Testid', 2, 1);
-	<!-- ( #{mid}, #{pnum}, #{cquantity} )-->
-   </insert>
    
    <select id="getAllCart" parameterType="Map" resultType="Map">
 	select 
@@ -42,7 +31,7 @@
    </delete>  
    
    
-  <insert id="insertCart2" parameterType="cart"> <!-- ProductDto의 @Alias("product") -->
+  <insert id="insertCart2" parameterType="cart"> 
       insert into cart (mid, pnum, cquantity, oname, oid) values (
       #{mid}, #{pnum}, #{cquantity}, #{oname}, 1
       )

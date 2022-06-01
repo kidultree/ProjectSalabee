@@ -36,7 +36,7 @@
    
    <!-- parameter는 pnum을 받아서  들어가므로  product와 차이가있음 -->
    <select id="getProductOptionList" resultType="productoption" parameterType="int">
-      select * from poption where pnum=#{pnum} order by oid 
+      select * from poption where pnum=#{pnum}
    </select>
    <!-- db=#{jsp} -->
    
