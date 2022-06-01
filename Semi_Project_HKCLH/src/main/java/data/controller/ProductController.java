@@ -11,9 +11,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import Util.FileUtil;
+
 import data.dto.CartDto;
 import data.dto.ProductDto;
 import data.dto.ProductOptionDto;
@@ -72,8 +69,6 @@ public class ProductController {
 	}
 	  	  
       productMapper.insertProduct(dto);
-
-   
       return "redirect:myset";
 
    }
@@ -167,7 +162,7 @@ public class ProductController {
 		 return "redirect:list";
 	 }
    
-   //cart insert
+   /*cart insert
    @PostMapping("/cart")
    @ResponseBody //json타입의 데이터를 받기
    public void insertcart(
@@ -177,7 +172,7 @@ public class ProductController {
 	   
    }
    
-   /* 장바구니에 담기 */
+    장바구니에 담기 
 	@PostMapping("insert")
 	@ResponseBody  //json타입의 데이터를 받기 위해
 	public Map<String, String> insertCart(
@@ -191,7 +186,7 @@ public class ProductController {
 		
 		return map;
 	}
-   
+   */
    //업데이트 만들어야함...
    //@GetMapping("/productupdateform")
 }
