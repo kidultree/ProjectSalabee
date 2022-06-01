@@ -55,7 +55,6 @@
 		
 	</select>
 	
-<<<<<<< HEAD
 	<select id="getPnumReviewListHB" parameterType="int" resultType="review">
 		select * 
 		
@@ -67,8 +66,7 @@
 		
 		
 	</select>
-	
-=======
+
 
 	<!-- pnumlist 전체 list -->
 	<select id="getPnumList" resultType="int">
@@ -100,7 +98,7 @@
 	
 
 	<!-- 총 리뷰 갯수 -->
->>>>>>> branch 'main' of https://github.com/kidultree/SemiProject_HKCLH.git
+
    <select id="getTotalReviewCount" resultType="int">
       select count(*) from review
    </select>	
