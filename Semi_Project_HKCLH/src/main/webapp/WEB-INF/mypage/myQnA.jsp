@@ -80,7 +80,7 @@ pageEncoding="UTF-8"%>
         	font-size: 35px;	
         }
   		
-  		#qna_board {
+  		#qna_board ,#table_detail{
   			position: relative;
   			left: 200px;
   			font-family: 'Noto Sans KR';

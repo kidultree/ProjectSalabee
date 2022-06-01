@@ -51,6 +51,7 @@ public class ProductController {
 		    @RequestParam MultipartFile upload,
 		    @RequestParam MultipartFile upload2,
 			HttpSession session,
+			
 			HttpServletRequest request)
    {
 	  //사진을 저장할 경우

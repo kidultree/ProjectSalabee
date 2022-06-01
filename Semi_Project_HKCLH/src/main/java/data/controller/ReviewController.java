@@ -61,7 +61,12 @@ public class ReviewController {
 		 
 		 for(int pnum:p) {
 			 List<ReviewDto> list=reviewMapper.getPnumReviewPartList(pnum);
-			 pnumlist.add(list);			 
+			 pnumlist.add(list);		
+			 
+			 for(int i=0; i<3; i++) {
+				 List<ReviewDto> list2=reviewMapper.get3ReviewsList();
+				 pnumlist.add(list2);
+			 }
 			 
 		 }
 		 	
@@ -69,6 +74,8 @@ public class ReviewController {
 			mview.setViewName("/review/pnumreviewlist");
 			return mview;
 		}
+		
+		
 		
 		
 		@PostMapping("/insert")

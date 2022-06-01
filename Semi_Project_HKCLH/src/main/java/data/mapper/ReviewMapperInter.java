@@ -31,6 +31,6 @@ public interface ReviewMapperInter {
 	
 	public int getTotalPnumReviewCount();
 	public double getAvgRrate();
-	public List<ReviewDto> get3ReviewsList(Map<Integer, String> map);
+	public List<ReviewDto> get3ReviewsList();
 	
 }

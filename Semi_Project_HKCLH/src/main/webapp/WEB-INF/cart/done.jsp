@@ -13,29 +13,65 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/resources/css/done.css">
+
+<style type="text/css">
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.doneimg{
+	position: relative;
+	margin-left: 900px;
+}
+.a{
+	font-size: 25px;
+	position: relative;
+	margin-left: 850px;
+}
+
+.homebtn {
+		position: relative;
+	 	margin-left: 770px;
+        line-height:40px; 
+        background-color:black;  
+        text-align:center; 
+        cursor: pointer;  
+        color:white;
+        transition:all 0.9s, color 0.3;  
+        font-size: 25px;
+    }
+.homebtn:hover{
+		color:black; 
+		background-color: white; 
+        border:1.5px black solid;
+        font-size: 20px;
+        }
+
+</style>
 </head>
 
 
-<body>
+<script type="text/javascript">
+
+function a(){
+const ran1 = Math.floor(Math.random() * 4000000);
+const ran2 = Math.floor(Math.random() * 4000000);
+$('.a').text("주문번호 : "+ran1+"-"+ran2);
+}
+</script>
+<body onload="a()">
 <br><br><br>
-<div class="wrapper">
-
-<div class="wrap">
 
 <br><br>
 
+<img class="doneimg" style="width: 250px; height: 250px;" src="../save/결제완료.PNG"><br><br>
+<div class="cart-title" style="width: 500px;"> 결제가 완료되었습니다. </div>
+<br>
+<div class="a"></div>
+<br><br><br>
+<button class="homebtn" style="width: 500px; height: 50px;" onclick="location.href='../../'">홈으로</button>
 
-<div class="cart-title"> ㅅ ㄱ </div>
+<br><br><br><br><br><br><br>
 
-
-<br><br><br><br>
-
-<div class="buybtn" id="buybtn" >홈으로</div>
-
-<br><br>
-
-</div>	<!-- class="wrap" -->
-</div>	<!-- class="wrapper" -->
 
 </body>
 </html>
