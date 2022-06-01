@@ -232,7 +232,7 @@ pageEncoding="UTF-8"%>
                 <td>${dto.qnum }</td>
                 <td>${dto.qcate }</td>
                 <td>${dto.qtitle }</td>
-                <td>${mId}</td>
+                <td>${mId }</td>
   				<td>${dto.qstate }</td>
   				<td>${dto.qdate }</td>          
             </tr>

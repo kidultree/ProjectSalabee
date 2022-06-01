@@ -34,6 +34,8 @@ public class QnAController {
 	@Autowired
 	private QnABoardService qnaService;
 	
+	@Autowired QnAMapperInter qnamapper;
+	
 	@Autowired
 	private MemberMapperInter memberMapper;
 	
@@ -61,7 +63,6 @@ public class QnAController {
 	@GetMapping("/list")
 	public ModelAndView list(
 			@RequestParam(defaultValue = "1") int currentPage
-			
 			) {
 		
 		ModelAndView mview = new ModelAndView();
@@ -95,8 +96,6 @@ public class QnAController {
 		
 		//각 데이터에 id를 이용해서 이름 넣어주기
 
-		
-		
 		//model에 저장
 		mview.addObject("currentPage",currentPage);
 		mview.addObject("totalCount",totalCount);

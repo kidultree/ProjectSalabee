@@ -255,10 +255,10 @@ ul.sub li {
 					</a>
 				</c:if>
 				
-				<c:if test="${sessionScope.loginok=='kakao'}">
+				<!--<c:if test="${sessionScope.loginok=='kakao'}">
 					<a href="javascript:kakaoLogout()">카카오 로그아웃
 					</a>
-				</c:if>
+				</c:if>-->
 				
 				<c:if test="${sessionScope.loginok==null}">
 			
@@ -315,7 +315,6 @@ function kakaoLogin() {
   }
 //카카오로그아웃  
 function kakaoLogout() {
-	alert(3);
     Kakao.API.request({
         url: '/v1/user/unlink',
         success: function (response) {
