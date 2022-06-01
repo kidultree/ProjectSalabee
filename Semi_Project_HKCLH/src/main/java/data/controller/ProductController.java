@@ -22,20 +22,26 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import Util.FileUtil;
-
+import data.dto.CartDto;
 import data.dto.ProductDto;
 import data.dto.ProductOptionDto;
+import data.dto.ReviewDto;
 import data.mapper.ProductMapperInter;
+import data.mapper.ReviewMapperInter;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
 
    @Autowired
    ProductMapperInter productMapper; //private?
+   
+   @Autowired
+   ReviewMapperInter reviewMapper;
    
    @GetMapping("/form") //보여주기
    public String form()
@@ -53,7 +59,6 @@ public class ProductController {
 	  //사진을 저장할 경우
 	  String path=request.getServletContext().getRealPath("/save");
 		
-	  System.out.println("1:"+dto.getPnum());
 	  String pphoto=upload.getOriginalFilename();
 	  String pphoto2=upload2.getOriginalFilename();
 	  dto.setPphoto(pphoto);
@@ -67,7 +72,7 @@ public class ProductController {
 	}
 	  	  
       productMapper.insertProduct(dto);
-      return "redirect:list";
+      return "redirect:list"; 
    }
 
    @GetMapping("/fragrance")
@@ -124,22 +129,25 @@ public class ProductController {
 		   ) {
 	   //num에 해당하는 dto얻기
 	   ProductDto dto = productMapper.getProduct(pnum);
-	   System.out.println(dto.getPphoto()+","+dto.getPphoto2());
 	   List <ProductOptionDto> opdto = productMapper.getProductOptionList(pnum);
+	   List <ReviewDto> redto = reviewMapper.getPnumReviewListHB(pnum);
+	   
 	   ModelAndView mview = new ModelAndView();
+	   
+	   mview.addObject("redto", redto);
 	   mview.addObject("dto",dto);
 	   mview.addObject("opdto",opdto);
 	   mview.setViewName("/product/productdetail");
-	   System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");	   
+	   //System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");	   
 	   
 	   for(int i = 0; i < opdto.size(); i++) {
 		   
 		   ProductOptionDto opdto1 = (ProductOptionDto)opdto.get(i);
-		   System.out.println(" opdto1.oname : " + opdto1.getOname());
+		   //System.out.println(" opdto1.oname : " + opdto1.getOname());
 		   
 	   }
 	   
-	   System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+	   
 	   return mview;
 	   
    }
@@ -155,6 +163,31 @@ public class ProductController {
 		 //페이지이동
 		 return "redirect:list";
 	 }
+   
+   //cart insert
+   @PostMapping("/cart")
+   @ResponseBody //json타입의 데이터를 받기
+   public void insertcart(
+		   @RequestParam int pnum,
+		   @RequestParam int pnum) {
+	   
+	   
+   }
+   
+   /* 장바구니에 담기 */
+	@PostMapping("insert")
+	@ResponseBody  //json타입의 데이터를 받기 위해
+	public Map<String, String> insertCart(
+			@RequestParam CartDto dto)
+	{
+		int cnt = cartmapper.insertCart(dto);
+		Map<String, String> map = new HashMap<>();
+		if(cnt > 0) {
+			map.put("message", "성공적으로 장바구니에 담겼습니다.");
+		}
+		
+		return map;
+	}
    
    //업데이트 만들어야함...
    //@GetMapping("/productupdateform")

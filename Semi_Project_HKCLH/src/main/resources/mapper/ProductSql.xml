@@ -5,7 +5,7 @@
 	
 	<!-- form==#{dto}==dto -->
    <insert id="insertProduct" parameterType="product"> <!-- ProductDto의 @Alias("product") -->
-      insert into product (pname, pprice, pcate1, pcate2, pdate, pphoto, pphoto2, pcontent) values (
+      insert into product (pname, pprice, pcate1, pcate2, pdate, pphoto, pphoto2, pcontent, ptag) values (
       #{pname}, #{pprice}, #{pcate1}, #{pcate2}, #{pdate}, #{pphoto}, #{pphoto2}, #{pcontent}, #{ptag}
       )
    </insert>
@@ -39,4 +39,12 @@
       select * from poption where pnum=#{pnum} order by oid 
    </select>
    <!-- db=#{jsp} -->
+   
+   <insert id="insertCart" parameterType="product"> <!-- ProductDto의 @Alias("product") -->
+      insert into cart (mid, pnum, cquantity, oid) values (
+      #{mid}, #{pnum}, #{cquantity}, #{oid}
+      )
+   </insert>
+   
+   
 </mapper>

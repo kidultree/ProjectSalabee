@@ -54,6 +54,18 @@
 		
 	</select>
 	
+	<select id="getPnumReviewListHB" parameterType="int" resultType="review">
+		select * 
+		
+		from review 
+		
+		join product
+		
+		where product.pnum = review.pnum 
+		
+		
+	</select>
+	
    <select id="getTotalReviewCount" resultType="int">
       select count(*) from review
    </select>	
