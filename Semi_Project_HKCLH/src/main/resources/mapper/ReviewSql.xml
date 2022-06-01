@@ -55,6 +55,18 @@
 		
 	</select>
 	
+	<select id="getPnumReviewListHB" parameterType="int" resultType="review">
+		select * 
+		
+		from review 
+		
+		join product
+		
+		where product.pnum = review.pnum 
+		
+		
+	</select>
+
 
 	<!-- pnumlist 전체 list -->
 	<select id="getPnumList" resultType="int">
@@ -86,6 +98,7 @@
 	
 
 	<!-- 총 리뷰 갯수 -->
+
    <select id="getTotalReviewCount" resultType="int">
       select count(*) from review
    </select>	

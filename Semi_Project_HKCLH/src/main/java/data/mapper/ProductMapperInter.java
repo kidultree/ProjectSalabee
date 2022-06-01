@@ -2,8 +2,8 @@ package data.mapper;
 
 import java.util.List;
 
-import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
+
 import data.dto.ProductDto;
 import data.dto.ProductOptionDto;
 
@@ -19,7 +19,10 @@ public interface ProductMapperInter {
    
    //디테일
    public ProductDto getProduct(int pnum); //()dto에서 받아옴
-   public List<ProductOptionDto> getProductOptionList(int pnum);//List 이차원배열
+   public List<ProductOptionDto> getProductOptionList(int pnum);//옵션List 이차원배열
+   
+   //cart
+   public int insertCart(ProductDto dto);
    
    
 }

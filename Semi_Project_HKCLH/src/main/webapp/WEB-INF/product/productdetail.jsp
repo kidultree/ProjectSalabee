@@ -603,50 +603,57 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
 	<label id="pnumreviewlist">상품별 리뷰보기</label>
 
 </div><br><br>
-	<c:forEach var="dto" items="${list}" varStatus="i">
+	<c:if test="$('#asd').val()!='ok'">
+		<h1>없음</h1>
+	</c:if>
+	
+	
+	<c:forEach var="redto" items="${redto}" varStatus="i">
 	<div id="review">
 		<table class="table table-borderless" id="review_table">
 			<thead>
 				<tr style="height: 30px;">
 					<td colspan="4"> <!-- 별점 value 따라서 별 show -->
-					<c:if test="${dto.rrate == '1'}">
+					<c:if test="${redto.rrate == '1'}">
 						<label id="star">★ 별로에요</label>
 					</c:if>
 					
-					<c:if test="${dto.rrate == '2'}">
+					<c:if test="${redto.rrate == '2'}">
 						<label id="star">★★ 그냥 그래요</label>
 					</c:if>
 					
-					<c:if test="${dto.rrate == '3'}">
+					<c:if test="${redto.rrate == '3'}">
 						<label id="star">★★★ 보통이에요</label>
 					</c:if>
 					
-					<c:if test="${dto.rrate == '4'}">
+					<c:if test="${redto.rrate == '4'}">
 						<label id="star">★★★★ 맘에 들어요</label>
 					</c:if>
 					
-					<c:if test="${dto.rrate == '5'}">
+					<c:if test="${redto.rrate == '5'}">
 						<label id="star">★★★★★ 아주 좋아요</label>
 					</c:if>
 					
 					</td>
-					<td colspan="2" rowspan="3"><b>${sessionScope.mname}</b>&nbsp;님이 작성한 리뷰입니다.<br>
-					<br><b>작성일:</b> <fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
+					<td colspan="2" rowspan="3"><b>${redto.mid}</b>&nbsp;님이 작성한 리뷰입니다.<br>
+					<br><b>작성일:</b> <fmt:formatDate value="${redto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						<img src="${root}/save/${dto.pphoto}" style="width:100px;">&nbsp;&nbsp;${dto.pname}
 						</td>
-					<td colspan="2">구매상품 : ${dto.pnum}</td>
+					<td colspan="2">구매상품 : ${redto.pnum}</td>
 				</tr>
 				<tr>
-					<td colspan="4"><img src="../save/${dto.rphoto}" width="80" height="80" border="1">
-					리뷰내용 : ${dto.rcontent}</td>
+					<td colspan="4"><img src="../save/${redto.rphoto}" width="80" height="80" border="1">
+					리뷰내용 : ${redto.rcontent}</td>
 				</tr>
 			</thead>
+			<input type="hidden" id="asd" value="ok">
 		</table>
 	</div>
 	</c:forEach>
+	
       </div>
       
       <div id="tab-5" class="tab-content">
@@ -762,9 +769,93 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
       <span class="glyphicon glyphicon-chevron-up"></span>
      </button>
      <script type="text/javascript">
-     <!-- 위로가기 플로팅 -->
-          /* 클릭시 스크롤 이동 */
+     
          $(document).ready(function($) {
+        	 
+        	 $(".cartbtn").click(function(){
+        		/*  var data=$(".op").length+",";
+        		 $(".op").each(function(){
+        			 data+=$(this).text()+",";
+        		 });
+        		 
+        		 $(".quantity").each(function(){
+        			data+=$(this).val()+","; 
+        		 });
+        		 alert(data); */
+        		 var data="";
+        		 $(".addop").each(function(){
+        			 data+=$(this).find(".op").find("div").text()+",";
+        			 data+=$(this).find('.op2').find(".quantity").val()+",";
+        		 });
+        		 alert(data);
+        		 
+        		 var len = $(".addop:checked").length; 
+        		 if(data==""){
+ 					window.name="parentForm";
+ 					window.open("<%=request.getContextPath()%>/nocart.jsp",
+ 							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
+ 					
+ 					return;
+ 				}else{
+ 					
+ 				}
+        		 
+        		 $.ajax({
+        			 type:"post",
+        			 datatype:"json",
+        			 url:"cart",
+        			 data:{"data":data},
+        			 success:function(data){
+        				 alert(1);
+        			 },
+        			 
+        		 })
+        		 .fail(function(){ alert("fail"); })
+        	 });
+        	 <%-- -- 카트 담기 버튼 -->
+        	   <form action="/cart/insert">
+        	      <input type="hidden" value="${dto.pnum}" id="pnum"/>
+        	      <input type="hidden" value="${mId}" id="mId"/>
+        	      
+        	      <!-- 얘는 여러개가 나온단 말이지 
+        	      <input type="hidden" value="${opdto.oid}" id="oid"/>
+        	      <input type="hidden" value="${oid별 개수}" id=""/>
+        	      
+        	   </form>--%>
+        	    
+        	   <%--장바구니추가 - 이건 script
+        		$(document).ready(function() {
+        	      $("#addcart").on("click",function(){
+        	      	 var cart =[];
+
+        	         
+        	         $(".addop").each(function(index,element){
+        	           let oid = $(element).find().val();
+        	           let cquantity = $(element).find().val();
+        	            
+        	         });
+        	         var pnum = ${dto.pnum};
+        	         
+        	         $.ajax({
+        	            type:"post",
+        	            dataType:"json",
+        	            url:"/cart/insert",
+        	            traditional : true,
+        	            data:{
+        	                "pnum":$("#pnum").val()//상품번호
+        	                "mid":$("#mid").val()//로그인아이디
+        	                "cquantity":$("#cquantity").val()//옵션아이디
+        	                "cquantity":$("#cquantity").val()//수량
+        	            },
+        	            success:function(data){
+        	              alert(data.message);
+        	            }   
+        	           });
+        	    	  }
+        	      });--%>
+        	      
+       	     <!-- 위로가기 플로팅 -->
+             /* 클릭시 스크롤 이동 */     
              $(".scroll_move").click(function(event){
                      event.preventDefault();
                      $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);
@@ -898,18 +989,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
       <br><br>
    </div> <!-- content전체!!!! -->
    
-   <%-- -- 카트 담기 버튼 -->
-   <form action="/cart/insert">
-      <input type="hidden" value="${dto.pnum}" id="pnum"/>
-      <input type="hidden" value="${mId}" id="mId"/>
-      
-      <!-- 얘는 여러개가 나온단 말이지 -
-      <input type="hidden" value="${opdto.oid}" id="oid"/>
-      <input type="hidden" value="${oid별 개수}" id=""/>--%>
-      
-      <button type="submit" class="btn btn-default" id="addcart">장바구니 추가</button>
-   </form>
-      
+  
    
    
    <br><br><br><br><br><br><br><br>
@@ -923,36 +1003,7 @@ function showHideRow(row) {
     $("#" + row).toggle();
 }
 
-<%--장바구니추가-->
-$(document).ready(function() {
-      $("#addcart").on("click",function(){
-      	 var cart =[];
 
-         
-         $(".addop").each(function(index,element){
-           let oid = $(element).find().val();
-           let cquantity = $(element).find().val();
-            
-         });
-         var pnum = ${dto.pnum};
-         
-         $.ajax({
-            type:"post",
-            dataType:"json",
-            url:"/cart/insert",
-            traditional : true,
-            data:{
-                "pnum":$("#pnum").val()//상품번호
-                "mid":$("#mid").val()//로그인아이디
-                "cquantity":$("#cquantity").val()//옵션아이디
-                "cquantity":$("#cquantity").val()//수량
-            },
-            success:function(data){
-              alert(data.message);
-            }   
-           });
-      }
-      });--%>
       
 <!--수량추가-->
 var array = [];   
@@ -1003,9 +1054,9 @@ function changeOp() {
          s+="<table id='tb_" + selectText + "' class='t'>";
          //opdto_List i=바깥배열 d안쪽 뱌열
             s+="<tr style='height:55px;' class='addop'>";
-            s+="<td style='width:190px; height:30px; float:right; margin-top : 6px; '>";
+            s+="<td style='width:190px; height:30px; float:right; margin-top : 6px; ' class='op'>";
             s+= "<div style='float:left;'>" + selectText + "</div></td>";
-            s+="<td><div class='number-input' style='float:left;'>";
+            s+="<td class='op2'><div class='number-input' style='float:left;'>";
             s+="<button id='minus' name='min_" + selectText + "' class='minus' ></button>";
             s+="<input class='quantity' id='qua_" + selectText + "' min='0' type='number' value='1'/>";            
             s+="<button id='plus' name='pl_" + selectText + "' class='plus'></button></div>&nbsp;&nbsp;&nbsp;&nbsp;</td>";
