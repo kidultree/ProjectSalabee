@@ -245,12 +245,12 @@
 				if($("#mid").val() != ''){
 					
 					$("table.cart-table tbody tr").each(function (index, item) {
-						
+// 						if($(".del:checked")){
 					     console.log(item);
 					     param_string += $(item).find('td.cart_info_td').find("input.param_pnum").val() + ',';
 					     param_string += $(item).find('td.cart_info_td').find("input.param_oid").val() + ',';
 					     param_string += $(item).find('td.cart_info_td').find("input.param_quantity2").val() + '|';
-					
+// 						}
 					});	
 // 					debugger;
 				}
