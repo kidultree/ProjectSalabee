@@ -19,9 +19,9 @@ public interface ReviewMapperInter {
 	public List<ReviewDto> getPnumReviewList();
 	public List<Integer> getPnumList();
 	public List<ReviewDto> getPnumReviewPartList(int pnum);
+	public List<ReviewDto> getPnumReviewPartList2();
 	public List<ReviewDto> getmIdReviewList(String mId);
 	public List<ReviewDto> getPnumReviewListHB(int pnum);
-	
 	
 	
 	
@@ -31,6 +31,6 @@ public interface ReviewMapperInter {
 	
 	public int getTotalPnumReviewCount();
 	public double getAvgRrate();
-	public List<ReviewDto> get3ReviewsList(Map<Integer, String> map);
+	public List<ReviewDto> get3ReviewsList();
 	
 }

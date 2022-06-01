@@ -94,6 +94,20 @@
 		and member.mid = review.mid and product.pnum=#{pnum} group by product.pnum
 		
 	</select>
+	
+		<!-- 안쪽 list (상품별 table) -->
+	<select id="getPnumReviewPartList2" resultType="review" parameterType="int">
+		select * 
+		
+		from review 
+		
+		join product
+		join member
+		
+		where product.pnum = review.pnum 
+		and member.mid = review.mid 
+		limit 3
+	</select>
 
 	
 

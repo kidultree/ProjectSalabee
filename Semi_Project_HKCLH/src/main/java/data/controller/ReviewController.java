@@ -57,13 +57,14 @@ public class ReviewController {
 		
 		List<Integer> p = reviewMapper.getPnumList();
 		List<List<ReviewDto>> pnumlist = new ArrayList<List<ReviewDto>>();
-		 
+		List<ReviewDto> list2 = reviewMapper.getPnumReviewPartList2();
 		 
 		 for(int pnum:p) {
 			 List<ReviewDto> list=reviewMapper.getPnumReviewPartList(pnum);
 			 pnumlist.add(list);			 
 			 
 		 }
+		 	mview.addObject("list2", list2);
 		 	
 			mview.addObject("pnumlist", pnumlist);
 			mview.setViewName("/review/pnumreviewlist");
