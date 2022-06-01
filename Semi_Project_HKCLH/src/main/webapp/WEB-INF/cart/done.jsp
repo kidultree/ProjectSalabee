@@ -59,7 +59,7 @@ $('.a').text("주문번호 : "+ran1+"-"+ran2);
 }
 </script>
 <body onload="a()">
-<br><br><br>
+<br><br> <br>
 
 <br><br>
 
