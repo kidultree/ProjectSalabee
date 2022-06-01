@@ -38,7 +38,20 @@
       background: linear-gradient(to top right, black 0%, black 100%);
     }
 
+	div.container{
+	margin: auto;
+	}
+	
+	div.col-md-6{
+	margin: auto;
+	}
+	div.btna{
+    margin-left: 170px;
+	}
+	
     .input-form {
+    
+    
       max-width: 680px;
 
       margin-top: 50px;
@@ -132,9 +145,10 @@ function test(){
               </div>
             </div>
           </div>
-          <div>
-              <button style="background-color: black; color: white;" onclick="idchkok()">사용하기</button><br>
-              <button style="background-color: black; color: white;" onclick="window.close()">닫기</button><br>
+          <div class="btna">
+              <button class="btn-use" style="background-color: black; color: white;" onclick="idchkok()">사용하기</button>
+              <button class="btn-close" style="background-color: black; color: white;" onclick="window.close()">닫기</button><br>
+		  
 		  </div>		
 		</form>
       </div>

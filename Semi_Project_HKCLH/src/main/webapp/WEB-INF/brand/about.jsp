@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Brand</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +44,7 @@
 	width:auto; height:auto;
 	}
 	
-	div.title{ font-size:35px; font-weight:bold; }
+ 	div.maintitle{ font-size:35px; font-weight:bold; }
 	div.subtitle{ font-size:25px; }
 	div.description{ font-size:18px; }
 	
@@ -83,7 +83,7 @@ $(document).ready(function($) {
 <button type="button" class="btn btn-default go-top" id="go-top"
 style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyphicon-chevron-up"></span></button> 
 
-
+<br><br><br><br><br><br><br><br>
 <!-- 메인비디오 재생 -->
 <div class="video">
 <video src="${root}/image/mainvideo.mp4" autoplay loop muted poster="homepage.jpg" id="bg"></video>
@@ -100,7 +100,7 @@ style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyph
 
 <div class="content1">
 <div class="ft1">
-	<div class="title" id="div1"><br><br>Find Your Signature</div>
+	<div class="maintitle" id="div1"><br><br>Find Your Signature</div>
 		<div class="subtitle"><br><br>‘가장 나다운 향’을 찾기 위한 여정을 함께합니다.</div> 
 		
         <div class="cards">
@@ -124,7 +124,7 @@ style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyph
 
 <div class="content2">
 <div class="ft1">
-	<div class="title" id="div2"><br><br>Eco friendly</div>
+	<div class="maintitle" id="div2"><br><br>Eco friendly</div>
 		<div class="subtitle"><br><br>내가 좋아하는 향기를<br>마음 편하게 사용하세요.</div> 
         
         <div class="cards">
@@ -147,7 +147,7 @@ style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyph
 
 <div class="content3">
 <div class="ft1">
-	<div class="title" id="div3"><br><br>Better but different</div>
+	<div class="maintitle" id="div3"><br><br>Better but different</div>
 		<div class="subtitle"><br><br>남들과는 다른, 더 나은 것들을 만듭니다.</div>
         <div class="cards">
         <div class="card">

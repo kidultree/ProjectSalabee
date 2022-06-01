@@ -86,6 +86,7 @@ ul, ol, li {
 .navbar_menu li {
 	padding: 16px 26px;
 	display: block;
+	cursor: pointer;
 }
 
 .navbar a {
@@ -154,6 +155,7 @@ ul.sub a {
 ul.sub li {
 	background-color: rgba(0, 0, 10, 0.1);
 	width: 110px;
+
    
 }
 /*오른쪽 메뉴*/
@@ -201,8 +203,8 @@ ul.sub li {
 
 					<ul class="sub">
 						<li><a href="/product/fragrance">Fragrance</a></li>
-						<li><a href="/product/myset">MySet</a></li>
-						<li><a href="/product/goods">GOODS</a></li>
+						<li><a href="/product/myset">Diffuser</a></li>
+						<li><a href="/product/goods">Goods</a></li>
 					</ul></li>
 
 

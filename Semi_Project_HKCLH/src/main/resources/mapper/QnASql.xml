@@ -21,6 +21,10 @@ insert into QnA (qcate, qtitle, qcontent, mid, qimg, qstate, qdate, reg, restep,
 select * from QnA where qnum = #{qnum}
 </select>
 
+<select id="getmyQnA" parameterType="String" resultType="qna">
+select * from QnA where mid = #{mId}
+</select>
+
 
 <!-- 삭제 -->
 <delete id="deleteQnA" parameterType="int">

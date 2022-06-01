@@ -26,7 +26,8 @@ Signika+Negative:wght@300&display=swap"
         padding:0;
         background-color:white;
         font-family:  "Noto Sans KR", "sans-serif !important;"
-    }
+    } 
+    
     /* 반응형 (미완성) 완성할진몰루*/
 @media screen and (max-width: 1004px) {
     .navbar {
@@ -71,9 +72,9 @@ Signika+Negative:wght@300&display=swap"
 		<tiles:insertAttribute name="title"/>
 		
 	</div>
-	<div class="main">
+ 	<div class="main">
 		<tiles:insertAttribute name="main"/>
-	</div>
+	</div> 
 	 <div class="footer">
 		<tiles:insertAttribute name="footer"/>
 	</div> 

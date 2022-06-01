@@ -110,7 +110,7 @@ div #review_cate{
 			   location.href = "/mypage/list";
 		});
 		$("div.qna").click(function(){
-			   location.href = "/mypage/qna";
+			   location.href = "/mypage/qna?mId=${sessionScope.mId}";
 		});
 		$("div.alter").click(function(){
 			   location.href = "/mypage/alter";
@@ -200,7 +200,8 @@ div #review_cate{
 				</tr>
 				<tr>
 					<td colspan="2">
-						<img src="${root}/save/${dto.pphoto}" style="width:100px;">
+						<a href="/product/detail?pnum=${dto.pnum }">
+						<img src="${root}/save/${dto.pphoto}" style="width:100px;"></a>
 						</td>
 					<td colspan="2">구매상품 : ${dto.pname}</td>
 				</tr>

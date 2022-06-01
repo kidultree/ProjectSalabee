@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.CartDto;
 import data.mapper.CartMapperInter;
+import data.mapper.PayMapperInter;
 
 
 @Controller
@@ -23,6 +24,7 @@ import data.mapper.CartMapperInter;
 public class CartController {
 
 	@Autowired CartMapperInter cartmapper;
+	
 	
 	
 	/* 브랜드페이지 이동 */
@@ -63,15 +65,6 @@ public class CartController {
 		mview.setViewName("/cart/cartform");
 		return mview;
 	}
-	
-	
-	
-	@GetMapping("/buy")
-	public String buy()
-	{
-		return "/cart/buyform";		
-	}
-	
 	
 	
 	/*  카트 삭제 */

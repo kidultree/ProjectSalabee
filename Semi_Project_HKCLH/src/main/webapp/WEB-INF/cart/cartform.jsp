@@ -59,15 +59,15 @@
 </script>
 
 <body>
-<br><br><br><br><br><br><br>
+<br><br><br>
 <div class="wrapper">
 
 <div class="wrap">
 
-<br><br><br><br><br>
+<br><br>
 
 
-<div class="title">Cart</div>
+<div class="cart-title">Cart</div>
 
 	<!-- 회원 ID 가져오기 -->
    <input type="hidden" id="mid" value="${cList[0].mid}">
@@ -94,6 +94,7 @@
 				<input type="hidden" class="individual_cquantity_input param_quantity" value="${cList2.cquantity}">
 				<input type="hidden" class="param_pnum" value="${cList2.pnum}">
 				<input type="hidden" class="param_oid" value="${cList2.oid}">
+				<input type="hidden" class="param_quantity2" value="${cList2.cquantity}">
 		</td>
 		
 		<!-- 체크박스 -->
@@ -106,7 +107,7 @@
 		<td>
 			<div class="number-input">	
 				<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus btn-minus"></button>
-				<input class="quantity" min="1" name="quantity" value="${cList2.cquantity}" type="number">
+				<input class="quantity" min="1" name="quantity" value="${cList2.cquantity}" type="number" id="quantity">
 				<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus btn-plus"></button>
 			</div>
 		</td>
@@ -244,12 +245,12 @@
 				if($("#mid").val() != ''){
 					
 					$("table.cart-table tbody tr").each(function (index, item) {
-						
+// 						if($(".del:checked")){
 					     console.log(item);
 					     param_string += $(item).find('td.cart_info_td').find("input.param_pnum").val() + ',';
 					     param_string += $(item).find('td.cart_info_td').find("input.param_oid").val() + ',';
-					     param_string += $(item).find('td.cart_info_td').find("input.param_quantity").val() + '|';
-					
+					     param_string += $(item).find('td.cart_info_td').find("input.param_quantity2").val() + '|';
+// 						}
 					});	
 // 					debugger;
 				}
@@ -286,6 +287,8 @@ $('.btn-plus, .btn-minus').on('click', function(e) {
 	
 	let deliveryPrice2 = 0;			// 배송비
 	
+	
+	
 	$(e.target).parent().parent().siblings('td.price_td').find("span.sum_price").text(quantity*oprice);
 	
 	let price = 0;
@@ -305,6 +308,10 @@ $('.btn-plus, .btn-minus').on('click', function(e) {
 	$("span.totalPrice_span").text(price);
 	$("span.finalTotalPrice_span").text(price+deliveryPrice2);
 	$("span.delivery_price").text(deliveryPrice2);
+// 	var s=$("span.finalTotalPrice_span").text(price+deliveryPrice2);
+// 	$("#quantity").value(s);
+	$("input.param_quantity2").val(quantity); //이게 되네?
+	
 });
 
 

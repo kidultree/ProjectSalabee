@@ -72,7 +72,10 @@ public class ProductController {
 	}
 	  	  
       productMapper.insertProduct(dto);
-      return "redirect:list"; 
+
+   
+      return "redirect:myset";
+
    }
 
    @GetMapping("/fragrance")
@@ -168,8 +171,8 @@ public class ProductController {
    @PostMapping("/cart")
    @ResponseBody //json타입의 데이터를 받기
    public void insertcart(
-		   @RequestParam int pnum,
-		   @RequestParam int pnum) {
+		   @RequestParam int pnum
+		  ) {
 	   
 	   
    }
@@ -180,11 +183,11 @@ public class ProductController {
 	public Map<String, String> insertCart(
 			@RequestParam CartDto dto)
 	{
-		int cnt = cartmapper.insertCart(dto);
+		//int cnt = cartmapper.insertCart(dto);
 		Map<String, String> map = new HashMap<>();
-		if(cnt > 0) {
-			map.put("message", "성공적으로 장바구니에 담겼습니다.");
-		}
+		//if(cnt > 0) {
+		//	map.put("message", "성공적으로 장바구니에 담겼습니다.");
+		//}
 		
 		return map;
 	}

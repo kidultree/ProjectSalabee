@@ -34,10 +34,10 @@ $(function(){
 
 <div class="div-buy-1">
 
-<br><br><br><br><br><br><br><br><br><br>
-<div class="title">주문서</div>
+<br><br><br><br><br>
+<div class="buy-title0">주문서</div>
 <div class="title2">주문하실 상품명 및 수량을 정확하게 확인해 주세요.</div>
-
+<input type="hidden" id="mid" value="${orderList[0].mid}">
 
 <div class="one">
 <div class="buy-title">배송지</div>
@@ -116,18 +116,24 @@ $(function(){
 <div class="div-two">
 <div class="buy-title">주문상품</div>
 
-
 <div class="bae">
 
 	<c:forEach var="oList" items="${orderList}" varStatus="i">
 	
 <table class="buy-sangpum0">
-    <tr>
-        <td class="cart_info_td">
+<tbody>
+<tr>
+ <td class="cart_info_td">
 				<input type="hidden" class="individual_totalPrice_input" value="${oList.oquantity*oList.oprice}">
 				<input type="hidden" class="individual_cquantity_input param_quantity" value="${oList.oquantity}">
-		</td>
-        
+		
+				<!-- pay table로 보내기 -->
+				<input type="hidden" class="param_pnum1" value="${oList.pnum}">
+				<input type="hidden" class="param_oid1" value="${oList.oid}">
+				<input type="hidden" class="param_quantity1" value="${oList.oquantity}">
+			</td>
+</tr>
+    <tr>
         <td class="buy-sangpum1"><img src="${root}/save/${oList.pphoto}" style="width: 100px; height: 100px" align="left"></td>
         
         <td>
@@ -145,7 +151,7 @@ $(function(){
                 </tr>
                 <tr>
                     <td>금액 : </td>
-                    <td>${oList.oprice} 원</td>
+                    <td>${oList.oquantity*oList.oprice} 원</td>
                 </tr>
                 <tr>
                     <td>[조건]&nbsp;</td>
@@ -154,6 +160,7 @@ $(function(){
             </table>
         </td>
     </tr>
+</tbody>
 </table>
 	</c:forEach>
 
@@ -301,6 +308,50 @@ $(function(){
 		});
 	});
 </script>
+
+
+<script type="text/javascript">
+	$(function(){
+		
+		/* 결제하기 버튼 */
+			$("#paybtn").click(function(){
+
+				
+				// 회원 정보
+				let param_string1 = '';
+				
+				if($("#mid").val() != ''){
+					
+					$("table.buy-sangpum0 tbody tr td.cart_info_td").each(function (index, item) {
+						
+					     console.log(item);
+					     param_string1 += $(item).find("input.param_pnum1").val() + ',';
+					     param_string1 += $(item).find("input.param_oid1").val() + ',';
+					     param_string1 += $(item).find("input.param_quantity1").val() + '|';
+					
+					});	
+// 					debugger;
+				}
+				
+				
+				$.ajax({
+		         type:"post",
+		         dataType:"text",
+		         url:"/pay/done",
+		         data:{
+		        	 "mid":$("#mid").val(),
+		        	 "param_string":param_string1
+		         },
+		         success:function(data){
+		        	 location.href="/pay/done?mid=${sessionScope.mId}";
+		         }   
+		        });
+			});
+			
+	    });
+
+</script>
+
 
 <script type="text/javascript">
 function findAddr(){

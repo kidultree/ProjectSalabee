@@ -2,6 +2,7 @@ package data.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -53,8 +54,17 @@ public class ReviewController {
 		public ModelAndView pnumlist() {
 			
 		ModelAndView mview = new ModelAndView();
-		 List<ReviewDto> pnumlist = reviewMapper.getPnumReviewList();
-			
+		
+		List<Integer> p = reviewMapper.getPnumList();
+		List<List<ReviewDto>> pnumlist = new ArrayList<List<ReviewDto>>();
+		 
+		 
+		 for(int pnum:p) {
+			 List<ReviewDto> list=reviewMapper.getPnumReviewPartList(pnum);
+			 pnumlist.add(list);			 
+			 
+		 }
+		 	
 			mview.addObject("pnumlist", pnumlist);
 			mview.setViewName("/review/pnumreviewlist");
 			return mview;
