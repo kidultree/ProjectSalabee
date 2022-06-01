@@ -4,8 +4,8 @@
 <mapper namespace="data.mapper.PayMapperInter">
 
 	<insert id="insertPay" parameterType="Pay">
-		insert into pay (mid,pydate,pnum,oid,pyquantity,pydelivery)
-		 values (#{mid},now(),#{pnum},#{oid},#{pyquantity},"배송 준비중")
+		insert into pay (mid, pydate, pnum, oid, pyquantity)
+		 values (#{mid}, now(), #{pnum}, #{oid}, #{pyquantity})
 	</insert>
 	
    <delete id="deleteOrderinfo">

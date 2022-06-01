@@ -34,6 +34,8 @@ public class QnAController {
 	@Autowired
 	private QnABoardService qnaService;
 	
+	@Autowired QnAMapperInter qnamapper;
+	
 	@Autowired
 	private MemberMapperInter memberMapper;
 	
@@ -61,7 +63,6 @@ public class QnAController {
 	@GetMapping("/list")
 	public ModelAndView list(
 			@RequestParam(defaultValue = "1") int currentPage
-			
 			) {
 		
 		ModelAndView mview = new ModelAndView();
@@ -94,15 +95,7 @@ public class QnAController {
 		List<QnADto> list = qnaService.getQnAList(startQNum, perPage);
 		
 		//각 데이터에 id를 이용해서 이름 넣어주기
-				for(QnADto dto:list)
-				{
-					String id = dto.getMid();
-					String name = memberMapper.getmName(id);
-					dto.setMid(name);
-			
-				}
-		
-		
+
 		//model에 저장
 		mview.addObject("currentPage",currentPage);
 		mview.addObject("totalCount",totalCount);
@@ -121,6 +114,7 @@ public class QnAController {
 	   (@ModelAttribute QnADto dto,	
 		@RequestParam String currentPage,
 		@RequestParam int qnum,
+		@RequestParam String mid,
 		@RequestParam ArrayList<MultipartFile> upload,
 		HttpSession session,
 		HttpServletRequest request
@@ -130,8 +124,10 @@ public class QnAController {
 		String path = request.getServletContext().getRealPath("/save");
 		
 		//세션으로부터 로그인한 아이디 얻기
-		String loginid = (String)session.getAttribute("loginid");
-		dto.setMid(loginid); //dto에 id 넣기
+		//String loginid = (String)session.getAttribute("loginid");
+		//dto.setMid(loginid); //dto에 id 넣기
+		
+		dto.setMid(mid);
 		
 		//사진을 업로드 안했을 경우 photos 에 'no'라고 저장
 		if(upload.get(0).getOriginalFilename().equals("")) {
@@ -157,6 +153,7 @@ public class QnAController {
 			System.out.println(qimg);
 			dto.setQimg(qimg);
 		}
+		
 	
 			//db insert
 		qnaService.insertQnA(dto);

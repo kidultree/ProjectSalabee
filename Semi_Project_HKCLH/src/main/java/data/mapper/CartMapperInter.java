@@ -21,5 +21,7 @@ public interface CartMapperInter {
 	
 	public void deleteCart(String cid); //카트 물건 삭제
 	
+	//cart
+	   public int insertCart2(CartDto dto);
 	  
 }

@@ -19,9 +19,9 @@ public interface ReviewMapperInter {
 	public List<ReviewDto> getPnumReviewList();
 	public List<Integer> getPnumList();
 	public List<ReviewDto> getPnumReviewPartList(int pnum);
+	public List<ReviewDto> getPnumReviewPartList2();
 	public List<ReviewDto> getmIdReviewList(String mId);
 	public List<ReviewDto> getPnumReviewListHB(int pnum);
-	
 	
 	
 	

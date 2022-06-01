@@ -71,7 +71,6 @@ div.all div.signup{
 	}
 	
 	function kakao(){
-		alert(1);
 		
 		$.ajax({
 			type:"post",
@@ -148,28 +147,40 @@ div.all div.signup{
 			<input type="hidden" name="kakaoid" id="kakaoid">
 			<input type="hidden" name="kakaopass" id="kakaopass">
 		</form>
-	</div>
-	
+		
+	<div style="text-align: center;">
 		<ul>
 			<li onclick="kakaoLogin();">
 		      <a href="javascript:void(0)">
-		          <span>카카오 로그인</span>
+		          <img src="${root }/image/kakao_login_medium_wide.png">
 		      </a>
 			</li>
+			
+				<br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br>
 			<li onclick="kakaoLogout();">
 		      <a href="javascript:void(0)">
 		          <span>카카오 로그아웃</span>
 		      </a>
 			</li>
 		</ul>
+	</div>
+	</div>
 	
+	
+
 	
 
 	<br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br>	
+		<br><br><br><br><br>
+
 	
 
 </body>

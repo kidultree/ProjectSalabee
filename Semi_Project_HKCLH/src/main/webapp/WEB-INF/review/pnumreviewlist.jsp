@@ -56,15 +56,12 @@
   <tr>
     <td colspan="2">★${dto.rrate}리뷰${totalCount}개</td>
   </tr>
+  <c:forEach var="dto" items="${list2}">
   <tr>
-    <td colspan="3">별점 + 내용 한줄 (1)</td>
+    <td colspan="3">${dto.rcontent}</td>
   </tr>
-  <tr>
-    <td colspan="3">별점 + 내용 한줄 (2)</td>
-  </tr>
-  <tr>
-    <td colspan="3">별점 + 내용 한줄 (3)</td>
-  </tr>
+  </c:forEach>
+  
 </thead>
 </table>
 </div>

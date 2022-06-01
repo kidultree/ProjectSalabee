@@ -36,15 +36,11 @@
    
    <!-- parameter는 pnum을 받아서  들어가므로  product와 차이가있음 -->
    <select id="getProductOptionList" resultType="productoption" parameterType="int">
-      select * from poption where pnum=#{pnum} order by oid 
+      select * from poption where pnum=#{pnum}
    </select>
    <!-- db=#{jsp} -->
    
-   <insert id="insertCart" parameterType="product"> <!-- ProductDto의 @Alias("product") -->
-      insert into cart (mid, pnum, cquantity, oid) values (
-      #{mid}, #{pnum}, #{cquantity}, #{oid}
-      )
-   </insert>
+
    
    
 </mapper>
