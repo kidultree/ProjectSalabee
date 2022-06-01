@@ -305,7 +305,7 @@
 							
 							
 						</td>
-						<td>${sessionScope.mName}</td>
+						<td>${dto.mid}</td>
 						<td>${dto.qstate}</td>
 						<td><fmt:formatDate value="${dto.qdate}"
 							pattern="yyyy-MM-dd"/></td>

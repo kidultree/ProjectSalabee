@@ -94,13 +94,7 @@ public class QnAController {
 		List<QnADto> list = qnaService.getQnAList(startQNum, perPage);
 		
 		//각 데이터에 id를 이용해서 이름 넣어주기
-				for(QnADto dto:list)
-				{
-					String id = dto.getMid();
-					String name = memberMapper.getmName(id);
-					dto.setMid(name);
-			
-				}
+
 		
 		
 		//model에 저장
