@@ -9,7 +9,7 @@ import lombok.Data;
 public class CartDto {
 	private String mid;
 	private Integer pnum;
-	private String cquantity;
+	private int cquantity;
 	private String oname;
-	private String cid;
+	private int oid;
 }

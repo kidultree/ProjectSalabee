@@ -184,23 +184,20 @@ public class ProductController {
 		String paramString = request.getParameter("data");
 		String setParamString [] = paramString.split("[|]");
 		
-		System.out.println(paramString);
-		
 		if(setParamString.length  > 0) {
 			for (int i = 0; i < setParamString.length; i++) {
 				
-				String intArr [] = setParamString[i].split(",");
+				int intArr [] = Arrays.stream(setParamString[i].split(",")).mapToInt(Integer::parseInt).toArray();
 			
 				CartDto dto = new CartDto();
+				
 				dto.setMid(mid);
 				dto.setPnum(pnum);
 				
-				
-				dto.setOname(intArr[0]);
+				dto.setOid(intArr[0]);
 				dto.setCquantity(intArr[1]);
 				
 				cartMapper.insertCart2(dto);
-				
 			}
 			
 		}

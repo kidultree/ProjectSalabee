@@ -507,9 +507,9 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
             <select name="pop" id="pop" onchange="changeOp()"
             style="font-size: 15px; color: gray;">
                 <option value="">&nbsp;
-                - 옵션을 선택해주세요 -</option>
+                - ml을 선택해주세요 -</option>
                 <c:forEach var="list" items="${opdto}"> <!-- list < opdto 호출시 list.으로-->          
-                   <option value="${list.oprice}">${list.oname}</option> <!-- value /text -->
+                   <option value="${list.oprice}">${list.oid}</option> <!-- value /text -->
                    
                    <!-- 2개이상 db컬럼 가져올시 input hidden으로 하면댐 -->
                    
@@ -1067,7 +1067,7 @@ function changeOp() {
          //opdto_List i=바깥배열 d안쪽 뱌열
             s+="<tr style='height:55px;' class='addop'>";
             s+="<td style='width:190px; height:30px; float:right; margin-top : 6px; ' class='op'>";
-            s+= "<div style='float:left;'>" + selectText + "</div></td>";
+            s+= "<div style='float:left;'>" + selectText + "</div></td><td>ml</td>";
             s+="<td class='op2'><div class='number-input' style='float:left;'>";
             s+="<button id='minus' name='min_" + selectText + "' class='minus' ></button>";
             s+="<input class='quantity' id='qua_" + selectText + "' min='0' type='number' value='1'/>";            
