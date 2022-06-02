@@ -12,8 +12,8 @@ public interface PayMapperInter {
 
 	public void insertPay(PayDto dto);
 	
-	public void deleteOrderinfo();
-	public void deleteCart();
+	public void deleteOrderinfo(String mId);
+	public void deleteCart(String mId);
 	
 	public List<PayDto> getmyPay(String mId);
 	

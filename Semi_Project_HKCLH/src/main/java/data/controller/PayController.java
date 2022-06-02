@@ -53,8 +53,11 @@ public class PayController {
 			}
 		}
 		
-		mapper.deleteOrderinfo();
-		mapper.deleteCart();
+		PayDto dto = new PayDto();
+		dto.setMid(mid);
+		
+		mapper.deleteOrderinfo(mid);
+		mapper.deleteCart(mid);
 		
 		ModelAndView mview = new ModelAndView(); 
 		
