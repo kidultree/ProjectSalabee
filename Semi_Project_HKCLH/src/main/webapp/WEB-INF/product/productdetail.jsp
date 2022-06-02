@@ -1066,8 +1066,8 @@ function changeOp() {
          s+="<table id='tb_" + selectText + "' class='t'>";
          //opdto_List i=바깥배열 d안쪽 뱌열
             s+="<tr style='height:55px;' class='addop'>";
-            s+="<td style='width:190px; height:30px; float:right; margin-top : 6px; ' class='op'>";
-            s+= "<div style='float:left;'>" + selectText + "</div></td><td>ml</td>";
+            s+="<td style='width:16px; height:30px; float:right; margin-top : 6px; ' class='op'>";
+            s+= "<div style='float:left;'>" + selectText + "</div></td><td style='width:180px; margin-top : 6px;' >&nbsp;ml</td>";
             s+="<td class='op2'><div class='number-input' style='float:left;'>";
             s+="<button id='minus' name='min_" + selectText + "' class='minus' ></button>";
             s+="<input class='quantity' id='qua_" + selectText + "' min='0' type='number' value='1'/>";            
