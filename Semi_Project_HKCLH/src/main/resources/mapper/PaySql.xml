@@ -22,13 +22,13 @@
 	  from pay  
 	  
 	  join product
-	  join member
 	  join poption 
 	  
 	  where pay.pnum = product.pnum 
-	  and pay.oid = poption.poid 
+	  and pay.oid = poption.oid 
 	  
 	  and mid=#{mId}
+	  order by payid desc
 	  
    </select>
    

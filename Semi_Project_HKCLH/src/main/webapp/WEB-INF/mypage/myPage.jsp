@@ -67,7 +67,7 @@ pageEncoding="UTF-8"%>
 <script type="text/javascript">
 	$(function(){
 		$("div.list").click(function(){
-			   location.href = "/mypage/list";
+			   location.href = "/mypage/list?mId=${sessionScope.mId}";
 		});
 		$("div.review").click(function(){
 			   location.href = "/mypage/review?mId=${sessionScope.mId}";

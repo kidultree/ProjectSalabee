@@ -22,5 +22,10 @@ public class PayDto {
 	private int pyquantity;
 	private Timestamp pydate;
 	private String pydelivery;
+	private String pname;
+	private int pprice;
+	private String pphoto; 
+	private String oname;
+	private int oprice;
 	
 }

@@ -210,14 +210,14 @@ pageEncoding="UTF-8"%>
   <button class="question" id="que-6"><span id="que-6-toggle">+</span><span>회원 탈퇴</span></button>
 </div>
 
-<div class="container" style="position: absolute; left: 400px; top:-20px; border: 0px solid black;">
-<h3 style=" position:relative; left: 70px;"><b>나의 Q&A</b></h3>
+<div class="container" style="position: absolute; left: 200px; top:-20px; border: 0px solid black;">
 	<br>
     <div id="wrapper">
+<h3 style=" position:relative; left:180px; text-align: center; margin-bottom: 20px;"><b>나의 Q&A</b></h3>
         <table id="table_detail" 
             align=center cellpadding=10>
   			
-            <tr>
+			<tr>
                 <th>번 호</th>
                 <th>카테고리</th>
                 <th>제 목</th>

@@ -107,7 +107,7 @@ div #review_cate{
 			   location.href = "/mypage?mId=${sessionScope.mId}";
 		});
 		$("div.list").click(function(){
-			   location.href = "/mypage/list";
+			   location.href = "/mypage/list?mId=${sessionScope.mId}";
 		});
 		$("div.qna").click(function(){
 			   location.href = "/mypage/qna?mId=${sessionScope.mId}";

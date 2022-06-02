@@ -10,7 +10,12 @@ pageEncoding="UTF-8"%>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-	<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/resources/css/cart.css">
+
+
 <style type="text/css">
 
   #faq-title {
@@ -85,6 +90,7 @@ pageEncoding="UTF-8"%>
 </script>
 </head>
 <body>
+<c:set var="root" value="<%=request.getContextPath() %>"></c:set>
 
 <input type="hidden" value="${mId}">
 <div class="notice">
@@ -118,20 +124,47 @@ pageEncoding="UTF-8"%>
 </div>
 
 <div class="container" style="position: absolute; left: 600px; top:200px; border: 1px solid black;">
-<h3 style=" position:relative; left: 70px;"><b>나의 Q&A</b></h3>
+<h3 style=" position:relative; left: 70px;"><b>주문 내역</b></h3>
 	<br>
     <div id="wrapper">
+    
+       <!-- 카트 테이블 첫 행 -->
+   <table class="cart-table" style="width:1200px;">
+   <thead>
+   	<tr>
+		<th class="th_width_1"></th>
+		<th class="th_width_2">제품 번호</th>
+		
+		<th class="th_width_3">제품정보</th>	
+		<th class="th_width_4">수량</th>
+		<th class="th_width_5">금액</th>
+		<th></th>
+	</tr>
+   </thead>
+   <tbody>
+	<c:forEach var="dto" items="${list}" varStatus="i">
+	<tr>
+
+		
+		<td>${dto.payid}</td>
+		<!-- 이미지&제품정보 -->
+		<td><img src="${root}/save/${dto.pphoto}" style="width:100px;">
+		&nbsp;&nbsp;${dto.pname}/${dto.pyquantity}/${dto.oname }</td>
+		
+		<!-- 수량선택 -->	
+		<td></td>
+		<td>${dto.pprice}</td>
+		
+
+		
+		</tr>
+	</c:forEach>
+	</tbody>
+</table>
         <table id="table_detail" 
             align=center cellpadding=10>
   			
-            <tr>
-                <th>번 호</th>
-                <th>카테고리</th>
-                <th>제 목</th>
-                <th>작성자</th>
-                <th>문의상태</th>
-                <th>작성일</th>
-            </tr>
+
             
   			<c:forEach var="dto" items="${list }" varStatus="i">
   			
@@ -143,7 +176,9 @@ pageEncoding="UTF-8"%>
                 
                 <td>${dto.pyquantity }</td>
                 <td>${mId}</td>
-  				<td>${dto.pydelivery }</td>          
+  				<td>${dto.pydelivery }</td>    
+  				<td>${dto.oid }</td>      
+  				<td>${dto.pprice }</td>
             </tr>
   			<tr id="hidden_row${dto.pnum }" class="hidden_row">
 				<td colspan="6" style="text-align: center;"></td>
