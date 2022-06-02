@@ -93,7 +93,7 @@ public class QnAController {
 		
 		//데이터 가져오기
 		List<QnADto> list = qnaService.getQnAList(startQNum, perPage);
-		System.out.println(list.get(0).getMid()+","+list.get(0).getQcate());
+
 		//각 데이터에 id를 이용해서 이름 넣어주기
 
 		//model에 저장
@@ -237,7 +237,7 @@ public class QnAController {
 		mview.addObject("dto",dto);
 		mview.addObject("currentPage",currentPage);
 		
-		mview.setViewName("/sub2/qna/updateform");
+		mview.setViewName("/qna/updateform");
 		return mview;
 	}
 	

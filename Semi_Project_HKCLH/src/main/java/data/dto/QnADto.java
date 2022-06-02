@@ -13,7 +13,6 @@ public class QnADto {
 	private int qnum;
 	private String qcate;
 	private String mid;
-	//private String mId;
 	private String qname;
 	private String qtitle;
 	private String qcontent;

@@ -87,7 +87,7 @@
 <tr>
 <th style="width: 100px;">작성자</th>
 <td>
-<input type="text" class="form-control" name="mid" required="required" value="${mid}" readonly="readonly">
+<input type="text" class="form-control" name="mid" required="required" value="${mId}" readonly="readonly">
 </td>
 </tr>
 
@@ -99,7 +99,7 @@
 	<tr>
 	<th style="width: 100px;">문의상태</th>
 		<td>
-		접수<input type="radio" name = "qstate" id = "qstate" value = "접수" checked>&nbsp;
+		접수<input type="radio" name = "qstate" id = "qstate" value = "접수">&nbsp;
 		답변완료<input type="radio" name = "qstate" id = "qstate" value = "답변완료">
 		</td>
 	</tr>

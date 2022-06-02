@@ -302,11 +302,22 @@
 								<span class="glyphicon glyphicon-picture"
 							style="color: gray; font-size: 0.8em;"></span>
 							</c:if>
-							
-	
 						</td>
-						<td>${dto.mid}</td>
-						<td>${dto.qstate}</td>
+						<td>
+						<c:choose>
+						<c:when test = "${dto.mid=='fragbit'}">
+							<img src = "../save/fragbit.png" width="23";>&nbsp;${dto.mid}
+						</c:when>
+						<c:otherwise>
+						${dto.mid}
+						</c:otherwise>
+						</c:choose>
+						</td>		
+						
+						<td>
+						${dto.qstate}
+						<c:set var="dto.qstate" value="답변완료"/>
+						</td>
 						<td><fmt:formatDate value="${dto.qdate}"
 							pattern="yyyy-MM-dd"/></td>
 					</tr>
