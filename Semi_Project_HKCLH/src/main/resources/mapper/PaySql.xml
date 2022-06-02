@@ -4,8 +4,8 @@
 <mapper namespace="data.mapper.PayMapperInter">
 
 	<insert id="insertPay" parameterType="Pay">
-		insert into pay (mid,pydate,pnum,oid,pyquantity,pydelivery)
-		 values (#{mid},now(),#{pnum},#{oid},#{pyquantity},"배송 준비중")
+		insert into pay (mid, pydate, pnum, oid, pyquantity)
+		 values (#{mid}, now(), #{pnum}, #{oid}, #{pyquantity})
 	</insert>
 	
    <delete id="deleteOrderinfo">
@@ -15,5 +15,21 @@
    <delete id="deleteCart">
       delete from cart
    </delete>
+   
+   <select id="getmyPay" resultType="Pay" parameterType="String">
+	  select * 
+	  
+	  from pay  
+	  
+	  join product
+	  join member
+	  join poption 
+	  
+	  where pay.pnum = product.pnum 
+	  and pay.oid = poption.poid 
+	  
+	  and mid=#{mId}
+	  
+   </select>
    
 </mapper>

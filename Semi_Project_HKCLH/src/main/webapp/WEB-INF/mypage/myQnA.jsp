@@ -80,7 +80,7 @@ pageEncoding="UTF-8"%>
         	font-size: 35px;	
         }
   		
-  		#qna_board {
+  		#qna_board ,#table_detail{
   			position: relative;
   			left: 200px;
   			font-family: 'Noto Sans KR';
@@ -163,7 +163,7 @@ pageEncoding="UTF-8"%>
 			   location.href = "/mypage?mId=${sessionScope.mId}";
 		});
 		$("div.list").click(function(){
-			   location.href = "/mypage/list";
+			   location.href = "/mypage/list?mId=${sessionScope.mId}";
 		});
 		$("div.review").click(function(){
 			   location.href = "/mypage/review?mId=${sessionScope.mId}";
@@ -232,7 +232,7 @@ pageEncoding="UTF-8"%>
                 <td>${dto.qnum }</td>
                 <td>${dto.qcate }</td>
                 <td>${dto.qtitle }</td>
-                <td>${mId}</td>
+                <td>${mId }</td>
   				<td>${dto.qstate }</td>
   				<td>${dto.qdate }</td>          
             </tr>

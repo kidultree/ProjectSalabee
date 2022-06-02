@@ -3,17 +3,6 @@
 <mapper namespace="data.mapper.CartMapperInter">
 	<!-- Semi Product -->
 	
-
-   <insert id="insertCart" parameterType="cart">
-	insert into cart
-
-	(mid, pnum, cquantity)
-
-	values
-
-	('Testid', 2, 1);
-	<!-- ( #{mid}, #{pnum}, #{cquantity} )-->
-   </insert>
    
    <select id="getAllCart" parameterType="Map" resultType="Map">
 	select 
@@ -40,5 +29,13 @@
    <delete id="deleteCart" parameterType="String">
       delete from cart where cid = #{cid}
    </delete>  
+   
+   
+  <insert id="insertCart2" parameterType="cart"> 
+      insert into cart (mid, pnum, cquantity, oid)
+      
+       values ( #{mid}, #{pnum}, #{cquantity}, #{oid} )
+   </insert>
+   
    
 </mapper>

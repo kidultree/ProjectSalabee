@@ -118,6 +118,43 @@ pageEncoding="UTF-8"%>
 </div>
 
 <div class="container" style="position: absolute; left: 600px; top:200px; border: 1px solid black;">
+<h3 style=" position:relative; left: 70px;"><b>나의 Q&A</b></h3>
+	<br>
+    <div id="wrapper">
+        <table id="table_detail" 
+            align=center cellpadding=10>
+  			
+            <tr>
+                <th>번 호</th>
+                <th>카테고리</th>
+                <th>제 목</th>
+                <th>작성자</th>
+                <th>문의상태</th>
+                <th>작성일</th>
+            </tr>
+            
+  			<c:forEach var="dto" items="${list }" varStatus="i">
+  			
+  			<tr onclick="showHideRow('hidden_row${dto.pnum}');" style="text-align: center;">
+                <td>${dto.payid }</td>
+                <td>${dto.pnum }</td>
+                <td>${dto.oid }</td>
+            <fmt:formatDate value="${dto.pydate}" pattern="yyyy-MM-dd"/>
+                
+                <td>${dto.pyquantity }</td>
+                <td>${mId}</td>
+  				<td>${dto.pydelivery }</td>          
+            </tr>
+  			<tr id="hidden_row${dto.pnum }" class="hidden_row">
+				<td colspan="6" style="text-align: center;"></td>
+            </tr>
+  			</c:forEach>
+
+
+
+        </table>
+</div>
+
 </div>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

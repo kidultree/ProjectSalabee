@@ -34,13 +34,20 @@
 	}
     
 </style>
+
+<script type="text/javascript">
+function orderok() {
+	opener.location.href="../orderinfo/buy?mid=${mId}";
+	window.close();
+}
+</script>
 </head>
 <body onload="Value()">
 
 	<div class="container">  
 	<br><br><br>
-        <div class="text-nocart" style="margin-left: 10%; font-size: 19px;">한 개 이상의 옵션을 선택해주세요</div><br>
-          <div class="btnclose-nocart" onclick="window.close()">닫기</div>	
+        <div class="text-nocart" style="margin-left: 10%; font-size: 18px;">해당 상품을 바로구매하시겠습니까?</div><br>
+          <div class="btnclose-nocart" onclick="orderok()">이동</div>	
     </div>
 
 </body>

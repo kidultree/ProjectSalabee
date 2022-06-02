@@ -14,6 +14,7 @@ public class QnADto {
 	private String qcate;
 	private String mid;
 	private String mId;
+	private String qname;
 	private String qtitle;
 	private String qcontent;
 	private String qimg;

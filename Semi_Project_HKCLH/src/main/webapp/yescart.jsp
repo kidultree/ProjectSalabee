@@ -34,13 +34,20 @@
 	}
     
 </style>
+
+<script type="text/javascript">
+function cartok() {
+	opener.location.href="../cart/list?mid=${mId}";
+	window.close();
+}
+</script>
 </head>
 <body onload="Value()">
 
 	<div class="container">  
 	<br><br><br>
-        <div class="text-nocart" style="margin-left: 10%; font-size: 19px;">한 개 이상의 옵션을 선택해주세요</div><br>
-          <div class="btnclose-nocart" onclick="window.close()">닫기</div>	
+        <div class="text-nocart" style="margin-left: 10%; font-size: 19px;">장바구니에 성공적으로 들어갔습니다.</div><br>
+          <div class="btnclose-nocart" onclick="cartok()">장바구니 이동</div>	
     </div>
 
 </body>

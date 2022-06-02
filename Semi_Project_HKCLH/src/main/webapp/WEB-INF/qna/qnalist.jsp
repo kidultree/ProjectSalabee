@@ -304,8 +304,10 @@
 							</c:if>
 							
 							
+							
+							
 						</td>
-						<td>${sessionScope.mName}</td>
+						<td>${dto.mid}</td>
 						<td>${dto.qstate}</td>
 						<td><fmt:formatDate value="${dto.qdate}"
 							pattern="yyyy-MM-dd"/></td>
@@ -361,6 +363,8 @@ style="position: fixed; right: 40px; bottom:120px;"><span class="glyphicon glyph
 
 /* 클릭시 스크롤 이동 */
 $(document).ready(function($) {
+	
+	
     $(".scroll_move").click(function(event){
             event.preventDefault();
             $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600);

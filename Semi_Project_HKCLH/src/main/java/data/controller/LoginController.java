@@ -147,6 +147,7 @@ public class LoginController {
 	//@ResponseBody
 	public String logout(HttpSession session)
 	{
+		session.removeAttribute("mId");
 		session.removeAttribute("loginok");
 		return "redirect:/";
 	}

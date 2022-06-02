@@ -16,9 +16,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
 <style type="text/css">
-*{
-   font-family: 'Noto Sans KR', sans-serif;
-}
+
 .content{
    position: relative;
    top : 100px;
@@ -29,6 +27,7 @@
 }
 /*tab*/
 body{
+		font-family: 'Noto Sans KR', sans-serif;
       margin-top: 100px;
       line-height: 1.6
    }
@@ -91,7 +90,7 @@ body{
 /*전체 lay*/
 .content{
    position: relative;
-   left: 400px;
+   left: 420px;
    width: 1100px;
 }
 .leftlay{
@@ -452,11 +451,17 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
         /*.qtitle{
         	background-color: #F2F2F2;
         }*/
+        
+        .ml{
+        	margin-top:6px;
+        }
 </style>
 </head>
 <body>
 <br>
 <div class="content">
+<input type="hidden" value="${dto.pnum}" id="pnum"/>
+   <input type="hidden" value="${mId}" id="mid"/> <!-- 대한 -->
    <div class="leftlay">
       
       <div id="wrapper" style="float: left;">
@@ -505,10 +510,11 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
             <select name="pop" id="pop" onchange="changeOp()"
             style="font-size: 15px; color: gray;">
                 <option value="">&nbsp;
-                - 옵션을 선택해주세요 -</option>
+                - ml을 선택해주세요 -</option>
                 <c:forEach var="list" items="${opdto}"> <!-- list < opdto 호출시 list.으로-->          
-                   <option value="${list.oprice}">${list.oname}</option> <!-- value /text -->
-                   <!-- 2개이상 db컬럼 가져올시 input hidden으로 하면댐 -->
+                   <option value="${list.oprice}">${list.oid}</option> <!-- value /text -->
+                   
+                   <!-- 2개이상 db컬럼 가져올시 input 으로 하면댐 -->
                    
                 </c:forEach>
             </select>
@@ -772,6 +778,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
      
          $(document).ready(function($) {
         	 
+        	 <!--cartinsert-->
         	 $(".cartbtn").click(function(){
         		/*  var data=$(".op").length+",";
         		 $(".op").each(function(){
@@ -782,77 +789,81 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
         			data+=$(this).val()+","; 
         		 });
         		 alert(data); */
-        		 var data="";
+        		 let param_string='';
         		 $(".addop").each(function(){
-        			 data+=$(this).find(".op").find("div").text()+",";
-        			 data+=$(this).find('.op2').find(".quantity").val()+",";
+        			 param_string+=$(this).find(".op").find("div").text()+",";
+        			 param_string+=$(this).find('.op2').find(".quantity").val()+"|"; 
         		 });
-        		 alert(data);
-        		 
-        		 var len = $(".addop:checked").length; 
-        		 if(data==""){
- 					window.name="parentForm";
- 					window.open("<%=request.getContextPath()%>/nocart.jsp",
- 							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
- 					
- 					return;
- 				}else{
- 					
- 				}
-        		 
+        		 //alert(param_string);
+        		 if(param_string==""){
+   					window.name="parentForm";
+   					window.open("<%=request.getContextPath()%>/nocart.jsp", 
+   							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
+  					
+   					return;
+   				}
         		 $.ajax({
-        			 type:"post",
-        			 datatype:"json",
-        			 url:"cart",
-        			 data:{"data":data},
-        			 success:function(data){
-        				 alert(1);
-        			 },
-        			 
-        		 })
-        		 .fail(function(){ alert("fail"); })
+	        			 type:"post",
+	        			 datatype:"text",
+	        			 url:"../product/cart",
+	        			data:{
+       				 	 "pnum":$("#pnum").val(),
+	  		        	 "mid":$("#mid").val(),
+	  		        	 "data":param_string
+	  		         	},
+	        			 success:function(data){
+	        				window.name="parentForm";
+	        				window.open("<%=request.getContextPath()%>/yescart.jsp", 
+	        				"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
+	        			 },
+	        			 
+	        		 })
+ 	        		 .fail(function(){ alert("fail"); })
+        		 
         	 });
-        	 <%-- -- 카트 담기 버튼 -->
-        	   <form action="/cart/insert">
-        	      <input type="hidden" value="${dto.pnum}" id="pnum"/>
-        	      <input type="hidden" value="${mId}" id="mId"/>
-        	      
-        	      <!-- 얘는 여러개가 나온단 말이지 
-        	      <input type="hidden" value="${opdto.oid}" id="oid"/>
-        	      <input type="hidden" value="${oid별 개수}" id=""/>
-        	      
-        	   </form>--%>
-        	    
-        	   <%--장바구니추가 - 이건 script
-        		$(document).ready(function() {
-        	      $("#addcart").on("click",function(){
-        	      	 var cart =[];
-
-        	         
-        	         $(".addop").each(function(index,element){
-        	           let oid = $(element).find().val();
-        	           let cquantity = $(element).find().val();
-        	            
-        	         });
-        	         var pnum = ${dto.pnum};
-        	         
-        	         $.ajax({
-        	            type:"post",
-        	            dataType:"json",
-        	            url:"/cart/insert",
-        	            traditional : true,
-        	            data:{
-        	                "pnum":$("#pnum").val()//상품번호
-        	                "mid":$("#mid").val()//로그인아이디
-        	                "cquantity":$("#cquantity").val()//옵션아이디
-        	                "cquantity":$("#cquantity").val()//수량
-        	            },
-        	            success:function(data){
-        	              alert(data.message);
-        	            }   
-        	           });
-        	    	  }
-        	      });--%>
+        	 
+        	 <!--orderinsert-->
+        	 $(".directbtn").click(function(){
+         		
+         		 let param_string='';
+         		 $(".addop").each(function(){
+         			 param_string+=$(this).find(".op").find("div").text()+","; 
+         			 param_string+=$(this).find('.op2').find(".quantity").val()+"|"; 
+         		 });
+         		 //alert(param_string);
+         		 if(param_string==""){
+         			
+    					window.name="parentForm";
+    					window.open("<%=request.getContextPath()%>/nocart.jsp", 
+    							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
+   					
+    					return;
+    				}
+         		 alert(param_string);
+         		 $.ajax({
+ 	        			 type:"post",
+ 	        			 datatype:"text",
+ 	        			 url:"../product/order",
+ 	        			data:{
+        				 	 "pnum":$("#pnum").val(),
+ 	  		        	 "mid":$("#mid").val(),
+ 	  		        	 "data":param_string
+ 	  		         	},
+ 	        			 success:function(data){
+ 	        				window.name="parentForm";
+ 	        				window.open("<%=request.getContextPath()%>/yesorder.jsp", 
+ 	        				"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
+ 	        			 },
+ 	        			 
+ 	        		 })
+  	        		 .fail(function(){ alert("fail"); })
+         		 
+         	 });
+         	
+        		 
+        		 
+        	
+        	
         	      
        	     <!-- 위로가기 플로팅 -->
              /* 클릭시 스크롤 이동 */     
@@ -1016,6 +1027,9 @@ function changeOp() {
    var selectValue = Select.options[Select.selectedIndex].value;
    // select element에서 선택된 option의 text가 저장된다. >>oname
    var selectText = Select.options[Select.selectedIndex].text;
+   // select element에서 선택된 option의 text가 저장된다. >>oid
+   //var selectTid = Select.inputs[Select.selectedIndex].value;
+   //alert(selectTid);
    
    //acnt==0 선택한옵션이 이미 배열에있다.
    var aCnt = 0;
@@ -1043,7 +1057,7 @@ function changeOp() {
    }
    
    if(aCnt == 0) {
-      alert("선택된 값이 이미 존재합니다.");
+      alert("이미 선택된 옵션을 삭제 후 다시 선택해 주세요.");
       Select.selectedIndex = 0;
       return;
    } else {
@@ -1051,14 +1065,15 @@ function changeOp() {
       array.push(selectText);
       var s="";
       //테이블전체가 로우
-         s+="<table id='tb_" + selectText + "' class='t'>";
+         s+="<table id='tb_" + selectText + "' class='t' style='width:410px;'>";
          //opdto_List i=바깥배열 d안쪽 뱌열
             s+="<tr style='height:55px;' class='addop'>";
-            s+="<td style='width:190px; height:30px; float:right; margin-top : 6px; ' class='op'>";
-            s+= "<div style='float:left;'>" + selectText + "</div></td>";
+            s+="<td style='width:16px; height:30px; float:right; margin-top : 6px; ' class='op'>";
+            s+= "<div style='float:left;'>" + selectText + "</div></td><td>&nbsp;<span class='ml' style='width:170px; float: left; margin-top:6px;' >ml</span></td>";
             s+="<td class='op2'><div class='number-input' style='float:left;'>";
             s+="<button id='minus' name='min_" + selectText + "' class='minus' ></button>";
             s+="<input class='quantity' id='qua_" + selectText + "' min='0' type='number' value='1'/>";            
+            s+="<input type='hidden' id='hid_pri_" + selectText + "' value='" + selectValue + "' />";
             s+="<button id='plus' name='pl_" + selectText + "' class='plus'></button></div>&nbsp;&nbsp;&nbsp;&nbsp;</td>";
             s+="<td><div class='pridiv' style='float: left; margin-top : 6px;'><span  id='pri_" + selectText + "' class='price'>"+ selectValue + "</span><span>원</span></div>&nbsp;&nbsp;&nbsp;&nbsp;";
             s+="<input style='float: left;' type='hidden' id='hid_pri_" + selectText + "' value='" + selectValue + "' /></td>";

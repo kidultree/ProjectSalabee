@@ -94,6 +94,20 @@
 		and member.mid = review.mid and product.pnum=#{pnum} group by product.pnum
 		
 	</select>
+	
+		<!-- 안쪽 list (상품별 table) -->
+	<select id="getPnumReviewPartList2" resultType="review" parameterType="int">
+		select * 
+		
+		from review 
+		
+		join product
+		join member
+		
+		where product.pnum = review.pnum 
+		and member.mid = review.mid 
+		limit 3
+	</select>
 
 	
 
@@ -106,14 +120,14 @@
    	<!-- pnum review table 들어가는 부분  -->
    	
    <!-- 상품별 총 리뷰 갯수 -->
-      <select id="getTotalPnumReviewCount" resultType="int">
-      select pnum, count(*) from review group by pnum;
+      <select id="getTotalPnumReviewCount" parameterType="int" resultType="int">
+     select count(*) from  review where pnum = ${pnum} group by pnum;
    </select>
    
    
    <!-- 평균 별점 계산 -->
-	<select id="getAvgRrate" resultType="review">
-		select pnum, AVG(rrate) from review group by pnum;
+	<select id="getAvgRrate" resultType="review" parameterType="int">
+		select pnum, AVG(rrate) from review where pnum = ${pnum};
 	</select>
 
 

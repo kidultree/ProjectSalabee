@@ -4,11 +4,13 @@ import java.io.File;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
@@ -25,9 +27,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import data.dto.CartDto;
+import data.dto.OrderInfoDto;
 import data.dto.ProductDto;
 import data.dto.ProductOptionDto;
 import data.dto.ReviewDto;
+import data.mapper.CartMapperInter;
+import data.mapper.OrderInfoMapperInter;
 import data.mapper.ProductMapperInter;
 import data.mapper.ReviewMapperInter;
 @Controller
@@ -36,6 +41,12 @@ public class ProductController {
 
    @Autowired
    ProductMapperInter productMapper; //private?
+   
+   @Autowired
+   CartMapperInter cartMapper;
+   
+   @Autowired
+   OrderInfoMapperInter oderinfoMapper;
    
    @Autowired
    ReviewMapperInter reviewMapper;
@@ -51,6 +62,7 @@ public class ProductController {
 		    @RequestParam MultipartFile upload,
 		    @RequestParam MultipartFile upload2,
 			HttpSession session,
+			
 			HttpServletRequest request)
    {
 	  //사진을 저장할 경우
@@ -127,11 +139,13 @@ public class ProductController {
 		   ) {
 	   //num에 해당하는 dto얻기
 	   ProductDto dto = productMapper.getProduct(pnum);
+	   //int oid = productMapper.getOid(pnum);
 	   List <ProductOptionDto> opdto = productMapper.getProductOptionList(pnum);
 	   List <ReviewDto> redto = reviewMapper.getPnumReviewListHB(pnum);
 	   
 	   ModelAndView mview = new ModelAndView();
 	   
+	   //mview.addObject("oid", oid);
 	   mview.addObject("redto", redto);
 	   mview.addObject("dto",dto);
 	   mview.addObject("opdto",opdto);
@@ -162,31 +176,97 @@ public class ProductController {
 		 return "redirect:list";
 	 }
    
-   /*cart insert
+   //cart insert
    @PostMapping("/cart")
-   @ResponseBody //json타입의 데이터를 받기
-   public void insertcart(
-		   @RequestParam int pnum
-		  ) {
-	   
-	   
-   }
-   
-    장바구니에 담기 
-	@PostMapping("insert")
-	@ResponseBody  //json타입의 데이터를 받기 위해
-	public Map<String, String> insertCart(
-			@RequestParam CartDto dto)
-	{
-		//int cnt = cartmapper.insertCart(dto);
-		Map<String, String> map = new HashMap<>();
-		//if(cnt > 0) {
-		//	map.put("message", "성공적으로 장바구니에 담겼습니다.");
-		//}
+	public ModelAndView buy(
+			@RequestParam String mid, 
+			@RequestParam int pnum,
+			HttpServletRequest request, 
+			HttpServletResponse response) throws Exception
+	{  
+
+		String paramString = request.getParameter("data");
+		String setParamString [] = paramString.split("[|]");
 		
-		return map;
+		if(setParamString.length  > 0) {
+			for (int i = 0; i < setParamString.length; i++) {
+				
+				int intArr [] = Arrays.stream(setParamString[i].split(",")).mapToInt(Integer::parseInt).toArray();
+			
+				CartDto dto = new CartDto();
+				
+				dto.setMid(mid);
+				dto.setPnum(pnum);
+				
+				dto.setOid(intArr[0]);
+				dto.setCquantity(intArr[1]);
+				
+				cartMapper.insertCart2(dto);
+			}
+			
+		}
+		//for문 종료 후 orderId와 mid로 주문목록 조회
+//		List<Map<String,Object>> orderList = mapper.getOrderInfo(mid, orderId);
+		
+		ModelAndView mview = new ModelAndView(); 
+		
+//		mview.addObject("orderList", orderList);
+		
+		mview.setViewName("/cart/cartform");
+		return mview;		
 	}
-   */
+
+ //order insert
+   @PostMapping("/order")
+	public ModelAndView dibuy(
+			@RequestParam String mid, 
+			@RequestParam int pnum,
+			HttpServletRequest request, 
+			HttpServletResponse response) throws Exception
+	{  
+
+		String paramString = request.getParameter("data");
+		String setParamString [] = paramString.split("[|]");
+		
+		//System.out.println(setParamString);
+		
+		//멤버id로 조회한 주문정보 중 orderid가 가장 큰 거를 조회
+		Integer orderId = oderinfoMapper.selectLastOrderId(mid);
+		if(orderId == null) {
+			orderId = 0;
+		}else {
+			orderId += 1;
+		}
+		
+		
+		
+		
+		if(setParamString.length  > 0) {
+			for (int i = 0; i < setParamString.length; i++) {
+				
+				int intArr [] = Arrays.stream(setParamString[i].split(",")).mapToInt(Integer::parseInt).toArray();
+			
+				OrderInfoDto dto = new OrderInfoDto(); 
+				
+				dto.setMid(mid);
+				dto.setPnum(pnum);
+				
+				dto.setOid(intArr[0]);
+				dto.setOquantity(intArr[1]);
+				
+				dto.setOrderId(orderId);
+				
+				oderinfoMapper.insertOrderInfo(dto);
+			}
+			
+		}
+		
+		ModelAndView mview = new ModelAndView(); 
+		
+		mview.setViewName("/cart/buyform");
+		return mview;		
+	}
+    
    //업데이트 만들어야함...
    //@GetMapping("/productupdateform")
 }
