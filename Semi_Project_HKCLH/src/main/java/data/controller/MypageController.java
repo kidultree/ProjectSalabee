@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import data.dto.MemberDto;
+import data.dto.PayDto;
 import data.dto.QnADto;
 import data.dto.ReviewDto;
 import data.mapper.CartMapperInter;
 import data.mapper.LoginMapperInter;
 import data.mapper.MemberMapperInter;
+import data.mapper.PayMapperInter;
 import data.mapper.QnAMapperInter;
 import data.mapper.ReviewMapperInter;
 
@@ -36,7 +38,7 @@ public class MypageController {
 	@Autowired CartMapperInter cartMapper;
 	@Autowired ReviewMapperInter reviewMapper;
 	@Autowired QnAMapperInter qnaMapper;
-
+	@Autowired PayMapperInter payMapper;
 	
 	@GetMapping()
 	public ModelAndView mypage(@RequestParam String mId) {
@@ -50,10 +52,6 @@ public class MypageController {
 		return mview;
 	}
 	
-	@GetMapping("/list")
-	public String mylist(@RequestParam String mId) {
-		return "/mypage/myList";
-	}
 	
 	@GetMapping("/review")
 	public ModelAndView myreview(@RequestParam String mId) {
@@ -69,6 +67,18 @@ public class MypageController {
 		return mview;
 	}
 	
+	@GetMapping("/list")
+	public ModelAndView mylist(@RequestParam String mId) {
+		ModelAndView mview=new ModelAndView();
+		
+		List<PayDto> list=payMapper.getmyPay(mId);
+		
+		mview.addObject("list", list);		
+		
+		mview.setViewName("/mypage/myList");
+		
+		return mview;
+	}
 
 	
 	@GetMapping("/qna")

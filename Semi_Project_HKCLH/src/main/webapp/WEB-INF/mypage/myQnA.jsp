@@ -163,7 +163,7 @@ pageEncoding="UTF-8"%>
 			   location.href = "/mypage?mId=${sessionScope.mId}";
 		});
 		$("div.list").click(function(){
-			   location.href = "/mypage/list";
+			   location.href = "/mypage/list?mId=${sessionScope.mId}";
 		});
 		$("div.review").click(function(){
 			   location.href = "/mypage/review?mId=${sessionScope.mId}";

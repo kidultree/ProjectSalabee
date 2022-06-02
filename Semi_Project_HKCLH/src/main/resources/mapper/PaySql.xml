@@ -16,6 +16,20 @@
       delete from cart
    </delete>
    
-   <select id="getmyPay"  parameterType="String"></select>
+   <select id="getmyPay" resultType="Pay" parameterType="String">
+	  select * 
+	  
+	  from pay  
+	  
+	  join product
+	  join member
+	  join poption 
+	  
+	  where pay.pnum = product.pnum 
+	  and pay.oid = poption.poid 
+	  
+	  and mid=#{mId}
+	  
+   </select>
    
 </mapper>
