@@ -104,9 +104,9 @@ function change_bt(act){
 		<!-- 옵션은 detail에서만 선택가능..? -->
 				
 		<tr>
-			<th>가격</th>
+			<th>태그</th>
 			<td>
-				<input type="text" name="pprice" required="required" placeholder="가격">
+				<input type="text" name="ptag" required="required" placeholder="가격">
 			</td>
 		</tr>
 		<tr>

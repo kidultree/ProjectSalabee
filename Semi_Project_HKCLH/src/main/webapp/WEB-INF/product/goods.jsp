@@ -65,7 +65,7 @@ width: 306px; height: 379px;
 .product_list dt{padding: 14px 15px 14px;  border-top: 0px solid #f0f0f0; text-align: center;}
 .product_list dt a { font-size: 19px; color: #1a1a1a; font-weight: bold; text-decoration: none; /* position:absolute; left:80px; */text-align: center;}
 .product_list .product_img { position: absolute; left:35px; top:0; width:306px; height:379px;}
-.product_list .tags {padding: 0 0 0 0px; font-size: 15px; color:black; opacity: 0.7;  position: absolute; left: 100px; bottom: 45px;}
+.product_list .tags {padding: 0 0 0 0px; font-size: 15px; color:black; opacity: 0.7;  position: absolute; left: 120px; bottom: 45px;}
 .product_list .btm {position: absolute; right: 3px; bottom:0; width: 99%; border-top: 0px solid #f0f0f0; background: white;}
 .product_list .btm div { float:left; width: 40%; height: 30px; line-height: 30px; text-align: center; font-size: 12px; color:#767676;}
 .product_list .btm div a {font-size:15px; color:#767676;}
@@ -234,10 +234,10 @@ $(document).ready(function($) {
 		<div id="div3"></div>
 		<div id="div4"></div>
 	
-<!-- 
+
          <button type="button" class="btn btn-info" id="formbtn"
          onclick="location.href='form'">
-         상품등록</button> -->
+         상품등록</button> 
 	
 
 </body>

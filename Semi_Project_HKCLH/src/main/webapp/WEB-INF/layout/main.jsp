@@ -49,7 +49,7 @@ Signika+Negative:wght@300&display=swap"
 div.imgtitle {
 	position: absolute;
 	top: 23%;
-	left: 46%;
+	left: 47%;
 	color: white;
 	font-size: 5rem;
 	font-family: 'Suravaram';
@@ -148,7 +148,7 @@ div.mainbottomimg {
 		<img src="${root}/image/mainimage2.jpg" style="width: 100%";>
 	</div>
 	<div class="imgtitle">
-		<p>Welcome</p>
+		<p>FragBit</p>
 	</div>
 	<div class="imgpre-title">
 		<p>Better but different</p>
