@@ -81,7 +81,7 @@ public class ProductController {
 	}
 	  	  
       productMapper.insertProduct(dto);
-      return "redirect:myset";
+      return "redirect:fragrance";
 
    }
 
