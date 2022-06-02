@@ -92,7 +92,7 @@ left: 500px;
 <th width="120">구매자</th>
 <td colspan="3">
 <input type="text" name="mid" class="form-control"
- required="required" autofocus="autofocus" value="${dto.mid}">
+ required="required" autofocus="autofocus" readonly="readonly" value="${mId}" ;>
 </td>
 </tr>
 
