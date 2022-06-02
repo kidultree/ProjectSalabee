@@ -28,6 +28,7 @@
 	  and pay.oid = poption.oid 
 	  
 	  and mid=#{mId}
+	  group by payid
 	  order by payid desc
 	  
    </select>

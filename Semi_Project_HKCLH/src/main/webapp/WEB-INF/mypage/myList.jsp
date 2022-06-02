@@ -13,7 +13,7 @@ pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>   
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/resources/css/cart.css">
+<link rel="stylesheet" href="/resources/css/list.css">
 
 
 <style type="text/css">
@@ -66,6 +66,10 @@ pageEncoding="UTF-8"%>
   span:hover{
     color: #2962ff;
   
+  }
+  
+  table th,table td{
+  	text-align: center;
   }
   
 </style>
@@ -123,22 +127,21 @@ pageEncoding="UTF-8"%>
   <button class="question" id="que-6"><span id="que-6-toggle">+</span><span>회원 탈퇴</span></button>
 </div>
 
-<div class="container" style="position: absolute; left: 600px; top:200px; border: 1px solid black;">
+<div class="container" style="position: absolute; left: 400px; top:50px; border: 1px solid black;">
 <h3 style=" position:relative; left: 70px;"><b>주문 내역</b></h3>
 	<br>
     <div id="wrapper">
     
        <!-- 카트 테이블 첫 행 -->
-   <table class="cart-table" style="width:1200px;">
+   <table class="cart-table" style="width:800;">
    <thead>
    	<tr>
-		<th class="th_width_1"></th>
-		<th class="th_width_2">제품 번호</th>
+		<th class="th_width_1" style="text-align: center;">주문 번호</th>
+		<th class="th_width_2">제품정보</th>
+		<th class="th_width_3">옵션</th>
+		<th class="th_width_4" style="font-weight: 400;">금액</th>	
+		<th class="th_width_5">날짜</th>
 		
-		<th class="th_width_3">제품정보</th>	
-		<th class="th_width_4">수량</th>
-		<th class="th_width_5">금액</th>
-		<th></th>
 	</tr>
    </thead>
    <tbody>
@@ -146,48 +149,23 @@ pageEncoding="UTF-8"%>
 	<tr>
 
 		
-		<td>${dto.payid}</td>
+		<td style="text-align: center;">${dto.payid}</td>
 		<!-- 이미지&제품정보 -->
-		<td><img src="${root}/save/${dto.pphoto}" style="width:100px;">
-		&nbsp;&nbsp;${dto.pname}/${dto.pyquantity}/${dto.oname }</td>
-		
-		<!-- 수량선택 -->	
-		<td></td>
-		<td>${dto.pprice}</td>
-		
+		<td><img src="${root}/save/${dto.pphoto}" style="width:150px; margin-top: 20px; margin-bottom: 20px;">
+		&nbsp;&nbsp;<span style="font-size: 1.2em; font-weight: bold;">${dto.pname}</span>${dto.pyquantity}/${dto.oid }ml<br>
+		<br></td>
 
 		
+		<!-- 수량선택 -->	
+		<td>${dto.pprice}</td>
+		<td>${dto.pprice}</td>
+		<td><fmt:formatDate value="${dto.pydate}" pattern="yyyy-MM-dd"/></td>
 		</tr>
+		<tr></tr><tr></tr>
 	</c:forEach>
 	</tbody>
 </table>
-        <table id="table_detail" 
-            align=center cellpadding=10>
-  			
 
-            
-  			<c:forEach var="dto" items="${list }" varStatus="i">
-  			
-  			<tr onclick="showHideRow('hidden_row${dto.pnum}');" style="text-align: center;">
-                <td>${dto.payid }</td>
-                <td>${dto.pnum }</td>
-                <td>${dto.oid }</td>
-            <fmt:formatDate value="${dto.pydate}" pattern="yyyy-MM-dd"/>
-                
-                <td>${dto.pyquantity }</td>
-                <td>${mId}</td>
-  				<td>${dto.pydelivery }</td>    
-  				<td>${dto.oid }</td>      
-  				<td>${dto.pprice }</td>
-            </tr>
-  			<tr id="hidden_row${dto.pnum }" class="hidden_row">
-				<td colspan="6" style="text-align: center;"></td>
-            </tr>
-  			</c:forEach>
-
-
-
-        </table>
 </div>
 
 </div>
