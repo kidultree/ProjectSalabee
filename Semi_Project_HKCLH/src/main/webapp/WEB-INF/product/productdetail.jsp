@@ -16,9 +16,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
 <style type="text/css">
-*{
-   font-family: 'Noto Sans KR', sans-serif;
-}
+
 .content{
    position: relative;
    top : 100px;
@@ -29,6 +27,7 @@
 }
 /*tab*/
 body{
+		font-family: 'Noto Sans KR', sans-serif;
       margin-top: 100px;
       line-height: 1.6
    }
@@ -834,11 +833,11 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
          		 //alert(param_string);
          		 if(param_string==""){
          			
-    					<%--window.name="parentForm";
+    					window.name="parentForm";
     					window.open("<%=request.getContextPath()%>/nocart.jsp", 
     							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
    					
-    					return;--%>
+    					return;
     				}
          		 alert(param_string);
          		 $.ajax({
@@ -852,7 +851,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
  	  		         	},
  	        			 success:function(data){
  	        				window.name="parentForm";
- 	        				window.open("<%=request.getContextPath()%>/yescart.jsp", 
+ 	        				window.open("<%=request.getContextPath()%>/yesorder.jsp", 
  	        				"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
  	        			 },
  	        			 
@@ -1058,7 +1057,7 @@ function changeOp() {
    }
    
    if(aCnt == 0) {
-      alert("선택된 값이 이미 존재합니다.");
+      alert("이미 선택된 옵션을 삭제 후 다시 선택해 주세요.");
       Select.selectedIndex = 0;
       return;
    } else {

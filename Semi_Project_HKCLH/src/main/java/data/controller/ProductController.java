@@ -228,7 +228,7 @@ public class ProductController {
 		String paramString = request.getParameter("data");
 		String setParamString [] = paramString.split("[|]");
 		
-		System.out.println(setParamString);
+		//System.out.println(setParamString);
 		
 		//멤버id로 조회한 주문정보 중 orderid가 가장 큰 거를 조회
 		Integer orderId = oderinfoMapper.selectLastOrderId(mid);

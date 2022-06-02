@@ -15,22 +15,25 @@
 <link rel="stylesheet" href="/resources/css/done.css">
 
 <style type="text/css">
-*{
+body{
 	font-family: 'Noto Sans KR', sans-serif;
 }
 .doneimg{
 	position: relative;
-	margin-left: 900px;
+	margin-left: 135px;
+	
+	
+	
 }
 .a{
 	font-size: 25px;
 	position: relative;
-	margin-left: 850px;
+	margin-left: 100px;
 }
 
 .homebtn {
 		position: relative;
-	 	margin-left: 770px;
+		left: 20px;
         line-height:40px; 
         background-color:black;  
         text-align:center; 
@@ -52,6 +55,7 @@
 
 <script type="text/javascript">
 
+
 function a(){
 const ran1 = Math.floor(Math.random() * 4000000);
 const ran2 = Math.floor(Math.random() * 4000000);
@@ -62,14 +66,14 @@ $('.a').text("주문번호 : "+ran1+"-"+ran2);
 <br><br> <br>
 
 <br><br>
-
+<div class="content" style="width: 500px; margin-left: 570px;" >
 <img class="doneimg" style="width: 250px; height: 250px;" src="../save/결제완료.PNG"><br><br>
-<div class="cart-title" style="width: 500px;"> 결제가 완료되었습니다. </div>
+<div class="cart-title" style="width: 550px;"> 결제가 완료되었습니다. </div>
 <br>
 <div class="a"></div>
 <br><br><br>
 <button class="homebtn" style="width: 500px; height: 50px;" onclick="location.href='../../'">홈으로</button>
-
+</div>
 <br><br><br><br><br><br><br>
 
 
