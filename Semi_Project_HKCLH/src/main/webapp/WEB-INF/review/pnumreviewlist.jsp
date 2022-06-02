@@ -34,7 +34,12 @@
 	position: relative;
 	left: 20px;
 }
- 
+
+#star{
+
+color: #ffd740;
+
+}
 
 </style>
 
@@ -52,20 +57,37 @@
 	<thead>
   <tr>
     <td rowspan="5" width="200px;"><img src="${root}/save/${dto.pphoto}" style="width: 160px;"></td>
-    <td colspan="2" width="330px;">${dto.pname}</td>
+    <td colspan="2" width="330px;"><h4><b style="background-color: black; color: #ffffff";>
+    ${dto.pname}</b></h4></td>
     <td rowspan="2">개의 리뷰 전체보기</td>
   </tr>
   <tr>
-    <td colspan="2">★평균 ${dto.rrate}점 
+    <td colspan="2"><b>★평균 ${dto.rrate}점 
     
-    
-  
-					
-					/ 리뷰 ${totalpnumreviewcount} 개</td>
+					/ 리뷰 ${totalpnumreviewcount} 개</b></td>
   </tr>
   <c:forEach var="dto" items="${list2}">
   <tr>
-    <td colspan="3">${dto.rcontent}</td>
+    <td colspan="3"><!-- 별점 value 따라서 별 show -->
+					<c:if test="${dto.rrate == '1'}">
+						<label id="star">★</label><label>별로에요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '2'}">
+						<label id="star">★★</label><label>그냥 그래요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '3'}">
+						<label id="star">★★★</label><label>보통이에요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '4'}">
+						<label id="star">★★★★</label><label>맘에 들어요</label>
+					</c:if>
+					
+					<c:if test="${dto.rrate == '5'}">
+						<label id="star">★★★★★</label><label>아주 좋아요</label>
+					</c:if>${dto.rcontent}</td>
   </tr>
   </c:forEach>
   

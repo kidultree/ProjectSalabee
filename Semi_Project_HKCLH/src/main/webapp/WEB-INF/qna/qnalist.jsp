@@ -303,9 +303,7 @@
 							style="color: gray; font-size: 0.8em;"></span>
 							</c:if>
 							
-							
-							
-							
+	
 						</td>
 						<td>${dto.mid}</td>
 						<td>${dto.qstate}</td>

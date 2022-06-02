@@ -60,8 +60,7 @@
 	position: relative;
 	left: 26%;
 	}
-	
-	
+
 </style>
 </head>
 
@@ -69,33 +68,25 @@
 
 	<!-- 글 내용 -->
 	<br><br>
-	<div class = "qnacontent" style="width: 800px; border:1px solid black;">
-		<h2><b>${dto.qtitle}</b></h2>
+	<div class = "qnacontent" style="width: 800px; border: 0.5px solid #808080; border-radius: 15px;">
+		<h2 style="background-color: black; color: #ffffff"><b>&nbsp;&nbsp;${dto.qtitle}</b></h2>
 		<span class="glyphicon glyphicon-user"></span>&nbsp;<b>${dto.mid}</b>
 		<span style="color: gray;">
 			<fmt:formatDate value="${dto.qdate}" pattern="yyyy-MM-dd HH:mm"/>
 		</span>&nbsp;
 		<hr>
 		<br><br>
-		<pre style="background-color: white; border: none; font-family:'Noto Sans KR'; 
-		font-size: 1.5em; font-weight: 200;"><b>${dto.qcontent}</b></pre>
-		<br><br>
 		<c:if test="${dto.qimg!='no'}">
 			<c:forTokens var="qimg" items="${dto.qimg}" delims="," varStatus="n">
 				<a href="../save/${qimg}" target="_new" style="cursor: pointer;">
 				<img src="../save/${qimg}"
-				style="max-width: 300px; border: 1px solid black;">
+				style="max-width: 300px;">
 				<c:if test="${n.count%2==0}"><br><br></c:if>
 			</c:forTokens>
 		</c:if>
-			
-			<form id="afrm">
-				<!--  hidden -->
-				<input type="hidden" name="qnum" value="${dto.qnum}">
-				<input type="hidden" name="mid" value="${sessionScope.loginid}">
-				<input type="hidden" name="mname" value="${sessionScope.loginname}">
-			
-			</form>
+		<pre style="background-color: white; border: none; font-family:'Noto Sans KR'; 
+		font-size: 1.5em; font-weight: 200;"><b>${dto.qcontent}</b></pre>
+		<br><br>
 
 		
 		<!-- 댓글창 아래 작은 버튼들  -->

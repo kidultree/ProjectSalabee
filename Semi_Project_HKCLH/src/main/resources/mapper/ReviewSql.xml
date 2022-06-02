@@ -120,7 +120,7 @@
    	<!-- pnum review table 들어가는 부분  -->
    	
    <!-- 상품별 총 리뷰 갯수 -->
-      <select id="getTotalPnumReviewCount" parameterType="int" resultType="int">
+      <select id="getTotalPnumReviewCount" resultType="int">
      select count(*) from  review where pnum = ${pnum} group by pnum;
    </select>
    
