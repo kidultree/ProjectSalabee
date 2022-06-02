@@ -48,10 +48,11 @@ Signika+Negative:wght@300&display=swap"
 
 div.imgtitle {
 	position: absolute;
-	top: 30%;
-	left: 41%;
+	top: 25%;
+	left: 38%;
 	color: white;
-	font-size: 5rem;
+	font-size: 7rem;
+	font-weight: bold;
 	font-family: 'Suravaram';
 	
 }
