@@ -48,8 +48,8 @@ Signika+Negative:wght@300&display=swap"
 
 div.imgtitle {
 	position: absolute;
-	top: 23%;
-	left: 47%;
+	top: 30%;
+	left: 41%;
 	color: white;
 	font-size: 5rem;
 	font-family: 'Suravaram';
@@ -75,8 +75,8 @@ div.imgpre-title {
 	color: #000;
 	text-decoration: none;
 	user-select: none;
-	position: absolute;
-	left: 50%;
+	position: relative;
+	left: 61%;
 	top: 110px;
 	transform: translateX(-50%);
 	display: flex;
@@ -148,10 +148,10 @@ div.mainbottomimg {
 		<img src="${root}/image/mainimage2.jpg" style="width: 100%";>
 	</div>
 	<div class="imgtitle">
-		<p>FragBit</p>
+		<p>Better but different</p>
 	</div>
 	<div class="imgpre-title">
-		<p>Better but different</p>
+		<p></p>
 		<a href="/product/fragrance" class="-button" style="border-color: rgb(255, 255, 255);">
 			<div class="-text" style="color: rgb(255, 255, 255);">바로가기</div>
 		</a>
