@@ -125,7 +125,7 @@ div #review_cate{
 <body>
 
 	
-<input type="hidden" id="mId" name="mId" value="${mId}">
+<input type="hidden" id="mId" name="mid" value="${mId}">
 <div class="notice">
 <a>
 
