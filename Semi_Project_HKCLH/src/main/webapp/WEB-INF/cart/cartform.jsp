@@ -136,19 +136,19 @@
 	</tr>
 	
 	<tr style="line-height: 120px;">	
-		<td><span class="totalPrice_span"></span> 원</td>
+		<td style="font-size: 24px;"><span class="totalPrice_span"></span> 원</td>
 		
 		<td><img src="${root}/image/-.PNG" id="m" style="width:60px"></td>
 		
-		<td>0원</td>
+		<td style="font-size: 24px;">0원</td>
 		
 		<td><img src="${root}/image/+.PNG" id="p" style="width:60px"></td>
 		
-		<td><span class="delivery_price"></span>원</td>
+		<td style="font-size: 24px;"><span class="delivery_price"></span>원</td>
 		
 		<td><img src="${root}/image/=.PNG" id="e" style="width:60px"></td>
 		
-		<td class="all_price_th4"><span class="finalTotalPrice_span"></span> 원</td>
+		<td class="all_price_th4" style="font-size: 24px;"><span class="finalTotalPrice_span"></span> 원</td>
 	</tr>
 </table>
 
