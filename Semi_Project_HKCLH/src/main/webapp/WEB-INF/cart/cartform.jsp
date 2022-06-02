@@ -33,7 +33,7 @@
 			
 			
 			/* 배송비 결정 */
-			if(totalPrice >= 30000){
+			if(totalPrice >= 50000){
 				deliveryPrice = 0;
 			} else if(totalPrice == 0){
 				deliveryPrice = 0;	
@@ -296,7 +296,7 @@ $('.btn-plus, .btn-minus').on('click', function(e) {
 	     price += $(item).find('td.price_td').find("span.sum_price").text() * 1;
 	});	
 	
-	if(price >= 30000){
+	if(price >= 50000){
 		deliveryPrice2 = 0;
 	} else if(price == 0){
 		deliveryPrice2 = 0;	

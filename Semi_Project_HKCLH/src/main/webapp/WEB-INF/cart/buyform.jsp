@@ -284,7 +284,7 @@ $(function(){
 			
 			
 			/* 배송비 결정 */
-			if(totalPrice >= 30000){
+			if(totalPrice >= 50000){
 				deliveryPrice = 0;
 			} else if(totalPrice == 0){
 				deliveryPrice = 0;	
