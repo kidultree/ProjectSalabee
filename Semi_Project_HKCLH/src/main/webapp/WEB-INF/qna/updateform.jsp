@@ -29,55 +29,85 @@
    
 </head>
 <body>
-	<c:if test="${sessionScope.loginok==null}">
+<c:if test="${sessionScope.loginok==null}">
 	<script type="text/javascript">
-		alert("다시 로그인 후 글수정을 시도해주세요");
-		location.href='../login/updateform'
+		alert("다시 로그인 후 글쓰기를 시도해 주세요");
+		location.href='../login/loginform'
 	</script>
 </c:if>
-<form action="update" method="post" enctype="multipart/form-data">
-	<!-- hidden 2개 -->
+	<form action="insert" method="post" enctype="multipart/form-data">
+	<!-- hidden 5개 -->
 	<input type="hidden" name="currentPage" value="${currentPage}">
-	<input type="hidden" name="qnum" value="${dto.qnum}">
+	<input type="hidden" name="qnum" value="${qnum}">
+	<input type="hidden" name="reg" value="${reg}">
+	<input type="hidden" name="restep" value="${restep}">
+	<input type="hidden" name="relevel" value="${relevel}">
 
+	<div class="qna_form">	
+<table class="table table-borderless qna" style="width: 800px;">
 
-	<table class="table table-bordered boardform" style="width: 500px">
-		<caption><b>글 수정</b></caption>
-			<tr>
-				<th style="width: 100px; background-color: #ddd">제 목</th>
-				<td>
-					<input type="text" name="subject" class="form-control"
-					required="required" autofocus="autofocus"
-					value="${dto.qtitle}"
-					placeholder="제목을 써주세요">
-				</td>
-			</tr>
-			<tr>
-				<th style="width: 100px; background-color: #ddd">사진들</th>
-				<td>
-					<b>사진을 업로드하지 않으면 기존 사진이 유지됩니다</b><br>
-					<input type="file" name="upload" class="form-control"
-					multiple="multiple">
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<textarea style="width: 100%; height: 100px;" name="qcontent"
-					class="form-control" required="required">${dto.qcontent}</textarea>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">
-					<button type="submit" class="btn btn-default"
-					style="width: 100px;">글수정</button>
-					
-					<button type="button" class="btn btn-default"
-					style="width: 100px;" onclick="history.back()">이전</button>
-				</td>
-			</tr>
+<h2>QnA 수정</h2>
+<br><br>
+<tr>
+<th width="120">말머리</th>
+<td colspan="3">
+
+	<select name = "qcate" id= "qcate">
+		<option selected disabled hidden>문의 유형</option>
+		<option value="상품">상품</option>
+		<option value="배송">배송</option>
+		<option value="반품/환불">반품/환불</option>
+		<option value="교환/변경">교환/변경</option>
+		<option value="기타">기타</option>
+	</select>
+</td>
+</tr>
+
+</script>
+
+<tr>
+<th style="width: 100px;">제목</th>
+<td>
+ <input type="text" class="form-control" name="qtitle" required="required"> 
+</td>
+</tr>
+
+<!-- 로그인해야 쓸수있음 -->
+<tr>
+<th style="width: 100px;">작성자</th>
+<td>
+<input type="text" class="form-control" name="mid" required="required" value="${mId}" readonly="readonly">
+</td>
+</tr>
+
+	<th>문의 사진</th>
+			<td>
+				<input type="file" name="upload" id="currentDate" value="">
+			</td>
+			
+	<tr>
+	<th style="width: 100px;">문의상태</th>
+		<td>
+		접수<input type="radio" name = "qstate" id = "qstate" value = "접수">&nbsp;
+		답변완료<input type="radio" name = "qstate" id = "qstate" value = "답변완료">
+		</td>
+	</tr>
+<tr>
+<td colspan="4">
+         <textarea name="qcontent" id="qcontent" required="required" 
+         style="width:100%; height: 300px; display:none;" ></textarea>
+      </td>
+</tr>
+
 	</table>
 	</form>
 
-
+	<tr>
+			<td colspan="2" align="center">
+					<button type="submit" class="btn btn-default"
+					style="width: 100px;">글수정</button>
+			</td>
+	</tr>
 
 
 
