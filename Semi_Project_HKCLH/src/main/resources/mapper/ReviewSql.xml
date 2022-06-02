@@ -120,13 +120,13 @@
    	<!-- pnum review table 들어가는 부분  -->
    	
    <!-- 상품별 총 리뷰 갯수 -->
-      <select id="getTotalPnumReviewCount" resultType="int">
-      select pnum, count(*) from review group by pnum;
+      <select id="getTotalPnumReviewCount" parameterType="int" resultType="int">
+     select count(*) from  review where pnum = ${pnum} group by pnum;
    </select>
    
    
    <!-- 평균 별점 계산 -->
-	<select id="getAvgRrate" resultType="review">
+	<select id="getAvgRrate" resultType="review" parameterType="int">
 		select pnum, AVG(rrate) from review where pnum = ${pnum};
 	</select>
 
