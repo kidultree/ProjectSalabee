@@ -462,7 +462,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
 <br>
 <div class="content">
 <input type="hidden" value="${dto.pnum}" id="pnum"/>
-   <input type="hidden" value="${mId}" id="mid"/>
+   <input type="hidden" value="${mId}" id="mid"/> <!-- 대한 -->
    <div class="leftlay">
       
       <div id="wrapper" style="float: left;">
@@ -515,7 +515,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
                 <c:forEach var="list" items="${opdto}"> <!-- list < opdto 호출시 list.으로-->          
                    <option value="${list.oprice}">${list.oid}</option> <!-- value /text -->
                    
-                   <!-- 2개이상 db컬럼 가져올시 input hidden으로 하면댐 -->
+                   <!-- 2개이상 db컬럼 가져올시 input 으로 하면댐 -->
                    
                 </c:forEach>
             </select>
