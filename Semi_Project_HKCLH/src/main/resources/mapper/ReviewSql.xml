@@ -127,22 +127,13 @@
    
    <!-- 평균 별점 계산 -->
 	<select id="getAvgRrate" resultType="review">
-		select pnum, AVG(rrate) from review group by pnum;
+		select pnum, AVG(rrate) from review where pnum = ${pnum};
 	</select>
 
 
 	<!-- 리뷰 3줄씩만 가져오기 -->
-	<select id = "get3ReviewsList" resultType="review" parameterType="int">
- 		select * 
-		
-		from review 
-		
-		join product
-		join member
-		
-		where product.pnum = review.pnum 
-		and member.mid = review.mid and product.pnum=#{pnum} group by product.pnum
- 		<!-- select pnum, rcontent from review where pnum = ${pnum} limit 3 ;-->
+	<select id = "get3ReviewsList" resultType="review">
+ 		select pnum, rcontent from review where pnum = ${pnum} limit 3 ;
 	</select>
 
 
