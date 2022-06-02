@@ -452,6 +452,10 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
         /*.qtitle{
         	background-color: #F2F2F2;
         }*/
+        
+        .ml{
+        	margin-top:6px;
+        }
 </style>
 </head>
 <body>
@@ -790,19 +794,27 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
         			 param_string+=$(this).find(".op").find("div").text()+",";
         			 param_string+=$(this).find('.op2').find(".quantity").val()+"|"; 
         		 });
-        		 alert(param_string);
-        		 
+        		 //alert(param_string);
+        		 if(param_string==""){
+   					window.name="parentForm";
+   					window.open("<%=request.getContextPath()%>/nocart.jsp", 
+   							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
+  					
+   					return;
+   				}
         		 $.ajax({
 	        			 type:"post",
 	        			 datatype:"text",
 	        			 url:"../product/cart",
 	        			data:{
-       				 	"pnum":$("#pnum").val(),
+       				 	 "pnum":$("#pnum").val(),
 	  		        	 "mid":$("#mid").val(),
 	  		        	 "data":param_string
 	  		         	},
 	        			 success:function(data){
-	        				 alert(1);
+	        				window.name="parentForm";
+	        				window.open("<%=request.getContextPath()%>/yescart.jsp", 
+	        				"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
 	        			 },
 	        			 
 	        		 })
@@ -810,14 +822,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
         		 
         		 
         	 });
-//         		 if(data==""){
-//  					window.name="parentForm";
-<%--  					window.open("<%=request.getContextPath()%>/nocart.jsp", --%>
-//  							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
- 					
-//  					return;
-//  				}else{ 					
-//  				}
+         	
         		 
         		 
         	
@@ -1067,7 +1072,7 @@ function changeOp() {
          //opdto_List i=바깥배열 d안쪽 뱌열
             s+="<tr style='height:55px;' class='addop'>";
             s+="<td style='width:16px; height:30px; float:right; margin-top : 6px; ' class='op'>";
-            s+= "<div style='float:left;'>" + selectText + "</div></td><td style='width:180px; margin-top : 6px;' >&nbsp;ml</td>";
+            s+= "<div style='float:left;'>" + selectText + "</div></td><td>&nbsp;<span class='ml' style='width:180px; float: left; margin-top:6px;' >ml</span></td>";
             s+="<td class='op2'><div class='number-input' style='float:left;'>";
             s+="<button id='minus' name='min_" + selectText + "' class='minus' ></button>";
             s+="<input class='quantity' id='qua_" + selectText + "' min='0' type='number' value='1'/>";            
