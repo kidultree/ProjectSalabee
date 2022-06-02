@@ -93,7 +93,7 @@ public class QnAController {
 		
 		//데이터 가져오기
 		List<QnADto> list = qnaService.getQnAList(startQNum, perPage);
-		
+		System.out.println(list.get(0).getMid()+","+list.get(0).getQcate());
 		//각 데이터에 id를 이용해서 이름 넣어주기
 
 		//model에 저장
@@ -124,10 +124,9 @@ public class QnAController {
 		String path = request.getServletContext().getRealPath("/save");
 		
 		//세션으로부터 로그인한 아이디 얻기
-		//String loginid = (String)session.getAttribute("loginid");
-		//dto.setMid(loginid); //dto에 id 넣기
+		String mId = (String)session.getAttribute("mid");
+		dto.setMid(mid); //dto에 id 넣기
 		
-		dto.setMid(mid);
 		
 		//사진을 업로드 안했을 경우 photos 에 'no'라고 저장
 		if(upload.get(0).getOriginalFilename().equals("")) {

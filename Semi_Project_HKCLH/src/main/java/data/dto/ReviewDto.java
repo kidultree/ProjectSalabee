@@ -23,5 +23,5 @@ public class ReviewDto {
 	
 	private int pnum;
 	private String mid;
-	private String mId;
+
 }

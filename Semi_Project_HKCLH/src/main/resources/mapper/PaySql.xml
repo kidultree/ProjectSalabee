@@ -9,11 +9,11 @@
 	</insert>
 	
    <delete id="deleteOrderinfo">
-      delete from orderinfo
+      delete from orderinfo where mid=#{mId}
    </delete>
    
    <delete id="deleteCart">
-      delete from cart
+      delete from cart where mid=#{mId}
    </delete>
    
    <select id="getmyPay" resultType="Pay" parameterType="String">

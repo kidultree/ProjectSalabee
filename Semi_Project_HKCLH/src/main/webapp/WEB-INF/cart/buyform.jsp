@@ -139,21 +139,21 @@ $(function(){
         <td>
             <table class="but-sangpum-text">
                 <tr>
-                    <td colspan="2" style="color:black; font-size:25px; line-height:50px;">${oList.pname}</td>
+                    <td colspan="2" style="color:black; font-size:25px; line-height:50px; ">${oList.pname}</td>
                 </tr>
-                <tr>
+                <tr style="color:#919090; font-size:20px;">
                     <td>옵션 : </td>
-                    <td>${oList.oid} ml</td>
+                    <td  style="width:300px;">${oList.oid} ml</td>
                 </tr>
-                <tr>
+                <tr style="color:#919090; font-size:20px; ">
                     <td>수량 : </td>
                     <td>${oList.oquantity} 개</td>
                 </tr>
-                <tr>
+                <tr style="color:#919090; font-size:20px; ">
                     <td>금액 : </td>
                     <td>${oList.oquantity*oList.oprice} 원</td>
                 </tr>
-                <tr>
+                <tr style="color:#919090; font-size:20px; ">
                     <td>[조건]&nbsp;</td>
                     <td> / 기본배송 </td>
                 </tr>
@@ -284,7 +284,7 @@ $(function(){
 			
 			
 			/* 배송비 결정 */
-			if(totalPrice >= 30000){
+			if(totalPrice >= 50000){
 				deliveryPrice = 0;
 			} else if(totalPrice == 0){
 				deliveryPrice = 0;	

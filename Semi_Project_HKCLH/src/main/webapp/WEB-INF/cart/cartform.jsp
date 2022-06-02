@@ -33,7 +33,7 @@
 			
 			
 			/* 배송비 결정 */
-			if(totalPrice >= 30000){
+			if(totalPrice >= 50000){
 				deliveryPrice = 0;
 			} else if(totalPrice == 0){
 				deliveryPrice = 0;	
@@ -240,20 +240,22 @@
 				let param_string = '';
 				
 				if($("#mid").val() != ''){
-					
-					$("table.cart-table tbody tr").each(function (index, item) {
-// 						if($(".del:checked")){
+					//alert("len:"+$(".del:checked").length);
+					//$("table.cart-table tbody tr").each(function (index, item) {
+ 						$(".del:checked").each(function (index, item) {
+						//if($(".del:checked")){
 					     console.log(item);
-					     param_string += $(item).find('td.cart_info_td').find("input.param_pnum").val() + ',';
-					     param_string += $(item).find('td.cart_info_td').find("input.param_oid").val() + ',';
-					     param_string += $(item).find('td.cart_info_td').find("input.param_quantity2").val() + '|';
-// 						}
+					     param_string += $(item).parent().siblings('td.cart_info_td').find("input.param_pnum").val() + ',';
+					     param_string += $(item).parent().siblings('td.cart_info_td').find("input.param_oid").val() + ',';
+					     param_string += $(item).parent().siblings('td.cart_info_td').find("input.param_quantity2").val() + '|';
+ 					//	}
 					});	
+ 						console.log("param_string="+param_string);
 // 					debugger;
 				}
 				
 				
-				$.ajax({
+				 $.ajax({
 		         type:"post",
 		         dataType:"text",
 		         url:"/orderinfo/buy",
@@ -267,7 +269,7 @@
 		        	//location.href="/cart/buy";
 		        	 location.href="/orderinfo/buy?mid=${sessionScope.mId}";
 		         }   
-		        });
+		        }); 
 			});
 			
 	    });
@@ -294,7 +296,7 @@ $('.btn-plus, .btn-minus').on('click', function(e) {
 	     price += $(item).find('td.price_td').find("span.sum_price").text() * 1;
 	});	
 	
-	if(price >= 30000){
+	if(price >= 50000){
 		deliveryPrice2 = 0;
 	} else if(price == 0){
 		deliveryPrice2 = 0;	
