@@ -102,8 +102,8 @@
 		
 		<!-- 이미지&제품정보  <td></td>-->
 		<td style="text-align: left; padding: 15px;"><img src="${root}/save/${cList2.pphoto}" style="width:150px;">&nbsp;&nbsp;
-		<td class="pname">${cList2.pname}</td>
-		<td class="poption">${cList2.oid}ml</td>
+		<td class="pname">${cList2.pname}<div style="font-size:15px; color:#bcbcbc;"><br>${cList2.ptag}</div></td>
+		<td class="poption">${cList2.oid}ml<div style="font-size:15px;"><br>${cList2.pcate1}<br>-${cList2.pcate2}</div></td>
 				
 		<!-- 수량선택 -->	
 		<td>
@@ -122,33 +122,33 @@
 	</tbody>
 </table>
 
-<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 
-<table class="a" style="width:1000px;">
+<table class="all_price">
 	<tr>
-		<th style="width:100px;">총 상품가격</th>
-		<th/>
-		<th style="width:100px;">추가금액</th>
-		<th/>
-		<th style="width:100px;">배송비</th>
-		<th/>
-		<th style="width:100px;">총 결제금액</th>
+		<th class="all_price_th" style="width:120px; padding-left: 10px;">총 상품가격</th>
+		<th style="width:70px;"></th>
+		<th class="all_price_th"  style="width:120px;">추가금액</th>
+		<th style="width:70px;"></th>
+		<th class="all_price_th"  style="width:120px;">배송비</th>
+		<th style="width:70px;"></th>
+		<th class="all_price_th4"  style="width:120px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 결제금액</th>
 	</tr>
 	
-	<tr>	
+	<tr style="line-height: 120px;">	
 		<td><span class="totalPrice_span"></span> 원</td>
 		
-		<td><img src="${root}/image/-.PNG" id="m" style="width:50px"></td>
+		<td><img src="${root}/image/-.PNG" id="m" style="width:60px"></td>
 		
 		<td>0원</td>
 		
-		<td><img src="${root}/image/+.PNG" id="p" style="width:50px"></td>
+		<td><img src="${root}/image/+.PNG" id="p" style="width:60px"></td>
 		
 		<td><span class="delivery_price"></span>원</td>
 		
-		<td><img src="${root}/image/=.PNG" id="e" style="width:50px"></td>
+		<td><img src="${root}/image/=.PNG" id="e" style="width:60px"></td>
 		
-		<td><span class="finalTotalPrice_span"></span> 원</td>
+		<td class="all_price_th4"><span class="finalTotalPrice_span"></span> 원</td>
 	</tr>
 </table>
 
@@ -156,7 +156,7 @@
 
 <div class="buybtn" id="buybtn" >주문하기</div>
 
-<br><br>
+<br><br><br><br>
 
 </div>	<!-- class="wrap" -->
 </div>	<!-- class="wrapper" -->

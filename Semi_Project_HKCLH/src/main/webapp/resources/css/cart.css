@@ -7,7 +7,7 @@ div.cart-title {
 	margin: auto;
 	font-size: 60px;
 	text-align: center;
-	color:black;
+	color:#444444;
 }
 
 
@@ -70,14 +70,23 @@ span#Cartdel{
 	color:#050552
 }
 
-table.a {
+table.all_price {
 	font-size: 18px;
+	width:1150px;
+	border-top:2px solid black;
+	border-bottom:0.1px solid  #444444;
+	text-align: center;
 }
 
 th {
 	height: 80px;
 }
 
+th.all_price_th{
+	text-align: center;
+	font-size: 18px;
+	font-weight: 600;
+}
 
 td.cart_info_td{
 	width:0px;
@@ -95,11 +104,9 @@ td {
 	padding: 10px;
 }
 
-
-
-
-
-
+td.all_price_th4{
+	padding-right: 10px;
+}
 
 input#allcheck + label {
 	display: inline-block;

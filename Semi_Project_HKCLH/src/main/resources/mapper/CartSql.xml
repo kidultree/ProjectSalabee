@@ -7,7 +7,7 @@
    <select id="getAllCart" parameterType="Map" resultType="Map">
 	select 
 	c.cid, c.mid, c.pnum, c.cquantity, 
-	pr.pname, pr.pphoto, 
+	pr.pname, pr.pphoto, pr.pcate1, pr.pcate2, pr.ptag,
 	po.oid, po.oname, po.oprice
 	,c.cquantity*po.oprice as sum_price
 	
