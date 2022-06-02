@@ -47,7 +47,13 @@ select count(*) from QnA
 
 <!-- 수정 -->
 <update id="updateQnA" parameterType="qna">
-		update QnA set qtitle = #{qtitle}, qcontent = #{qcontent}
+		update QnA set 
+		qcate = #{qcate},
+		qtitle = #{qtitle}, 
+		mid = #{mid}, 
+		qstate = #{qstate}, 
+		qcontent = #{qcontent}
+		
 		<if test="qimg!=null">
 			qimg=#{qimg}
 		</if>

@@ -31,17 +31,15 @@
 <body>
 <c:if test="${sessionScope.loginok==null}">
 	<script type="text/javascript">
-		alert("다시 로그인 후 글쓰기를 시도해 주세요");
+		alert("다시 로그인 후 글수정을 시도해 주세요");
 		location.href='../login/loginform'
 	</script>
 </c:if>
-	<form action="insert" method="post" enctype="multipart/form-data">
+	<form action="update" method="post" enctype="multipart/form-data">
 	<!-- hidden 5개 -->
 	<input type="hidden" name="currentPage" value="${currentPage}">
-	<input type="hidden" name="qnum" value="${qnum}">
-	<input type="hidden" name="reg" value="${reg}">
-	<input type="hidden" name="restep" value="${restep}">
-	<input type="hidden" name="relevel" value="${relevel}">
+	<input type="hidden" name="qnum" value="${dto.qnum}">
+
 
 	<div class="qna_form">	
 <table class="table table-borderless qna" style="width: 800px;">
@@ -52,7 +50,7 @@
 <th width="120">말머리</th>
 <td colspan="3">
 
-	<select name = "qcate" id= "qcate">
+	<select name = "qcate" id= "qcate" value = "${dto.qcate}">
 		<option selected disabled hidden>문의 유형</option>
 		<option value="상품">상품</option>
 		<option value="배송">배송</option>
@@ -68,7 +66,7 @@
 <tr>
 <th style="width: 100px;">제목</th>
 <td>
- <input type="text" class="form-control" name="qtitle" required="required"> 
+ <input type="text" class="form-control" name="qtitle" required="required" value="${dto.qtitle}"> 
 </td>
 </tr>
 
@@ -76,13 +74,13 @@
 <tr>
 <th style="width: 100px;">작성자</th>
 <td>
-<input type="text" class="form-control" name="mid" required="required" value="${mId}" readonly="readonly">
+<input type="text" class="form-control" name="mid" required="required" value="${dto.mid}" readonly="readonly">
 </td>
 </tr>
 
 	<th>문의 사진</th>
 			<td>
-				<input type="file" name="upload" id="currentDate" value="">
+				<input type="file" name="upload" id="qimg" value="">
 			</td>
 			
 	<tr>
@@ -90,24 +88,40 @@
 		<td>
 		접수<input type="radio" name = "qstate" id = "qstate" value = "접수">&nbsp;
 		답변완료<input type="radio" name = "qstate" id = "qstate" value = "답변완료">
+	
 		</td>
 	</tr>
 <tr>
+
+<script type = "text/javascript">
+	$(document).ready(function(){
+	
+		var tmp_value = $('input:radio[name=qstate]:checked').val();
+		console.log(tmp_value);
+	})
+	
+</script>
+
+
+
 <td colspan="4">
-         <textarea name="qcontent" id="qcontent" required="required" 
-         style="width:100%; height: 300px; display:none;" ></textarea>
+         <textarea name="qcontent" id="qcontent" required="required"
+         style="width:100%; height: 300px; display:none;" >${dto.qcontent}</textarea>
       </td>
 </tr>
-
-	</table>
-	</form>
 
 	<tr>
 			<td colspan="2" align="center">
 					<button type="submit" class="btn btn-default"
 					style="width: 100px;">글수정</button>
+					
+					<button type="button" class="btn btn-default"
+					style="width: 100px;" onclick="history.back()">이전</button>
 			</td>
 	</tr>
+	</table>
+	</form>
+
 
 
 

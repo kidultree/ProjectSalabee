@@ -45,10 +45,10 @@ color: #ffd740;
 
 </head>
 <body>
-<br><br>
+<br><br><br>
 <label style="font-size: 35px;" id="pnumreview_label">상품별 리뷰보기</label>
 
-	
+	<br><br><br><br>
 	<c:forEach var="list" items="${pnumlist}">
 
 		<c:forEach var="dto" items="${list}"> <!-- 안에 받아올 부분 -->
