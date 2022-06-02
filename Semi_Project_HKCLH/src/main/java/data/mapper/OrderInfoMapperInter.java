@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import data.dto.CartDto;
 import data.dto.OrderInfoDto;
 
 @Mapper

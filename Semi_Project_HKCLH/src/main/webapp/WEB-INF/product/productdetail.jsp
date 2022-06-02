@@ -91,7 +91,7 @@ body{
 /*전체 lay*/
 .content{
    position: relative;
-   left: 400px;
+   left: 420px;
    width: 1100px;
 }
 .leftlay{
@@ -779,6 +779,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
      
          $(document).ready(function($) {
         	 
+        	 <!--cartinsert-->
         	 $(".cartbtn").click(function(){
         		/*  var data=$(".op").length+",";
         		 $(".op").each(function(){
@@ -820,53 +821,50 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
 	        		 })
  	        		 .fail(function(){ alert("fail"); })
         		 
-        		 
         	 });
+        	 
+        	 <!--orderinsert-->
+        	 $(".directbtn").click(function(){
+         		
+         		 let param_string='';
+         		 $(".addop").each(function(){
+         			 param_string+=$(this).find(".op").find("div").text()+","; 
+         			 param_string+=$(this).find('.op2').find(".quantity").val()+"|"; 
+         		 });
+         		 //alert(param_string);
+         		 if(param_string==""){
+         			
+    					<%--window.name="parentForm";
+    					window.open("<%=request.getContextPath()%>/nocart.jsp", 
+    							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
+   					
+    					return;--%>
+    				}
+         		 alert(param_string);
+         		 $.ajax({
+ 	        			 type:"post",
+ 	        			 datatype:"text",
+ 	        			 url:"../product/order",
+ 	        			data:{
+        				 	 "pnum":$("#pnum").val(),
+ 	  		        	 "mid":$("#mid").val(),
+ 	  		        	 "data":param_string
+ 	  		         	},
+ 	        			 success:function(data){
+ 	        				window.name="parentForm";
+ 	        				window.open("<%=request.getContextPath()%>/yescart.jsp", 
+ 	        				"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
+ 	        			 },
+ 	        			 
+ 	        		 })
+  	        		 .fail(function(){ alert("fail"); })
+         		 
+         	 });
          	
         		 
         		 
         	
-        	 <%-- -- 카트 담기 버튼 -->
-        	   <form action="/cart/insert">
-        	      <input type="hidden" value="${dto.pnum}" id="pnum"/>
-        	      <input type="hidden" value="${mId}" id="mId"/>
-        	      
-        	      <!-- 얘는 여러개가 나온단 말이지 
-        	      <input type="hidden" value="${opdto.oid}" id="oid"/>
-        	      <input type="hidden" value="${oid별 개수}" id=""/>
-        	      
-        	   </form>--%>
-        	    
-        	   <%--장바구니추가 - 이건 script
-        		$(document).ready(function() {
-        	      $("#addcart").on("click",function(){
-        	      	 var cart =[];
-
-        	         
-        	         $(".addop").each(function(index,element){
-        	           let oid = $(element).find().val();
-        	           let cquantity = $(element).find().val();
-        	            
-        	         });
-        	         var pnum = ${dto.pnum};
-        	         
-        	         $.ajax({
-        	            type:"post",
-        	            dataType:"json",
-        	            url:"/cart/insert",
-        	            traditional : true,
-        	            data:{
-        	                "pnum":$("#pnum").val()//상품번호
-        	                "mid":$("#mid").val()//로그인아이디
-        	                "cquantity":$("#cquantity").val()//옵션아이디
-        	                "cquantity":$("#cquantity").val()//수량
-        	            },
-        	            success:function(data){
-        	              alert(data.message);
-        	            }   
-        	           });
-        	    	  }
-        	      });--%>
+        	
         	      
        	     <!-- 위로가기 플로팅 -->
              /* 클릭시 스크롤 이동 */     
@@ -1068,11 +1066,11 @@ function changeOp() {
       array.push(selectText);
       var s="";
       //테이블전체가 로우
-         s+="<table id='tb_" + selectText + "' class='t'>";
+         s+="<table id='tb_" + selectText + "' class='t' style='width:410px;'>";
          //opdto_List i=바깥배열 d안쪽 뱌열
             s+="<tr style='height:55px;' class='addop'>";
             s+="<td style='width:16px; height:30px; float:right; margin-top : 6px; ' class='op'>";
-            s+= "<div style='float:left;'>" + selectText + "</div></td><td>&nbsp;<span class='ml' style='width:180px; float: left; margin-top:6px;' >ml</span></td>";
+            s+= "<div style='float:left;'>" + selectText + "</div></td><td>&nbsp;<span class='ml' style='width:170px; float: left; margin-top:6px;' >ml</span></td>";
             s+="<td class='op2'><div class='number-input' style='float:left;'>";
             s+="<button id='minus' name='min_" + selectText + "' class='minus' ></button>";
             s+="<input class='quantity' id='qua_" + selectText + "' min='0' type='number' value='1'/>";            
