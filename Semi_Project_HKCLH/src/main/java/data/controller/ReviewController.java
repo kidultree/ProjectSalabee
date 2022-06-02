@@ -63,10 +63,6 @@ public class ReviewController {
 			 List<ReviewDto> list=reviewMapper.getPnumReviewPartList(pnum);
 			 pnumlist.add(list);		
 			 
-			 for(int i=0; i<3; i++) {
-				 List<ReviewDto> list2=reviewMapper.get3ReviewsList();
-				 pnumlist.add(list2);
-			 }
 			 
 		 }
 		 	mview.addObject("list2", list2);

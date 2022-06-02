@@ -16,4 +16,6 @@
       delete from cart
    </delete>
    
+   <select id="getmyPay"  parameterType="String"></select>
+   
 </mapper>

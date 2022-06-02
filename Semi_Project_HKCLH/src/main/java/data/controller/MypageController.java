@@ -51,7 +51,7 @@ public class MypageController {
 	}
 	
 	@GetMapping("/list")
-	public String mylist() {
+	public String mylist(@RequestParam String mId) {
 		return "/mypage/myList";
 	}
 	

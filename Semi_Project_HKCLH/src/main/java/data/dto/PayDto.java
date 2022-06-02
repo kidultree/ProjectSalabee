@@ -11,6 +11,7 @@ import lombok.Data;
 public class PayDto {
 
 	private String mid;
+	private String mId;
 	
 	private int pnum;
 	private int oid;
