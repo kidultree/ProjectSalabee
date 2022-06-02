@@ -20,7 +20,7 @@ public interface ReviewMapperInter {
 	public List<Integer> getPnumList();
 	public List<ReviewDto> getPnumReviewPartList(int pnum);
 	public List<ReviewDto> getPnumReviewPartList2();
-	public List<ReviewDto> getmIdReviewList(String mId);
+	public List<ReviewDto> getmIdReviewList(String mid);
 	public List<ReviewDto> getPnumReviewListHB(int pnum);
 	
 	
