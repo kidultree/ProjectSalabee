@@ -151,11 +151,34 @@ pageEncoding="UTF-8"%>
 		
 		<td style="text-align: center;">${dto.payid}</td>
 		<!-- 이미지&제품정보 -->
-		<td><img src="${root}/save/${dto.pphoto}" style="width:150px; margin-top: 20px; margin-bottom: 20px;">
+		<!-- <td><img src="${root}/save/${dto.pphoto}" style="width:150px; margin-top: 20px; margin-bottom: 20px;">
 		&nbsp;&nbsp;<span style="font-size: 1.2em; font-weight: bold;">${dto.pname}</span>${dto.pyquantity}/${dto.oid }ml<br>
-		<br></td>
-
-		
+		<br></td>--><td>
+<table class="but-sangpum-text"><tr><td rowspan="5">
+				<img src="${root}/save/${dto.pphoto}" style="width:150px; margin-top: 20px; margin-bottom: 20px;">
+		            
+		            </td>
+                
+                    <td style="color:black; font-size:25px; line-height:50px;" colspan="4">${dto.pname}</td>
+                    
+                </tr>
+                <tr>
+                    <td >옵션 : ${dto.pphoto} ml</td>
+                </tr>
+                <tr>
+                    <td>수량 : </td>
+                    <td>${dto.pname} 개</td>
+                </tr>
+                <tr>
+                    <td>금액 : </td>
+                    <td>${dto.pyquantity} 원</td>
+                </tr>
+                <tr>
+                    <td>[조건]&nbsp;</td>
+                    <td> ${dto.oid }ml </td>
+                </tr>
+            </table>
+            </td>
 		<!-- 수량선택 -->	
 		<td>${dto.pprice}</td>
 		<td>${dto.pprice}</td>

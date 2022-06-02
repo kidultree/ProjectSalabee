@@ -17,7 +17,7 @@ div.cart-title {
 table {
 	margin: auto;
 	font-family: Noto Sans KR;
-	border-top: 1px solid #444444;
+	border-top: 0px solid #444444;
 	border-collapse: collapse;
 	
 }
@@ -98,7 +98,7 @@ td.cart_info_td{
 
 tr{
 	text-align: center;
-	border-bottom: 1px solid #444444;
+	border-bottom: 0px solid #444444;
 	padding: 10px;
 }
 
