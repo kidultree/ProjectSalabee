@@ -29,7 +29,7 @@ public interface ReviewMapperInter {
 	public int getTotalReviewCount();
 	
 	
-	public int getTotalPnumReviewCount();
+	public int getTotalPnumReviewCount(int pnum);
 	public double getAvgRrate();
 	public List<ReviewDto> get3ReviewsList();
 	

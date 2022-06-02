@@ -66,8 +66,8 @@
 
 <br><br>
 
-
 <div class="cart-title">Cart</div>
+<br><br>
 
 	<!-- 회원 ID 가져오기 -->
    <input type="hidden" id="mid" value="${cList[0].mid}">
@@ -77,11 +77,11 @@
    <thead>
    	<tr>
 		<th class="th_width_1"></th>
-		<th class="th_width_2"><input type="checkbox" id="allcheck">전체선택|<div id="Cartdel">선택삭제</div></th>
-		
-		<th class="th_width_3">제품정보</th>	
-		<th class="th_width_4">수량</th>
-		<th class="th_width_5">금액</th>
+		<th class="th_width_2"><input type="checkbox" id="allcheck">전체선택 |</th>
+		<th class="th_width_3" id="Cartdel">선택삭제 </th>
+		<th class="th_width_4">제품명</th><th class="th_width_4">옵션</th>
+		<th class="th_width_4">수량</th>	
+		<th class="th_width_4">금액</th>
 		<th></th>
 	</tr>
    </thead>
@@ -100,9 +100,11 @@
 		<!-- 체크박스 -->
 		<td><input type="checkbox" class="del" cid="${cList2.cid}"></td>
 		
-		<!-- 이미지&제품정보 -->
-		<td><img src="${root}/save/${cList2.pphoto}" style="width:100px;">&nbsp;&nbsp;${cList2.pname}</td>
-		
+		<!-- 이미지&제품정보  <td></td>-->
+		<td style="text-align: left; padding: 15px;"><img src="${root}/save/${cList2.pphoto}" style="width:150px;">&nbsp;&nbsp;
+		<td class="pname">${cList2.pname}</td>
+		<td class="poption">${cList2.oid}ml</td>
+				
 		<!-- 수량선택 -->	
 		<td>
 			<div class="number-input">	
@@ -116,11 +118,6 @@
 		<td class="price_td">
 		<input class="oprice" type="hidden" value="${cList2.oprice}">
 		<span class="sum_price">${cList2.sum_price}</span> 원
-		</td>
-		
-		<!-- 삭제버튼 -->
-		<td class="delete_btn"><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
-		</tr>
 	</c:forEach>
 	</tbody>
 </table>

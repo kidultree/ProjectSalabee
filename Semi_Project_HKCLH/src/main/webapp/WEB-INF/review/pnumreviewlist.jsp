@@ -34,6 +34,8 @@
 	position: relative;
 	left: 20px;
 }
+ 
+
 </style>
 
 </head>
@@ -54,7 +56,12 @@
     <td rowspan="2">개의 리뷰 전체보기</td>
   </tr>
   <tr>
-    <td colspan="2">★${dto.rrate}리뷰${totalCount}개</td>
+    <td colspan="2">★평균 ${dto.rrate}점 
+    
+    
+  
+					
+					/ 리뷰 ${totalpnumreviewcount} 개</td>
   </tr>
   <c:forEach var="dto" items="${list2}">
   <tr>
@@ -68,5 +75,7 @@
 	
 		</c:forEach>
 	</c:forEach>
+	
+
 </body>
 </html>

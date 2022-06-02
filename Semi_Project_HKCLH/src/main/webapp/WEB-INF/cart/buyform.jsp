@@ -88,7 +88,7 @@ $(function(){
 </table>
 
 <div class="shippingmsg" style="line-height:300%;">
-	 <select id="omessage_select" name="omessage_select" fw-filter="" fw-label="배송 메세지" fw-msg="" style="width: 700px; font-size:15px;">
+	 <select id="omessage_select" name="omessage_select" style="width: 780px; font-size:15px;">
 		<option value="oMessage-0" selected="selected">-- 메시지 선택 (선택사항) --</option>
 		<option value="oMessage-1">배송 전에 미리 연락바랍니다.</option>
 		<option value="oMessage-2">부재 시 경비실에 맡겨주세요.</option>
@@ -134,16 +134,16 @@ $(function(){
 			</td>
 </tr>
     <tr>
-        <td class="buy-sangpum1"><img src="${root}/save/${oList.pphoto}" style="width: 100px; height: 100px" align="left"></td>
+        <td class="buy-sangpum1"><img src="${root}/save/${oList.pphoto}" style="width: 170px; height: 170px" align="left"></td>
         
         <td>
-            <table>
+            <table class="but-sangpum-text">
                 <tr>
-                    <td colspan="2">${oList.pname}</td>
+                    <td colspan="2" style="color:black; font-size:25px; line-height:50px;">${oList.pname}</td>
                 </tr>
                 <tr>
                     <td>옵션 : </td>
-                    <td>${oList.oname}</td>
+                    <td>${oList.oid} ml</td>
                 </tr>
                 <tr>
                     <td>수량 : </td>
@@ -225,23 +225,23 @@ $(function(){
 
 <div class="pay-body">
 <div class="buy-subtitle">결제 수단 선택</div>
-<div>
+<div class="buy-subtitle2">
 	<input type="radio" id="pay-info1" name="pay-info" autocomplete="off" checked>
-	<label for="pay-info1">카카오페이</label>&nbsp;&nbsp;&nbsp;
+	<label class="abc" for="pay-info1">카카오페이</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="pay-info2" name="pay-info" autocomplete="off">
-	<label for="pay-info2">신용카드</label>
+	<label class="abc" for="pay-info2">신용카드</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="pay-info3" name="pay-info" autocomplete="off">
-	<label for="pay-info3">휴대폰</label>
+	<label class="abc" for="pay-info3">휴대폰</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="pay-info4" name="pay-info" autocomplete="off">
-	<label for="pay-info4">에스크로(가상계좌)</label>
+	<label class="abc" for="pay-info4">에스크로(가상계좌)</label>
 </div>
-<div>
+<div class="buy-subtitle3">
 	- 카카오톡 앱을 설치한 후, 최초 1회 카드정보를 등록하셔야 사용 가능합니다.<br>
 	- 인터넷 익스플로러는 8 이상에서만 결제 가능합니다.<br>
 	- 카카오머니로 결제 시, 현금영수증 발급은 ㈜카카오페이에서 발급가능합니다.
 </div>
 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-<label for="vehicle1">결제수단과 입력정보를 다음에도 사용</label><br>
+<span class="buy-subtitle3">결제수단과 입력정보를 다음에도 사용</span><br>
 <div>
 	
 </div>
@@ -257,7 +257,7 @@ $(function(){
 
 <div class="div-buy-2">
 <div class="div-two">
-<div>
+<div class="buy-subtitle3">
 무이자할부가 적용되지 않은 상품과 무이자할부가 가능한 상품을 동시에 구매할 경우 전체 주문 상품 금액에 대해 무이자할부가 적용되지 않습니다. <br>
 무이자할부를 원하시는 경우 장바구니에서 무이자할부 상품만 선택하여 주문하여 주시기 바랍니다. <br> <br>
 최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.

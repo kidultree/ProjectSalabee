@@ -58,21 +58,26 @@ public class ReviewController {
 		List<Integer> p = reviewMapper.getPnumList();
 		List<List<ReviewDto>> pnumlist = new ArrayList<List<ReviewDto>>();
 		List<ReviewDto> list2 = reviewMapper.getPnumReviewPartList2();
-		 
+		//int totalpnumreviewcount;
+		//totalpnumreviewcount = reviewMapper.getTotalPnumReviewCount();		
+		
+		
 		 for(int pnum:p) {
 			 List<ReviewDto> list=reviewMapper.getPnumReviewPartList(pnum);
-			 pnumlist.add(list);		
+			 pnumlist.add(list);			 
+			 //double avgrrate = reviewMapper.getAvgRrate(pnum);
+			// System.out.println("avgrrate="+avgrrate);
 			 
 			 
 		 }
-		 	mview.addObject("list2", list2);
-		 	
+		 
+		//mview.addObject("totalpnumreviewcount", totalpnumreviewcount);
+		 	//mview.addObject("avgrrate", avgrrate);
+		 	mview.addObject("list2", list2);	
 			mview.addObject("pnumlist", pnumlist);
 			mview.setViewName("/review/pnumreviewlist");
 			return mview;
 		}
-		
-		
 		
 		
 		@PostMapping("/insert")
@@ -99,4 +104,3 @@ public class ReviewController {
 			return "redirect:list";
 		}
 	}
-

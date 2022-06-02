@@ -61,8 +61,9 @@ div.div-two {
 }
 
 div.buy-title {
-	font-weight: bold;
-	font-size: 20px;
+	padding-bottom:10px;
+	font-weight: 550;
+	font-size: 25px;
 	border-bottom: 1px solid black;
 }
 
@@ -73,12 +74,20 @@ input[type="radio"] {
 label {
 	vertical-align: middle;
 	cursor: pointer;
-	font-size: 14px;
+	font-size: 15px;
+	font-weight:lighter;
 }
 
 table {
 	margin: auto;
 }
+
+table.but-sangpum-text{
+	font-size: 20px;
+	margin-left: 30px;
+}
+
+
 
 div.shippingmsg {
 	margin: auto;
@@ -115,15 +124,57 @@ table.tg  {border-collapse:collapse;border-spacing:0; width:750px;}
 .tg .tg-lqy6{text-align:right;vertical-align:top}
 .tg .tg-0lax{text-align:left;vertical-align:top}
 
+
+/* 결 제수단 */
+
+div.buy-subtitle{
+	margin-top:20px;
+	font-size:15px;
+	border:1px solid #a7cbfa;
+	padding:10px;
+	background-color: #f0f0f0;
+	font-weight: 550;
+}
+
+div.buy-subtitle2{
+	margin:0px;
+	border:1px solid #a7cbfa;
+	padding:25px;
+	background-color: white;
+	font-weight: 350;
+}
+
+div.buy-subtitle3{
+	margin:10px;
+	font-size:15px;
+	padding:10px;
+	color:gray;
+	font-weight: 400;
+}
+
+span.buy-subtitle3{
+	margin-left: 17px;
+	font-size:18px;
+}
+
+
+
+
+
+
+
+
 /*주문하기 버튼*/
 div.paybtn {
 	width: 800px;
 	height: 60px;
 	background-color: black;
 	padding: 8px;
+	padding-top: 15px;
 	margin: auto;
 	cursor: pointer;
 	text-align: center;
-	font-size: 30px;
+	font-size: 20px;
+	font-weight:450;
 	color: white;
 }
