@@ -17,7 +17,7 @@ div.cart-title {
 table {
 	margin: auto;
 	font-family: Noto Sans KR;
-	border-top: 1px solid #444444;
+	border-top: 0px solid #444444;
 	border-collapse: collapse;
 	
 }
@@ -77,6 +77,12 @@ th.th_width_4{
 	text-align: center;
 	font-weight: 550;
 }
+th.th_width_5{
+	width:200px;
+	font-size: 20px;
+	text-align: center;
+	font-weight: 550;
+}
 
 
 span#Cartdel{
@@ -98,7 +104,7 @@ td.cart_info_td{
 
 tr{
 	text-align: center;
-	border-bottom: 1px solid #444444;
+	border-bottom: 0px solid #444444;
 	padding: 10px;
 }
 

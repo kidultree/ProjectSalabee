@@ -54,10 +54,10 @@ public class MypageController {
 	
 	
 	@GetMapping("/review")
-	public ModelAndView myreview(@RequestParam String mId) {
+	public ModelAndView myreview(@RequestParam String mid) {
 		ModelAndView mview=new ModelAndView();
 		
-		List<ReviewDto> list=reviewMapper.getmIdReviewList(mId);
+		List<ReviewDto> list=reviewMapper.getmIdReviewList(mid);
 		
 		mview.addObject("list", list);
 

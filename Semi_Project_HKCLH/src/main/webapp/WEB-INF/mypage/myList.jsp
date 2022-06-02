@@ -79,7 +79,7 @@ pageEncoding="UTF-8"%>
 			   location.href = "/mypage?mId=${sessionScope.mId}";
 		});
 		$("div.review").click(function(){
-			   location.href = "/mypage/review?mId=${sessionScope.mId}";
+			   location.href = "/mypage/review?mid=${sessionScope.mId}";
 		});
 		$("div.qna").click(function(){
 			   location.href = "/mypage/qna?mId=${sessionScope.mId}";
@@ -127,8 +127,8 @@ pageEncoding="UTF-8"%>
   <button class="question" id="que-6"><span id="que-6-toggle">+</span><span>회원 탈퇴</span></button>
 </div>
 
-<div class="container" style="position: absolute; left: 400px; top:50px; border: 1px solid black;">
-<h3 style=" position:relative; left: 70px;"><b>주문 내역</b></h3>
+<div class="container" style="position: absolute; left: 400px; top:-20px; border: 0px solid black;">
+<h3 style=" text-align: center;"><b>주문 내역</b></h3>
 	<br>
     <div id="wrapper">
     
@@ -151,14 +151,34 @@ pageEncoding="UTF-8"%>
 		
 		<td style="text-align: center;">${dto.payid}</td>
 		<!-- 이미지&제품정보 -->
-		<td><img src="${root}/save/${dto.pphoto}" style="width:150px; margin-top: 20px; margin-bottom: 20px;">
+		<!-- <td><img src="${root}/save/${dto.pphoto}" style="width:150px; margin-top: 20px; margin-bottom: 20px;">
 		&nbsp;&nbsp;<span style="font-size: 1.2em; font-weight: bold;">${dto.pname}</span>${dto.pyquantity}/${dto.oid }ml<br>
-		<br></td>
-
-		
+		<br></td>--><td>
+<table class="but-sangpum-text"><tr style="margin-bottom: 15px;"><td rowspan="5" style="border-top:0px; border-bottom:0px;">
+				<img src="${root}/save/${dto.pphoto}" style=" box-shadow:5px 5px 5px gray;  width:180px; margin-top: 20px; margin-bottom: 20px; margin-right: 20px;">
+		            
+		            </td>
+                <td style="color:black; font-size:25px; height:0px; border-top: 0px;  text-align: left; border-bottom:0px; font-weight: bold; position: static; top: -5px; text-shadow: 3px 3px 1px gray;" colspan="5">${dto.pname}</td>
+                    
+                </tr>
+                <tr>
+                    <td colspan="5" style="text-align: left; height:0px; color: gray; border-bottom:0px; border-top: 0px;">Tag : ${dto.ptag}</td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="text-align: left; height:0px; color: gray; border-bottom:0px; border-top: 0px;">- ${dto.pcate1}</td>
+                    
+                </tr>
+                <tr>
+                    <td colspan="5" style="text-align: left; height:0px; color: gray; border-bottom:0px; border-top: 0px;">- ${dto.pcate2}</td>
+                </tr>
+                <tr style="position:relative; margin-bottom: 15px;">
+                    <td colspan="5" style="text-align: left; height:0px; color: gray; border-bottom:0px; border-top: 0px; position:relative; margin-bottom: 15px;">[조건] / 기본배송 </td>
+                </tr>
+            </table>
+            </td>
 		<!-- 수량선택 -->	
-		<td>${dto.pprice}</td>
-		<td>${dto.pprice}</td>
+		<td>${dto.oid }ml / ${dto.pyquantity}개</td>
+		<td>${dto.pprice*dto.pyquantity} 원</td>
 		<td><fmt:formatDate value="${dto.pydate}" pattern="yyyy-MM-dd"/></td>
 		</tr>
 		<tr></tr><tr></tr>
@@ -171,6 +191,12 @@ pageEncoding="UTF-8"%>
 </div>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br>
 </div>

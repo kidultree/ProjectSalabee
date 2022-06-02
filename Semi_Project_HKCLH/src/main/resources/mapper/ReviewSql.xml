@@ -34,7 +34,7 @@
 		
 		join product
 		
-		where mid=#{mId}
+		where mid=#{mid}
 		and product.pnum=review.pnum
 	</select>
 

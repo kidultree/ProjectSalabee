@@ -125,7 +125,7 @@ div #review_cate{
 <body>
 
 	
-<input type="hidden" id="mId" name="mId" value="${mId}">
+<input type="hidden" id="mId" name="mid" value="${mId}">
 <div class="notice">
 <a>
 
@@ -195,7 +195,7 @@ div #review_cate{
 					</c:if>
 					
 					</td>
-					<td colspan="2" rowspan="3"><b>${mId}</b>&nbsp;님이 작성한 리뷰입니다.<br>
+					<td colspan="2" rowspan="3"><b>${dto.mid}</b>&nbsp;님이 작성한 리뷰입니다.<br>
 					<br><b>작성일:</b> <fmt:formatDate value="${dto.rdate}" pattern="yyyy/MM/dd HH:mm"/></td>
 				</tr>
 				<tr>

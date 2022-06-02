@@ -15,7 +15,9 @@ public class PayDto {
 	private String mid;
 	private String mId;
 	private int payid;
-	
+	private String ptag;
+	private String pcate1;
+	private String pcate2;
 	private int pnum;
 	private int oid;
 	
