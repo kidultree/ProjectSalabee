@@ -602,11 +602,6 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
 <label style="font-size: 40px;" class="review_label">Review</label>
 <div id="review_cate">
 <br>&nbsp; &nbsp; <!-- 리뷰 정렬 카테고리 -->
-	<label id="latest">최신순</label>
-	<b>/</b>
-	<label id="high_rrate">별점순</label>
-	<b>/</b>
-	<label id="pnumreviewlist">상품별 리뷰보기</label>
 
 </div><br><br>
 	<c:if test="$('#asd').val()!='ok'">
@@ -648,14 +643,23 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
 					<td colspan="2">
 						<img src="${root}/save/${dto.pphoto}" style="width:100px;">&nbsp;&nbsp;${dto.pname}
 						</td>
-					<td colspan="2">구매상품 : ${redto.pnum}</td>
+					
 				</tr>
 				<tr>
+				<c:choose>
+					<c:when test = "${redto.rphoto!=''}">
 					<td colspan="4"><img src="../save/${redto.rphoto}" width="80" height="80" border="1">
-					리뷰내용 : ${redto.rcontent}</td>
+					
+					리뷰내용 : ${redto.rcontent}</td></c:when>
+					
+					<c:otherwise>
+					<td>리뷰내용 : ${redto.rcontent}</td></c:otherwise>
+				</c:choose>
 				</tr>
+				
 			</thead>
 			<input type="hidden" id="asd" value="ok">
+			
 		</table>
 	</div>
 	</c:forEach>
@@ -797,7 +801,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
         		 //alert(param_string);
         		 if(param_string==""){
    					window.name="parentForm";
-   					window.open("<%=request.getContextPath()%>/nocart.jsp", 
+   					window.open("<%=request.getContextPath()%>/nooption.jsp", 
    							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
   					
    					return;
@@ -834,12 +838,12 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
          		 if(param_string==""){
          			
     					window.name="parentForm";
-    					window.open("<%=request.getContextPath()%>/nocart.jsp", 
+    					window.open("<%=request.getContextPath()%>/nooption.jsp", 
     							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
    					
     					return;
     				}
-         		 alert(param_string);
+         		
          		 $.ajax({
  	        			 type:"post",
  	        			 datatype:"text",

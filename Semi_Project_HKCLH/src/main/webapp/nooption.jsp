@@ -25,12 +25,17 @@
 	}
 	
 	div.btnclose-nocart{
-		width:110px; height: 35px;
+		width:100px; height: 35px;
 		background-color: black;
 		color:white;
 		margin:auto;
 		text-align: center;
 		font-weight: bold;
+		
+	}
+	.te{
+		position: relative;
+		top: 6px;
 	}
     
 </style>
@@ -39,8 +44,8 @@
 
 	<div class="container">  
 	<br><br><br>
-        <div class="text-nocart" style="margin-left: 10%; font-size: 19px;">장바구니에 선택된 상품이 없습니다.</div><br>
-          <div class="btnclose-nocart" onclick="window.close()">닫기</div>	
+        <div class="text-nocart" style="margin-left: 10%; font-size: 19px;">한 개 이상의 옵션을 선택해주세요</div><br>
+          <div class="btnclose-nocart" onclick="window.close()"><span class="te">닫기</span></div>	
     </div>
 
 </body>

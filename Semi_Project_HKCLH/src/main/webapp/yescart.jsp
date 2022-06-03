@@ -25,14 +25,17 @@
 	}
 	
 	div.btnclose-nocart{
-		width:100px; height: 30px;
+		width:110px; height: 35px;
 		background-color: black;
 		color:white;
 		margin:auto;
 		text-align: center;
 		font-weight: bold;
 	}
-    
+    .te{
+		position: relative;
+		top: 6px;
+	}
 </style>
 
 <script type="text/javascript">
@@ -47,7 +50,7 @@ function cartok() {
 	<div class="container">  
 	<br><br><br>
         <div class="text-nocart" style="margin-left: 10%; font-size: 19px;">장바구니에 성공적으로 들어갔습니다.</div><br>
-          <div class="btnclose-nocart" onclick="cartok()">장바구니 이동</div>	
+          <div class="btnclose-nocart" onclick="cartok()"><span class="te">장바구니 이동</span></div>	
     </div>
 
 </body>

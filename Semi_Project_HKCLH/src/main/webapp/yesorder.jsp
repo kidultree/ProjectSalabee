@@ -25,12 +25,16 @@
 	}
 	
 	div.btnclose-nocart{
-		width:100px; height: 30px;
+		width:110px; height: 35px;
 		background-color: black;
 		color:white;
 		margin:auto;
 		text-align: center;
 		font-weight: bold;
+	}
+	.te{
+		position: relative;
+		top: 6px;
 	}
     
 </style>
@@ -47,7 +51,7 @@ function orderok() {
 	<div class="container">  
 	<br><br><br>
         <div class="text-nocart" style="margin-left: 10%; font-size: 18px;">해당 상품을 바로구매하시겠습니까?</div><br>
-          <div class="btnclose-nocart" onclick="orderok()">이동</div>	
+          <div class="btnclose-nocart" onclick="orderok()"><span class="te">이동</span></div>	
     </div>
 
 </body>
