@@ -58,7 +58,9 @@ public class ReviewController {
 		List<Integer> p = reviewMapper.getPnumList();
 		List<List<ReviewDto>> pnumlist = new ArrayList<List<ReviewDto>>();
 		List<ReviewDto> list2 = reviewMapper.getPnumReviewPartList2();
-		//int totalpnumreviewcount = reviewMapper.getTotalPnumReviewCount();
+		
+		
+	//	int totalpnumreviewcount = reviewMapper.getTotalPnumReviewCount(pnum);
 		
 		
 		 for(int pnum:p) {
@@ -68,7 +70,9 @@ public class ReviewController {
 			 
 		 }
 		 
+		 
 		 	//mview.addObject("totalpnumreviewcount", totalpnumreviewcount);
+		 	
 		 	mview.addObject("list2", list2);	
 			mview.addObject("pnumlist", pnumlist);
 			mview.setViewName("/review/pnumreviewlist");
@@ -99,4 +103,4 @@ public class ReviewController {
 			reviewMapper.insertReview(dto);
 			return "redirect:list";
 		}
-	}
+}

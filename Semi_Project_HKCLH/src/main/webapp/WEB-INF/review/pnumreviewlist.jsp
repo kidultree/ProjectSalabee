@@ -59,12 +59,12 @@ color: #ffd740;
     <td rowspan="5" width="200px;"><img src="${root}/save/${dto.pphoto}" style="width: 160px;"></td>
     <td colspan="2" width="330px;"><h4><b style="background-color: black; color: #ffffff";>
     ${dto.pname}</b></h4></td>
-    <td rowspan="2">개의 리뷰 전체보기</td>
+    <td rowspan="2">n 개의 리뷰 전체보기</td>
   </tr>
   <tr>
     <td colspan="2"><b>★평균 ${dto.rrate}점 
     
-					/ 리뷰 ${totalpnumreviewcount} 개</b></td>
+					/ 리뷰 n 개</b></td>
   </tr>
   <c:forEach var="dto" items="${list2}">
   <tr>
