@@ -172,9 +172,9 @@ div.mainbottomimg {
 		<img src="${root}/image/mainimage3.png" style="width: 100%; height:100%;">
 
 
-		<a href="/cart/about" class="-button2" style="border-color: rgb(255, 255, 255);">
+		<!-- <a href="/cart/about" class="-button2" style="border-color: rgb(255, 255, 255);">
 			<div class="-text2" style="color: gold;">브랜드 스토리 보기</div>
-		</a>
+		</a> -->
 		</div>
 	<!--중앙끝-->
 </body>
