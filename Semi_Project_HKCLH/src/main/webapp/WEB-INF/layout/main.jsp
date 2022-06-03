@@ -51,7 +51,7 @@ div.imgtitle {
 	top: 25%;
 	left: 38%;
 	color: white;
-	font-size: 6rem;
+	font-size: 7rem;
 	font-weight: bold;
 	font-family: 'Suravaram';
 	
@@ -77,7 +77,7 @@ div.imgpre-title {
 	text-decoration: none;
 	user-select: none;
 	position: relative;
-	left: 52%;
+	left: 61%;
 	top: 110px;
 	transform: translateX(-50%);
 	display: flex;

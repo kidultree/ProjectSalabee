@@ -561,7 +561,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
       </div>
       
       <div id="tab-2" class="tab-content">
-         <br><br>
+         
          <img src="../save/use.jpg" style="width: 900px;"><br><br>
          귀 뒤나 손목 안쪽 등 맥박이 느껴지거나 체온이 높은 부위에 가볍게 1~2회 뿌려줍니다.<br>
          기능성화장품 심사필여부 : 해당사항 없음<br>            
@@ -573,7 +573,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
       </div>
       
       <div id="tab-3" class="tab-content">
-         <br><br><br><br>
+         <br><br>
          <img src="../save/del.jpg" style="width: 1000px; ">
          <br><br><br>
          <table style="border: none; width: 1000px; height: 210px; font-size: 20px;"  class="tab-3con" >
@@ -598,17 +598,12 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
       
       <div id="tab-4" class="tab-content">
          <button type="button" class="rebtn" id="rebtn" onclick="location.href='../review/form'">리뷰 작성하기</button>
-         
+         <br><br><br>
 <label style="font-size: 40px;" class="review_label">Review</label>
 <div id="review_cate">
 <br>&nbsp; &nbsp; <!-- 리뷰 정렬 카테고리 -->
-	<label id="latest">최신순</label>
-	<b>/</b>
-	<label id="high_rrate">별점순</label>
-	<b>/</b>
-	<label id="pnumreviewlist">상품별 리뷰보기</label>
 
-</div><br><br>
+</div>
 	<c:if test="$('#asd').val()!='ok'">
 		<h1>없음</h1>
 	</c:if>
@@ -648,14 +643,23 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
 					<td colspan="2">
 						<img src="${root}/save/${dto.pphoto}" style="width:100px;">&nbsp;&nbsp;${dto.pname}
 						</td>
-					<td colspan="2">구매상품 : ${redto.pnum}</td>
+					
 				</tr>
 				<tr>
+				<c:choose>
+					<c:when test = "${redto.rphoto!=''}">
 					<td colspan="4"><img src="../save/${redto.rphoto}" width="80" height="80" border="1">
-					리뷰내용 : ${redto.rcontent}</td>
+					
+					리뷰내용 : ${redto.rcontent}</td></c:when>
+					
+					<c:otherwise>
+					<td>리뷰내용 : ${redto.rcontent}</td></c:otherwise>
+				</c:choose>
 				</tr>
+				
 			</thead>
 			<input type="hidden" id="asd" value="ok">
+			
 		</table>
 	</div>
 	</c:forEach>
@@ -797,7 +801,7 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
         		 //alert(param_string);
         		 if(param_string==""){
    					window.name="parentForm";
-   					window.open("<%=request.getContextPath()%>/nocart.jsp", 
+   					window.open("<%=request.getContextPath()%>/nooption.jsp", 
    							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
   					
    					return;
@@ -834,12 +838,12 @@ h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; marg
          		 if(param_string==""){
          			
     					window.name="parentForm";
-    					window.open("<%=request.getContextPath()%>/nocart.jsp", 
+    					window.open("<%=request.getContextPath()%>/nooption.jsp", 
     							"상품 확인","width=380,height=200, left=650, top=200, resizable=no,scrollbar=no");
    					
     					return;
     				}
-         		 alert(param_string);
+         		
          		 $.ajax({
  	        			 type:"post",
  	        			 datatype:"text",
