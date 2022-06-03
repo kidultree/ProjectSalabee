@@ -72,6 +72,10 @@ pageEncoding="UTF-8"%>
   	text-align: center;
   }
   
+  body * {
+  	font-family: 'Noto Sans KR';
+  }
+  
 </style>
 <script type="text/javascript">
 	$(function(){
