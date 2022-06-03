@@ -71,18 +71,10 @@ pageEncoding="UTF-8"%>
   table th,table td{
   	text-align: center;
   }
-
   
-  .navbar_menu li a:not([href]):not([tabindex]) {
-    color: white;
-    text-decoration: none;
-    font-family: 'fantasy';
-}
-.navbar_menu li a:hover:not([href]):not([tabindex]) {
-	color: gold;
-	    font-family: 'fantasy';
-	
-}
+  body * {
+  	font-family: 'Noto Sans KR';
+  }
   
 </style>
 <script type="text/javascript">

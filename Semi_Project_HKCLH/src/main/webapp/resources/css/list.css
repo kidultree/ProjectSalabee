@@ -10,16 +10,6 @@ div.cart-title {
 	color:black;
 }
 
-  .navbar_menu li a:not([href]):not([tabindex]) {
-    color: white;
-    text-decoration: none;
-    font-family: 'fantasy';
-}
-.navbar_menu li a:hover:not([href]):not([tabindex]) {
-	color: gold;
-	    font-family: 'fantasy';
-	
-}
 
   
 /* ----테이블 CSS---- */
