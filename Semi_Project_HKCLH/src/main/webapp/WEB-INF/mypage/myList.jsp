@@ -157,8 +157,9 @@ pageEncoding="UTF-8"%>
 <table class="but-sangpum-text"><tr style="margin-bottom: 15px;"><td rowspan="5" style="border-top:0px; border-bottom:0px;">
 				<img src="${root}/save/${dto.pphoto}" style=" box-shadow:5px 5px 5px gray;  width:180px; margin-top: 20px; margin-bottom: 20px; margin-right: 20px;">
 		            
+
 		            </td>
-                <td style="color:black; font-size:25px; height:0px; border-top: 0px;  text-align: left; border-bottom:0px; font-weight: bold; position: static; top: -5px; text-shadow: 3px 3px 1px gray;" colspan="5">${dto.pname}</td>
+                <td style="color:black; font-size:25px; height:0px; border-top: 0px;  text-align: left; border-bottom:0px; font-weight: bold; position: static; top: -5px;" colspan="5">${dto.pname}</td>
                     
                 </tr>
                 <tr>
@@ -178,7 +179,7 @@ pageEncoding="UTF-8"%>
             </td>
 		<!-- 수량선택 -->	
 		<td>${dto.oid }ml / ${dto.pyquantity}개</td>
-		<td>${dto.pprice*dto.pyquantity} 원</td>
+		<td>${dto.oprice*dto.pyquantity} 원</td>
 		<td><fmt:formatDate value="${dto.pydate}" pattern="yyyy-MM-dd"/></td>
 		</tr>
 		<tr></tr><tr></tr>

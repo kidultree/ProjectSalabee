@@ -62,6 +62,7 @@ pageEncoding="UTF-8"%>
     color: #2962ff;
   
   }
+
   
 </style>
 <script type="text/javascript">
@@ -85,6 +86,7 @@ pageEncoding="UTF-8"%>
 </script>
 </head>
 <body>
+<c:set var="root" value="<%=request.getContextPath() %>"></c:set>
 
 <input type="hidden" value="${mId}">
 <div class="notice">
@@ -116,7 +118,10 @@ pageEncoding="UTF-8"%>
   <button class="question" id="que-6"><span id="que-6-toggle">+</span><span>회원 탈퇴</span></button>
 </div>
 
-<div class="container" style="position: absolute; left: 600px; top:200px; border: 1px solid black;">
+<div class="container video" style="position: absolute; left: 400px; top:-20px; border: 0px solid black;">
+<h3 style="font-family:'Noto Sans KR'; ">향기로운 날입니다, ${mName }님</h3> 
+
+<img src="${root }/image/main1112.png" style="width: 1000px; cursor: pointer;">
 </div>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
