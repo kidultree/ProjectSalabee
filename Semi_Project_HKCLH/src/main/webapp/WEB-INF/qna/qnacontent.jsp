@@ -121,10 +121,10 @@
                      if(choice){
                         location.assign(del);
                         alert("삭제되었습니다.");
+                        
                      };
                   });
                });
                </script>
-			
 </body>
 </html>

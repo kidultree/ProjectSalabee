@@ -18,6 +18,24 @@
 		font-size: 1.3em;
 	}
 	
+	.qna_form{
+	position: relative;
+	left: 480px;
+	}
+	
+	#update_qna{
+	font-family: 'Noto Sans KR';
+	font-size: 35px;
+	position: relative;
+	left: 280px;
+	}
+	
+	body{
+	
+	font-family: 'Noto Sans KR';
+	}
+
+	
 </style>
 
 <c:set var="root" value="<%=request.getContextPath() %>"/> <!-- 프로젝트경로 -->
@@ -44,7 +62,7 @@
 	<div class="qna_form">	
 <table class="table table-borderless qna" style="width: 800px;">
 
-<h2>QnA 수정</h2>
+<h2 id="update_qna"><b>QnA 수정</b></h2>
 <br><br>
 <tr>
 <th width="120">말머리</th>
@@ -113,10 +131,10 @@
 	<tr>
 			<td colspan="2" align="center">
 					<button type="submit" class="btn btn-default"
-					style="width: 100px;">글수정</button>
+					style="width: 100px; background-color:black; color:white;">글수정</button>
 					
 					<button type="button" class="btn btn-default"
-					style="width: 100px;" onclick="history.back()">이전</button>
+					style="width: 100px; background-color:black; color:white;" onclick="history.back()">이전</button>
 			</td>
 	</tr>
 	</table>

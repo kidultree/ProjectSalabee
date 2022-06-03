@@ -67,9 +67,57 @@ a:link{
 	color: white;
 }
 
+.clickable {cursor: pointer;}
+.hover {text-decoration: underline;}
+
 </style>
 
 </head>
+
+
+	<!-- 최신순 정렬 -->
+	<script type = "text/javascript">
+	
+	$(document).ready(function() {
+		   var reSortColors = function($table) {
+		   //그냥지정했던 짝,홀에따른 클래스부여를
+		   //함수로 만들어놓았다.
+		     $('tbody tr:odd', $table)
+		       .removeClass('even').addClass('odd');
+		     $('tbody tr:even', $table)
+		       .removeClass('odd').addClass('even');
+		   };
+		   
+		   $('table.sortable').each(function() {
+		     var $table = $(this);
+		     reSortColors($table);
+			 //여기서먼저적용
+		     $('th', $table).each(function(column) {
+		       var $header = $(this);
+		       if ($header.is('.sorting')) {
+		         $header.addClass('clickable').hover(function() {
+		           $header.addClass('hover');
+		         }, function() {
+		           $header.removeClass('hover');
+		         }).click(function() {
+		           var rows = $table.find('tbody > tr').get();
+		           rows.sort(function(a, b) {
+		             var keyA = $(a).children('td').eq(column).text()
+		               .toUpperCase();
+		             var keyB = $(b).children('td').eq(column).text()
+		               .toUpperCase();
+		             if (keyA < keyB) return -1;
+		             if (keyA > keyB) return 1;
+		             return 0;
+		           });
+		           $.each(rows, function(index, row) {
+		             $table.children('tbody').append(row);
+		           });	   
+		           reSortColors($table);
+		           //또 완료되었을따 다시 적용
+		            });} });});});
+
+	</script>
 <body>
 <br><br>
 <label style="font-size: 40px;" class="review_label">Review</label>
@@ -133,6 +181,7 @@ a:link{
 		</table>
 	</div>
 	</c:forEach>
+	
 
 </body>
 </html>

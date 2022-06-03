@@ -10,19 +10,25 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<link
-	href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gowun+Dodum&family=Jua&family=Lobster&family=Nanum+Pen+Script&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
 <style type="text/css">
-	* {
-	font-family: 'Noto Sans KR';
-	}
-	
+
 	.qna_form{
 	position: relative;
-	left: 500px;
+	left: 480px;
 	}
 	
+	#write_qna{
+	font-family: 'Noto Sans KR';
+	font-size: 35px;
+	position: relative;
+	left: 280px;
+	}
+	
+	body{
+	
+	font-family: 'Noto Sans KR';
+	}
 	
 </style>
 
@@ -57,8 +63,8 @@
 <div class="qna_form">	
 <table class="table table-borderless qna" style="width: 800px;">
 
-<h2>QnA 작성</h2>
-<br><br>
+<h2 id="write_qna"><b>QnA 작성</b></h2>
+<br>
 <tr>
 <th width="120">말머리</th>
 <td colspan="3">
@@ -114,7 +120,7 @@
 <tr>
 <td colspan="4" align="center">
 <button type="submit" class="btn btn-success"
-style="width:140px;" onclick="submitContents(this)">등록</button>
+style="width:140px; background-color:black;" onclick="submitContents(this)">등록</button>
 </td>
 </tr>
 </table>
