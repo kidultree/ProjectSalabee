@@ -119,11 +119,11 @@
 			<label for="mEmail">E-Mail</label>
 		</div>
 		
-		<div id="res" style="border: 1px solid black;"></div>
 		
 		<button type="button" id="btn" style="background: black; color: white; border-radius: 5px;
 		width: 600px; height: 40px; font-size: 1.2em;">확 인</button><br><br>
-			
+		<div id="res" style="border: 0px solid black; font-family: 'Noto Sans KR';"></div>
+		
 		</form>
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
