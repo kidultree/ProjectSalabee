@@ -250,12 +250,10 @@ $(document).ready(function($) {
 		<div id="div4"></div>
 	
  
-       <c:if test="${mId=='fragbit'}">
- <button type="button" class="btn btn-info" id="formbtn"
-         onclick="location.href='form'">
-         상품등록</button> 
-         </c:if>
-	
+<c:if test="${mId=='fragbit'}">
+ <button type="button" class="btn btn-warning" id="formbtn" onclick="location.href='form'">상품등록</button> 
+</c:if>
+<br><br><br><br>	
 
 </body>
 </html>

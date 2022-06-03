@@ -236,10 +236,9 @@ $(document).ready(function($) {
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!-- 등록 (관리자만) -->   
 <c:if test="${mId=='fragbit'}">
- <button type="button" class="btn btn-info" id="formbtn"
-         onclick="location.href='form'">
-         상품등록</button> 
-         </c:if>
+ <button type="button" class="btn btn-warning" id="formbtn" onclick="location.href='form'">상품등록</button> 
+</c:if>
+<br><br><br><br>	
 	
 
 </body>
