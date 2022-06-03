@@ -70,6 +70,14 @@ a:link{
 .clickable {cursor: pointer;}
 .hover {text-decoration: underline;}
 
+button{
+position: relative;
+left: 100px;
+font-family: 'Noto Sans KR';
+font-weight: 400;
+
+}
+
 </style>
 
 </head>
@@ -122,10 +130,8 @@ a:link{
 <br><br>
 <label style="font-size: 40px;" class="review_label">Review</label>
 <div id="review_cate">
-<br>&nbsp; &nbsp; <!-- 리뷰 정렬 카테고리 -->
+<br>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<!-- 리뷰 정렬 카테고리 -->
 	<label id="latest">최신순</label>
-	<b>/</b>
-	<label id="high_rrate">별점순</label>
 	<b>/</b>
 	<label id="pnumreviewlist"><a href="/review/pnumlist">상품별 리뷰보기</a></label>
 
@@ -182,6 +188,15 @@ a:link{
 	</div>
 	</c:forEach>
 	
-
+	<c:if test="${sessionScope.mId!=null}">
+	<tr>
+		<td colspan="2" align="center" style="height: 100px; margin-top: 30px;"  >
+			<button class="btn-lg btn-success" onclick="location.href='form'" 
+			style="background-color:black; color: white; border: 1px solid black"><b> <span class="glyphicon glyphicon-pencil"></span>리뷰 작성</b></button>
+		</td>
+		</tr>
+	</c:if>
+		<br><br>
+	
 </body>
 </html>
