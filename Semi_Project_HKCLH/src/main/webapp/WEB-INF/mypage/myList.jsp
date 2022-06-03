@@ -190,9 +190,9 @@ pageEncoding="UTF-8"%>
             </table>
             </td>
 		<!-- 수량선택 -->	
-		<td>${dto.oid }ml / ${dto.pyquantity}개</td>
-		<td>${dto.oprice*dto.pyquantity} 원</td>
-		<td><fmt:formatDate value="${dto.pydate}" pattern="yyyy-MM-dd"/></td>
+		<td style="font-family: 'Noto Sans KR'; font-size: 20px;">${dto.oid }ml / ${dto.pyquantity}개</td>
+		<td style="font-family: 'Noto Sans KR'; font-size: 20px;">${dto.oprice*dto.pyquantity} 원</td>
+		<td style="font-family: 'Noto Sans KR'; font-size: 20px;"><fmt:formatDate value="${dto.pydate}" pattern="yyyy-MM-dd"/></td>
 		</tr>
 		<tr></tr><tr></tr>
 	</c:forEach>
