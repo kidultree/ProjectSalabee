@@ -116,7 +116,7 @@
         }
         
         .addqna{
-        
+
         position: relative;
         left: 200px;
         
@@ -325,7 +325,7 @@
 			</c:if>
 		
 		</table>
-		<div class="paging" style="margin-left: 300px;">
+		<div class="paging" style="margin-left: 100px;">
 			<ul class="pagination">
 			
 			<!-- 이전 -->

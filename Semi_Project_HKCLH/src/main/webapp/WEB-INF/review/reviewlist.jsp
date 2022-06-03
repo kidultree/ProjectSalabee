@@ -37,7 +37,7 @@
 }
 
 label{
-	font-size: 15px;
+	font-size: 20px;
 }
 
 div #review_cate{
@@ -131,8 +131,7 @@ font-weight: 400;
 <label style="font-size: 40px;" class="review_label">Review</label>
 <div id="review_cate">
 <br>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<!-- 리뷰 정렬 카테고리 -->
-	<label id="latest">최신순</label>
-	<b>/</b>
+	<span class="glyphicon glyphicon-circle-arrow-right"></span>
 	<label id="pnumreviewlist"><a href="/review/pnumlist">상품별 리뷰보기</a></label>
 
 </div><br><br>
